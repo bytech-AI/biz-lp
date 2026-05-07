@@ -44,7 +44,7 @@ export default function BytechPage() {
 
     /* ===== Utility ===== */
     .u-inner { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
-    .u-section { padding: 80px 0; }
+    .u-section { padding: 80px 0 0; }
     .u-section-sm { padding: 60px 0; }
     .mark-purple { color: var(--color-primary); }
     .highlight-box { background: var(--color-primary); color: #fff; display: inline-block; padding: 2px 12px; }
@@ -112,7 +112,7 @@ export default function BytechPage() {
       gap: 0;
     }
     /* ロゴ */
-    .header__logo { flex-shrink: 0; width: 15%; min-width: 120px; }
+    .header__logo { flex-shrink: 0; width: 15%; min-width: 120px; margin-left: 40px; }
     .header__logo a { display: block; }
     .header__logo img { width: 55%; height: auto; display: block; }
     /* ナビ */
@@ -250,7 +250,7 @@ export default function BytechPage() {
     /* サブテキスト */
     .hero__sub {
       font-family: Arial, sans-serif;
-      font-size: 20px; font-weight: 800; line-height: 1.4;
+      font-size: 20px; font-weight: 600; line-height: 1.4;
       letter-spacing: 0.05em; text-shadow: 0 0 12px rgba(0,0,0,0.48);
       color: #fff; margin: 25px 0 0;
     }
@@ -265,7 +265,7 @@ export default function BytechPage() {
 
     /* CTAボタン */
     .hero__cta { display: block; padding-right: 700px; }
-    .hero__cta img { width: 100%; display: block; }
+    .hero__cta img { width: 100%; display: block; animation: header-cta-pulse 2s linear infinite; }
 
     /* 注釈テキスト */
     .hero__note {
@@ -280,7 +280,7 @@ export default function BytechPage() {
 
     /* SP・タブレット用CTA */
     .hero__cta-sp { display: block; padding-right: 520px; margin-top: 40px; }
-    .hero__cta-sp img { width: 100%; display: block; border-radius: 0; }
+    .hero__cta-sp img { width: 100%; display: block; border-radius: 0; animation: header-cta-pulse 2s linear infinite; }
 
     /* SP注釈テキスト */
     .hero__note-sp {
@@ -350,23 +350,24 @@ export default function BytechPage() {
         text-align: start;
       }
     }
-
+      
+    
     /* ===== Section Header Common ===== */
-    .sec-header { text-align: center; margin: 20px auto 50px; position: relative;  }
-    .sec-header::before {
+    .plan-header { text-align: center; margin: 20px auto 50px; position: relative;  }
+    .plan-header::before {
       content: ''; position: absolute; inset: 0;
-      background-image: url('/bytech/assets/images/パス-36612.svg');
-      background-position: center 30px; background-repeat: no-repeat; background-size: 60% auto;
+      background-image: url('/bytech/assets/images/plan.svg');
+      background-position: center 30px; background-repeat: no-repeat; background-size: 0% auto;
       opacity: 0.03; pointer-events: none; z-index: 0;
-      width:1000px; height: auto; top: -50px; left: 50%; transform: translateX(-50%);
+      width:400px; height: auto; top: -60px; left: 50%; transform: translateX(-50%);
     }
-    .sec-header__tag {
+    .plan-header__tag {
       font-family: "Reem Kufi", sans-serif;
       font-weight: 700; letter-spacing: 0.05em; color: var(--color-accent);
       text-align: center; margin: 5px 0 0; display: block;
     }
-    .sec-header__ttl { font-size: clamp(22px, 3.5vw, 34px); font-weight: 900; line-height: 1.4; }
-    .sec-header__sub { font-size: 15px; color: var(--color-text-light); margin-top: 12px; line-height: 1.8; }
+    .plan-header__ttl { font-size: clamp(22px, 3.5vw, 34px); font-weight: 900; line-height: 1.4; }
+    .plan-header__sub { font-size: 15px; color: var(--color-text-light); margin-top: 12px; line-height: 1.8; }
 
     /* ===== Consultation Form (mobile only) ===== */
     .consult-form-section {
@@ -379,12 +380,12 @@ export default function BytechPage() {
     }
     .consult-form__heading {
       font-family: "Noto Sans JP", sans-serif;
-      font-size: 25px; font-weight: 800; letter-spacing: 0.03em;
+      font-size: 25px; font-weight: 600; letter-spacing: 0.03em;
       color: #000; text-align: center; margin: 0 0 0;
     }
     .consult-form__subheading {
       font-family: "Noto Sans JP", sans-serif;
-      font-size: 16px; font-weight: 800; letter-spacing: 0.03em;
+      font-size: 16px; font-weight: 600; letter-spacing: 0.03em;
       text-align: center; margin: 10px 0 0; color: #000;
     }
     .consult-form__subheading .accent { color: #533AFC; }
@@ -440,7 +441,7 @@ export default function BytechPage() {
     .cs-slot { border: 2px solid var(--cs-border); border-radius: 10px; padding: 14px 6px; text-align: center; cursor: pointer; transition: all 0.2s; background: var(--cs-card); }
     .cs-slot:hover { border-color: #c4b9fd; transform: translateY(-1px); }
     .cs-slot.selected { border-color: var(--cs-blue); background: var(--cs-blue-light); box-shadow: 0 0 0 3px rgba(83,58,252,0.12); }
-    .cs-slot-time { font-size: 20px; font-weight: 800; color: var(--cs-text); letter-spacing: -0.5px; }
+    .cs-slot-time { font-size: 20px; font-weight: 600; color: var(--cs-text); letter-spacing: -0.5px; }
     .cs-slot.selected .cs-slot-time { color: var(--cs-blue); }
     .cs-cap { font-size: 10px; font-weight: 700; margin-top: 4px; padding: 1px 6px; border-radius: 4px; display: inline-block; }
     .cs-cap-ok { background: #e6f9ee; color: #059669; }
@@ -519,7 +520,7 @@ export default function BytechPage() {
     }
     .voices__inner { position: relative; z-index: 1; margin: -70px 0 0; }
     .voices__heading-sp {
-      display: none; color: #fff; font-size: 20px; font-weight: 800;
+      display: none; color: #fff; font-size: 20px; font-weight: 600;
       font-family: "Noto Sans JP", sans-serif;
       text-align: center; line-height: 1.6em; letter-spacing: 0.05em; margin: 0;
     }
@@ -631,7 +632,7 @@ export default function BytechPage() {
       .about-sp-stats__heading {
         font-family: "Noto Sans JP", sans-serif;
         font-size: 20px;
-        font-weight: 800;
+        font-weight: 600;
         letter-spacing: 0.05em;
         color: #191722;
         text-align: center;
@@ -706,8 +707,8 @@ export default function BytechPage() {
       gap: 0;
     }
     .campaign-banner__media {
-      width: 45%;
-      max-width: 45%;
+      width: auto;
+      max-width: 55%;
       flex-shrink: 0;
       flex-grow: 0;
     }
@@ -823,16 +824,17 @@ export default function BytechPage() {
     .about__heading-main {
       font-family: "Noto Sans JP", sans-serif;
       font-size: 24px;
-      font-weight: 800;
+      font-weight: 600;
       color: #191722;
       letter-spacing: .07em;
       line-height: 1.6;
       margin: 0;
+      text-align: center;
     }
     .about__heading-highlight {
       font-family: "Noto Sans JP", sans-serif;
       font-size: 34px;
-      font-weight: 800;
+      font-weight: 600;
       color: #fff;
       letter-spacing: .05em;
       line-height: 1.4;
@@ -843,8 +845,9 @@ export default function BytechPage() {
     }
     .about__sub {
       font-family: "Noto Sans JP", sans-serif;
+      text-align: center;
       font-size: 22px;
-      font-weight: 800;
+      font-weight: 600;
       color: #191722;
       letter-spacing: .05em;
       margin: 12px 0 0;
@@ -945,7 +948,7 @@ export default function BytechPage() {
       margin-bottom: 56px;
     }
     .problem__h2 {
-      font-size: clamp(24px, 4vw, 36px);
+      font-size: clamp(24px, 4vw, 32px);
       font-weight: 900;
       line-height: 1.5;
     }
@@ -1025,13 +1028,15 @@ export default function BytechPage() {
       color: #fff;
       font-size: clamp(22px, 3.5vw, 32px);
       font-weight: 900;
-      padding: 4px 32px;
+      padding: 2px 32px;
       margin-bottom: 16px;
     }
     .problem__subtitle-pc {
       font-size: clamp(20px, 3vw, 30px);
       font-weight: 900;
       line-height: 1.5;
+      display: block;
+
     }
     .problem__subtitle-pc span {
       background: var(--color-primary);
@@ -1132,7 +1137,7 @@ export default function BytechPage() {
         background: #583FFD;
         color: #fff;
         font-size: 20px;
-        font-weight: 800;
+        font-weight: 600;
         letter-spacing: 0.05em;
         padding: 5px 10px;
         border-radius: 0;
@@ -1143,7 +1148,7 @@ export default function BytechPage() {
       .problem__subtitle-sp {
         display: block;
         font-size: 20px;
-        font-weight: 800;
+        font-weight: 600;
         letter-spacing: 0.05em;
         color: #191722;
         text-align: center;
@@ -1162,7 +1167,7 @@ export default function BytechPage() {
       padding-top: 110px;
       padding-bottom: -1080px;
       position: relative;
-      height: 700px;
+      height: 1100px;
     }
 
     /* Triangle shape divider (top) */
@@ -1207,7 +1212,7 @@ export default function BytechPage() {
     .env3af__h2 {
       font-family: "Noto Sans JP", sans-serif;
       font-size: 32px;
-      font-weight: 800;
+      font-weight: 600;
       color: #fff;
       letter-spacing: 0.03em;
       line-height: 1.4;
@@ -1218,7 +1223,7 @@ export default function BytechPage() {
       display: none;
       font-family: "Noto Sans JP", sans-serif;
       font-size: 28px;
-      font-weight: 800;
+      font-weight: 600;
       color: #fff;
       letter-spacing: 0.03em;
       line-height: 1.4;
@@ -1275,7 +1280,7 @@ export default function BytechPage() {
     .env3af__sub1 {
       font-family: "Noto Sans JP", sans-serif;
       font-size: 28px;
-      font-weight: 800;
+      font-weight: 600;
       color: #fff;
       letter-spacing: 0.05em;
       line-height: 1.3em;
@@ -1287,7 +1292,7 @@ export default function BytechPage() {
     .env3af__sub2 {
       font-family: "Noto Sans JP", sans-serif;
       font-size: 28px;
-      font-weight: 800;
+      font-weight: 600;
       color: #fff;
       letter-spacing: 0.05em;
       line-height: 1.3em;
@@ -1316,7 +1321,7 @@ export default function BytechPage() {
       display: block;
     }
     .env3af__sep {
-      width: 15%;
+      width: 8%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -1326,7 +1331,7 @@ export default function BytechPage() {
     .env3af__sep img {
       display: block;
       height: auto;
-      max-width: 32px;
+      max-width: 24px;
     }
 
     /* ── responsive ── */
@@ -1358,7 +1363,7 @@ export default function BytechPage() {
       max-width: 1000px;
       margin: 0 auto;
       background: #fff;
-      margin-top: -500px;
+      margin-top: -130px;
       box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
       display: flex;
       flex-direction: column;
@@ -1435,7 +1440,7 @@ export default function BytechPage() {
     .env__mentor-name {
       font-family: "Noto Sans JP", sans-serif;
       font-size: 15px;
-      font-weight: 800;
+      font-weight: 600;
       color: #191722;
       letter-spacing: 0.05em;
       margin: 0 0 4px;
@@ -1453,6 +1458,7 @@ export default function BytechPage() {
       flex-direction: column;
       align-items: center;
       gap: 8px;
+      max-width: 400px;
     }
     .env__mentor-cta-note {
       font-size: 12px;
@@ -1467,7 +1473,7 @@ export default function BytechPage() {
       color: #191722;
       font-family: "Noto Sans JP", sans-serif;
       font-size: 16px;
-      font-weight: 800;
+      font-weight: 600;
       padding: 16px 36px;
       border-radius: 50px;
       text-decoration: none;
@@ -1475,12 +1481,13 @@ export default function BytechPage() {
       transition: opacity 0.2s;
     }
     .env__mentor-cta-btn:hover { opacity: 0.85; }
+    .env__mentor-cta img { animation: header-cta-pulse 2s linear infinite; }
     .env__mentor-cta-btn svg {
       flex-shrink: 0;
     }
     .env__arrow-wrap {
       text-align: center;
-      margin: 280px 0 20px;
+      margin: 310px 0 20px;
       position: relative;
       z-index: 20;
     }
@@ -1622,15 +1629,13 @@ export default function BytechPage() {
     }
     /* 6f3df4d: image carousel */
     .voice-carousel {
+      overflow: hidden;
+    }
+    .voice-carousel__track {
       display: flex;
       gap: 15px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding-bottom: 12px;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
+      will-change: transform;
     }
-    .voice-carousel::-webkit-scrollbar { display: none; }
     /* 4 slides visible (slides_to_show: 4) */
     .voice-card {
       flex: 0 0 calc(25% - 11.25px);
@@ -1669,7 +1674,7 @@ export default function BytechPage() {
       background-color: #533afc;
       font-family: "Noto Sans JP", sans-serif;
       font-size: 22px;
-      font-weight: 800;
+      font-weight: 600;
       letter-spacing: .03em;
       color: #fff;
       border: 2px solid #fff;
@@ -1754,13 +1759,13 @@ export default function BytechPage() {
     }
 
     /* ===== Features / 5 Reasons ===== */
-    .features { padding-top: 50px; padding-bottom: 60px; background: #fff; }
+    .features { padding-top: 50px;  background: #fff; }
     .features__inner {  margin-top: 400px; }
     .features__background { background: #fafafa;  margin-top: 450px; padding: 24px 24px; }
     .reason-head { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 30px 0; position: relative; overflow: hidden; margin-bottom: 0; }
     .reason-head::before { content: ''; position: absolute; inset: 0; background-image: url('/bytech/assets/images/REASON.svg'); background-position: center center; background-repeat: no-repeat; background-size: 50% auto; opacity: 0.03; pointer-events: none; z-index: 0; }
     .reason-head > * { position: relative; z-index: 1; }
-    .reason-head__ttl { font-family: "Noto Sans JP", sans-serif; font-size: 32px; font-weight: 800; letter-spacing: 0.05em; color: #000; line-height: 1.5; margin: 0; }
+    .reason-head__ttl { font-family: "Noto Sans JP", sans-serif; font-size: 32px; font-weight: 600; letter-spacing: 0.05em; color: #000; line-height: 1.5; margin: 0; }
     .reason-head__ttl span { color: #533AFC; }
     .reason-head__sub { font-family: "Reem Kufi", sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.05em; color: var(--color-accent); margin: 5px 0 0; }
     @media (max-width: 767px) {
@@ -1786,7 +1791,7 @@ export default function BytechPage() {
     }
     .reason-item__label { font-family: "Noto Sans JP", sans-serif; font-size: 27px; font-weight: 700; line-height: 1.3em; letter-spacing: 0.03em; color: #191722; }
     .reason-item__divider-img { width: 80%; height: auto; margin-top: 10px; display: block; }
-    .reason-item__h3 { font-family: "Noto Sans JP", sans-serif; font-size: 27px; font-weight: 800; line-height: 1.6em; letter-spacing: 0.03em; color: #191722; margin: 10px 0 0; }
+    .reason-item__h3 { font-family: "Noto Sans JP", sans-serif; font-size: 27px; font-weight: 600; line-height: 1.6em; letter-spacing: 0.03em; color: #191722; margin: 10px 0 0; }
     .reason-item__h3 span { background: #191722; color: #fff; padding: 0px 5px; margin-right: 3px; display: inline; }
     .reason-item__body { font-family: "Noto Sans JP", sans-serif; font-size: 15px; font-weight: 500; line-height: 1.8em; letter-spacing: 0.05em; color: #191722; margin: 20px 0 0; }
 
@@ -1828,7 +1833,7 @@ export default function BytechPage() {
       opacity: 0.66;
     }
     .r2-sub__overlay-ttl {
-      font-family: "Noto Sans JP", sans-serif; font-size: 25px; font-weight: 800;
+      font-family: "Noto Sans JP", sans-serif; font-size: 25px; font-weight: 600;
       line-height: 1.4em; letter-spacing: 0.05em; color: #fff;
       text-align: center; position: relative; z-index: 1; margin: 0;
     }
@@ -1863,7 +1868,7 @@ export default function BytechPage() {
     .r4-sub__body { font-family: "Noto Sans JP", sans-serif; font-size: 16px; font-weight: 500; line-height: 1.6em; letter-spacing: 0.05em; color: #333; margin: 5px 0 0; }
     .r4-sub__img-desktop { width: 100%; height: auto; display: block; margin: 20px 0 0; }
     .r4-sub__img-mobile { display: none; width: 100%; height: auto; margin: 20px 0 0; }
-    .r4-sub__note { font-family: "Noto Sans JP", sans-serif; font-size: 13px; font-weight: 400; line-height: 1.8em; letter-spacing: 0.05em; color: #191722; margin: 20px 0 0; text-align: left; }
+    .r4-sub__note { font-family: "Noto Sans JP", sans-serif; font-size: 13px; font-weight: 400; line-height: 1.8em; letter-spacing: 0.05em; color: #191722; margin-top: -20px; text-align: left; }
 
     /* Reason 5 sub-section (16068b5) */
     .r5-sub { display: flex; flex-direction: column; margin-top: 30px; padding: 30px 50px 30px 50px; background-color: #fff; }
@@ -1966,7 +1971,6 @@ export default function BytechPage() {
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center center;
-      margin-top: 50px;
       padding: 50px 0;
     }
     .cta-banner__inner {
@@ -1981,7 +1985,7 @@ export default function BytechPage() {
     .cta-banner__ttl {
       font-family: "Noto Sans JP", sans-serif;
       font-size: 25px;
-      font-weight: 800;
+      font-weight: 600;
       letter-spacing: 0.05em;
       color: #fff;
       text-align: center;
@@ -1997,6 +2001,7 @@ export default function BytechPage() {
       display: block;
     }
     .cta-banner__img-wrap img {
+      animation: header-cta-pulse 2s linear infinite;
       width: 100%;
       height: auto;
       display: block;
@@ -2036,7 +2041,7 @@ export default function BytechPage() {
     }
     .curric-head > * { position: relative; z-index: 1; }
     .curric-head__ttl {
-      font-family: "Noto Sans JP", sans-serif; font-size: 32px; font-weight: 800;
+      font-family: "Noto Sans JP", sans-serif; font-size: 32px; font-weight: 600;
       letter-spacing: 0.05em; color: #333; margin: 0;
     }
     .curric-head__tag {
@@ -2093,7 +2098,7 @@ export default function BytechPage() {
 
     /* Heading (74d932f: 28px 800 #191722) */
     .curric-panel__heading {
-      font-family: "Noto Sans JP", sans-serif; font-size: 28px; font-weight: 800;
+      font-family: "Noto Sans JP", sans-serif; font-size: 28px; font-weight: 600;
       letter-spacing: 0.03em; color: #191722; margin: 0; margin-top: 0px; line-height: 1.4;
     }
     .curric-panel__heading--sp { display: none; }
@@ -2227,13 +2232,13 @@ export default function BytechPage() {
     /* 内部コンテンツは z-index:1 で重ねる */
     .skills-section__inner {
       position: relative; z-index: 1;
-      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      max-width: 1100px; margin: 0 auto; padding: 0;
     }
 
     /* 見出し (6aea1c3) */
     .skills-section__ttl {
       font-family: "Noto Sans JP", sans-serif;
-      font-size: 32px; font-weight: 800;
+      font-size: 32px; font-weight: 600;
       letter-spacing: 0.05em; color: #fff;
       text-align: center; margin: 0; padding-top: 30px; line-height: 1.5;
     }
@@ -2245,44 +2250,48 @@ export default function BytechPage() {
       text-align: center; margin: 5px 0 0; display: block;
     }
 
-    /* カルーセルラッパー (978f9f8) */
+    /* カルーセルラッパー */
     .skills-carousel {
       position: relative;
       margin-top: 25px;
-      padding-bottom: 10px;
+      padding: 0 12px 10px;   /* 左右に矢印ぶんのスペース */
+      width: 100%;
     }
-    /* スライドトラック: transform方式 */
+    /* ビューポート: カードを2枚分だけ見せる */
     .skills-carousel__viewport {
       overflow: hidden;
     }
+    /* トラック: 各カード幅 + gap をpxで計算してJSがtransform */
     .skills-carousel__track {
       display: flex;
+      gap: 20px;
       transition: transform 0.4s ease;
     }
+    /* 1カード = (100% - gap×1) / 2 */
     .skills-carousel__slide {
-      flex: 0 0 100%;
+      flex: 0 0 calc(50% - 10px);
       min-width: 0;
     }
     .skills-carousel__slide img {
-      width: 100%; height: auto; display: block;
+      width: 100%; height: auto; display: block; 
     }
-    /* 矢印ボタン (内側配置: elementor-arrows-position-inside) */
+    /* 矢印ボタン: paddingの外側に配置 */
     .skills-carousel__btn {
-      position: absolute; top: 50%; transform: translateY(-50%);
+      position: absolute; top: calc(50% - 20px); transform: translateY(-50%);
       width: 40px; height: 40px;
       background: none; border: none; cursor: pointer;
-      color: var(--color-accent); z-index: 3; padding: 0;
+      z-index: 3; padding: 0;
       display: flex; align-items: center; justify-content: center;
     }
-    .skills-carousel__btn svg { fill: var(--color-accent); width: 24px; height: 24px; }
-    .skills-carousel__btn--prev { left: 8px; }
-    .skills-carousel__btn--next { right: 8px; }
-    /* ページネーションドット (elementor-pagination-position-outside) */
+    .skills-carousel__btn svg { fill: var(--color-accent); width: 28px; height: 28px; }
+    .skills-carousel__btn--prev { left: 4px; }
+    .skills-carousel__btn--next { right: 4px; }
+    /* ページネーションドット */
     .skills-carousel__dots {
       display: flex; justify-content: center; gap: 10px; margin-top: 20px;
     }
     .skills-carousel__dot {
-      width: 4px; height: 4px; border-radius: 50%;
+      width: 6px; height: 6px; border-radius: 50%;
       background: rgba(255,255,255,0.4); border: none; cursor: pointer; padding: 0;
     }
     .skills-carousel__dot.is-active { background: var(--color-accent); }
@@ -2336,7 +2345,7 @@ export default function BytechPage() {
       white-space: nowrap; 
       font-family: "Noto Sans JP", Sans-serif;
       font-size: 16px;
-      font-weight: 800;
+      font-weight: 600;
       }
     .plan-card__services-img { width: 85%; height: auto; display: block; margin-bottom: 28px; }
     .plan-card__cta {
@@ -2524,13 +2533,29 @@ export default function BytechPage() {
     }
 
     /* ===== Interview ===== */
-    .interview { padding: 70px 0; background: var(--color-white); }
+    .interview { padding: 70px 0; }
     .interview__inner { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
     .interview__grid {
-      display: flex; flex-direction: row; flex-wrap: wrap; gap: 0;
+      display: flex; flex-direction: row; flex-wrap: wrap; gap: 20px;
       margin-top: 20px; margin-bottom: 48px;
       max-width: 1140px; margin-left: auto; margin-right: auto;
     }
+    .interview-header { text-align: center; margin: 20px auto 50px; position: relative;  }
+    .interview-header::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: url('/bytech/assets/images/パス-36612.svg');
+      background-position: center 30px; background-repeat: no-repeat; background-size: 60% auto;
+      opacity: 0.03; pointer-events: none; z-index: 0;
+      width:900px; height: auto; top: -50px; left: 50%; transform: translateX(-50%);
+    }
+    .interview-header__tag {
+      font-family: "Reem Kufi", sans-serif;
+      font-weight: 700; letter-spacing: 0.05em; color: var(--color-accent);
+      text-align: center; margin: 5px 0 0; display: block;
+    }
+    .interview-header__ttl { font-size: clamp(22px, 3.5vw, 34px); font-weight: 900; line-height: 1.4; }
+    .interview-header__sub { font-size: 15px; color: var(--color-text-light); margin-top: 12px; line-height: 1.8; }
+
     .interview-card { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; }
     .interview-card__thumb { display: block; overflow: hidden; }
     .interview-card__thumb img {
@@ -2541,14 +2566,16 @@ export default function BytechPage() {
     .interview-card__body { margin-top: 20px; flex: 1; min-height: 100px; }
     .interview-card__ttl {
       font-family: "Noto Sans JP", sans-serif;
-      font-size: 18px; font-weight: 800;
+      font-size: 18px; font-weight: 600;
       line-height: 25px; letter-spacing: 0.03em;
       color: #191722; margin: 0;
+      min-height: 100px;
     }
     .interview-card__divider { height: 1px; background: #e0e0e0; margin: 15px 0; }
     .interview-card__profile {
       display: flex; flex-direction: row;
       align-items: center; gap: 20px;
+      
     }
     .interview-card__avatar {
       width: 60px; height: 60px; border-radius: 50%;
@@ -2570,7 +2597,7 @@ export default function BytechPage() {
     }
 
     /* ===== Flow ===== */
-    .flow { padding: 70px 0 60px; background: var(--color-white); }
+    .flow { padding: 70px 0 60px;}
     .flow__inner { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
     .flow__header {
       text-align: center; padding: 30px 0; position: relative; overflow: hidden;
@@ -2579,10 +2606,11 @@ export default function BytechPage() {
       content: ''; position: absolute; inset: 0;
       background-image: url('/bytech/assets/images/パス-36613.svg');
       background-position: center center; background-repeat: no-repeat;
-      background-size: 250px auto; opacity: 0.03; pointer-events: none;
+      background-size: 30% ; opacity: 0.03; pointer-events: none;
+      
     }
     .flow__ttl {
-      font-family: "Noto Sans JP", sans-serif; font-size: 32px; font-weight: 800;
+      font-family: "Noto Sans JP", sans-serif; font-size: 32px; font-weight: 600;
       letter-spacing: 0.05em; color: #191722; margin: 0; position: relative; z-index: 1;
     }
     .flow__ttl--sp { display: none; }
@@ -2606,7 +2634,7 @@ export default function BytechPage() {
     .flow__decoration img { width: 100%; height: auto; display: block; }
     .flow__cta { margin-top: 50px; padding: 0 350px; }
     .flow__cta a { display: block; }
-    .flow__cta img { width: 100%; height: auto; display: block; }
+    .flow__cta img { width: 100%; height: auto; display: block; animation: header-cta-pulse 2s linear infinite; }
     @media (max-width: 1024px) and (min-width: 768px) {
       .flow__cta { padding: 0 200px; }
     }
@@ -2634,7 +2662,7 @@ export default function BytechPage() {
       background-size: 130px auto; opacity: 0.03; pointer-events: none;
     }
     .faq__ttl {
-      font-family: "Noto Sans JP", sans-serif; font-size: 32px; font-weight: 800;
+      font-family: "Noto Sans JP", sans-serif; font-size: 32px; font-weight: 600;
       letter-spacing: 0.05em; color: #000; margin: 0; position: relative; z-index: 1;
     }
     .faq__tag {
@@ -2646,7 +2674,7 @@ export default function BytechPage() {
     .faq__group { margin-top: 20px; }
     .faq__group:first-child { margin-top: 10px; }
     .faq__group__ttl {
-      font-family: "Noto Sans JP", sans-serif; font-size: 18px; font-weight: 800;
+      font-family: "Noto Sans JP", sans-serif; font-size: 18px; font-weight: 600;
       letter-spacing: 0.05em; color: #000; text-align: center; margin: 0;
       padding-bottom: 18px;
     }
@@ -2665,7 +2693,7 @@ export default function BytechPage() {
     .faq__item__q-icon { flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
     .faq__item__q-icon svg { width: 17px; height: 17px; fill: #533afc; }
     .faq__item__q-text {
-      flex: 1; font-family: "Noto Sans JP", sans-serif; font-size: 15px; font-weight: 600;
+      flex: 1; font-family: "Noto Sans JP", sans-serif; font-size: 15px; font-weight: 400;
       letter-spacing: 0.07em; line-height: 1.4em; color: #000;
     }
     .faq__item__q-toggle {
@@ -2825,7 +2853,7 @@ export default function BytechPage() {
           {/* ロゴ + ナビ カード */}
           <div className="header__bar">
             <div className="header__logo">
-              <a href="https://generative-ai.bytech.jp/">
+              <a href="/bytech">
                 <img src="/bytech/assets/images/logo-black.svg" alt="バイテック生成AI" />
               </a>
             </div>
@@ -3285,27 +3313,29 @@ export default function BytechPage() {
               </button>
 
               {/* 6f3df4d: 4-slides carousel */}
-              <div className="voice-carousel" id="voiceCardCarousel">
-                <div className="voice-card fadein">
-                  <img src="/bytech/assets/images/アートボード-–-14_5.webp" alt="受講生の声1" loading="lazy" />
-                </div>
-                <div className="voice-card fadein delay-1">
-                  <img src="/bytech/assets/images/アートボード-–-7_1.webp" alt="受講生の声2" loading="lazy" />
-                </div>
-                <div className="voice-card fadein delay-2">
-                  <img src="/bytech/assets/images/アートボード-–-18_7.webp" alt="受講生の声3" loading="lazy" />
-                </div>
-                <div className="voice-card fadein delay-3">
-                  <img src="/bytech/assets/images/アートボード-–-17_6.webp" alt="受講生の声4" loading="lazy" />
-                </div>
-                <div className="voice-card fadein">
-                  <img src="/bytech/assets/images/上原さん-1-1.webp" alt="受講生の声5" loading="lazy" />
-                </div>
-                <div className="voice-card fadein delay-1">
-                  <img src="/bytech/assets/images/アートボード-–-10_4.webp" alt="受講生の声6" loading="lazy" />
-                </div>
-                <div className="voice-card fadein delay-2">
-                  <img src="/bytech/assets/images/アートボード-–-9_3.webp" alt="受講生の声7" loading="lazy" />
+              <div className="voice-carousel" id="voiceCarouselViewport">
+                <div className="voice-carousel__track" id="voiceTrack">
+                  <div className="voice-card">
+                    <img src="/bytech/assets/images/アートボード-–-14_5.webp" alt="受講生の声1" loading="lazy" />
+                  </div>
+                  <div className="voice-card">
+                    <img src="/bytech/assets/images/アートボード-–-7_1.webp" alt="受講生の声2" loading="lazy" />
+                  </div>
+                  <div className="voice-card">
+                    <img src="/bytech/assets/images/アートボード-–-18_7.webp" alt="受講生の声3" loading="lazy" />
+                  </div>
+                  <div className="voice-card">
+                    <img src="/bytech/assets/images/アートボード-–-17_6.webp" alt="受講生の声4" loading="lazy" />
+                  </div>
+                  <div className="voice-card">
+                    <img src="/bytech/assets/images/上原さん-1-1.webp" alt="受講生の声5" loading="lazy" />
+                  </div>
+                  <div className="voice-card">
+                    <img src="/bytech/assets/images/アートボード-–-10_4.webp" alt="受講生の声6" loading="lazy" />
+                  </div>
+                  <div className="voice-card">
+                    <img src="/bytech/assets/images/アートボード-–-9_3.webp" alt="受講生の声7" loading="lazy" />
+                  </div>
                 </div>
               </div>
 
@@ -3608,6 +3638,16 @@ export default function BytechPage() {
                     </div>
                     <div className="course-slider__col">
                       <div className="course-card-sp">
+                        <img src="/bytech/assets/images/グループ-16203-2-1-1024x685.webp" alt="Geminiマスターコース" className="course-card-sp__img" />
+                        <div className="course-card-sp__body">
+                          <div className="course-card-sp__title">Claudeマスターコース</div>
+                          <div className="course-card-sp__sub">全14チャプター｜81レッスン</div>
+                          <div className="course-card-sp__desc">Claudeの基本操作から、思考を引き出すプロンプト設計、長文処理、業務アプリ連携、Claude Cowork・Codeを駆使したエージェント開発を学ぶコースです。</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="course-slider__col">
+                      <div className="course-card-sp">
                         <img src="/bytech/assets/images/グループ-16175_7.webp" alt="Geminiマスターコース" className="course-card-sp__img" />
                         <div className="course-card-sp__body">
                           <div className="course-card-sp__title">Geminiマスターコース</div>
@@ -3795,9 +3835,9 @@ export default function BytechPage() {
                   <img src="/bytech/assets/images/b-worksの特徴.svg" alt="掲載中の案件" className="r4-sub__img-desktop" />
                   {/* Mobile image (099006b, hidden desktop+tablet) */}
                   <img src="/bytech/assets/images/b-works特徴_SP.svg" alt="b-works掲載案件_SP" className="r4-sub__img-mobile" />
-                  {/* Disclaimer (3558e61) */}
-                  <p className="r4-sub__note">※案件斡旋を保証するサポートではありません。必ずテスト案件を実施していただき、合格した方のみアサインされます。</p>
                 </div>
+                {/* Disclaimer (3558e61) */}
+                  <p className="r4-sub__note">※案件斡旋を保証するサポートではありません。必ずテスト案件を実施していただき、合格した方のみアサインされます。</p>
               </div>
             </div>
 
@@ -4232,9 +4272,9 @@ export default function BytechPage() {
       {/* ===== PLAN ===== */}
       <section className="plan" id="plan">
         <div className="plan__inner">
-          <div className="sec-header fadein">
-            <h2 className="sec-header__ttl">バイテックの料金プラン</h2>
-            <span className="sec-header__tag">PLAN</span>
+          <div className="plan-header fadein">
+            <h2 className="plan-header__ttl">バイテックの料金プラン</h2>
+            <span className="plan-header__tag">PLAN</span>
           </div>
           <div className="plan__grid fadein">
             {/* LITE */}
@@ -4372,9 +4412,9 @@ export default function BytechPage() {
       {/* ===== INTERVIEW ===== */}
       <section className="interview" id="interview">
         <div className="interview__inner">
-          <div className="sec-header fadein">
-            <h2 className="sec-header__ttl">受講生インタビュー</h2>
-            <span className="sec-header__tag" style={{color: '#d4a817', marginTop: '8px'}}>INTERVIEW</span>
+          <div className="interview-header fadein">
+            <h2 className="interview-header__ttl">受講生インタビュー</h2>
+            <span className="interview-header__tag" style={{color: '#d4a817', marginTop: '8px'}}>INTERVIEW</span>
           </div>
           <div className="interview__grid">
             {/* Card 1: 山本大輔さん */}
@@ -4383,7 +4423,7 @@ export default function BytechPage() {
                 <img src="/bytech/assets/images/UV-1-1-1024x576.webp" alt="山本大輔さん" loading="lazy" />
               </a>
               <div className="interview-card__body">
-                <h3 className="interview-card__ttl">「社内の小さなPoCから始めて、独立へ」――38歳・元メーカー勤務の山本大輔さんが&quot;AIコンサル&quot;で月収7桁に到達するまで</h3>
+                <h3 className="interview-card__ttl">「社内の小さなPoCから始めて、独立へ」――38歳・元メーカー勤務の山本大輔さんが&quot;AIコンサル&quot;で月収7桁に到達するまで　　　　　　　　　</h3>
                 <div className="interview-card__divider" />
                 <div className="interview-card__profile">
                   <div className="interview-card__avatar">
@@ -4490,7 +4530,7 @@ export default function BytechPage() {
               <div className="faq__list">
                 <div className="faq__item">
                   <button className="faq__item__q">
-                    <span className="faq__item__q-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg></span>
+                    <span className="faq__item__q-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.469 78.174"><path d="M85.742,1.367H71.436L65.527-4.687a38.028,38.028,0,0,1-21,6.055A39.281,39.281,0,0,1,17.92-8.789Q5.273-19.971,5.273-37.354q0-17.041,11.963-28.418A38.527,38.527,0,0,1,44.678-76.807,38.673,38.673,0,0,1,70.41-67.139Q84.082-55.518,84.082-36.816q0,14.648-10.791,26.025Zm-31.3-31.2L65.381-18.945a25.808,25.808,0,0,0,7.227-18.6A27.909,27.909,0,0,0,64.551-57.91a26.929,26.929,0,0,0-20.02-8.2q-12.109,0-19.922,8.2-7.861,8.154-7.861,20.654,0,12.207,8.105,19.971Q33.3-9.277,44.141-9.277a26.6,26.6,0,0,0,13.33-3.369L39.746-29.834Z" transform="translate(-5.273 76.807)" fill="#533afc"/></svg></span>
                     <span className="faq__item__q-text">カウンセリングはどんな内容ですか？</span>
                     <span className="faq__item__q-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
                   </button>
@@ -4498,7 +4538,7 @@ export default function BytechPage() {
                 </div>
                 <div className="faq__item">
                   <button className="faq__item__q">
-                    <span className="faq__item__q-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg></span>
+                    <span className="faq__item__q-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.469 78.174"><path d="M85.742,1.367H71.436L65.527-4.687a38.028,38.028,0,0,1-21,6.055A39.281,39.281,0,0,1,17.92-8.789Q5.273-19.971,5.273-37.354q0-17.041,11.963-28.418A38.527,38.527,0,0,1,44.678-76.807,38.673,38.673,0,0,1,70.41-67.139Q84.082-55.518,84.082-36.816q0,14.648-10.791,26.025Zm-31.3-31.2L65.381-18.945a25.808,25.808,0,0,0,7.227-18.6A27.909,27.909,0,0,0,64.551-57.91a26.929,26.929,0,0,0-20.02-8.2q-12.109,0-19.922,8.2-7.861,8.154-7.861,20.654,0,12.207,8.105,19.971Q33.3-9.277,44.141-9.277a26.6,26.6,0,0,0,13.33-3.369L39.746-29.834Z" transform="translate(-5.273 76.807)" fill="#533afc"/></svg></span>
                     <span className="faq__item__q-text">参加方法はどうすればいいですか？</span>
                     <span className="faq__item__q-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
                   </button>
@@ -4506,7 +4546,7 @@ export default function BytechPage() {
                 </div>
                 <div className="faq__item">
                   <button className="faq__item__q">
-                    <span className="faq__item__q-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg></span>
+                    <span className="faq__item__q-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.469 78.174"><path d="M85.742,1.367H71.436L65.527-4.687a38.028,38.028,0,0,1-21,6.055A39.281,39.281,0,0,1,17.92-8.789Q5.273-19.971,5.273-37.354q0-17.041,11.963-28.418A38.527,38.527,0,0,1,44.678-76.807,38.673,38.673,0,0,1,70.41-67.139Q84.082-55.518,84.082-36.816q0,14.648-10.791,26.025Zm-31.3-31.2L65.381-18.945a25.808,25.808,0,0,0,7.227-18.6A27.909,27.909,0,0,0,64.551-57.91a26.929,26.929,0,0,0-20.02-8.2q-12.109,0-19.922,8.2-7.861,8.154-7.861,20.654,0,12.207,8.105,19.971Q33.3-9.277,44.141-9.277a26.6,26.6,0,0,0,13.33-3.369L39.746-29.834Z" transform="translate(-5.273 76.807)" fill="#533afc"/></svg></span>
                     <span className="faq__item__q-text">どのコースが自分にあっているかわかりません</span>
                     <span className="faq__item__q-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
                   </button>
@@ -4520,7 +4560,7 @@ export default function BytechPage() {
               <div className="faq__list">
                 <div className="faq__item">
                   <button className="faq__item__q">
-                    <span className="faq__item__q-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg></span>
+                    <span className="faq__item__q-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.469 78.174"><path d="M85.742,1.367H71.436L65.527-4.687a38.028,38.028,0,0,1-21,6.055A39.281,39.281,0,0,1,17.92-8.789Q5.273-19.971,5.273-37.354q0-17.041,11.963-28.418A38.527,38.527,0,0,1,44.678-76.807,38.673,38.673,0,0,1,70.41-67.139Q84.082-55.518,84.082-36.816q0,14.648-10.791,26.025Zm-31.3-31.2L65.381-18.945a25.808,25.808,0,0,0,7.227-18.6A27.909,27.909,0,0,0,64.551-57.91a26.929,26.929,0,0,0-20.02-8.2q-12.109,0-19.922,8.2-7.861,8.154-7.861,20.654,0,12.207,8.105,19.971Q33.3-9.277,44.141-9.277a26.6,26.6,0,0,0,13.33-3.369L39.746-29.834Z" transform="translate(-5.273 76.807)" fill="#533afc"/></svg></span>
                     <span className="faq__item__q-text">講座内で習得できるスキルは？</span>
                     <span className="faq__item__q-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
                   </button>
@@ -4528,7 +4568,7 @@ export default function BytechPage() {
                 </div>
                 <div className="faq__item">
                   <button className="faq__item__q">
-                    <span className="faq__item__q-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg></span>
+                    <span className="faq__item__q-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.469 78.174"><path d="M85.742,1.367H71.436L65.527-4.687a38.028,38.028,0,0,1-21,6.055A39.281,39.281,0,0,1,17.92-8.789Q5.273-19.971,5.273-37.354q0-17.041,11.963-28.418A38.527,38.527,0,0,1,44.678-76.807,38.673,38.673,0,0,1,70.41-67.139Q84.082-55.518,84.082-36.816q0,14.648-10.791,26.025Zm-31.3-31.2L65.381-18.945a25.808,25.808,0,0,0,7.227-18.6A27.909,27.909,0,0,0,64.551-57.91a26.929,26.929,0,0,0-20.02-8.2q-12.109,0-19.922,8.2-7.861,8.154-7.861,20.654,0,12.207,8.105,19.971Q33.3-9.277,44.141-9.277a26.6,26.6,0,0,0,13.33-3.369L39.746-29.834Z" transform="translate(-5.273 76.807)" fill="#533afc"/></svg></span>
                     <span className="faq__item__q-text">講座カリキュラムに閲覧期限はありますか？</span>
                     <span className="faq__item__q-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
                   </button>
@@ -4536,7 +4576,7 @@ export default function BytechPage() {
                 </div>
                 <div className="faq__item">
                   <button className="faq__item__q">
-                    <span className="faq__item__q-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg></span>
+                    <span className="faq__item__q-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.469 78.174"><path d="M85.742,1.367H71.436L65.527-4.687a38.028,38.028,0,0,1-21,6.055A39.281,39.281,0,0,1,17.92-8.789Q5.273-19.971,5.273-37.354q0-17.041,11.963-28.418A38.527,38.527,0,0,1,44.678-76.807,38.673,38.673,0,0,1,70.41-67.139Q84.082-55.518,84.082-36.816q0,14.648-10.791,26.025Zm-31.3-31.2L65.381-18.945a25.808,25.808,0,0,0,7.227-18.6A27.909,27.909,0,0,0,64.551-57.91a26.929,26.929,0,0,0-20.02-8.2q-12.109,0-19.922,8.2-7.861,8.154-7.861,20.654,0,12.207,8.105,19.971Q33.3-9.277,44.141-9.277a26.6,26.6,0,0,0,13.33-3.369L39.746-29.834Z" transform="translate(-5.273 76.807)" fill="#533afc"/></svg></span>
                     <span className="faq__item__q-text">古い技術や情報の教材ではありませんか？</span>
                     <span className="faq__item__q-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
                   </button>
@@ -4544,7 +4584,7 @@ export default function BytechPage() {
                 </div>
                 <div className="faq__item">
                   <button className="faq__item__q">
-                    <span className="faq__item__q-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg></span>
+                    <span className="faq__item__q-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.469 78.174"><path d="M85.742,1.367H71.436L65.527-4.687a38.028,38.028,0,0,1-21,6.055A39.281,39.281,0,0,1,17.92-8.789Q5.273-19.971,5.273-37.354q0-17.041,11.963-28.418A38.527,38.527,0,0,1,44.678-76.807,38.673,38.673,0,0,1,70.41-67.139Q84.082-55.518,84.082-36.816q0,14.648-10.791,26.025Zm-31.3-31.2L65.381-18.945a25.808,25.808,0,0,0,7.227-18.6A27.909,27.909,0,0,0,64.551-57.91a26.929,26.929,0,0,0-20.02-8.2q-12.109,0-19.922,8.2-7.861,8.154-7.861,20.654,0,12.207,8.105,19.971Q33.3-9.277,44.141-9.277a26.6,26.6,0,0,0,13.33-3.369L39.746-29.834Z" transform="translate(-5.273 76.807)" fill="#533afc"/></svg></span>
                     <span className="faq__item__q-text">未経験ですがカリキュラムについていけますか？</span>
                     <span className="faq__item__q-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
                   </button>
@@ -4558,7 +4598,7 @@ export default function BytechPage() {
               <div className="faq__list">
                 <div className="faq__item">
                   <button className="faq__item__q">
-                    <span className="faq__item__q-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg></span>
+                    <span className="faq__item__q-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.469 78.174"><path d="M85.742,1.367H71.436L65.527-4.687a38.028,38.028,0,0,1-21,6.055A39.281,39.281,0,0,1,17.92-8.789Q5.273-19.971,5.273-37.354q0-17.041,11.963-28.418A38.527,38.527,0,0,1,44.678-76.807,38.673,38.673,0,0,1,70.41-67.139Q84.082-55.518,84.082-36.816q0,14.648-10.791,26.025Zm-31.3-31.2L65.381-18.945a25.808,25.808,0,0,0,7.227-18.6A27.909,27.909,0,0,0,64.551-57.91a26.929,26.929,0,0,0-20.02-8.2q-12.109,0-19.922,8.2-7.861,8.154-7.861,20.654,0,12.207,8.105,19.971Q33.3-9.277,44.141-9.277a26.6,26.6,0,0,0,13.33-3.369L39.746-29.834Z" transform="translate(-5.273 76.807)" fill="#533afc"/></svg></span>
                     <span className="faq__item__q-text">チャットサポートはどれくらいの頻度で質問できますか？</span>
                     <span className="faq__item__q-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
                   </button>
@@ -4566,7 +4606,7 @@ export default function BytechPage() {
                 </div>
                 <div className="faq__item">
                   <button className="faq__item__q">
-                    <span className="faq__item__q-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg></span>
+                    <span className="faq__item__q-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.469 78.174"><path d="M85.742,1.367H71.436L65.527-4.687a38.028,38.028,0,0,1-21,6.055A39.281,39.281,0,0,1,17.92-8.789Q5.273-19.971,5.273-37.354q0-17.041,11.963-28.418A38.527,38.527,0,0,1,44.678-76.807,38.673,38.673,0,0,1,70.41-67.139Q84.082-55.518,84.082-36.816q0,14.648-10.791,26.025Zm-31.3-31.2L65.381-18.945a25.808,25.808,0,0,0,7.227-18.6A27.909,27.909,0,0,0,64.551-57.91a26.929,26.929,0,0,0-20.02-8.2q-12.109,0-19.922,8.2-7.861,8.154-7.861,20.654,0,12.207,8.105,19.971Q33.3-9.277,44.141-9.277a26.6,26.6,0,0,0,13.33-3.369L39.746-29.834Z" transform="translate(-5.273 76.807)" fill="#533afc"/></svg></span>
                     <span className="faq__item__q-text">面談に回数制限はありますか？</span>
                     <span className="faq__item__q-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
                   </button>
@@ -4574,7 +4614,7 @@ export default function BytechPage() {
                 </div>
                 <div className="faq__item">
                   <button className="faq__item__q">
-                    <span className="faq__item__q-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg></span>
+                    <span className="faq__item__q-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.469 78.174"><path d="M85.742,1.367H71.436L65.527-4.687a38.028,38.028,0,0,1-21,6.055A39.281,39.281,0,0,1,17.92-8.789Q5.273-19.971,5.273-37.354q0-17.041,11.963-28.418A38.527,38.527,0,0,1,44.678-76.807,38.673,38.673,0,0,1,70.41-67.139Q84.082-55.518,84.082-36.816q0,14.648-10.791,26.025Zm-31.3-31.2L65.381-18.945a25.808,25.808,0,0,0,7.227-18.6A27.909,27.909,0,0,0,64.551-57.91a26.929,26.929,0,0,0-20.02-8.2q-12.109,0-19.922,8.2-7.861,8.154-7.861,20.654,0,12.207,8.105,19.971Q33.3-9.277,44.141-9.277a26.6,26.6,0,0,0,13.33-3.369L39.746-29.834Z" transform="translate(-5.273 76.807)" fill="#533afc"/></svg></span>
                     <span className="faq__item__q-text">面談では何をするんですか？</span>
                     <span className="faq__item__q-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
                   </button>
@@ -4588,7 +4628,7 @@ export default function BytechPage() {
               <div className="faq__list">
                 <div className="faq__item">
                   <button className="faq__item__q">
-                    <span className="faq__item__q-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg></span>
+                    <span className="faq__item__q-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.469 78.174"><path d="M85.742,1.367H71.436L65.527-4.687a38.028,38.028,0,0,1-21,6.055A39.281,39.281,0,0,1,17.92-8.789Q5.273-19.971,5.273-37.354q0-17.041,11.963-28.418A38.527,38.527,0,0,1,44.678-76.807,38.673,38.673,0,0,1,70.41-67.139Q84.082-55.518,84.082-36.816q0,14.648-10.791,26.025Zm-31.3-31.2L65.381-18.945a25.808,25.808,0,0,0,7.227-18.6A27.909,27.909,0,0,0,64.551-57.91a26.929,26.929,0,0,0-20.02-8.2q-12.109,0-19.922,8.2-7.861,8.154-7.861,20.654,0,12.207,8.105,19.971Q33.3-9.277,44.141-9.277a26.6,26.6,0,0,0,13.33-3.369L39.746-29.834Z" transform="translate(-5.273 76.807)" fill="#533afc"/></svg></span>
                     <span className="faq__item__q-text">受講する上で、準備するべきものはありますか？</span>
                     <span className="faq__item__q-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
                   </button>
@@ -4596,7 +4636,7 @@ export default function BytechPage() {
                 </div>
                 <div className="faq__item">
                   <button className="faq__item__q">
-                    <span className="faq__item__q-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg></span>
+                    <span className="faq__item__q-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.469 78.174"><path d="M85.742,1.367H71.436L65.527-4.687a38.028,38.028,0,0,1-21,6.055A39.281,39.281,0,0,1,17.92-8.789Q5.273-19.971,5.273-37.354q0-17.041,11.963-28.418A38.527,38.527,0,0,1,44.678-76.807,38.673,38.673,0,0,1,70.41-67.139Q84.082-55.518,84.082-36.816q0,14.648-10.791,26.025Zm-31.3-31.2L65.381-18.945a25.808,25.808,0,0,0,7.227-18.6A27.909,27.909,0,0,0,64.551-57.91a26.929,26.929,0,0,0-20.02-8.2q-12.109,0-19.922,8.2-7.861,8.154-7.861,20.654,0,12.207,8.105,19.971Q33.3-9.277,44.141-9.277a26.6,26.6,0,0,0,13.33-3.369L39.746-29.834Z" transform="translate(-5.273 76.807)" fill="#533afc"/></svg></span>
                     <span className="faq__item__q-text">受講生の方はどのような方が多いですか？</span>
                     <span className="faq__item__q-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
                   </button>
@@ -4610,7 +4650,7 @@ export default function BytechPage() {
               <div className="faq__list">
                 <div className="faq__item">
                   <button className="faq__item__q">
-                    <span className="faq__item__q-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg></span>
+                    <span className="faq__item__q-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.469 78.174"><path d="M85.742,1.367H71.436L65.527-4.687a38.028,38.028,0,0,1-21,6.055A39.281,39.281,0,0,1,17.92-8.789Q5.273-19.971,5.273-37.354q0-17.041,11.963-28.418A38.527,38.527,0,0,1,44.678-76.807,38.673,38.673,0,0,1,70.41-67.139Q84.082-55.518,84.082-36.816q0,14.648-10.791,26.025Zm-31.3-31.2L65.381-18.945a25.808,25.808,0,0,0,7.227-18.6A27.909,27.909,0,0,0,64.551-57.91a26.929,26.929,0,0,0-20.02-8.2q-12.109,0-19.922,8.2-7.861,8.154-7.861,20.654,0,12.207,8.105,19.971Q33.3-9.277,44.141-9.277a26.6,26.6,0,0,0,13.33-3.369L39.746-29.834Z" transform="translate(-5.273 76.807)" fill="#533afc"/></svg></span>
                     <span className="faq__item__q-text">支払い方法は何がありますか？</span>
                     <span className="faq__item__q-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
                   </button>
@@ -4618,7 +4658,7 @@ export default function BytechPage() {
                 </div>
                 <div className="faq__item">
                   <button className="faq__item__q">
-                    <span className="faq__item__q-icon" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg></span>
+                    <span className="faq__item__q-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.469 78.174"><path d="M85.742,1.367H71.436L65.527-4.687a38.028,38.028,0,0,1-21,6.055A39.281,39.281,0,0,1,17.92-8.789Q5.273-19.971,5.273-37.354q0-17.041,11.963-28.418A38.527,38.527,0,0,1,44.678-76.807,38.673,38.673,0,0,1,70.41-67.139Q84.082-55.518,84.082-36.816q0,14.648-10.791,26.025Zm-31.3-31.2L65.381-18.945a25.808,25.808,0,0,0,7.227-18.6A27.909,27.909,0,0,0,64.551-57.91a26.929,26.929,0,0,0-20.02-8.2q-12.109,0-19.922,8.2-7.861,8.154-7.861,20.654,0,12.207,8.105,19.971Q33.3-9.277,44.141-9.277a26.6,26.6,0,0,0,13.33-3.369L39.746-29.834Z" transform="translate(-5.273 76.807)" fill="#533afc"/></svg></span>
                     <span className="faq__item__q-text">分割の支払いは可能ですか？</span>
                     <span className="faq__item__q-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
                   </button>
@@ -4983,28 +5023,31 @@ export default function BytechPage() {
           var dotsWrap = document.getElementById('skillsDots');
           if (!track || !dotsWrap) return;
 
+          var V = 2; /* 同時表示枚数 */
           var origSlides = Array.prototype.slice.call(track.querySelectorAll('.skills-carousel__slide'));
           var N = origSlides.length;
           var dots = Array.prototype.slice.call(dotsWrap.querySelectorAll('.skills-carousel__dot'));
 
-          /* クローン：最後を先頭に、最初を末尾に追加 */
-          var cloneLast = origSlides[N - 1].cloneNode(true);
-          var cloneFirst = origSlides[0].cloneNode(true);
-          track.insertBefore(cloneLast, track.firstChild);
-          track.appendChild(cloneFirst);
+          /* クローン：末尾V枚を先頭に、先頭V枚を末尾に追加 */
+          var tailClones = origSlides.slice(-V).map(function(s) { return s.cloneNode(true); });
+          for (var i = tailClones.length - 1; i >= 0; i--) {
+            track.insertBefore(tailClones[i], track.firstChild);
+          }
+          origSlides.slice(0, V).forEach(function(s) { track.appendChild(s.cloneNode(true)); });
 
-          /* pos=1 が最初の本物スライド */
-          var pos = 1;
+          /* pos=V が最初の本物スライド */
+          var pos = V;
           var busy = false;
           var timer = null;
 
           function setPos(p, animated) {
             track.style.transition = animated ? 'transform 0.4s ease' : 'none';
-            track.style.transform = 'translateX(calc(-' + p + ' * 100%))';
+            var slideW = track.children[0].offsetWidth + 20;
+            track.style.transform = 'translateX(' + (-p * slideW) + 'px)';
           }
 
           function updateDots(p) {
-            var dotIdx = ((p - 1) % N + N) % N;
+            var dotIdx = ((p - V) % N + N) % N;
             dots.forEach(function(d, i) {
               d.classList.toggle('is-active', i === dotIdx);
             });
@@ -5022,8 +5065,8 @@ export default function BytechPage() {
           }
 
           track.addEventListener('transitionend', function() {
-            if (pos >= N + 1) { pos -= N; setPos(pos, false); }
-            if (pos <= 0)     { pos += N; setPos(pos, false); }
+            if (pos >= N + V) { pos -= N; setPos(pos, false); }
+            if (pos < V)      { pos += N; setPos(pos, false); }
             setTimeout(function() { busy = false; }, 20);
           });
 
@@ -5044,11 +5087,10 @@ export default function BytechPage() {
             dot.addEventListener('click', function() {
               if (busy) return;
               busy = true;
-              pos = i + 1;
+              pos = V + i;
               setPos(pos, true);
               updateDots(pos);
               startTimer();
-              setTimeout(function() { busy = false; }, 420);
             });
           });
 
@@ -5161,22 +5203,66 @@ export default function BytechPage() {
           carousel.addEventListener('mouseleave', function() { startAuto(); });
         })();
 
-        // ===== Voice Card Carousel =====
+        // ===== Voice Card Carousel (infinite loop) =====
         (function() {
-          var carousel = document.getElementById('voiceCardCarousel');
+          var track = document.getElementById('voiceTrack');
           var prevBtn = document.getElementById('voiceCardPrev');
           var nextBtn = document.getElementById('voiceCardNext');
-          if (!carousel) return;
-          function getItemWidth() {
-            var el = carousel.querySelector('.voice-card');
-            return el ? el.offsetWidth + 16 : 0;
+          if (!track) return;
+
+          var origSlides = Array.prototype.slice.call(track.querySelectorAll('.voice-card'));
+          var N = origSlides.length;
+          var GAP = 15;
+
+          // visible count by viewport
+          function visibleCount() {
+            return window.innerWidth <= 767 ? 1 : window.innerWidth <= 1024 ? 3 : 4;
           }
-          if (prevBtn) prevBtn.addEventListener('click', function() {
-            carousel.scrollBy({ left: -getItemWidth(), behavior: 'smooth' });
+          var V = visibleCount();
+
+          // prepend clones of last V slides
+          var tailClones = origSlides.slice(-V).map(function(s) { return s.cloneNode(true); });
+          for (var i = tailClones.length - 1; i >= 0; i--) {
+            track.insertBefore(tailClones[i], track.firstChild);
+          }
+          // append clones of first V slides
+          origSlides.slice(0, V).forEach(function(s) { track.appendChild(s.cloneNode(true)); });
+
+          var pos = V; // index of first real slide
+          var busy = false;
+          var timer = null;
+
+          function step() {
+            var card = track.children[0];
+            return card.offsetWidth + GAP;
+          }
+
+          function setPos(p, animated) {
+            track.style.transition = animated ? 'transform 0.4s ease' : 'none';
+            track.style.transform = 'translateX(' + (-p * step()) + 'px)';
+          }
+
+          setPos(pos, false);
+
+          track.addEventListener('transitionend', function() {
+            if (pos >= V + N) { pos -= N; setPos(pos, false); }
+            if (pos < V)      { pos += N; setPos(pos, false); }
+            setTimeout(function() { busy = false; }, 20);
           });
-          if (nextBtn) nextBtn.addEventListener('click', function() {
-            carousel.scrollBy({ left: getItemWidth(), behavior: 'smooth' });
-          });
+
+          function go(delta) {
+            if (busy) return; busy = true;
+            pos += delta; setPos(pos, true);
+          }
+
+          function startTimer() {
+            if (timer) clearInterval(timer);
+            timer = setInterval(function() { go(1); }, 5000);
+          }
+
+          if (prevBtn) prevBtn.addEventListener('click', function() { go(-1); startTimer(); });
+          if (nextBtn) nextBtn.addEventListener('click', function() { go(1); startTimer(); });
+          startTimer();
         })();
 
         // ===== Day Toggle (consultation form) =====
