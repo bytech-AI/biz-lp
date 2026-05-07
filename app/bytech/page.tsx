@@ -89,7 +89,7 @@ export default function BytechPage() {
       box-shadow: var(--shadow-lg); white-space: nowrap;
     }
     .sticky-cta .btn-cta-main {
-      background: linear-gradient(135deg, #ffd464 0%, #ffb800 100%);
+      background: linear-gradient(135deg, var(--color-accent) 0%, #ffb800 100%);
       color: var(--color-dark);
     }
     .sticky-cta .btn-cta-sub { background: var(--color-dark); color: #fff; }
@@ -121,8 +121,9 @@ export default function BytechPage() {
     .header__nav__list li { position: relative; }
     .header__nav__list a {
       display: block; padding: 15px 10px;
-      font-size: 13px; font-weight: 500; color: var(--color-text);
+      font-size: 14px; font-weight: 600; color: var(--color-text);
       transition: color 0.2s; white-space: nowrap;
+      letter-spacing: 0.03em;
     }
     .header__nav__list a:hover { color: var(--color-primary); }
     /* ドロップダウン */
@@ -134,6 +135,7 @@ export default function BytechPage() {
     .header__dropdown a { display: block; padding: 8px 20px; font-size: 13px; }
     .header__dropdown a:hover { background: var(--color-bg-purple-light); }
     .header__nav__list li:hover .header__dropdown { display: block; }
+    .header__nav__divider { width: 1px; height: 16px; background: #ccc; margin: 0 8px; flex-shrink: 0; }
     /* ヘッダー CTA ボタン（SVG画像＋パルスアニメ） */
     .header__cta { display: block; flex-shrink: 0; margin-left: auto; }
     .header__cta img {
@@ -350,10 +352,18 @@ export default function BytechPage() {
     }
 
     /* ===== Section Header Common ===== */
-    .sec-header { text-align: center; margin-bottom: 56px; }
+    .sec-header { text-align: center; margin: 20px auto 50px; position: relative;  }
+    .sec-header::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: url('/bytech/assets/images/パス-36612.svg');
+      background-position: center 30px; background-repeat: no-repeat; background-size: 60% auto;
+      opacity: 0.03; pointer-events: none; z-index: 0;
+      width:1000px; height: auto; top: -50px; left: 50%; transform: translateX(-50%);
+    }
     .sec-header__tag {
-      font-family: var(--font-en); font-size: 13px; font-weight: 700;
-      color: var(--color-primary); letter-spacing: 0.15em; margin-bottom: 8px; display: block;
+      font-family: "Reem Kufi", sans-serif;
+      font-weight: 700; letter-spacing: 0.05em; color: var(--color-accent);
+      text-align: center; margin: 5px 0 0; display: block;
     }
     .sec-header__ttl { font-size: clamp(22px, 3.5vw, 34px); font-weight: 900; line-height: 1.4; }
     .sec-header__sub { font-size: 15px; color: var(--color-text-light); margin-top: 12px; line-height: 1.8; }
@@ -735,7 +745,7 @@ export default function BytechPage() {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 140px 24px 5px;
+      padding: 140px 24px 200px;
       background: #fff;
       position: relative;
     }
@@ -752,8 +762,9 @@ export default function BytechPage() {
       z-index: 0;
     }
     .about > * { position: relative; z-index: 1; }
+    .about__card > * { position: relative; z-index: 1; }
     .about__card {
-      width: 100%;
+      width: 70%;
       max-width: 1100px;
       background: #fff;
       border-radius: 10px;
@@ -763,6 +774,20 @@ export default function BytechPage() {
       flex-direction: column;
       align-items: center;
       position: relative;
+    }
+
+    .about__card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 10px;
+      background-image: url('/bytech/assets/images/背景ipad-scaled.webp');
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      opacity: 0.1;
+      pointer-events: none;
+      z-index: 0;
     }
     /* floating badge above card */
     .about__badge {
@@ -780,7 +805,7 @@ export default function BytechPage() {
       display: flex;
       flex-direction: row;
       align-items: center;
-      gap: 0 60px;
+      gap: 0 40px;
       margin-top: 50px;
       width: 100%;
     }
@@ -833,13 +858,13 @@ export default function BytechPage() {
     .about__no1 {
       width: 50%;
       min-width: 140px;
-      max-width: 200px;
+      
     }
     .about__no1 img { width: 100%; height: auto; display: block; }
     .about__no1-sp { display: none; }
     /* KV image */
     .about__kv {
-      width: 100%;
+      width: 50%;
       max-width: 700px;
       margin-top: 40px;
     }
@@ -884,8 +909,8 @@ export default function BytechPage() {
     }
     .problem__bg-text {
       position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
+      top: 0; left: 50%;
+      transform: translateX(-50%);
       font-family: "Reem Kufi", sans-serif;
       font-size: clamp(80px, 15vw, 200px);
       font-weight: 900;
@@ -901,6 +926,20 @@ export default function BytechPage() {
       position: relative;
       z-index: 1;
     }
+    .problem__inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('/bytech/assets/images/problem.svg');
+      background-position: top center;
+      background-repeat: no-repeat;
+      background-size: 50% auto;
+      opacity: 0.05;
+      pointer-events: none;
+      z-index: 0;
+      margin-top: -20px;
+    }
+    .problem__inner > * { position: relative; z-index: 1; }
     .problem__head {
       text-align: center;
       margin-bottom: 56px;
@@ -914,18 +953,18 @@ export default function BytechPage() {
       display: none;
     }
     .problem__label {
-      font-family: "Reem Kufi", sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--color-primary);
-      letter-spacing: 0.1em;
       margin-top: 8px;
+      font-size: 13px;
+      color: var(--color-accent);    
+      font-family: "Reem Kufi", Sans-serif;
+      font-weight: bold;
+      letter-spacing: .05em;
     }
     .problem__body {
       display: flex;
       align-items: center;
       gap: 48px;
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
     }
     .problem__illust {
@@ -963,8 +1002,8 @@ export default function BytechPage() {
       height: 28px;
     }
     .problem__item-text .hl {
-      background: linear-gradient(transparent 60%, #ffe066 60%);
-      font-weight: 900;
+      color: #D4215F;
+      font-weight: 700;
     }
     .problem__bottom {
       /* PC: transparent wrapper — no visual change */
@@ -986,8 +1025,7 @@ export default function BytechPage() {
       color: #fff;
       font-size: clamp(22px, 3.5vw, 32px);
       font-weight: 900;
-      padding: 8px 32px;
-      border-radius: 8px;
+      padding: 4px 32px;
       margin-bottom: 16px;
     }
     .problem__subtitle-pc {
@@ -1026,6 +1064,7 @@ export default function BytechPage() {
         z-index: 0;
       }
       .problem__bg-text { display: none; }
+      .problem__inner::before { background-size: 466px auto; }
       .problem__head { margin-bottom: 0; }
       .problem__h2 { display: none; }
       .problem__h2-sp {
@@ -1040,7 +1079,11 @@ export default function BytechPage() {
       .problem__icon svg { width: 22px; height: 22px; }
       .problem__label {
         font-size: 13px;
-        color: #ffd464;
+        color: var(--color-accent);    
+        font-family: "Reem Kufi", Sans-serif;
+        font-weight: 700;
+        letter-spacing: .05em;
+    
       }
       .problem__body {
         flex-direction: column;
@@ -1117,9 +1160,9 @@ export default function BytechPage() {
     #environment {
       background: #191722;
       padding-top: 110px;
-      padding-bottom: 280px;
+      padding-bottom: -1080px;
       position: relative;
-      overflow: hidden;
+      height: 700px;
     }
 
     /* Triangle shape divider (top) */
@@ -1186,7 +1229,7 @@ export default function BytechPage() {
       font-family: "Reem Kufi", sans-serif;
       font-size: 16px;
       font-weight: 700;
-      color: #ffd464;
+      color: var(--color-accent);
       letter-spacing: 0.05em;
       margin: 10px 0 0;
     }
@@ -1216,10 +1259,10 @@ export default function BytechPage() {
 
     /* パス-36598.svg — desktop only (c6b2bd6) */
     .env3af__deco-desktop {
-      width: 100%;
-      max-width: 940px;
+      width: 80%;
       height: auto;
       display: block;
+      margin: 0 auto;
     }
     /* グループ-20914.svg — mobile only (21cf8a9) */
     .env3af__deco-mobile {
@@ -1298,59 +1341,63 @@ export default function BytechPage() {
       .env3af__img { width: 90%; }
       .env3af__sep { width: auto; transform: rotate(90deg); padding: 8px 0; }
     }
+    @media (max-width: 1024px) { .env__arrow { width: 4%; position: absolute; } }
+   
     /* Mentor card overlapping block */
     .env__mentor-wrap {
+      position: relative;
       bottom: -210px;
       left: 0;
       right: 0;
       z-index: 3;
       padding: 0 24px;
-      margin-top: 100px;
+      margin-top: -100px;
     }
     .env__mentor {
-      max-width: 1100px;
+      position:absolute;
+      max-width: 1000px;
       margin: 0 auto;
       background: #fff;
-      border-radius: 14px;
+      margin-top: -500px;
       box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 50px 40px 60px;
+      padding: 90px 40px 60px;
       text-align: center;
       position: relative;
     }
-    /* narrow downward-pointing dark triangle at top of mentor card — matches elementor-shape-top fill:#191722, width:calc(7%+1.3px), height:30px */
-    .env__mentor::before {
-      content: '';
+    .env__mentor-shape-top {
       position: absolute;
-      top: -29px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: calc(7% + 1.3px);
-      height: 30px;
-      background: #191722;
-      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      top: -50px;
+      left: auto;
+      width: 150px;
+      height: 80px;
+      line-height: 0;
+      overflow: hidden;
+      direction: ltr;
+    }
+    .env__mentor-shape-top svg {
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 80px;
+    }
+    .env__mentor-shape-fill {
+      fill: #191722;
     }
     /* PC: frame wrapper is neutral */
     .env__mentor-heading-frame { }
     .env__mentor-heading {
-      font-family: "Noto Sans JP", sans-serif;
-      font-size: clamp(18px, 2.5vw, 22px);
-      font-weight: 800;
-      color: #191722;
-      line-height: 1.7;
-      letter-spacing: 0.04em;
+      display: block;
+      max-width: 550px;
+      height: auto;
       margin: 0 0 8px;
-    }
-    .env__mentor-heading span {
-      color: var(--color-primary);
     }
     .env__mentor-sub {
       font-family: "Noto Sans JP", sans-serif;
-      font-size: clamp(12px, 1.4vw, 14px);
-      font-weight: 400;
-      color: #555;
+      font-size: clamp(16px, 1.4vw, 14px);
+      font-weight: 700;
+      color: #000;
       line-height: 1.8;
       margin: 0 0 40px;
     }
@@ -1416,7 +1463,7 @@ export default function BytechPage() {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: #ffd464;
+      background: var(--color-accent);
       color: #191722;
       font-family: "Noto Sans JP", sans-serif;
       font-size: 16px;
@@ -1431,6 +1478,18 @@ export default function BytechPage() {
     .env__mentor-cta-btn svg {
       flex-shrink: 0;
     }
+    .env__arrow-wrap {
+      text-align: center;
+      margin: 280px 0 20px;
+      position: relative;
+      z-index: 20;
+    }
+    .env__arrow {
+      display: block;
+      margin: 0 auto;
+      width: auto;
+      height: 50px;
+    }
     @media (max-width: 767px) {
       #environment {
         padding-top: 60px;
@@ -1438,9 +1497,13 @@ export default function BytechPage() {
       }
       .env__mentor-wrap {
         bottom: -120px;
+        margin-top: 0;
       }
       .env__mentor {
-        padding: 30px 15px 50px;
+        padding: 70px 15px 50px;
+      }
+      .env__mentor-shape-top svg {
+        height: 40px;
       }
       /* SP: fix arrow shape (reference: width calc(10%+1.3px), height 20px) */
       .env__mentor::before {
@@ -1482,8 +1545,10 @@ export default function BytechPage() {
         transform: rotate(90deg);
         width: 30px;
       }
+      .env__arrow { width: 8%;  position: absolute; } 
     }
 
+    
     /* ===== If You Had AI Skills (e7cb04a + d392fac) ===== */
 
     /* e7cb04a: outer section wrapper */
@@ -1506,20 +1571,27 @@ export default function BytechPage() {
     /* 6eae7bf: heading block */
     .voice-section__heading {
       text-align: center;
-      margin-bottom: 20px;
+      position: absolute;
+      bottom: 0;
+      padding-bottom: 20px;
+
+      
+      transform: translate(-50%, 50%);
+      z-index: 2;
+      width: 100%;
     }
     /* f9f7624: tiny arrow deco — 0.8% desktop */
     .voice-section__arrow {
       display: block;
       margin: 0 auto;
-      width: 0.8%;
+      width: 0.7%;
       height: auto;
     }
     /* bbb0535: "2ヶ月でこう変わる" SVG — 45% desktop, margin-top 40px */
     .voice-section__ttl-deco {
       display: block;
       margin: 40px auto 0;
-      width: 45%;
+      width: 40%;
       height: auto;
     }
     /* a6eb53f: "If you had AI utilization skills" — Reem Kufi 12px */
@@ -1562,7 +1634,7 @@ export default function BytechPage() {
     /* 4 slides visible (slides_to_show: 4) */
     .voice-card {
       flex: 0 0 calc(25% - 11.25px);
-      border-radius: 10px;
+      
       box-shadow: 0 0 8px 0 rgba(0,0,0,.21);
       overflow: hidden;
       scroll-snap-align: start;
@@ -1570,7 +1642,7 @@ export default function BytechPage() {
     }
     .voice-card img {
       width: 100%;
-      height: auto;
+      height: 100%;
       display: block;
     }
     /* 7e2f1b0: disclaimer — Noto Sans JP 12px 300, white, center, margin-top 15px */
@@ -1594,7 +1666,6 @@ export default function BytechPage() {
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      flex-direction: row-reverse;
       background-color: #533afc;
       font-family: "Noto Sans JP", sans-serif;
       font-size: 22px;
@@ -1603,7 +1674,7 @@ export default function BytechPage() {
       color: #fff;
       border: 2px solid #fff;
       border-radius: 100px;
-      padding: 14px 30px;
+      padding: 8px 30px;
       text-decoration: none;
       transition: background-color 0.2s, color 0.2s;
     }
@@ -1629,7 +1700,7 @@ export default function BytechPage() {
     .voice-carousel__btn:hover { opacity: 0.85; }
     .voice-carousel__btn--prev { left: 4px; }
     .voice-carousel__btn--next { right: 4px; }
-    .voice-carousel__btn svg { width: 27px; height: 27px; fill: #ffd464; }
+    .voice-carousel__btn svg { width: 27px; height: 27px; fill: var(--color-accent); }
 
     @media (max-width: 1024px) {
       .voice-carousel-wrap { padding: 0 40px; }
@@ -1644,7 +1715,7 @@ export default function BytechPage() {
       .voice-section__inner { padding: 0; }
 
       /* 6eae7bf: heading block — margin-top -60px (overlaps preceding section) */
-      .voice-section__heading { margin-top: -60px; margin-bottom: 0; padding: 0 20px; }
+      .voice-section__heading { display: none; }
 
       /* f9f7624: arrow 3% on mobile */
       .voice-section__arrow { width: 3%; }
@@ -1684,23 +1755,23 @@ export default function BytechPage() {
 
     /* ===== Features / 5 Reasons ===== */
     .features { padding-top: 50px; padding-bottom: 60px; background: #fff; }
-    .features__inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
+    .features__inner {  margin-top: 400px; }
+    .features__background { background: #fafafa;  margin-top: 450px; padding: 24px 24px; }
     .reason-head { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 30px 0; position: relative; overflow: hidden; margin-bottom: 0; }
     .reason-head::before { content: ''; position: absolute; inset: 0; background-image: url('/bytech/assets/images/REASON.svg'); background-position: center center; background-repeat: no-repeat; background-size: 50% auto; opacity: 0.03; pointer-events: none; z-index: 0; }
     .reason-head > * { position: relative; z-index: 1; }
     .reason-head__ttl { font-family: "Noto Sans JP", sans-serif; font-size: 32px; font-weight: 800; letter-spacing: 0.05em; color: #000; line-height: 1.5; margin: 0; }
     .reason-head__ttl span { color: #533AFC; }
-    .reason-head__sub { font-family: "Reem Kufi", sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.05em; color: #ffd464; margin: 5px 0 0; }
+    .reason-head__sub { font-family: "Reem Kufi", sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.05em; color: var(--color-accent); margin: 5px 0 0; }
     @media (max-width: 767px) {
       .reason-head__ttl { font-size: 20px; }
       .reason-head__sub { font-size: 12px; }
     }
 
-    .reason-list { display: flex; flex-direction: column; margin-top: 20px; }
+    .reason-list { display: flex; flex-direction: column; margin: 20px auto 0px; max-width: 1100px; }
 
     /* reason-item: column layout — row inside, sub-cards below */
-    .reason-item { display: flex; flex-direction: column; padding: 50px 0 20px; }
+    .reason-item { display: flex; flex-direction: column; padding: 50px 0 40px; }
     .reason-item__row { display: flex; flex-direction: row; column-gap: 20px; align-items: center; }
     .reason-item--rev .reason-item__row { flex-direction: row-reverse; }
 
@@ -1711,7 +1782,7 @@ export default function BytechPage() {
       display: inline-flex; align-items: center; justify-content: center;
       width: 45px; height: 45px; flex-shrink: 0;
       background: #533AFC; color: #fff;
-      font-family: "Reem Kufi", sans-serif; font-size: 18px; font-weight: 700;
+      font-family: "Reem Kufi", sans-serif; font-size: 28px; font-weight: 700;
     }
     .reason-item__label { font-family: "Noto Sans JP", sans-serif; font-size: 27px; font-weight: 700; line-height: 1.3em; letter-spacing: 0.03em; color: #191722; }
     .reason-item__divider-img { width: 80%; height: auto; margin-top: 10px; display: block; }
@@ -1734,7 +1805,7 @@ export default function BytechPage() {
     /* Course cards slider (f704322 — Reason 1) */
     .course-slider { position: relative; width: 100%; min-height: 200px; height: auto; display: flex; flex-wrap: nowrap; overflow-x: scroll; column-gap: 15px; margin: 5px 0 0; padding-bottom: 8px; }
     .course-slider::-webkit-scrollbar { height: 4px; }
-    .course-slider::-webkit-scrollbar-thumb { background: #533AFC; border-radius: 2px; }
+    .course-slider::-webkit-scrollbar-thumb { background: #767676; border-radius: 2px; }
     .course-slider__col { padding: 10px 0 0 5px; flex: 0 0 auto; max-width: 100%; height: 100%; }
     .course-card-sp { width: 260px; height: auto; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 5px rgba(0,0,0,0.2); }
     .course-card-sp__img { width: 100%; display: block; height: auto; }
@@ -1761,12 +1832,24 @@ export default function BytechPage() {
       line-height: 1.4em; letter-spacing: 0.05em; color: #fff;
       text-align: center; position: relative; z-index: 1; margin: 0;
     }
-    .r2-sub__carousel { margin-top: 30px; }
-    .r2-sub__slides { display: flex; flex-wrap: nowrap; overflow-x: scroll; gap: 10px; padding-bottom: 30px; }
-    .r2-sub__slides::-webkit-scrollbar { height: 4px; }
-    .r2-sub__slides::-webkit-scrollbar-thumb { background: #FFD464; border-radius: 2px; }
-    .r2-sub__slide { flex: 0 0 calc(33.33% - 7px); min-width: 200px; }
+    .r2-sub__carousel { margin-top: 30px; position: relative; }
+    .r2-sub__viewport { overflow: hidden; }
+    .r2-sub__slides { display: flex; }
+    .r2-sub__slide { flex: 0 0 33.333%; min-width: 0; padding: 0 5px; box-sizing: border-box; }
     .r2-sub__slide img { width: 100%; height: auto; display: block; }
+    .r2-sub__btn { position: absolute; top: 50%; transform: translateY(-50%); background: transparent; border: none; border-radius: 50%; width: 72px; height: 72px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2; padding: 0; }
+    .r2-sub__btn--prev { left: -18px; }
+    .r2-sub__btn--next { right: -18px; }
+    .r2-sub__btn svg { width: 28px; height: 28px; fill: none; }
+    .r2-sub__dots { display: flex; justify-content: center; gap: 6px; margin-top: 16px; }
+    .r2-sub__dot { width: 8px; height: 8px; border-radius: 50%; background: #ccc; border: none; padding: 0; cursor: pointer; transition: background 0.2s; }
+    .r2-sub__dot--active { background: #888; }
+    @media (max-width: 767px) {
+      .r2-sub__slide { flex: 0 0 85%; }
+      .r2-sub__btn { width: 60px; height: 60px; }
+      .r2-sub__btn--prev { left: -10px; }
+      .r2-sub__btn--next { right: -10px; }
+    }
     @media (max-width: 767px) {
       .r2-sub { padding: 20px; }
       .r2-sub__slide { flex: 0 0 85%; }
@@ -1792,9 +1875,24 @@ export default function BytechPage() {
     .r5-sub__note { font-family: "Noto Sans JP", sans-serif; font-size: 13px; font-weight: 400; line-height: 1.8em; color: #191722; margin: 20px 0 0; }
     .r5-sub__webinar { display: flex; flex-direction: column; margin-top: 50px; }
     .r5-sub__webinar-label { width: 40%; height: auto; display: block; margin: 10px auto 0; }
-    .r5-carousel { overflow: hidden; margin-top: 15px; }
-    .r5-carousel__track { display: flex; flex-wrap: nowrap; overflow-x: scroll; gap: 10px; padding-bottom: 10px; }
-    .r5-carousel__slide { width: 300px; flex-shrink: 0; height: auto; display: block; border-radius: 4px; }
+    .r5-carousel { position: relative; margin-top: 15px; }
+    .r5-carousel__viewport { overflow: hidden; }
+    .r5-carousel__track { display: flex; }
+    .r5-carousel__slide { flex: 0 0 33.333%; min-width: 0; padding: 0 5px; box-sizing: border-box; }
+    .r5-carousel__slide img { width: 100%; height: auto; display: block; border-radius: 4px; }
+    .r5-carousel__btn { position: absolute; top: 50%; transform: translateY(-50%); background: transparent; border: none; border-radius: 50%; width: 72px; height: 72px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2; padding: 0; }
+    .r5-carousel__btn--prev { left: -18px; }
+    .r5-carousel__btn--next { right: -18px; }
+    .r5-carousel__btn svg { width: 28px; height: 28px; fill: none; }
+    .r5-carousel__dots { display: flex; justify-content: center; gap: 6px; margin-top: 16px; }
+    .r5-carousel__dot { width: 8px; height: 8px; border-radius: 50%; background: #ccc; border: none; padding: 0; cursor: pointer; transition: background 0.2s; }
+    .r5-carousel__dot--active { background: #888; }
+    @media (max-width: 767px) {
+      .r5-carousel__slide { flex: 0 0 85%; }
+      .r5-carousel__btn { width: 60px; height: 60px; }
+      .r5-carousel__btn--prev { left: -10px; }
+      .r5-carousel__btn--next { right: -10px; }
+    }
     @media (max-width: 767px) {
       .r4-sub { padding: 20px; }
       .r4-sub__ttl { display: none; }
@@ -1815,12 +1913,24 @@ export default function BytechPage() {
     .r3-sub__ttl { font-family: "Noto Sans JP", sans-serif; font-size: 25px; font-weight: 700; line-height: 1.4em; letter-spacing: 0.05em; color: #333; margin: 0; }
     .r3-sub__ttl--mobile { display: none; }
     .r3-sub__body { font-family: "Noto Sans JP", sans-serif; font-size: 15px; font-weight: 500; line-height: 2em; letter-spacing: 0.05em; color: #333; margin: 5px 0 0; }
-    .r3-sub__carousel { margin-top: 20px; overflow: hidden; }
-    .r3-sub__slides { display: flex; flex-wrap: nowrap; overflow-x: scroll; gap: 10px; padding-bottom: 30px; }
-    .r3-sub__slides::-webkit-scrollbar { height: 4px; }
-    .r3-sub__slides::-webkit-scrollbar-thumb { background: #FFD464; border-radius: 2px; }
-    .r3-sub__slide { flex: 0 0 calc(33.33% - 7px); min-width: 240px; }
+    .r3-sub__carousel { margin-top: 20px; position: relative; }
+    .r3-sub__viewport { overflow: hidden; }
+    .r3-sub__slides { display: flex; }
+    .r3-sub__slide { flex: 0 0 33.333%; min-width: 0; padding: 0 5px; box-sizing: border-box; }
     .r3-sub__slide img { width: 100%; height: auto; display: block; }
+    .r3-sub__btn { position: absolute; top: 50%; transform: translateY(-50%); background: transparent; border: none; border-radius: 50%; width: 72px; height: 72px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2; padding: 0; }
+    .r3-sub__btn--prev { left: -18px; }
+    .r3-sub__btn--next { right: -18px; }
+    .r3-sub__btn svg { width: 28px; height: 28px; fill: none; }
+    .r3-sub__dots { display: flex; justify-content: center; gap: 6px; margin-top: 16px; }
+    .r3-sub__dot { width: 8px; height: 8px; border-radius: 50%; background: #ccc; border: none; padding: 0; cursor: pointer; transition: background 0.2s; }
+    .r3-sub__dot--active { background: #888; }
+    @media (max-width: 767px) {
+      .r3-sub__slide { flex: 0 0 85%; }
+      .r3-sub__btn { width: 60px; height: 60px; }
+      .r3-sub__btn--prev { left: -10px; }
+      .r3-sub__btn--next { right: -10px; }
+    }
     @media (max-width: 767px) {
       .r3-sub { padding: 20px; }
       .r3-sub__ttl { display: none; }
@@ -1857,7 +1967,7 @@ export default function BytechPage() {
       background-size: cover;
       background-position: center center;
       margin-top: 50px;
-      padding: 40px 0;
+      padding: 50px 0;
     }
     .cta-banner__inner {
       max-width: 1100px;
@@ -1879,7 +1989,7 @@ export default function BytechPage() {
     }
     .cta-banner__img-wrap {
       margin-top: 0;
-      padding: 0 350px;
+      padding: 20px 320px;
       width: 100%;
       box-sizing: border-box;
     }
@@ -1920,8 +2030,8 @@ export default function BytechPage() {
     }
     .curric-head::before {
       content: ''; position: absolute; inset: 0;
-      background-image: url('/bytech/assets/images/REASON.svg');
-      background-position: center; background-repeat: no-repeat; background-size: 60% auto;
+      background-image: url('/bytech/assets/images/CURRICULUM.svg');
+      background-position: center 30px; background-repeat: no-repeat; background-size: 60% auto;
       opacity: 0.03; pointer-events: none; z-index: 0;
     }
     .curric-head > * { position: relative; z-index: 1; }
@@ -1931,14 +2041,14 @@ export default function BytechPage() {
     }
     .curric-head__tag {
       font-family: "Reem Kufi", sans-serif; font-weight: 700;
-      letter-spacing: 0.05em; color: #ffd464; margin-top: 5px;
+      letter-spacing: 0.05em; color: var(--color-accent); margin-top: 5px;
     }
     /* desktop+tablet description */
     .curric-head__desc {
       font-family: "Noto Sans JP", sans-serif; font-size: 16px; font-weight: 700;
       letter-spacing: 0.07em; color: #333; margin-top: 10px;
     }
-    .curric-head__desc span { color: #583ffd; }
+    .curric-head__desc span { color: #583ffd; font-size: 22px;}
     .curric-head__note {
       font-family: "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 500;
       letter-spacing: 0.07em; color: #292525; margin: 0;
@@ -1957,9 +2067,12 @@ export default function BytechPage() {
 
     /* Badge column (cc39a43) */
     .curric-panel__badge {
-      width: 50px; flex-shrink: 0; align-self: center;
-      margin-top: 15px; margin-left: -15px;
+      height: 50px; 
+      width: auto; 
+      flex-shrink: 0; align-self: center;
+      margin: 0px 15px 0px 5px;
       display: flex; align-items: center; justify-content: center;
+      
     }
     .curric-panel__badge svg { width: 35px; height: auto; }
 
@@ -1981,7 +2094,7 @@ export default function BytechPage() {
     /* Heading (74d932f: 28px 800 #191722) */
     .curric-panel__heading {
       font-family: "Noto Sans JP", sans-serif; font-size: 28px; font-weight: 800;
-      letter-spacing: 0.03em; color: #191722; margin: 0; margin-top: -10px; line-height: 1.4;
+      letter-spacing: 0.03em; color: #191722; margin: 0; margin-top: 0px; line-height: 1.4;
     }
     .curric-panel__heading--sp { display: none; }
 
@@ -1990,18 +2103,22 @@ export default function BytechPage() {
       display: flex; flex-direction: row; flex-wrap: nowrap;
       overflow-x: auto; gap: 10px;
       margin-top: 20px; padding-bottom: 30px;
+
     }
     .curric-cards::-webkit-scrollbar { height: 4px; }
-    .curric-cards::-webkit-scrollbar-thumb { background: #533AFC; border-radius: 2px; }
+    .curric-cards::-webkit-scrollbar-thumb { background: #767676; border-radius: 2px; }
 
     /* Panel spacing: add top margin to 2nd and 3rd panels */
     .curric-panel + .curric-panel { margin-top: 40px; }
 
     /* --- Course card (a0cb2f1) --- */
     .curric-card {
-      flex: 1 0 260px; max-width: 340px;
+      flex: 1 0 285px; 
+      max-width: 285px;
+      height: 466px;
       border: 1px solid #e3e3e3; border-radius: 10px; overflow: hidden;
       display: flex; flex-direction: column; background: #fff;
+
     }
     .curric-card img.curric-card__thumb { width: 100%; height: auto; display: block; }
     .curric-card__body {
@@ -2021,7 +2138,7 @@ export default function BytechPage() {
       line-height: 22px; letter-spacing: 0.03em; color: #191722; margin: 0;
     }
     .curric-card__btn {
-      display: block; text-align: center; margin-top: 15px;
+      display: block; text-align: center; margin-top: 8px;
       background: #fff; color: #533afc; border: 2px solid #533afc;
       border-radius: 100px; font-family: "Noto Sans JP", sans-serif;
       font-size: 15px; font-weight: 700; letter-spacing: 0.03em;
@@ -2029,6 +2146,13 @@ export default function BytechPage() {
       transition: background 0.2s, color 0.2s;
     }
     .curric-card__btn:hover { background: #533afc; color: #fff; }
+    .curric-card__btn--coming {
+      display: block; text-align: center; margin-top: 8px;
+      background: #e8e8e8; color: #999; border: 2px solid #e8e8e8;
+      border-radius: 100px; font-family: "Noto Sans JP", sans-serif;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.03em;
+      padding: 12px 25px; cursor: default; pointer-events: none;
+    }
 
     /* Responsive */
     @media (max-width: 1024px) and (min-width: 768px) {
@@ -2117,7 +2241,7 @@ export default function BytechPage() {
     /* SKILLS タグ (9f35c43) */
     .skills-section__tag {
       font-family: "Reem Kufi", sans-serif;
-      font-weight: 700; letter-spacing: 0.05em; color: #ffd464;
+      font-weight: 700; letter-spacing: 0.05em; color: var(--color-accent);
       text-align: center; margin: 5px 0 0; display: block;
     }
 
@@ -2127,19 +2251,17 @@ export default function BytechPage() {
       margin-top: 25px;
       padding-bottom: 10px;
     }
-    /* スライドトラック: overflow hidden, 2枚表示 */
-    .skills-carousel__track {
-      display: flex;
-      gap: 10px;
+    /* スライドトラック: transform方式 */
+    .skills-carousel__viewport {
       overflow: hidden;
     }
-    .skills-carousel__slide {
-      flex: 0 0 calc(50% - 5px);
-      min-width: 0;
-      display: none;
+    .skills-carousel__track {
+      display: flex;
+      transition: transform 0.4s ease;
     }
-    .skills-carousel__slide.is-active {
-      display: block;
+    .skills-carousel__slide {
+      flex: 0 0 100%;
+      min-width: 0;
     }
     .skills-carousel__slide img {
       width: 100%; height: auto; display: block;
@@ -2149,10 +2271,10 @@ export default function BytechPage() {
       position: absolute; top: 50%; transform: translateY(-50%);
       width: 40px; height: 40px;
       background: none; border: none; cursor: pointer;
-      color: #ffd464; z-index: 3; padding: 0;
+      color: var(--color-accent); z-index: 3; padding: 0;
       display: flex; align-items: center; justify-content: center;
     }
-    .skills-carousel__btn svg { fill: #ffd464; width: 24px; height: 24px; }
+    .skills-carousel__btn svg { fill: var(--color-accent); width: 24px; height: 24px; }
     .skills-carousel__btn--prev { left: 8px; }
     .skills-carousel__btn--next { right: 8px; }
     /* ページネーションドット (elementor-pagination-position-outside) */
@@ -2163,98 +2285,94 @@ export default function BytechPage() {
       width: 4px; height: 4px; border-radius: 50%;
       background: rgba(255,255,255,0.4); border: none; cursor: pointer; padding: 0;
     }
-    .skills-carousel__dot.is-active { background: #ffd464; }
+    .skills-carousel__dot.is-active { background: var(--color-accent); }
 
     @media (max-width: 767px) {
       .skills-section__ttl { font-size: 30px; }
       .skills-section__tag { font-size: 14px; }
-      .skills-carousel__slide { flex: 0 0 calc(100% - 0px); }
     }
 
     /* ===== Plan ===== */
     .plan { padding: 80px 0; background: var(--color-bg-light); }
     .plan__inner { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
-    .plan__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+    .plan__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; margin-top: 40px; max-width: 1000px; margin-left: auto; margin-right: auto; }
     .plan-card {
-      border-radius: 20px; overflow: hidden; background: #fff;
-      border: 2px solid #e8e8ee; padding: 40px 32px;
+      border-radius: 10px; background: #fff; border: 2px solid #c7c0ff;
+      padding: 40px 50px; display: flex; flex-direction: column; align-items: center; text-align: center;
     }
     .plan-card--pro { border-color: var(--color-primary); }
-    .plan-card__logo {
-      width: 48px; height: 48px; margin-bottom: 16px;
+    .plan-card__logo { width: 46px; height: auto; object-fit: contain; margin: 0 auto 0 0; }
+    .plan-card__en-name {
+      font-family: var(--font-en); 
+      color: var(--color-text); margin: 16px auto 0 0;
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: .03em;
     }
-    .plan-card__logo img { width: 100%; height: 100%; object-fit: contain; }
-    .plan-card__label {
-      font-family: var(--font-en); font-size: 22px; font-weight: 500;
-      letter-spacing: 0.05em; color: var(--color-text); margin-bottom: 4px;
+    .plan-card__ja-name { font-size: 14px; color: var(--color-text-light); margin: 0 auto 8px 0; display: block; }
+    .plan-card__tagline {
+      width: 100%; background: #f8f8f8; padding: 12px 20px;
+      display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 0 4px;
+      font-size: 20px; font-weight: 700; color: var(--color-text);
     }
-    .plan-card__name { font-size: 14px; color: var(--color-text-light); margin-bottom: 20px; }
-    .plan-card__target {
-      display: inline-block; font-size: 15px; color: var(--color-text);
-      border: 1px solid #ddd; border-radius: 8px; padding: 10px 20px; margin-bottom: 24px;
+    .plan-card__tagline-em { color: #D4215F; }
+    .plan-card__tagline-em--pro { color: var(--color-primary); }
+    .plan-card__price-area {
+      width: 100%; display: flex; flex-direction: column;
+      align-items: center; margin-top: 35px; padding: 0 20px;
     }
-    .plan-card__price-row { margin-bottom: 8px; }
-    .plan-card__price { display: flex; align-items: baseline; gap: 2px; }
-    .plan-card__price-label { font-size: 14px; color: var(--color-text); font-weight: 500; }
-    .plan-card__price-yen { font-family: var(--font-en); font-size: 24px; font-weight: 500; color: var(--color-text); }
-    .plan-card__price-num {
-      font-family: var(--font-en); font-size: clamp(40px, 6vw, 56px); font-weight: 500; color: var(--color-text); line-height: 1;
+    .plan-card__price-img { width: 100%; height: auto; display: block; }
+    .plan-card__price-img-month { width: auto; height: 23px; display: block; margin-top: 20px; }
+    .plan-card__price-img-sub { width: 100%; height: auto; display: block; margin-top: 20px; }
+    .plan-card__price-img + .plan-card__price-img { margin-top: 20px; }
+    .plan-card__services-divider {
+      display: flex; align-items: center; gap: 12px; margin: 24px 0; width: 100%;
     }
-    .plan-card__price-monthly {
-      font-size: 14px; color: var(--color-text-light); margin-top: 4px; margin-bottom: 20px;
+    .plan-card__services-divider::before, .plan-card__services-divider::after {
+      content: ''; flex: 1; height: 2px; background: var(--color-primary);
     }
-    .plan-card__tags {
-      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px;
-    }
-    .plan-card__tag {
-      flex: 1; min-width: 0; text-align: center; padding: 10px 8px;
-      border: 1px solid #ddd; border-radius: 8px; font-size: 11px; color: var(--color-text-light);
-    }
-    .plan-card__tag strong {
-      display: block; font-size: 15px; font-weight: 900; color: var(--color-text); margin-top: 2px;
-    }
-    .plan-card__divider {
-      display: flex; align-items: center; gap: 12px; margin: 24px 0;
-    }
-    .plan-card__divider::before, .plan-card__divider::after {
-      content: ''; flex: 1; height: 1px; background: #ddd;
-    }
-    .plan-card__divider-text { font-size: 13px; color: var(--color-text-light); white-space: nowrap; }
-    .plan-card__features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
-    .plan-card__feature { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700; }
-    .plan-card__feature--disabled { color: #ccc; }
-    .plan-card__feature-icon {
-      display: flex; align-items: center; justify-content: center;
-      width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
-      background: var(--color-primary);
-    }
-    .plan-card__feature--disabled .plan-card__feature-icon { background: #ddd; }
+    .plan-card__services-divider span { 
+      color: var(--color-primary); 
+      white-space: nowrap; 
+      font-family: "Noto Sans JP", Sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      }
+    .plan-card__services-img { width: 85%; height: auto; display: block; margin-bottom: 28px; }
     .plan-card__cta {
       display: flex; align-items: center; justify-content: center; gap: 8px;
-      text-align: center; padding: 18px; border-radius: 50px;
-      font-weight: 900; font-size: 16px; transition: all 0.2s; width: 100%;
+      text-align: center; padding: 15px; border-radius: 50px;
+      font-weight: 900; font-size: 16px; transition: opacity 0.2s; width: 100%; text-decoration: none;
     }
     .plan-card__cta::after { content: '>'; }
-    .plan-card__cta--pink {
-      background: linear-gradient(135deg, #ff4d8d, #ff6b9d); color: #fff; border: none;
+    .plan-card__cta--lite { background: #ff0355; color: #fff; border: none; font-size: 20px;}
+    .plan-card__cta--lite:hover { opacity: 0.9; }
+    .plan-card__cta--pro,
+    .plan-card__cta--blue,
+    .plan__detail-link {
+      background: var(--color-primary); color: #fff; border: none; font-size: 20px;
     }
-    .plan-card__cta--pink:hover { opacity: 0.9; }
-    .plan-card__cta--blue {
-      background: var(--color-primary); color: #fff; border: none;
-    }
-    .plan-card__cta--blue:hover { opacity: 0.9; }
+    .plan-card__cta--pro:hover,
+    .plan-card__cta--blue:hover,
+    .plan__detail-link:hover { opacity: 0.9; }
     .plan__note { margin-top: 24px; font-size: 13px; color: var(--color-text-light); text-align: center; }
     .plan__payment {
-      margin-top: 48px; padding: 48px 32px; background: #f0f0f0;
+      margin-top: 48px; padding: 48px 32px; 
       border-radius: var(--radius-lg); text-align: center;
+     border: 1px solid #DBDBDB;
     }
     .plan__payment h3 { font-size: clamp(18px, 3vw, 24px); font-weight: 900; margin-bottom: 32px; }
-    .plan__payment__methods { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-bottom: 32px; }
+    .plan__payment__methods { display: flex; justify-content: center; gap: 0px; flex-wrap: wrap; margin-bottom: 32px; }
     .plan__payment__method { text-align: center; flex: 1; max-width: 320px; }
     .plan__payment__method__name {
-      display: inline-block; font-weight: 900; font-size: 16px;
+    display: inline-block; 
+      font-weight: 900; font-size: 18px;
       background: var(--color-primary); color: #fff;
-      padding: 12px 48px; border-radius: 8px; margin-bottom: 12px;
+      margin-bottom: 12px;
+      width: 240px;
+      height: 38px;
+      line-height: 38px;
+      border-radius: 5px 5px 5px 5px;
     }
     .plan__payment__method__note { font-size: 12px; color: var(--color-text-light); }
     .plan__payment__cards {
@@ -2310,6 +2428,32 @@ export default function BytechPage() {
       .plan__payment__cards img {
         max-width: 260px;
       }
+    }
+
+    /* ===== Plan detail link (PC) ===== */
+    .plan__detail-link-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    .plan__detail-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 40px;
+      font-weight: 700;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .plan__detail-link__icon {
+      width: 16px;
+      height: 16px;
+      fill: #fff;
+      flex-shrink: 0;
+    }
+    @media (max-width: 767px) {
+      .plan__detail-link-wrap { display: none; }
     }
 
     /* ===== Plan SP detail button ===== */
@@ -2375,9 +2519,8 @@ export default function BytechPage() {
       .plan__sp-tabs:has(#plan-tab-pro:checked) .plan__tab-panel--lite { display: none; }
       .plan__sp-tabs .plan-card {
         padding: 28px 20px;
-        border-radius: 16px;
+        border-radius: 10px;
       }
-      .plan__sp-tabs .plan-card__price-num { font-size: 40px; }
     }
 
     /* ===== Interview ===== */
@@ -2386,6 +2529,7 @@ export default function BytechPage() {
     .interview__grid {
       display: flex; flex-direction: row; flex-wrap: wrap; gap: 0;
       margin-top: 20px; margin-bottom: 48px;
+      max-width: 1140px; margin-left: auto; margin-right: auto;
     }
     .interview-card { flex: 1 0 0; min-width: 0; display: flex; flex-direction: column; }
     .interview-card__thumb { display: block; overflow: hidden; }
@@ -2444,7 +2588,7 @@ export default function BytechPage() {
     .flow__ttl--sp { display: none; }
     .flow__tag {
       font-family: "Reem Kufi", sans-serif; font-weight: 700; font-size: 16px;
-      letter-spacing: 0.05em; color: #ffd464; margin-top: 5px;
+      letter-spacing: 0.05em; color: var(--color-accent); margin-top: 5px;
       position: relative; z-index: 1; display: block;
     }
     .flow__steps {
@@ -2457,7 +2601,7 @@ export default function BytechPage() {
       box-shadow: 0 0 10px 0 rgba(0,0,0,0.14); border-radius: 5px;
     }
     .flow__arrow { flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
-    .flow__arrow img { width: 45%; height: auto; display: block; }
+    .flow__arrow img { width: 15px; height: auto; display: block; margin: 0 10px; }
     .flow__decoration { margin-top: 30px; }
     .flow__decoration img { width: 100%; height: auto; display: block; }
     .flow__cta { margin-top: 50px; padding: 0 350px; }
@@ -2495,7 +2639,7 @@ export default function BytechPage() {
     }
     .faq__tag {
       font-family: "Reem Kufi", sans-serif; font-weight: 700; font-size: 16px;
-      letter-spacing: 0.05em; color: #ffd464; margin-top: 5px;
+      letter-spacing: 0.05em; color: var(--color-accent); margin-top: 5px;
       position: relative; z-index: 1; display: block;
     }
     .faq__groups { display: flex; flex-direction: column; }
@@ -2504,6 +2648,11 @@ export default function BytechPage() {
     .faq__group__ttl {
       font-family: "Noto Sans JP", sans-serif; font-size: 18px; font-weight: 800;
       letter-spacing: 0.05em; color: #000; text-align: center; margin: 0;
+      padding-bottom: 18px;
+    }
+    .faq__group__ttl span {
+          color:  var(--color-primary);
+    font-size: 1.2em;
     }
     .faq__list { display: flex; flex-direction: column; margin-top: 0; }
     .faq__item { margin-bottom: 5px; }
@@ -2522,9 +2671,11 @@ export default function BytechPage() {
     .faq__item__q-toggle {
       flex-shrink: 0; display: flex; align-items: center; justify-content: center;
       margin-left: auto; color: #533afc; transition: color 0.2s, transform 0.3s;
+      transform: rotate(-90deg); 
+      
     }
     .faq__item__q-toggle svg { width: 20px; height: 20px; fill: currentColor; }
-    .faq__item.is-open .faq__item__q-toggle { color: #ffd464; transform: rotate(180deg); }
+    .faq__item.is-open .faq__item__q-toggle { color: var(--color-accent); transform: rotate(0deg); }
     .faq__item__a {
       background: #fff; padding: 0 18px; max-height: 0; overflow: hidden;
       transition: max-height 0.3s ease, padding 0.3s;
@@ -2561,57 +2712,75 @@ export default function BytechPage() {
     .cta-section__note { margin-top: 16px; font-size: 12px; color: rgba(255,255,255,0.5); }
 
     /* ===== Footer ===== */
+    /* ===== Footer ===== */
     .footer { background: #1a1723; color: #fff; }
-    .footer__main { padding: 50px 0 40px; }
-    .footer__inner { max-width: 1300px; margin: 0 auto; padding: 0 10px; }
-    /* Two-column row: content (left/order-first) + logo-area (right) */
-    .footer__row { display: flex; flex-direction: row; align-items: flex-start; gap: 0; }
-    /* LEFT: tagline + nav columns — order -1 so renders before logo area */
-    .footer__content { flex: 1; display: flex; flex-direction: row; align-items: flex-start; order: -1; gap: 0; }
+    .footer__main { padding: 56px 0 0; }
+    .footer__inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    /* Top body: tagline + nav */
+    .footer__body {
+      display: flex; flex-direction: row; align-items: flex-start; gap: 0;
+      padding-bottom: 48px;
+    }
     .footer__tagline {
-      width: 28%; flex-shrink: 0;
-      font-family: "Noto Sans JP", sans-serif; font-size: 29px; font-weight: 700;
-      color: #fff; letter-spacing: 0.05em; line-height: 1.5; margin: 0;
+      flex: 0 0 22%; font-size: 26px; font-weight: 700;
+      color: #fff; line-height: 1.6; margin: 0; letter-spacing: 0.03em;
     }
-    .footer__nav-cols { flex: 1; display: flex; flex-direction: row; align-items: flex-start; gap: 0; }
-    /* コース一覧 column */
-    .footer__nav-col-courses { flex: 0 0 53%; }
-    /* サポート / 会社情報 / 関連サービス column */
-    .footer__nav-col-support { flex: 1; display: flex; flex-direction: column; }
-    /* Section headings — purple */
+    /* Nav area */
+    .footer__nav {
+      flex: 1; display: flex; flex-direction: row; gap: 0; align-items: flex-start;
+    }
+    .footer__nav-col { flex: 1; padding-right: 24px; }
+    .footer__nav-col--courses { flex: 0 0 46%; }
+    /* Section title */
     .footer__nav-section-ttl {
-      font-family: "Noto Sans JP", sans-serif; font-size: 17px; font-weight: 700;
-      color: #735fff; letter-spacing: 0.05em; margin: 0;
+      font-size: 16px; font-weight: 700; color: #735fff; letter-spacing: 0.05em; margin: 0;
     }
-    .footer__nav-section-ttl + .footer__nav-section-ttl { margin-top: 16px; }
-    /* Thin divider under section heading */
-    .footer__nav-divider { height: 0.5px; background: rgba(255,255,255,0.19); margin: 5px 0; }
-    /* Sub-category labels — yellow */
+    .footer__nav-divider { height: 0.5px; background: rgba(255,255,255,0.2); margin: 6px 0 10px; }
+    /* Two sub-columns inside courses */
+    .footer__nav-sub-cols { display: flex; flex-direction: row; gap: 16px; }
+    .footer__nav-sub-col { flex: 1; }
     .footer__nav-sub-ttl {
-      font-family: "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700;
-      color: #fffc6b; letter-spacing: 0.05em; margin: 8px 0 4px;
+      font-size: 13px; font-weight: 700; color: var(--color-accent); margin: 0 0 8px;
     }
-    /* Nav link lists */
-    .footer__nav-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+    /* Link lists */
+    .footer__nav-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
     .footer__nav-list li a {
-      font-family: "Noto Sans JP", sans-serif; font-size: 13px; font-weight: 500;
-      color: #fff; text-decoration: none; transition: color 0.2s;
+      font-size: 13px; font-weight: 500; color: #fff; text-decoration: none; transition: color 0.2s;
     }
-    .footer__nav-list li a:hover { color: rgba(255,255,252,0.68); }
-    /* RIGHT: logo + copyright */
-    .footer__logo-area { flex-shrink: 0; width: 220px; display: flex; flex-direction: column; padding: 0 10px; }
-    .footer__logo-divider { height: 1.5px; background: rgba(255,255,255,0.49); margin: 30px 0 20px; }
-    .footer__logo-row { display: flex; flex-direction: row; align-items: center; gap: 10px; }
-    .footer__logo a { display: block; }
-    .footer__logo img { width: 120px; height: auto; display: block; }
-    .footer__copyright {
-      font-family: Helvetica, sans-serif; font-size: 12px; font-weight: 500;
-      color: #fff; letter-spacing: 0.05em; text-align: right; flex: 1; margin: 0;
+    .footer__nav-list li a:hover { color: rgba(255,255,255,0.6); }
+    /* Support/company extra section spacing */
+    .footer__nav-section-ttl + .footer__nav-divider + .footer__nav-list + .footer__nav-section-ttl { margin-top: 20px; }
+    .footer__nav-col--company .footer__nav-section-ttl ~ .footer__nav-section-ttl { margin-top: 20px; }
+    /* Bottom bar: divider + logo + copyright */
+    .footer__bottom-bar {
+      display: flex; flex-direction: row; align-items: center; justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.15); padding: 20px 0;
     }
-    /* Bottom bar */
-    .footer__bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 20px 0; text-align: center; }
-    .footer__bottom p { font-size: 12px; color: rgba(255,255,255,0.3); margin: 0; }
-    /* Fixed mobile CTA */
+    .footer__logo-link { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
+    .footer__logo-img { width: 110px; height: auto; display: block; }
+    .footer__logo-sub { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 0.15em; margin: 2px 0 0; }
+    .footer__copyright { font-size: 13px; color: #fff; margin: 0; letter-spacing: 0.05em; }
+    /* Bottom fine print */
+    .footer__bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 16px 0; text-align: center; }
+    .footer__bottom p { font-size: 11px; color: rgba(255,255,255,0.3); margin: 0; }
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .footer__tagline { flex: 0 0 20%; font-size: 22px; }
+      .footer__nav-col--courses { flex: 0 0 44%; }
+    }
+    @media (max-width: 767px) {
+      .footer__main { padding: 36px 0 0; }
+      .footer__inner { padding: 0 20px; }
+      .footer__body { flex-direction: column; gap: 28px; padding-bottom: 32px; }
+      .footer__tagline { font-size: 20px; }
+      .footer__nav { flex-direction: column; gap: 24px; }
+      .footer__nav-col--courses { flex: unset; width: 100%; }
+      .footer__nav-col { padding-right: 0; }
+      .footer__bottom-bar { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .footer__copyright { font-size: 12px; }
+    }
+
+        /* Fixed mobile CTA */
     .fixed-footer-cta {
       position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
       opacity: 0; visibility: hidden; transform: translateY(20px);
@@ -2681,6 +2850,7 @@ export default function BytechPage() {
                 <li><a href="https://generative-ai.bytech.jp/plan/" target="_blank">料金プラン</a></li>
                 <li><a href="https://bytech.jp/blog/category/interview/" target="_blank">受講生インタビュー</a></li>
                 <li><a href="#faq">よくある質問</a></li>
+                <li className="header__nav__divider" aria-hidden="true" />
                 <li><a href="https://bytech.jp/biz" target="_blank">法人研修 ↗</a></li>
               </ul>
             </nav>
@@ -3044,6 +3214,23 @@ export default function BytechPage() {
           </p>
 
         </div>
+
+        {/* e7cb04a / 6eae7bf: heading block — absolutely positioned to straddle about/voice-section boundary */}
+        <div className="voice-section__heading fadein">
+          <img
+            src="/bytech/assets/images/矢印.svg"
+            alt=""
+            className="voice-section__arrow"
+            aria-hidden="true"
+          />
+          <img
+            src="/bytech/assets/images/2ヶ月でこう変わる.svg"
+            alt="2ヶ月でこう変わる"
+            className="voice-section__ttl-deco"
+          />
+          <p className="voice-section__en">If you had AI utilization skills</p>
+        </div>
+
       </section>
 
       {/* ===== ABOUT SP STATS (adb3ee1 — SP only) ===== */}
@@ -3081,25 +3268,6 @@ export default function BytechPage() {
         </div>
         
       </section>
-      {/* e7cb04a / 6eae7bf: heading block */}
-          <div className="voice-section__heading fadein">
-            {/* f9f7624: tiny arrow decoration */}
-            <img
-              src="/bytech/assets/images/矢印.svg"
-              alt=""
-              className="voice-section__arrow"
-              aria-hidden="true"
-            />
-            {/* bbb0535: "2ヶ月でこう変わる" SVG — width 45% desktop, 90% mobile */}
-            <img
-              src="/bytech/assets/images/2ヶ月でこう変わる.svg"
-              alt="2ヶ月でこう変わる"
-              className="voice-section__ttl-deco"
-            />
-            {/* a6eb53f: Reem Kufi 12px English subtitle */}
-            <p className="voice-section__en">If you had AI utilization skills</p>
-          </div>
-
       {/* ===== IF YOU HAD AI SKILLS ===== */}
       {/* e7cb04a + d392fac */}
       <section className="voice-section">
@@ -3169,7 +3337,6 @@ export default function BytechPage() {
 
       {/* ===== PROBLEM ===== */}
       <section id="problem">
-        <div className="problem__bg-text" aria-hidden="true">PROBLEM</div>
 
         <div className="problem__inner">
           <div className="problem__head fadein">
@@ -3331,15 +3498,21 @@ export default function BytechPage() {
           </div>
 
         </div>
-
+      
         {/* Mentor card — overlaps the bottom of this section */}
         <div className="env__mentor-wrap fadein">
           <div className="env__mentor">
+            <div className="env__mentor-shape-top" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+                <path className="env__mentor-shape-fill" d="M500,98.9L0,6.1V0h1000v6.1L500,98.9z"/>
+              </svg>
+            </div>
             <div className="env__mentor-heading-frame">
-              <h2 className="env__mentor-heading">
-                AI業界の最前線で活躍する講師陣が<br />
-                <span>あなたの&quot;できたらいいな&quot;</span>を現実にします！
-              </h2>
+              <img
+                src="/bytech/assets/images/講師のタイトル.svg"
+                alt="AI業界の最前線で活躍する講師陣があなたのできたらいいなを現実にします！"
+                className="env__mentor-heading"
+              />
             </div>
             <p className="env__mentor-sub">
               20名以上の様々な領域に特化したメンターの中から<br />
@@ -3374,17 +3547,26 @@ export default function BytechPage() {
             </div>
           </div>
         </div>
+        <div className="env__arrow-wrap">
+          <img
+            src="/bytech/assets/images/矢印.svg"
+            alt="矢印"
+            className="env__arrow"
+          />
+        </div>
       </section>
+      
 
       {/* ===== 5 REASONS ===== */}
       <section className="features u-section" id="aboutus" style={{paddingTop: '340px'}}>
         <div className="features__inner">
-
+          <div className="features__background">
           {/* Section heading */}
           <div className="reason-head fadein">
             <h2 className="reason-head__ttl">バイテックが最短で<br />実務レベルのAI人材を育成できる<br /><span>5つの理由</span></h2>
             <p className="reason-head__sub">REASON</p>
           </div>
+          
 
           <div className="reason-list">
 
@@ -3545,17 +3727,7 @@ export default function BytechPage() {
                     <h4 className="r2-sub__overlay-ttl">100種類以上のリアルな<br />業務・副業を想定した実践課題</h4>
                   </div>
                   {/* 84d3a60: image carousel, margin-top 30px */}
-                  <div className="r2-sub__carousel">
-                    <div className="r2-sub__slides">
-                      <div className="r2-sub__slide"><img src="/bytech/assets/images/アートボード-–-19.png" alt="実践課題" loading="lazy" /></div>
-                      <div className="r2-sub__slide"><img src="/bytech/assets/images/アートボード-–-20.png" alt="実践課題" loading="lazy" /></div>
-                      <div className="r2-sub__slide"><img src="/bytech/assets/images/アートボード-–-22.png" alt="実践課題" loading="lazy" /></div>
-                      <div className="r2-sub__slide"><img src="/bytech/assets/images/アートボード-–-21.png" alt="実践課題" loading="lazy" /></div>
-                      <div className="r2-sub__slide"><img src="/bytech/assets/images/アートボード-–-24.png" alt="実践課題" loading="lazy" /></div>
-                      <div className="r2-sub__slide"><img src="/bytech/assets/images/アートボード-–-25.png" alt="実践課題" loading="lazy" /></div>
-                      <div className="r2-sub__slide"><img src="/bytech/assets/images/アートボード-–-23.png" alt="実践課題" loading="lazy" /></div>
-                    </div>
-                  </div>
+                  <R2Carousel />
                 </div>
               </div>
             </div>
@@ -3587,17 +3759,7 @@ export default function BytechPage() {
                   <h4 className="r3-sub__ttl--mobile"><span style={{color:'#533AFC'}}>業務活用から副業</span>までサポートするバイテック精鋭メンター陣</h4>
                   <p className="r3-sub__body">ただAIを使えるではなく、使いこなしている且つ特化領域を持っているメンターのみ採用しているので、メンターの質は業界随一です。</p>
                   {/* 20f36a6: image carousel, margin-top 20px, nav arrows #FFD464 */}
-                  <div className="r3-sub__carousel">
-                    <div className="r3-sub__slides">
-                      <div className="r3-sub__slide"><img src="/bytech/assets/images/グループ-19545-1.webp" alt="バイテックAIメンター07_田中省吾" loading="lazy" /></div>
-                      <div className="r3-sub__slide"><img src="/bytech/assets/images/グループ-19539-1.webp" alt="バイテックAIメンター02_池田義国" loading="lazy" /></div>
-                      <div className="r3-sub__slide"><img src="/bytech/assets/images/グループ-19542-1.webp" alt="バイテックAIメンター05_後藤暁子" loading="lazy" /></div>
-                      <div className="r3-sub__slide"><img src="/bytech/assets/images/グループ-19538-1.webp" alt="バイテックAIメンター01_野口侑渡" loading="lazy" /></div>
-                      <div className="r3-sub__slide"><img src="/bytech/assets/images/グループ-19541-1.webp" alt="バイテックAIメンター04_椿明人" loading="lazy" /></div>
-                      <div className="r3-sub__slide"><img src="/bytech/assets/images/グループ-19540-1.webp" alt="バイテックAIメンター03_木村竜太郎" loading="lazy" /></div>
-                      <div className="r3-sub__slide"><img src="/bytech/assets/images/グループ-19543-1.webp" alt="バイテックAIメンター06_那須太陽" loading="lazy" /></div>
-                    </div>
-                  </div>
+                  <R3Carousel />
                 </div>
               </div>
             </div>
@@ -3678,26 +3840,20 @@ export default function BytechPage() {
                 {/* 00546db: モバイル画像（デスクトップ・タブレット非表示） */}
                 <img src="/bytech/assets/images/グループ-19629.svg" alt="コミュニティコンテンツSP" className="r5-sub__content-img--mobile" />
                 {/* 8fbf7e7: 注記 */}
-                <p className="r5-sub__note">※コミュニティ内のイベントは今後実施予定のものもあります。</p>
+              </div>
+              <p className="r5-sub__note">※コミュニティ内のイベントは今後実施予定のものもあります。</p>
                 {/* 86bfb84: ウェビナー + カルーセル */}
-                <div className="r5-sub__webinar">
+                
+              <div className="r5-sub__webinar">
                   {/* d8b40a1: ウェビナーラベル */}
                   <img src="/bytech/assets/images/有料級ウェビナー.svg" alt="有料級ウェビナー" className="r5-sub__webinar-label" />
                   {/* 724407c: カルーセル */}
-                  <div className="r5-carousel">
-                    <div className="r5-carousel__track">
-                      <img src="/bytech/assets/images/b-create2_1_11zon.webp" alt="b-create" className="r5-carousel__slide" />
-                      <img src="/bytech/assets/images/b-carrer_2_2_11zon.webp" alt="b-carrer" className="r5-carousel__slide" />
-                      <img src="/bytech/assets/images/b-biz1_3_11zon.webp" alt="b-biz1" className="r5-carousel__slide" />
-                      <img src="/bytech/assets/images/b-biz1-–-2_4.webp" alt="b-biz2" className="r5-carousel__slide" />
-                      <img src="/bytech/assets/images/b-biz1-–-1_5.webp" alt="b-biz3" className="r5-carousel__slide" />
-                    </div>
-                  </div>
+                  <R5Carousel />
                 </div>
-              </div>
             </div>
 
           </div>
+        </div>
         </div>
       </section>
 
@@ -3779,6 +3935,18 @@ export default function BytechPage() {
                     <a href="https://generative-ai.bytech.jp/chatgpt-master/" className="curric-card__btn">コースの詳細を見る</a>
                   </div>
                 </div>
+                {/* Claude */}
+                <div className="curric-card">
+                  <img src="/bytech/assets/images/グループ-16203-2-1-1024x685.webp" alt="Claudeマスターコース" className="curric-card__thumb" loading="lazy" />
+                  <div className="curric-card__body">
+                    <p className="curric-card__name">Claudeマスターコース</p>
+                    <p className="curric-card__chapters">全14チャプター｜81レッスン</p>
+                    <div className="curric-card__desc-wrap">
+                      <p className="curric-card__desc">Claudeの基本操作から、思考を引き出すプロンプト設計、長文処理、業務アプリ連携、Claude Cowork・Codeを駆使したエージェント開発を学ぶコースです。</p>
+                    </div>
+                    <a href="https://generative-ai.bytech.jp/claude-master/" className="curric-card__btn">コースの詳細を見る</a>
+                  </div>
+                </div>
                 {/* 0aa3371: Gemini */}
                 <div className="curric-card">
                   <img src="/bytech/assets/images/グループ-16175_7-1024x687.webp" alt="Geminiマスターコース" className="curric-card__thumb" loading="lazy" />
@@ -3836,7 +4004,7 @@ export default function BytechPage() {
               <div className="curric-panel__top">
                 {/* "02" バッジ */}
                 <div className="curric-panel__badge">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="98.008" height="100.356" viewBox="0 0 98.008 100.356">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="98.008"  height="100.356" viewBox="0 0 98.008 100.356">
                     <path d="M49.067-48.242q0,26.406-5.078,38.086-5.015,11.3-17.075,11.3T9.775-10.22Q4.761-21.265,4.761-49T9.775-87.788Q14.79-99.214,26.851-99.214q11.172,0,16.5,10.029Q49.067-78.584,49.067-48.242Zm-13.457,0q0-22.217-1.9-30.723-1.9-8.442-6.919-8.442T19.8-79.028q-1.9,8.379-1.9,30.151t1.9,30.215q1.968,8.379,6.982,8.379,4.951,0,6.855-8.315Q35.61-26.533,35.61-48.242ZM73-66.143H60.049l-.127-3.872q0-16.06,4.824-22.6,4.888-6.6,16.377-6.6,21.646,0,21.646,23.994,0,16.187-16.187,46.655L78.774-13.9l-.381.762q-.317.635-.889,1.841h24.248V0H58.716q1.079-2.412,4.507-9.585t9.331-19.36q5.015-10.664,8.379-18.091t5.078-12.187q3.428-9.521,3.428-16.44,0-12.187-8.442-12.187-8.125,0-8.125,15.107l.063,5.586Z" transform="translate(-4.762 99.214)" fill="#191722" />
                   </svg>
                 </div>
@@ -3934,6 +4102,7 @@ export default function BytechPage() {
                     <div className="curric-card__desc-wrap">
                       <p className="curric-card__desc">Geminiをベースにした、レポート作成やスクリプト作成、商談議事録の自動生成などの今まで時間をかけたくなかった業務を効率化するスキルを身につけます。</p>
                     </div>
+                    <span className="curric-card__btn--coming">Coming Soon...</span>
                   </div>
                 </div>
                 {/* 事務職 */}
@@ -3945,6 +4114,7 @@ export default function BytechPage() {
                     <div className="curric-card__desc-wrap">
                       <p className="curric-card__desc">議事録作成やExcelでの集計業務、業務マニュアルの作成など多岐にわたる事務業務の効率化スキルを身につけることができます。</p>
                     </div>
+                    <span className="curric-card__btn--coming">Coming Soon...</span>
                   </div>
                 </div>
                 {/* 企画職 */}
@@ -3956,6 +4126,31 @@ export default function BytechPage() {
                     <div className="curric-card__desc-wrap">
                       <p className="curric-card__desc">新規施策アイディア出しからカスタマージャーにマップの作成、アプリモック作成まで様々な企画業務に特化したスキルを身につけることができます。</p>
                     </div>
+                    <span className="curric-card__btn--coming">Coming Soon...</span>
+                  </div>
+                </div>
+                {/* 人事職 */}
+                <div className="curric-card">
+                  <img src="/bytech/assets/images/iPhone-14-Pro-–-136-1024x685.webp" alt="AI業務活用【人事職コース】" className="curric-card__thumb" loading="lazy" />
+                  <div className="curric-card__body">
+                    <p className="curric-card__name">AI業務活用【人事職コース】</p>
+                    <p className="curric-card__chapters">全8チャプター｜45レッスン</p>
+                    <div className="curric-card__desc-wrap">
+                      <p className="curric-card__desc">求人票作成の自動化から採用基準の策定、研修プログラムの構築など人手が必要だった採用人事周りの業務を効率化・自動化するスキルを身につけることができます。</p>
+                    </div>
+                    <span className="curric-card__btn--coming">Coming Soon...</span>
+                  </div>
+                </div>
+                {/* 生成AIパスポート */}
+                <div className="curric-card">
+                  <img src="/bytech/assets/images/グループ-16177_9-1024x685.webp" alt="生成AIパスポートコース" className="curric-card__thumb" loading="lazy" />
+                  <div className="curric-card__body">
+                    <p className="curric-card__name">生成AIパスポートコース</p>
+                    <p className="curric-card__chapters">全15チャプター｜32レッスン</p>
+                    <div className="curric-card__desc-wrap">
+                      <p className="curric-card__desc">生成AIパスポート試験の出題範囲を押さえながら、主要ツールの特徴やリスク、ビジネス活用のポイントを体系的に学ぶ講座です。AIリテラシーを証明したいビジネスパーソンにおすすめです。</p>
+                    </div>
+                    <a href="https://generative-ai.bytech.jp/generative-ai-passport/" className="curric-card__btn">コースの詳細を見る</a>
                   </div>
                 </div>
               </div>
@@ -3984,46 +4179,51 @@ export default function BytechPage() {
           {/* 5c5ca32 / 978f9f8: 画像カルーセル (2枚表示) */}
           <div className="skills-carousel fadein">
             {/* 前へボタン */}
-            <button className="skills-carousel__btn skills-carousel__btn--prev" data-dir="-1" aria-label="前へ">
+            <button className="skills-carousel__btn skills-carousel__btn--prev" aria-label="前へ">
               <svg aria-hidden="true" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
                 <path d="M646 125C629 125 613 133 604 142L308 442C296 454 292 471 292 487 292 504 296 521 308 533L604 854C617 867 629 875 646 875 663 875 679 871 692 858 704 846 713 829 713 812 713 796 708 779 692 767L438 487 692 225C700 217 708 204 708 187 708 171 704 154 692 142 675 129 663 125 646 125Z" />
               </svg>
             </button>
 
             {/* スライドトラック */}
-            <div className="skills-carousel__track">
-              <div className="skills-carousel__slide is-active">
-                <img src="/bytech/assets/images/CG-1-–-16.webp" alt="身につくスキル01_広告バナーデザイン" loading="lazy" />
-              </div>
-              <div className="skills-carousel__slide">
-                <img src="/bytech/assets/images/CG-1-–-15.webp" alt="身につくスキル02_スライドデザイン" loading="lazy" />
-              </div>
-              <div className="skills-carousel__slide">
-                <img src="/bytech/assets/images/CG-1-–-18.webp" alt="身につくスキル03_チャットボット制作" loading="lazy" />
-              </div>
-              <div className="skills-carousel__slide">
-                <img src="/bytech/assets/images/CG-1-–-17.webp" alt="身につくスキル04_AIアプリ開発" loading="lazy" />
-              </div>
-              <div className="skills-carousel__slide">
-                <img src="/bytech/assets/images/CG-1-–-19.webp" alt="身につくスキル05_ブログ記事制作" loading="lazy" />
-              </div>
-              <div className="skills-carousel__slide">
-                <img src="/bytech/assets/images/CG-1-–-14.webp" alt="身につくスキル06_GPTs制作" loading="lazy" />
+            <div className="skills-carousel__viewport">
+              <div className="skills-carousel__track" id="skillsTrack">
+                <div className="skills-carousel__slide">
+                  <img src="/bytech/assets/images/CG-1-–-16.webp" alt="身につくスキル01_広告バナーデザイン" loading="lazy" />
+                </div>
+                <div className="skills-carousel__slide">
+                  <img src="/bytech/assets/images/CG-1-–-15.webp" alt="身につくスキル02_スライドデザイン" loading="lazy" />
+                </div>
+                <div className="skills-carousel__slide">
+                  <img src="/bytech/assets/images/CG-1-–-18.webp" alt="身につくスキル03_チャットボット制作" loading="lazy" />
+                </div>
+                <div className="skills-carousel__slide">
+                  <img src="/bytech/assets/images/CG-1-–-17.webp" alt="身につくスキル04_AIアプリ開発" loading="lazy" />
+                </div>
+                <div className="skills-carousel__slide">
+                  <img src="/bytech/assets/images/CG-1-–-19.webp" alt="身につくスキル05_ブログ記事制作" loading="lazy" />
+                </div>
+                <div className="skills-carousel__slide">
+                  <img src="/bytech/assets/images/CG-1-–-14.webp" alt="身につくスキル06_GPTs制作" loading="lazy" />
+                </div>
               </div>
             </div>
 
             {/* 次へボタン */}
-            <button className="skills-carousel__btn skills-carousel__btn--next" data-dir="1" aria-label="次へ">
+            <button className="skills-carousel__btn skills-carousel__btn--next" aria-label="次へ">
               <svg aria-hidden="true" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
                 <path d="M696 533C708 521 713 504 713 487 713 471 708 454 696 446L400 146C388 133 375 125 354 125 338 125 325 129 313 142 300 154 292 171 292 187 292 204 296 221 308 233L563 492 304 771C292 783 288 800 288 817 288 833 296 850 308 863 321 871 338 875 354 875 371 875 388 867 400 854L696 533Z" />
               </svg>
             </button>
 
-            {/* ページネーションドット (6枚 → 3ページ分) */}
-            <div className="skills-carousel__dots">
-              <button className="skills-carousel__dot is-active" data-slide="0" aria-label="スライド1-2"></button>
-              <button className="skills-carousel__dot" data-slide="2" aria-label="スライド3-4"></button>
-              <button className="skills-carousel__dot" data-slide="4" aria-label="スライド5-6"></button>
+            {/* ページネーションドット (6枚) */}
+            <div className="skills-carousel__dots" id="skillsDots">
+              <button className="skills-carousel__dot is-active" aria-label="スライド1"></button>
+              <button className="skills-carousel__dot" aria-label="スライド2"></button>
+              <button className="skills-carousel__dot" aria-label="スライド3"></button>
+              <button className="skills-carousel__dot" aria-label="スライド4"></button>
+              <button className="skills-carousel__dot" aria-label="スライド5"></button>
+              <button className="skills-carousel__dot" aria-label="スライド6"></button>
             </div>
           </div>
         </div>
@@ -4033,68 +4233,46 @@ export default function BytechPage() {
       <section className="plan" id="plan">
         <div className="plan__inner">
           <div className="sec-header fadein">
-            <span className="sec-header__tag">PLAN</span>
             <h2 className="sec-header__ttl">バイテックの料金プラン</h2>
+            <span className="sec-header__tag">PLAN</span>
           </div>
           <div className="plan__grid fadein">
             {/* LITE */}
             <div className="plan-card">
-              <div className="plan-card__logo"><img src="/bytech/assets/images/logo-lite.svg" alt="LITE PLAN" /></div>
-              <div className="plan-card__label">LITE PLAN</div>
-              <div className="plan-card__name">ライトプラン</div>
-              <div className="plan-card__target"><span style={{color: 'var(--color-accent-pink)', fontWeight: 900}}>自分のペース</span>で学習したい方向け</div>
-              <div className="plan-card__price-row"><div className="plan-card__price"><span className="plan-card__price-label">一括料金</span><span className="plan-card__price-yen">¥</span><span className="plan-card__price-num">178,000</span></div></div>
-              <div className="plan-card__price-monthly">月額料金 ¥7,420</div>
-              <div className="plan-card__tags">
-                <div className="plan-card__tag">カリキュラム視聴<strong>無期限</strong></div>
-                <div className="plan-card__tag">チャットサポート<strong>1年間</strong></div>
-                <div className="plan-card__tag">面談サポート<strong>なし</strong></div>
+              <img className="plan-card__logo" src="/bytech/assets/images/LITEPLAN.svg" alt="" />
+              <h3 className="plan-card__en-name">LITE PLAN</h3>
+              <span className="plan-card__ja-name">ライトプラン</span>
+              <div className="plan-card__tagline">
+                <span className="plan-card__tagline-em">自分のペース</span>で学習したい方向け
               </div>
-              <div className="plan-card__divider"><span className="plan-card__divider-text">このプランで受けれるサービス</span></div>
-              <div className="plan-card__features">
-                <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>全てのコース無期限学習し放題</span></div>
-                <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>1年間無制限で質問し放題</span></div>
-                <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>コミュニティ参加</span></div>
-                <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>限定AI活用ウェビナー視聴</span></div>
-                <div className="plan-card__feature plan-card__feature--disabled"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>個別マンツーマンサポート（4ヶ月）</span></div>
-                <div className="plan-card__feature plan-card__feature--disabled"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>オーダーメイド実践課題の実施</span></div>
-                <div className="plan-card__feature plan-card__feature--disabled"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>スキル証明課題の添削</span></div>
-                <div className="plan-card__feature plan-card__feature--disabled"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>業務活用の検証サポート</span></div>
-                <div className="plan-card__feature plan-card__feature--disabled"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>収益化サポート</span></div>
-                <div className="plan-card__feature plan-card__feature--disabled"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>案件マッチングサポート</span></div>
+              <div className="plan-card__price-area">
+                <img className="plan-card__price-img" src="/bytech/assets/images/17.8.svg" alt="17.8万円（税込）" />
+                <img className="plan-card__price-img-month" src="/bytech/assets/images/月額_LITE.svg" alt="月額費用" />
+                <img className="plan-card__price-img-sub" src="/bytech/assets/images/lite_plan2.svg" alt="料金詳細" />
               </div>
-              <a href="https://form.run/@ds-form" target="_blank" className="plan-card__cta plan-card__cta--pink">今すぐ受講を申し込む</a>
+              <div className="plan-card__services-divider"><span>このプランで受けれるサービス</span></div>
+              <img className="plan-card__services-img" src="/bytech/assets/images/LITE.svg" alt="LITEプランサービス内容" />
+              <a href="https://form.run/@ds-form" target="_blank" className="plan-card__cta plan-card__cta--lite">今すぐ受講を申し込む</a>
             </div>
             {/* PRO */}
             <div className="plan-card plan-card--pro">
-              <div className="plan-card__logo"><img src="/bytech/assets/images/logo-pro.svg" alt="PRO PLAN" /></div>
-              <div className="plan-card__label">PRO PLAN</div>
-              <div className="plan-card__name">プロプラン</div>
-              <div className="plan-card__target"><span style={{color: 'var(--color-primary)', fontWeight: 900}}>専任のAIメンター</span>が伴走サポート</div>
-              <div className="plan-card__price-row"><div className="plan-card__price"><span className="plan-card__price-label">一括料金</span><span className="plan-card__price-yen">¥</span><span className="plan-card__price-num">298,000</span></div></div>
-              <div className="plan-card__price-monthly">月額料金 ¥12,400</div>
-              <div className="plan-card__tags">
-                <div className="plan-card__tag">カリキュラム視聴<strong>無期限</strong></div>
-                <div className="plan-card__tag">チャットサポート<strong>1年間</strong></div>
-                <div className="plan-card__tag">面談サポート<strong>4ヶ月間<span style={{fontSize: '10px', fontWeight: 400}}>(月2回)</span></strong></div>
+              <img className="plan-card__logo" src="/bytech/assets/images/PROPLAN.svg" alt="" />
+              <h3 className="plan-card__en-name">PRO PLAN</h3>
+              <span className="plan-card__ja-name">プロプラン</span>
+              <div className="plan-card__tagline">
+                <span className="plan-card__tagline-em">専任のAIメンター</span>が伴走サポート
               </div>
-              <div className="plan-card__divider"><span className="plan-card__divider-text">このプランで受けれるサービス</span></div>
-              <div className="plan-card__features">
-                <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>全てのコース無期限学習し放題</span></div>
-                <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>1年間無制限で質問し放題</span></div>
-                <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>コミュニティ参加</span></div>
-                <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>限定AI活用ウェビナー視聴</span></div>
-                <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>個別マンツーマンサポート（4ヶ月）</span></div>
-                <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>オーダーメイド実践課題の実施</span></div>
-                <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>スキル証明課題の添削</span></div>
-                <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>業務活用の検証サポート</span></div>
-                <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>収益化サポート</span></div>
-                <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>案件マッチングサポート</span></div>
+              <div className="plan-card__price-area">
+                <img className="plan-card__price-img" src="/bytech/assets/images/29.8.svg" alt="29.8万円（税込）" />
+                <img className="plan-card__price-img-month" src="/bytech/assets/images/PRO_月額.svg" alt="月額費用" />
+                <img className="plan-card__price-img-sub" src="/bytech/assets/images/pro料金詳細.svg" alt="料金詳細" />
               </div>
-              <a href="https://generative-ai.bytech.jp/counseling/" target="_blank" className="plan-card__cta plan-card__cta--blue">まずは無料相談を予約する</a>
+              <div className="plan-card__services-divider"><span>このプランで受けれるサービス</span></div>
+              <img className="plan-card__services-img" src="/bytech/assets/images/PRO.svg" alt="PROプランサービス内容" />
+              <a href="https://generative-ai.bytech.jp/counseling/" target="_blank" className="plan-card__cta plan-card__cta--pro">まずは無料相談を予約する</a>
             </div>
           </div>
-          {/* SP: tab switching */}
+                    {/* SP: tab switching */}
           <div className="plan__sp-tabs fadein">
             <input type="radio" name="plan-tab" id="plan-tab-lite" defaultChecked className="plan__tab-radio" />
             <input type="radio" name="plan-tab" id="plan-tab-pro" className="plan__tab-radio" />
@@ -4106,71 +4284,45 @@ export default function BytechPage() {
               {/* LITE tab panel */}
               <div className="plan__tab-panel plan__tab-panel--lite">
                 <div className="plan-card">
-                  <div className="plan-card__logo"><img src="/bytech/assets/images/logo-lite.svg" alt="LITE PLAN" /></div>
-                  <div className="plan-card__label">LITE PLAN</div>
-                  <div className="plan-card__name">ライトプラン</div>
-                  <div className="plan-card__target"><span style={{color: 'var(--color-accent-pink)', fontWeight: 900}}>自分のペース</span>で学習したい方向け</div>
-                  <div className="plan-card__price-row"><div className="plan-card__price"><span className="plan-card__price-label">一括料金</span><span className="plan-card__price-yen">¥</span><span className="plan-card__price-num">178,000</span></div></div>
-                  <div className="plan-card__price-monthly">月額料金 ¥7,420</div>
-                  <div className="plan-card__tags">
-                    <div className="plan-card__tag">カリキュラム視聴<strong>無期限</strong></div>
-                    <div className="plan-card__tag">チャットサポート<strong>1年間</strong></div>
-                    <div className="plan-card__tag">面談サポート<strong>なし</strong></div>
+                  <img className="plan-card__logo" src="/bytech/assets/images/LITEPLAN.svg" alt="" />
+                  <h3 className="plan-card__en-name">LITE PLAN</h3>
+                  <span className="plan-card__ja-name">ライトプラン</span>
+                  <div className="plan-card__tagline">
+                    <span className="plan-card__tagline-em">自分のペース</span>で学習したい方向け
                   </div>
-                  <div className="plan-card__divider"><span className="plan-card__divider-text">このプランで受けれるサービス</span></div>
-                  <div className="plan-card__features">
-                    <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>全てのコース無期限学習し放題</span></div>
-                    <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>1年間無制限で質問し放題</span></div>
-                    <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>コミュニティ参加</span></div>
-                    <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>限定AI活用ウェビナー視聴</span></div>
-                    <div className="plan-card__feature plan-card__feature--disabled"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>個別マンツーマンサポート（4ヶ月）</span></div>
-                    <div className="plan-card__feature plan-card__feature--disabled"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>オーダーメイド実践課題の実施</span></div>
-                    <div className="plan-card__feature plan-card__feature--disabled"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>スキル証明課題の添削</span></div>
-                    <div className="plan-card__feature plan-card__feature--disabled"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>業務活用の検証サポート</span></div>
-                    <div className="plan-card__feature plan-card__feature--disabled"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>収益化サポート</span></div>
-                    <div className="plan-card__feature plan-card__feature--disabled"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>案件マッチングサポート</span></div>
+                  <div className="plan-card__price-area">
+                    <img className="plan-card__price-img" src="/bytech/assets/images/17.8.svg" alt="17.8万円（税込）" />
+                    <img className="plan-card__price-img" src="/bytech/assets/images/月額_LITE.svg" alt="月額費用" />
+                    <img className="plan-card__price-img" src="/bytech/assets/images/lite_plan2.svg" alt="料金詳細" />
                   </div>
-                  <a href="https://form.run/@ds-form" target="_blank" className="plan-card__cta plan-card__cta--pink">今すぐ受講を申し込む</a>
+                  <div className="plan-card__services-divider"><span>このプランで受けれるサービス</span></div>
+                  <img className="plan-card__services-img" src="/bytech/assets/images/LITE.svg" alt="LITEプランサービス内容" />
+                  <a href="https://form.run/@ds-form" target="_blank" className="plan-card__cta plan-card__cta--lite">今すぐ受講を申し込む</a>
                 </div>
               </div>
               {/* PRO tab panel */}
               <div className="plan__tab-panel plan__tab-panel--pro">
                 <div className="plan-card plan-card--pro">
-                  <div className="plan-card__logo"><img src="/bytech/assets/images/logo-pro.svg" alt="PRO PLAN" /></div>
-                  <div className="plan-card__label">PRO PLAN</div>
-                  <div className="plan-card__name">プロプラン</div>
-                  <div className="plan-card__target"><span style={{color: 'var(--color-primary)', fontWeight: 900}}>専任のAIメンター</span>が伴走サポート</div>
-                  <div className="plan-card__price-row"><div className="plan-card__price"><span className="plan-card__price-label">一括料金</span><span className="plan-card__price-yen">¥</span><span className="plan-card__price-num">298,000</span></div></div>
-                  <div className="plan-card__price-monthly">月額料金 ¥12,400</div>
-                  <div className="plan-card__tags">
-                    <div className="plan-card__tag">カリキュラム視聴<strong>無期限</strong></div>
-                    <div className="plan-card__tag">チャットサポート<strong>1年間</strong></div>
-                    <div className="plan-card__tag">面談サポート<strong>4ヶ月間<span style={{fontSize: '10px', fontWeight: 400}}>(月2回)</span></strong></div>
+                  <img className="plan-card__logo" src="/bytech/assets/images/PROPLAN.svg" alt="" />
+                  <h3 className="plan-card__en-name">PRO PLAN</h3>
+                  <span className="plan-card__ja-name">プロプラン</span>
+                  <div className="plan-card__tagline">
+                    <span className="plan-card__tagline-em plan-card__tagline-em--pro">専任のAIメンター</span>が伴走サポート
                   </div>
-                  <div className="plan-card__divider"><span className="plan-card__divider-text">このプランで受けれるサービス</span></div>
-                  <div className="plan-card__features">
-                    <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>全てのコース無期限学習し放題</span></div>
-                    <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>1年間無制限で質問し放題</span></div>
-                    <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>コミュニティ参加</span></div>
-                    <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>限定AI活用ウェビナー視聴</span></div>
-                    <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>個別マンツーマンサポート（4ヶ月）</span></div>
-                    <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>オーダーメイド実践課題の実施</span></div>
-                    <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>スキル証明課題の添削</span></div>
-                    <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>業務活用の検証サポート</span></div>
-                    <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>収益化サポート</span></div>
-                    <div className="plan-card__feature"><span className="plan-card__feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span><span>案件マッチングサポート</span></div>
+                  <div className="plan-card__price-area">
+                    <img className="plan-card__price-img" src="/bytech/assets/images/29.8.svg" alt="29.8万円（税込）" />
+                    <img className="plan-card__price-img" src="/bytech/assets/images/PRO_月額.svg" alt="月額費用" />
+                    <img className="plan-card__price-img" src="/bytech/assets/images/pro料金詳細.svg" alt="料金詳細" />
                   </div>
-                  <a href="https://generative-ai.bytech.jp/counseling/" target="_blank" className="plan-card__cta plan-card__cta--blue">まずは無料相談を予約する</a>
+                  <div className="plan-card__services-divider"><span>このプランで受けれるサービス</span></div>
+                  <img className="plan-card__services-img" src="/bytech/assets/images/PRO.svg" alt="PROプランサービス内容" />
+                  <a href="https://generative-ai.bytech.jp/counseling/" target="_blank" className="plan-card__cta plan-card__cta--pro">まずは無料相談を予約する</a>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="plan__note fadein">
-            料金に見合ったサービスが受けれるか不安な方もお気軽にご相談ください。<br />
-            ※ 無理な勧誘は行っていません。
-          </div>
-          <div className="plan__payment fadein">
+                    <div className="plan__payment fadein">
             <h3>お支払い方法は、2種類ご用意しています</h3>
             <div className="plan__payment__methods">
               <div className="plan__payment__method">
@@ -4185,6 +4337,14 @@ export default function BytechPage() {
             <div className="plan__payment__cards">
               <img src="/bytech/assets/images/card-brands.svg" alt="VISA / Mastercard / American Express / Diners Club" />
             </div>
+          </div>
+          <div className="plan__detail-link-wrap">
+            <a href="https://generative-ai.bytech.jp/plan" className="plan__detail-link">
+              料金プランの詳細を見る
+              <svg className="plan__detail-link__icon" aria-hidden="true" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg">
+                <path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z" />
+              </svg>
+            </a>
           </div>
           {/* SP only: plan detail link button */}
           <div className="plan__sp-detail-btn-wrap">
@@ -4326,7 +4486,7 @@ export default function BytechPage() {
           <div className="faq__groups">
             {/* 無料カウンセリングについて */}
             <div className="faq__group fadein">
-              <div className="faq__group__ttl">無料カウンセリングについて</div>
+              <div className="faq__group__ttl"><span>無料カウンセリング</span>について</div>
               <div className="faq__list">
                 <div className="faq__item">
                   <button className="faq__item__q">
@@ -4356,7 +4516,7 @@ export default function BytechPage() {
             </div>
             {/* カリキュラムについて */}
             <div className="faq__group fadein">
-              <div className="faq__group__ttl">カリキュラムについて</div>
+              <div className="faq__group__ttl"><span>カリキュラム</span>について</div>
               <div className="faq__list">
                 <div className="faq__item">
                   <button className="faq__item__q">
@@ -4394,7 +4554,7 @@ export default function BytechPage() {
             </div>
             {/* サポートについて */}
             <div className="faq__group fadein">
-              <div className="faq__group__ttl">サポートについて</div>
+              <div className="faq__group__ttl"><span>サポート</span>について</div>
               <div className="faq__list">
                 <div className="faq__item">
                   <button className="faq__item__q">
@@ -4424,7 +4584,7 @@ export default function BytechPage() {
             </div>
             {/* 受講準備について */}
             <div className="faq__group fadein">
-              <div className="faq__group__ttl">受講準備について</div>
+              <div className="faq__group__ttl"><span>受講準備</span>について</div>
               <div className="faq__list">
                 <div className="faq__item">
                   <button className="faq__item__q">
@@ -4446,7 +4606,7 @@ export default function BytechPage() {
             </div>
             {/* 支払い方法について */}
             <div className="faq__group fadein">
-              <div className="faq__group__ttl">支払い方法について</div>
+              <div className="faq__group__ttl"><span>支払い方法</span>について</div>
               <div className="faq__list">
                 <div className="faq__item">
                   <button className="faq__item__q">
@@ -4474,69 +4634,75 @@ export default function BytechPage() {
       <footer className="footer">
         <div className="footer__main">
           <div className="footer__inner">
-            <div className="footer__row">
-              {/* Logo area (DOM first, appears right via flex order) */}
-              <div className="footer__logo-area">
-                <div className="footer__logo-divider" />
-                <div className="footer__logo-row">
-                  <div className="footer__logo">
-                    <a href="https://generative-ai.bytech.jp/">
-                      <img src="/bytech/assets/images/logowhite.png" alt="バイテック生成AI" />
-                    </a>
-                  </div>
-                  <p className="footer__copyright">2026 株式会社AI棒</p>
-                </div>
-              </div>
-              {/* Content area (order: -1, appears left) */}
-              <div className="footer__content">
-                <h2 className="footer__tagline">最短4ヶ月で、<br />生成AI活用のプロに。</h2>
-                <div className="footer__nav-cols">
-                  <div className="footer__nav-col-courses">
-                    <div className="footer__nav-section-ttl">コース一覧</div>
-                    <div className="footer__nav-divider" />
-                    <div className="footer__nav-sub-ttl">- 主要AI別</div>
-                    <ul className="footer__nav-list">
-                      <li><a href="https://generative-ai.bytech.jp/chatgpt-master/">ChatGPTマスターコース</a></li>
-                      <li><a href="https://generative-ai.bytech.jp/gemini-master/">Geminiマスターコース</a></li>
-                      <li><a href="https://generative-ai.bytech.jp/copilot-master/">Copilotマスターコース</a></li>
-                      <li><a href="https://generative-ai.bytech.jp/dify-master/">DIfyマスターコース</a></li>
-                      <li><a href="https://generative-ai.bytech.jp/notebooklm-master/">NotebookLMマスターコース</a></li>
-                    </ul>
-                    <div className="footer__nav-sub-ttl">- 目的別</div>
-                    <ul className="footer__nav-list">
-                      <li><a href="https://generative-ai.bytech.jp/ai-writer/">AIウェブライターコース</a></li>
-                      <li><a href="https://generative-ai.bytech.jp/ai-movie-creator/">AI動画クリエイターコース</a></li>
-                      <li><a href="https://generative-ai.bytech.jp/ai-image-creator/">AI画像クリエイターコース</a></li>
-                      <li><a href="https://generative-ai.bytech.jp/business-worker/">ビジネスワーカーコース</a></li>
-                      <li><a href="https://generative-ai.bytech.jp/generative-ai-passport/">生成AIパスポートコース</a></li>
-                    </ul>
-                  </div>
-                  <div className="footer__nav-col-support">
-                    <div className="footer__nav-section-ttl">サポート</div>
-                    <div className="footer__nav-divider" />
-                    <ul className="footer__nav-list">
-                      <li><a href="https://generative-ai.bytech.jp/membership-terms/">会員規約</a></li>
-                      <li><a href="https://generative-ai.bytech.jp/refund-policy/">返金ポリシー</a></li>
-                      <li><a href="https://generative-ai.bytech.jp/job-membership-terms/">案件獲得保証プラン利用規約</a></li>
-                      <li><a href="https://generative-ai.bytech.jp/specified_commercial/">特定商取引法に関する表示</a></li>
-                      <li><a href="https://generative-ai.bytech.jp/system-requirements/">システム要件</a></li>
-                    </ul>
-                    <div className="footer__nav-section-ttl" style={{marginTop: '16px'}}>会社情報</div>
-                    <div className="footer__nav-divider" />
-                    <ul className="footer__nav-list">
-                      <li><a href="https://ai-bou.co.jp">会社概要</a></li>
-                      <li><a href="https://generative-ai.bytech.jp/privacy-policy/">プライバシーポリシー</a></li>
-                    </ul>
-                    <div className="footer__nav-section-ttl" style={{marginTop: '10px'}}>関連サービス</div>
-                    <div className="footer__nav-divider" />
-                    <ul className="footer__nav-list">
-                      <li><a href="https://bytech.jp/biz">法人向けAI研修 【バイテックBiz】</a></li>
-                      <li><a href="https://bytech.jp/blog">個人向けAIメディア【バイテックBLOG】</a></li>
-                      <li><a href="https://biz.bytech.jp/blog/">企業向けAIメディア【バイテックBLOG Biz】</a></li>
-                    </ul>
+            {/* Top: tagline + nav */}
+            <div className="footer__body">
+              <h2 className="footer__tagline">最短4ヶ月で、<br />生成AI活用のプロに。</h2>
+              <nav className="footer__nav">
+                {/* コース一覧 */}
+                <div className="footer__nav-col footer__nav-col--courses">
+                  <div className="footer__nav-section-ttl">コース一覧</div>
+                  <div className="footer__nav-divider" />
+                  <div className="footer__nav-sub-cols">
+                    <div className="footer__nav-sub-col">
+                      <div className="footer__nav-sub-ttl">- 主要AI別</div>
+                      <ul className="footer__nav-list">
+                        <li><a href="https://generative-ai.bytech.jp/chatgpt-master/">ChatGPTマスターコース</a></li>
+                        <li><a href="https://generative-ai.bytech.jp/gemini-master/">Geminiマスターコース</a></li>
+                        <li><a href="https://generative-ai.bytech.jp/copilot-master/">Copilotマスターコース</a></li>
+                        <li><a href="https://generative-ai.bytech.jp/dify-master/">DIfyマスターコース</a></li>
+                        <li><a href="https://generative-ai.bytech.jp/notebooklm-master/">NotebookLMマスターコース</a></li>
+                        <li><a href="https://generative-ai.bytech.jp/claude-master/">Claudeマスターコース</a></li>
+                      </ul>
+                    </div>
+                    <div className="footer__nav-sub-col">
+                      <div className="footer__nav-sub-ttl">- 目的別</div>
+                      <ul className="footer__nav-list">
+                        <li><a href="https://generative-ai.bytech.jp/ai-writer/">AIウェブライターコース</a></li>
+                        <li><a href="https://generative-ai.bytech.jp/ai-movie-creator/">AI動画クリエイターコース</a></li>
+                        <li><a href="https://generative-ai.bytech.jp/ai-image-creator/">AI画像クリエイターコース</a></li>
+                        <li><a href="https://generative-ai.bytech.jp/business-worker/">ビジネスワーカーコース</a></li>
+                        <li><a href="https://generative-ai.bytech.jp/generative-ai-passport/">生成AIパスポートコース</a></li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
+                {/* サポート */}
+                <div className="footer__nav-col footer__nav-col--support">
+                  <div className="footer__nav-section-ttl">サポート</div>
+                  <div className="footer__nav-divider" />
+                  <ul className="footer__nav-list">
+                    <li><a href="https://generative-ai.bytech.jp/membership-terms/">会員規約</a></li>
+                    <li><a href="https://generative-ai.bytech.jp/refund-policy/">返金ポリシー</a></li>
+                    <li><a href="https://generative-ai.bytech.jp/job-membership-terms/">案件獲得保証プラン利用規約</a></li>
+                    <li><a href="https://generative-ai.bytech.jp/specified_commercial/">特定商取引法に関する表示</a></li>
+                    <li><a href="https://generative-ai.bytech.jp/system-requirements/">システム要件</a></li>
+                  </ul>
+                </div>
+                {/* 会社情報 + 関連サービス */}
+                <div className="footer__nav-col footer__nav-col--company">
+                  <div className="footer__nav-section-ttl">会社情報</div>
+                  <div className="footer__nav-divider" />
+                  <ul className="footer__nav-list">
+                    <li><a href="https://ai-bou.co.jp">会社概要</a></li>
+                    <li><a href="https://generative-ai.bytech.jp/privacy-policy/">プライバシーポリシー</a></li>
+                  </ul>
+                  <div className="footer__nav-section-ttl" style={{marginTop: '20px'}}>関連サービス</div>
+                  <div className="footer__nav-divider" />
+                  <ul className="footer__nav-list">
+                    <li><a href="https://bytech.jp/biz">法人向けAI研修 【バイテックBiz】</a></li>
+                    <li><a href="https://bytech.jp/blog">個人向けAIメディア【バイテックBLOG】</a></li>
+                    <li><a href="https://biz.bytech.jp/blog/">企業向けAIメディア【バイテックBLOG Biz】</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+            {/* Bottom bar: logo + copyright */}
+            <div className="footer__bottom-bar">
+              <a href="https://generative-ai.bytech.jp/" className="footer__logo-link">
+                <img className="footer__logo-img" src="/bytech/assets/images/logowhite.png" alt="バイテック生成AI" />
+                <span className="footer__logo-sub">GENERATIVE AI</span>
+              </a>
+              <p className="footer__copyright">2026 株式会社AI棒</p>
             </div>
           </div>
         </div>
@@ -4546,7 +4712,6 @@ export default function BytechPage() {
           </div>
         </div>
       </footer>
-
       {/* Fixed mobile CTA */}
       <div className="fixed-footer-cta" id="fixedFooterCta">
         <a className="fixed-footer-cta__link" href="https://generative-ai.bytech.jp/counseling/">
@@ -4814,35 +4979,80 @@ export default function BytechPage() {
 
       <Script id="bytech-skills-slider" strategy="afterInteractive">{`
         (function() {
-          var page = 0;
-          var slides = document.querySelectorAll('.skills-carousel__slide');
-          var dots = document.querySelectorAll('.skills-carousel__dot');
-          var total = slides.length;
-          var perPage = window.innerWidth <= 767 ? 1 : 2;
-          var pages = Math.ceil(total / perPage);
-          function showPage(p) {
-            perPage = window.innerWidth <= 767 ? 1 : 2;
-            pages = Math.ceil(total / perPage);
-            page = ((p % pages) + pages) % pages;
-            for (var i = 0; i < total; i++) slides[i].classList.remove('is-active');
-            dots.forEach(function(d) { d.classList.remove('is-active'); });
-            for (var j = 0; j < perPage; j++) {
-              var idx = page * perPage + j;
-              if (idx < total) slides[idx].classList.add('is-active');
-            }
-            if (dots[page]) dots[page].classList.add('is-active');
+          var track = document.getElementById('skillsTrack');
+          var dotsWrap = document.getElementById('skillsDots');
+          if (!track || !dotsWrap) return;
+
+          var origSlides = Array.prototype.slice.call(track.querySelectorAll('.skills-carousel__slide'));
+          var N = origSlides.length;
+          var dots = Array.prototype.slice.call(dotsWrap.querySelectorAll('.skills-carousel__dot'));
+
+          /* クローン：最後を先頭に、最初を末尾に追加 */
+          var cloneLast = origSlides[N - 1].cloneNode(true);
+          var cloneFirst = origSlides[0].cloneNode(true);
+          track.insertBefore(cloneLast, track.firstChild);
+          track.appendChild(cloneFirst);
+
+          /* pos=1 が最初の本物スライド */
+          var pos = 1;
+          var busy = false;
+          var timer = null;
+
+          function setPos(p, animated) {
+            track.style.transition = animated ? 'transform 0.4s ease' : 'none';
+            track.style.transform = 'translateX(calc(-' + p + ' * 100%))';
           }
-          showPage(0);
-          document.querySelectorAll('.skills-carousel__btn').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-              showPage(page + parseInt(this.getAttribute('data-dir')));
+
+          function updateDots(p) {
+            var dotIdx = ((p - 1) % N + N) % N;
+            dots.forEach(function(d, i) {
+              d.classList.toggle('is-active', i === dotIdx);
+            });
+          }
+
+          setPos(pos, false);
+          updateDots(pos);
+
+          function go(delta) {
+            if (busy) return;
+            busy = true;
+            pos += delta;
+            setPos(pos, true);
+            updateDots(pos);
+          }
+
+          track.addEventListener('transitionend', function() {
+            if (pos >= N + 1) { pos -= N; setPos(pos, false); }
+            if (pos <= 0)     { pos += N; setPos(pos, false); }
+            setTimeout(function() { busy = false; }, 20);
+          });
+
+          function startTimer() {
+            if (timer) clearInterval(timer);
+            timer = setInterval(function() { go(1); }, 5000);
+          }
+
+          var carousel = track.closest('.skills-carousel');
+          if (carousel) {
+            var prevBtn = carousel.querySelector('.skills-carousel__btn--prev');
+            var nextBtn = carousel.querySelector('.skills-carousel__btn--next');
+            if (prevBtn) prevBtn.addEventListener('click', function() { go(-1); startTimer(); });
+            if (nextBtn) nextBtn.addEventListener('click', function() { go(1);  startTimer(); });
+          }
+
+          dots.forEach(function(dot, i) {
+            dot.addEventListener('click', function() {
+              if (busy) return;
+              busy = true;
+              pos = i + 1;
+              setPos(pos, true);
+              updateDots(pos);
+              startTimer();
+              setTimeout(function() { busy = false; }, 420);
             });
           });
-          dots.forEach(function(dot, i) {
-            dot.addEventListener('click', function() { showPage(i); });
-          });
-          /* オートプレイ 5秒 */
-          setInterval(function() { showPage(page + 1); }, 5000);
+
+          startTimer();
         })();
 
         // ===== Voices Carousel (infinite loop) =====
@@ -4944,7 +5154,7 @@ export default function BytechPage() {
           function startAuto() {
             autoTimer = setInterval(function() {
               carousel.scrollBy({ left: getItemWidth(), behavior: 'smooth' });
-            }, 3000);
+            }, 5000);
           }
           startAuto();
           carousel.addEventListener('mouseenter', function() { clearInterval(autoTimer); });
@@ -4988,5 +5198,188 @@ export default function BytechPage() {
         })();
       `}</Script>
     </>
+  )
+}
+
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
+
+const V = 3
+
+function useInfiniteCarousel<T>(rawSlides: T[]) {
+  const N = rawSlides.length
+  const extended = useMemo(() => [
+    ...rawSlides.slice(-V),
+    ...rawSlides,
+    ...rawSlides.slice(0, V),
+  ], [rawSlides])
+  const [pos, setPos] = useState(V)
+  const [anim, setAnim] = useState(true)
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const busyRef = useRef(false)
+
+  const go = useCallback((delta: number) => {
+    if (busyRef.current) return
+    busyRef.current = true
+    setAnim(true)
+    setPos(prev => prev + delta)
+  }, [])
+
+  const goTo = useCallback((dotIdx: number) => {
+    if (busyRef.current) return
+    busyRef.current = true
+    setAnim(true)
+    setPos(V + dotIdx)
+  }, [])
+
+  const startTimer = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current)
+    timerRef.current = setInterval(() => go(1), 5000)
+  }, [go])
+
+  useEffect(() => {
+    startTimer()
+    return () => { if (timerRef.current) clearInterval(timerRef.current) }
+  }, [startTimer])
+
+  useEffect(() => {
+    if (!anim) {
+      const id = setTimeout(() => {
+        setAnim(true)
+        busyRef.current = false
+      }, 20)
+      return () => clearTimeout(id)
+    }
+    const id = setTimeout(() => {
+      setPos(prev => {
+        if (prev >= N + V) { setAnim(false); return prev - N }
+        if (prev < V)      { setAnim(false); return prev + N }
+        busyRef.current = false
+        return prev
+      })
+    }, 420)
+    return () => clearTimeout(id)
+  }, [pos, anim, N])
+
+  const dotIdx = ((pos - V) % N + N) % N
+  const trackStyle = {
+    transform: `translateX(calc(-${pos} * 33.333%))`,
+    transition: anim ? 'transform 0.4s ease' : 'none',
+  }
+
+  return { extended, dotIdx, N, trackStyle, go, goTo, startTimer }
+}
+
+const slides = [
+  '/bytech/assets/images/アートボード-–-19.png',
+  '/bytech/assets/images/アートボード-–-20.png',
+  '/bytech/assets/images/アートボード-–-22.png',
+  '/bytech/assets/images/アートボード-–-21.png',
+  '/bytech/assets/images/アートボード-–-24.png',
+  '/bytech/assets/images/アートボード-–-25.png',
+  '/bytech/assets/images/アートボード-–-23.png',
+]
+
+function R2Carousel() {
+  const { extended, dotIdx, N, trackStyle, go, goTo, startTimer } = useInfiniteCarousel(slides)
+
+  return (
+    <div className="r2-sub__carousel">
+      <button className="r2-sub__btn r2-sub__btn--prev" aria-label="前へ" onClick={() => { go(-1); startTimer() }}>
+        <svg viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 1L2 8l6 7" stroke="#FFD464" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
+      </button>
+      <div className="r2-sub__viewport">
+        <div className="r2-sub__slides" style={trackStyle}>
+          {(extended as string[]).map((src, i) => (
+            <div className="r2-sub__slide" key={i}>
+              <img src={src} alt="実践課題" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+      <button className="r2-sub__btn r2-sub__btn--next" aria-label="次へ" onClick={() => { go(1); startTimer() }}>
+        <svg viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg"><path d="M2 1l6 7-6 7" stroke="#FFD464" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
+      </button>
+      <div className="r2-sub__dots">
+        {Array.from({ length: N }).map((_, i) => (
+          <button key={i} className={`r2-sub__dot${i === dotIdx ? ' r2-sub__dot--active' : ''}`} aria-label={`スライド${i + 1}`} onClick={() => { goTo(i); startTimer() }} />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+const r3Slides = [
+  { src: '/bytech/assets/images/グループ-19545-1.webp', alt: 'バイテックAIメンター07_田中省吾' },
+  { src: '/bytech/assets/images/グループ-19539-1.webp', alt: 'バイテックAIメンター02_池田義国' },
+  { src: '/bytech/assets/images/グループ-19542-1.webp', alt: 'バイテックAIメンター05_後藤暁子' },
+  { src: '/bytech/assets/images/グループ-19538-1.webp', alt: 'バイテックAIメンター01_野口侑渡' },
+  { src: '/bytech/assets/images/グループ-19541-1.webp', alt: 'バイテックAIメンター04_椿明人' },
+  { src: '/bytech/assets/images/グループ-19540-1.webp', alt: 'バイテックAIメンター03_木村竜太郎' },
+  { src: '/bytech/assets/images/グループ-19543-1.webp', alt: 'バイテックAIメンター06_那須太陽' },
+]
+
+function R3Carousel() {
+  const { extended, dotIdx, N, trackStyle, go, goTo, startTimer } = useInfiniteCarousel(r3Slides)
+
+  return (
+    <div className="r3-sub__carousel">
+      <button className="r3-sub__btn r3-sub__btn--prev" aria-label="前へ" onClick={() => { go(-1); startTimer() }}>
+        <svg viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 1L2 8l6 7" stroke="#FFD464" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
+      </button>
+      <div className="r3-sub__viewport">
+        <div className="r3-sub__slides" style={trackStyle}>
+          {(extended as typeof r3Slides).map((slide, i) => (
+            <div className="r3-sub__slide" key={i}>
+              <img src={slide.src} alt={slide.alt} loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+      <button className="r3-sub__btn r3-sub__btn--next" aria-label="次へ" onClick={() => { go(1); startTimer() }}>
+        <svg viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg"><path d="M2 1l6 7-6 7" stroke="#FFD464" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
+      </button>
+      <div className="r3-sub__dots">
+        {Array.from({ length: N }).map((_, i) => (
+          <button key={i} className={`r3-sub__dot${i === dotIdx ? ' r3-sub__dot--active' : ''}`} aria-label={`スライド${i + 1}`} onClick={() => { goTo(i); startTimer() }} />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+const r5Slides = [
+  { src: '/bytech/assets/images/b-create2_1_11zon.webp', alt: 'b-create' },
+  { src: '/bytech/assets/images/b-carrer_2_2_11zon.webp', alt: 'b-carrer' },
+  { src: '/bytech/assets/images/b-biz1_3_11zon.webp', alt: 'b-biz1' },
+  { src: '/bytech/assets/images/b-biz1-–-2_4.webp', alt: 'b-biz2' },
+  { src: '/bytech/assets/images/b-biz1-–-1_5.webp', alt: 'b-biz3' },
+]
+
+function R5Carousel() {
+  const { extended, dotIdx, N, trackStyle, go, goTo, startTimer } = useInfiniteCarousel(r5Slides)
+
+  return (
+    <div className="r5-carousel">
+      <button className="r5-carousel__btn r5-carousel__btn--prev" aria-label="前へ" onClick={() => { go(-1); startTimer() }}>
+        <svg viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 1L2 8l6 7" stroke="#FFD464" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
+      </button>
+      <div className="r5-carousel__viewport">
+        <div className="r5-carousel__track" style={trackStyle}>
+          {(extended as typeof r5Slides).map((slide, i) => (
+            <div className="r5-carousel__slide" key={i}>
+              <img src={slide.src} alt={slide.alt} loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+      <button className="r5-carousel__btn r5-carousel__btn--next" aria-label="次へ" onClick={() => { go(1); startTimer() }}>
+        <svg viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg"><path d="M2 1l6 7-6 7" stroke="#FFD464" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
+      </button>
+      <div className="r5-carousel__dots">
+        {Array.from({ length: N }).map((_, i) => (
+          <button key={i} className={`r5-carousel__dot${i === dotIdx ? ' r5-carousel__dot--active' : ''}`} aria-label={`スライド${i + 1}`} onClick={() => { goTo(i); startTimer() }} />
+        ))}
+      </div>
+    </div>
   )
 }
