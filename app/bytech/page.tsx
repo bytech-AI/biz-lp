@@ -274,11 +274,11 @@ export default function BytechPage() {
     }
 
     /* 統計バッジ */
-    .hero__badges { margin: 30px 0 0; padding-right: 500px; }
+    .hero__badges { margin: 30px 0 0; max-width: 500px; }
     .hero__badges img { width: 80%; display: block; }
 
     /* CTAボタン */
-    .hero__cta { display: block; padding-right: 700px; }
+    .hero__cta { display: block; max-width: 380px; }
     .hero__cta img { width: 100%; display: block; animation: header-cta-pulse 2s linear infinite; }
 
     /* 注釈テキスト */
@@ -286,14 +286,15 @@ export default function BytechPage() {
       font-family: "Noto Sans JP", sans-serif;
       font-size: 12px; font-weight: 400; color: #fff;
       line-height: 1.8; margin: 40px 0 30px;
+      max-width: 500px;
     }
 
     /* SP・タブレット用バッジ */
-    .hero__badges-sp { margin: 30px 0 0; padding-right: 500px; }
+    .hero__badges-sp { margin: 30px 0 0; max-width: 500px; }
     .hero__badges-sp img { width: 80%; display: block; }
 
     /* SP・タブレット用CTA */
-    .hero__cta-sp { display: block; padding-right: 520px; margin-top: 40px; }
+    .hero__cta-sp { display: block; max-width: 380px; margin-top: 40px; }
     .hero__cta-sp img { width: 100%; display: block; border-radius: 0; animation: header-cta-pulse 2s linear infinite; }
 
     /* SP注釈テキスト */
@@ -312,9 +313,9 @@ export default function BytechPage() {
       .hero__sp-widget--logo { width: 70%; }
       .hero__logo-sp img { width: 100%; }
       .hero__heading--sp { font-size: 40px; }
-      .hero__badges-sp { margin: 20px 0 0; padding-right: 0; }
+      .hero__badges-sp { margin: 20px 0 0; }
       .hero__badges-sp img { width: 70%; }
-      .hero__cta-sp { padding-right: 0; margin-top: 20px; }
+      .hero__cta-sp { margin-top: 20px; }
       .hero__cta-sp img { width: 70%; }
       .hero__note-sp { font-size: 11px; }
       .hero__bg { object-position: calc(100% + 100px) top; }
@@ -3194,13 +3195,7 @@ export default function BytechPage() {
     @media (max-width: 767px) {
       .footer__inner { padding: 0 15px; }
       .footer__main { padding: 30px 0; }
-      .footer__row { flex-direction: column; gap: 25px; }
-      .footer__content { flex-direction: column; order: 0; width: 100%; }
       .footer__tagline { width: 100%; font-size: 28px; margin-bottom: 20px; }
-      .footer__nav-cols { flex-direction: column; gap: 20px; }
-      .footer__nav-col-courses { flex: unset; width: 100%; }
-      .footer__logo-area { width: 100%; padding: 0; margin-top: 10px; }
-      .footer__logo-row { flex-direction: column; align-items: flex-start; gap: 10px; }
       .footer__copyright { text-align: left; letter-spacing: 0.15em; }
       .fixed-footer-cta { display: none !important; }
     }
@@ -3210,7 +3205,6 @@ export default function BytechPage() {
     .fadein.is-visible { opacity: 1; transform: translateY(0); }
     .fadein.delay-1 { transition-delay: 0.1s; }
     .fadein.delay-2 { transition-delay: 0.2s; }
-    .fadein.delay-3 { transition-delay: 0.3s; }
       `}} />
 
       {/* ===== HEADER ===== */}
