@@ -2525,8 +2525,9 @@ export default function BytechPage() {
       display: flex; align-items: center; justify-content: center; gap: 8px;
       text-align: center; padding: 15px; border-radius: 50px;
       font-weight: 900; font-size: 16px; transition: opacity 0.2s; width: 100%; text-decoration: none;
+      white-space: nowrap;
     }
-    .plan-card__cta::after { content: '>'; }
+    .plan-card__cta svg { flex-shrink: 0; }
     .plan-card__cta--lite { background: #ff0355; color: #fff; border: none; font-size: 20px;}
     .plan-card__cta--lite:hover { opacity: 0.9; }
     .plan-card__cta--pro,
@@ -2589,16 +2590,18 @@ export default function BytechPage() {
         max-width: 100%;
         width: 100%;
         margin-bottom: 16px;
+        
       }
       .plan__payment__method__name {
         display: block;
-        width: 100%;
-        padding: 14px 0;
+        max-width: 60%;
+        
         font-size: 18px;
         font-weight: 900;
         border-radius: 8px;
-        margin-bottom: 8px;
+        
         text-align: center;
+        margin: 0 auto 4px;
       }
       .plan__payment__method__note {
         font-size: 11px;
@@ -2614,7 +2617,7 @@ export default function BytechPage() {
 
       .plan-card__cta {
         width: 80%;
-        display: block;
+        display: flex;
         margin: -20px auto 0;
         padding: 6px 0;
         font-size: 16px;
@@ -2651,7 +2654,8 @@ export default function BytechPage() {
     .plan__sp-detail-btn-wrap { display: none; }
     @media (max-width: 767px) {
       .plan__sp-detail-btn-wrap {
-        display: block;
+        display: flex;
+        justify-content: center;
         margin-top: 24px;
       }
       .plan__sp-detail-btn {
@@ -2659,19 +2663,18 @@ export default function BytechPage() {
         align-items: center;
         justify-content: center;
         gap: 8px;
-        width: 100%;
+        width: 80%;
         padding: 16px 20px;
         background: #583FFD;
         color: #fff;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 700;
         border-radius: 50px;
         text-decoration: none;
       }
       .plan__sp-detail-btn__arrow {
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 1;
+        display: flex;
+        align-items: center;
       }
     }
 
@@ -2838,6 +2841,15 @@ export default function BytechPage() {
       .interview__grid { flex-direction: column; margin-top: 10px; }
       .interview-card + .interview-card { margin-top: 50px; }
       .interview-card__profile { gap: 10px; }
+      .interview__more {
+        max-width: 100%;
+        .plan-card__cta {
+          margin-top: 30px; padding: 10px 15px;
+          max-width: 90%;
+          
+        }
+      }
+      
     }
 
     /* ===== Flow ===== */
@@ -2886,7 +2898,7 @@ export default function BytechPage() {
       .flow { padding: 30px 0; }
       .flow__ttl { display: none; }
       .flow__ttl--sp { display: block; font-size: 25px; }
-      .flow__steps { flex-direction: column; gap: 10px 0; padding: 0 15px; }
+      .flow__steps { flex-direction: column; gap: 10px 0; padding: 0; }
       .flow__step { width: 100%; flex: unset; }
       .flow__arrow img { width: 15%; transform: rotate(90deg); }
       .flow__decoration { display: none; }
@@ -3037,14 +3049,14 @@ export default function BytechPage() {
     .footer__bottom p { font-size: 11px; color: rgba(255,255,255,0.3); margin: 0; }
     /* Responsive */
     @media (max-width: 1024px) {
-      .footer__tagline { flex: 0 0 20%; font-size: 22px; }
+      .footer__tagline { flex: 0 0 20%; font-size: 28px; }
       .footer__nav-col--courses { flex: 0 0 44%; }
     }
     @media (max-width: 767px) {
       .footer__main { padding: 36px 0 0; }
       .footer__inner { padding: 0 20px; }
       .footer__body { flex-direction: column; gap: 28px; padding-bottom: 32px; }
-      .footer__tagline { font-size: 20px; }
+      .footer__tagline { font-size: 28px; }
       .footer__nav { flex-direction: column; gap: 24px; }
       .footer__nav-col--courses { flex: unset; width: 100%; }
       .footer__nav-col { padding-right: 0; }
@@ -3074,7 +3086,7 @@ export default function BytechPage() {
       .footer__main { padding: 30px 0; }
       .footer__row { flex-direction: column; gap: 25px; }
       .footer__content { flex-direction: column; order: 0; width: 100%; }
-      .footer__tagline { width: 100%; font-size: 18px; margin-bottom: 20px; }
+      .footer__tagline { width: 100%; font-size: 28px; margin-bottom: 20px; }
       .footer__nav-cols { flex-direction: column; gap: 20px; }
       .footer__nav-col-courses { flex: unset; width: 100%; }
       .footer__logo-area { width: 100%; padding: 0; margin-top: 10px; }
@@ -4534,7 +4546,7 @@ export default function BytechPage() {
               </div>
               <div className="plan-card__services-divider"><span>このプランで受けれるサービス</span></div>
               <img className="plan-card__services-img" src="/bytech/assets/images/LITE.svg" alt="LITEプランサービス内容" />
-              <a href="https://form.run/@ds-form" target="_blank" className="plan-card__cta plan-card__cta--lite">今すぐ受講を申し込む</a>
+              <a href="https://form.run/@ds-form" target="_blank" className="plan-card__cta plan-card__cta--lite">今すぐ受講を申し込む<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
             </div>
             {/* PRO */}
             <div className="plan-card plan-card--pro">
@@ -4551,7 +4563,7 @@ export default function BytechPage() {
               </div>
               <div className="plan-card__services-divider"><span>このプランで受けれるサービス</span></div>
               <img className="plan-card__services-img" src="/bytech/assets/images/PRO.svg" alt="PROプランサービス内容" />
-              <a href="https://generative-ai.bytech.jp/counseling/" target="_blank" className="plan-card__cta plan-card__cta--pro">まずは無料相談を予約する</a>
+              <a href="https://generative-ai.bytech.jp/counseling/" target="_blank" className="plan-card__cta plan-card__cta--pro">まずは無料相談を予約する<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
             </div>
           </div>
                     {/* SP: tab switching */}
@@ -4579,7 +4591,7 @@ export default function BytechPage() {
                   </div>
                   <div className="plan-card__services-divider"><span>このプランで受けれるサービス</span></div>
                   <img className="plan-card__services-img" src="/bytech/assets/images/LITE.svg" alt="LITEプランサービス内容" />
-                  <a href="https://form.run/@ds-form" target="_blank" className="plan-card__cta plan-card__cta--lite">今すぐ受講を申し込む</a>
+                  <a href="https://form.run/@ds-form" target="_blank" className="plan-card__cta plan-card__cta--lite">今すぐ受講を申し込む<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
                 </div>
               </div>
               {/* PRO tab panel */}
@@ -4598,7 +4610,7 @@ export default function BytechPage() {
                   </div>
                   <div className="plan-card__services-divider"><span>このプランで受けれるサービス</span></div>
                   <img className="plan-card__services-img" src="/bytech/assets/images/PRO.svg" alt="PROプランサービス内容" />
-                  <a href="https://generative-ai.bytech.jp/counseling/" target="_blank" className="plan-card__cta plan-card__cta--pro">まずは無料相談を予約する</a>
+                  <a href="https://generative-ai.bytech.jp/counseling/" target="_blank" className="plan-card__cta plan-card__cta--pro">まずは無料相談を予約する<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
                 </div>
               </div>
             </div>
@@ -4632,7 +4644,9 @@ export default function BytechPage() {
           <div className="plan__sp-detail-btn-wrap">
             <a href="https://generative-ai.bytech.jp/plan" className="plan__sp-detail-btn">
               料金プランの詳細を見る
-              <span className="plan__sp-detail-btn__arrow">›</span>
+              <span className="plan__sp-detail-btn__arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </span>
             </a>
           </div>
         </div>
@@ -4709,7 +4723,7 @@ export default function BytechPage() {
             </div>
           </div>
           <div className="interview__more fadein">
-            <a href="https://bytech.jp/blog/category/interview/" target="_blank" className="plan-card__cta plan-card__cta--blue" style={{display: 'inline-flex', maxWidth: '360px'}}>全ての受講生インタビューを見る</a>
+            <a href="https://bytech.jp/blog/category/interview/" target="_blank" className="plan-card__cta plan-card__cta--blue" style={{display: 'inline-flex', maxWidth: '360px'}}>全ての受講生インタビューを見る<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
           </div>
         </div>
       </section>
