@@ -35,8 +35,8 @@ export default function BytechPage() {
 
     /* ===== Reset ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font-jp); color: var(--color-text); background: var(--color-white); line-height: 1.7; font-size: 15px; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { font-family: var(--font-jp); color: var(--color-text); background: var(--color-white); line-height: 1.7; font-size: 15px; overflow-x: hidden; }
     img { max-width: 100%; height: auto; vertical-align: middle; }
     a { color: inherit; text-decoration: none; }
     ul, ol { list-style: none; }
@@ -97,7 +97,7 @@ export default function BytechPage() {
     /* ===== Header ===== */
     .header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
-      background: transparent;
+      background: transparent; width: 100%; box-sizing: border-box; overflow: hidden;
     }
     .header__inner {
       max-width: 1300px; margin: 0 auto; padding: 10px 20px;
@@ -295,12 +295,20 @@ export default function BytechPage() {
     }
 
     /* タブレット (768px〜1024px) */
-    @media (max-width: 1024px) {
-      .hero { min-height: 750px; padding: 0 30px; }
+    @media (max-width: 1024px) and (min-width: 768px) {
+      .hero { min-height: 750px; padding: 60px 40px 40px; }
       .hero__heading { font-size: 45px; }
+      .hero__body-sp { align-items: flex-start; text-align: left; margin-left: 0; margin-right: auto; width: 77%; margin-top: 200px; }
+      .hero__sp-widget { width: 100%; }
+      .hero__sp-widget--logo { width: 70%; }
+      .hero__logo-sp img { width: 100%; }
+      .hero__heading--sp { font-size: 40px; }
       .hero__badges-sp { margin: 20px 0 0; padding-right: 0; }
-      .hero__badges-sp img { width: 60%; }
-      .hero__cta-sp { padding-right: 200px; }
+      .hero__badges-sp img { width: 70%; }
+      .hero__cta-sp { padding-right: 0; margin-top: 20px; }
+      .hero__cta-sp img { width: 70%; }
+      .hero__note-sp { font-size: 11px; }
+      .hero__bg { object-position: calc(100% + 100px) top; }
     }
 
     /* モバイル (max-width: 767px) */
@@ -1467,7 +1475,7 @@ export default function BytechPage() {
       .env3af__sep { width: auto; transform: rotate(90deg); padding: 8px 0; }
       .env3af__head { padding: 0;}
     }
-    @media (max-width: 1024px) { .env__arrow { width: 4%; position: absolute; } }
+    @media (max-width: 1024px) and (min-width: 768px) { .env__arrow { width: 4%; position: static; display: block; margin: 0 auto; } }
    
     /* Mentor card overlapping block */
     .env__mentor-wrap {
@@ -1861,6 +1869,11 @@ export default function BytechPage() {
       .voice-carousel-wrap { padding: 0 40px; }
       .voice-card { flex: 0 0 calc(33.333% - 10px); }
     }
+    @media (max-width: 1024px) and (min-width: 768px) {
+      .voice-section__heading { position: static; transform: none; left: auto; width: 100%; padding: 40px 16px 20px; margin-top: -110px; }
+      .voice-section__arrow { width: 2%; }
+      .voice-section__ttl-deco { width: 60%; }
+    }
 
     /* ===== SP overrides (mobile only) ===== */
     @media (max-width: 767px) {
@@ -1908,13 +1921,15 @@ export default function BytechPage() {
     }
 
     /* ===== Features / 5 Reasons ===== */
-    .features { padding-top: 50px;  background: #fff; }
+    .features { padding-top: 340px; background: #fff; }
     .features__inner {  margin-top: 400px; }
     .features__background { background: #fafafa;  margin-top: 450px; padding: 24px 24px; }
     @media (max-width: 767px) {
       .features__inner {  margin-top: 550px; }
     }
-
+    @media (max-width: 1024px) and (min-width: 768px) {
+      .features { padding-top: 170px; }
+    }
     .reason-head { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 30px 0; position: relative; overflow: hidden; margin-bottom: 0; }
     .reason-head::before { content: ''; position: absolute; inset: 0; background-image: url('/bytech/assets/images/REASON.svg'); background-position: center center; background-repeat: no-repeat; background-size: 50% auto; opacity: 0.03; pointer-events: none; z-index: 0; }
     .reason-head > * { position: relative; z-index: 1; }
@@ -3082,6 +3097,37 @@ export default function BytechPage() {
     /* Bottom fine print */
     .footer__bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 16px 0; text-align: center; }
     .footer__bottom p { font-size: 11px; color: rgba(255,255,255,0.3); margin: 0; }
+    /* ===== iPad (768px〜1024px) 全セクション共通修正 ===== */
+    @media (max-width: 1024px) and (min-width: 768px) {
+      /* About */
+      .about { padding: 100px 24px 60px; }
+      .about__card { width: 85%; padding: 30px 30px 40px; }
+      .about__badge { width: 40%; }
+
+      /* Problem */
+      .problem__body { gap: 24px; }
+      .problem__illust { flex: 0 0 35%; max-width: 280px; }
+
+      /* Curriculum */
+      .curric-card { height: auto; min-height: 400px; }
+
+      /* Plan */
+      .plan-card { padding: 30px 24px; }
+      .plan__payment__method__name { width: 180px; font-size: 15px; }
+      .plan__payment__cards img { max-width: 360px; }
+
+      /* Interview */
+      .interview__grid { gap: 12px; }
+      .interview-card__ttl { font-size: 15px; min-height: auto; }
+      .interview-card__meta { font-size: 14px; }
+
+      /* FAQ */
+      .faq__ttl { font-size: 26px; }
+
+      /* Skills */
+      .skills-carousel__slide { flex: 0 0 calc(50% - 10px); }
+    }
+
     /* Responsive */
     @media (max-width: 1024px) {
       .footer__tagline { flex: 0 0 20%; font-size: 28px; }
@@ -3216,7 +3262,7 @@ export default function BytechPage() {
       <section className="hero">
         {/* 背景画像: PC=合成画像(女性+紫BG) / SP=女性のみ縦長 */}
         <picture>
-          <source media="(min-width: 769px)" srcSet="/bytech/assets/images/hero-bg-from-generative-ai.bytech.jp.webp" />
+          <source media="(min-width: 768px)" srcSet="/bytech/assets/images/hero-bg-from-generative-ai.bytech.jp.webp" />
           <img src="/bytech/assets/images/Gemini_Generated_Image_vu6vv2vu6vv2vu6v.webp" alt="" className="hero__bg" />
         </picture>
 
@@ -3877,7 +3923,7 @@ export default function BytechPage() {
       
 
       {/* ===== 5 REASONS ===== */}
-      <section className="features u-section" id="aboutus" style={{paddingTop: '340px'}}>
+      <section className="features u-section" id="aboutus">
         <div className="features__inner">
           <div className="features__background">
           {/* Section heading */}
