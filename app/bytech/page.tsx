@@ -165,6 +165,14 @@ export default function BytechPage() {
     @media (max-width: 1024px) {
       .header__nav__list { display: none; }
     }
+    @media (min-width: 1025px) and (max-width: 1280px) {
+      .header__logo { width: 12%; min-width: 90px; margin-left: 16px; }
+      .header__nav__list a { font-size: 12px; padding: 12px 6px; }
+      .header__nav__divider { margin: 0 4px; }
+      .header__cta img { height: 36px; }
+      .header__bar { padding: 6px 12px; }
+      .voice-section__heading { position: static; transform: none; left: auto; width: 100%; padding: 40px 16px 20px; }
+    }
     @media (max-width: 767px) {
       /* フラットな白背景バーに変更（角丸・シャドウなし） */
       .header { background: #fff; box-shadow: 0 0 10px 0 rgba(0,0,0,0.21); max-width: 100%; }
@@ -212,6 +220,7 @@ export default function BytechPage() {
     /* max-width 1100px の中央寄せラッパー */
     .hero__inner {
       width: 100%; max-width: 1100px;
+      padding-left: 15px; padding-right: 15px;
       margin: 0 auto; display: flex; flex-direction: column;
     }
 
@@ -311,6 +320,21 @@ export default function BytechPage() {
       .hero__bg { object-position: calc(100% + 100px) top; }
     }
 
+    /* 480px以下: SP背景画像をCSSで表示、imgタグ非表示 */
+    @media (max-width: 480px) {
+      .hero__bg { display: none; }
+      .hero {
+        background-image: url('/bytech/assets/images/Gemini_Generated_Image_vu6vv2vu6vv2vu6v.webp');
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .hero::before {
+        background-image: linear-gradient(360deg, #000 40%, rgba(255,255,255,0) 70%);
+        opacity: 0.5;
+      }
+    }
+
     /* モバイル (max-width: 767px) */
     @media (max-width: 767px) {
       .hero {
@@ -318,17 +342,7 @@ export default function BytechPage() {
         padding: 130px 10px 20px;
         margin-top: 30px;
         justify-content: flex-start;
-        background-image: url('/bytech/assets/images/Gemini_Generated_Image_vu6vv2vu6vv2vu6v.webp');
-        background-position: -25px -15px;
-        background-repeat: no-repeat;
-        background-size: 470px auto;
       }
-      .hero::before {
-        background-image: linear-gradient(360deg, #000 40%, rgba(255,255,255,0) 70%);
-        opacity: 0.5;
-      }
-      /* SP: <img>ベースの背景は使わずCSS背景に切替 */
-      .hero__bg { display: none; }
       .hero__inner { align-items: flex-start; padding: 0; }
       .hero__body-sp {
         align-items: flex-start;
@@ -1287,12 +1301,17 @@ export default function BytechPage() {
     }
 
     /* ===== Environment Section ===== */
+    #environment_wrapper {
+      padding: 0;
+      background: linear-gradient(to bottom, #191722 70%, #fff 70%);
+    }
+
     #environment {
-      background: #191722;
+      background: transparent;
       padding-top: 110px;
-      padding-bottom: -1080px;
+      padding-bottom: 60px;
       position: relative;
-      height: 1100px;
+      min-height: 1100px;
     }
 
     /* Triangle shape divider (top) */
@@ -1461,7 +1480,7 @@ export default function BytechPage() {
 
     /* ── responsive ── */
     @media (max-width: 767px) {
-      #environment { padding-top: 60px; padding-bottom: 200px; height: 1400px; }
+      #environment { padding-top: 60px; padding-bottom: 200px; min-height: 1400px; height: auto; }
       .env3af { margin-top: 0px; padding: 0 8px; }
       .env3af__body { padding: 0 8px; }
       .env3af__divider{ width: 100%; }
@@ -1480,19 +1499,18 @@ export default function BytechPage() {
     /* Mentor card overlapping block */
     .env__mentor-wrap {
       position: relative;
-      bottom: -210px;
       left: 0;
       right: 0;
       z-index: 3;
       padding: 0 24px;
-      margin-top: -100px;
+      margin-top: 50px;
     }
     .env__mentor {
-      position:absolute;
+      position: relative;
       max-width: 1000px;
       margin: 0 auto;
       background: #fff;
-      margin-top: -130px;
+      margin-top: 0;
       box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
       display: flex;
       flex-direction: column;
@@ -1616,13 +1634,13 @@ export default function BytechPage() {
     }
     .env__arrow-wrap {
       text-align: center;
-      margin: 310px 0 20px;
+      margin: -50px 0;
       position: relative;
       z-index: 20;
     }
     .env__arrow {
       display: block;
-      margin: 0 auto;
+      margin:  auto;
       width: auto;
       height: 50px;
     }
@@ -1630,10 +1648,12 @@ export default function BytechPage() {
       #environment {
         padding-top: 60px;
         padding-bottom: 160px;
+        height: 70%;
+        min-height: 700px;
       }
       .env__mentor-wrap {
         margin-top: 0;
-        bottom: -170px;
+        bottom: -50px;
       }
       .env__mentor {
         padding: 50px 15px;
@@ -1717,8 +1737,8 @@ export default function BytechPage() {
     .voice-section__heading {
       text-align: center;
       position: absolute;
-      top: 0;
-      left: 50%;
+      top: -250px;
+      
       transform: translate(-50%, -50%);
       z-index: 2;
       width: 100%;
@@ -1921,16 +1941,16 @@ export default function BytechPage() {
     }
 
     /* ===== Features / 5 Reasons ===== */
-    .features { padding-top: 340px; background: #fff; }
-    .features__inner {  margin-top: 400px; }
-    .features__background { background: #fafafa;  margin-top: 450px; padding: 24px 24px; }
+    .features {  background: #fff;  padding-top: 0;}
+    .features__inner {   }
+    .features__background { background: #fafafa;   padding: 24px 24px; }
     @media (max-width: 767px) {
-      .features__inner {  margin-top: 550px; }
+      .features__inner {   }
     }
     @media (max-width: 1024px) and (min-width: 768px) {
-      .features { padding-top: 170px; }
+      .features { }
     }
-    .reason-head { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 30px 0; position: relative; overflow: hidden; margin-bottom: 0; }
+    .reason-head { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 30px 0; position: relative; overflow: hidden; margin-bottom: 0; margin-top: 40px; }
     .reason-head::before { content: ''; position: absolute; inset: 0; background-image: url('/bytech/assets/images/REASON.svg'); background-position: center center; background-repeat: no-repeat; background-size: 50% auto; opacity: 0.03; pointer-events: none; z-index: 0; }
     .reason-head > * { position: relative; z-index: 1; }
     .reason-head__ttl { font-family: "Noto Sans JP", sans-serif; font-size: 32px; font-weight: 600; letter-spacing: 0.05em; color: #000; line-height: 1.5; margin: 0; }
@@ -1971,11 +1991,20 @@ export default function BytechPage() {
 
     /* Sub-cards — full width below the row (6695355) */
     .reason-item__sub { display: flex; flex-direction: column; gap: 40px; margin-top: 40px; }
+    .reason-item__sub_wrapper  { display: flex; flex-direction: column; gap: 40px; margin-top: 40px; }
     .reason-sub__card { display: flex; flex-direction: column; background: #fff; padding: 30px 30px 30px 50px; }
     .reason-sub__card-ttl { font-family: "Noto Sans JP", sans-serif; font-size: 25px; font-weight: 700; line-height: 1.4em; letter-spacing: 0.05em; color: #333; margin: 0; }
     .reason-sub__card-ttl--mobile { display: none; }
     .reason-sub__card-body { font-family: "Noto Sans JP", sans-serif; font-size: 15px; font-weight: 500; line-height: 2em; letter-spacing: 0.05em; color: #333; margin: 5px 0 0; padding: 0 50px 0 0; }
     .reason-sub__card-progress { width: 19%; height: auto; display: block; margin: 15px 10px 0 0; align-self: flex-end; }
+    
+    @media (max-width: 767px) and (min-width: 490px)  {
+      .reason-item__sub_wrapper { margin-top: 200px; }
+      .reason-sub__card-progress {width: 30%; margin: 15px 0 0; align-self: flex-end; } 
+    }
+    @media (max-width: 489px)  {
+      .reason-sub__card-progress { width: 60%; margin: 10px 0 0 0; align-self: flex-end; }
+    }
 
     /* Course cards slider (f704322 — Reason 1) */
     .course-slider { position: relative; width: 100%; min-height: 200px; height: auto; display: flex; flex-wrap: nowrap; overflow-x: scroll; column-gap: 15px; margin: 5px 0 0; padding-bottom: 8px; }
@@ -2134,7 +2163,7 @@ export default function BytechPage() {
       .reason-sub__card-ttl { display: none; }
       .reason-sub__card-ttl--mobile { display: block; font-family: "Noto Sans JP", sans-serif; font-size: 20px; font-weight: 700; line-height: 1.5em; letter-spacing: 0.05em; color: #333; margin: 0; }
       .reason-sub__card-body { padding: 0; font-size: 14px; }
-      .reason-sub__card-progress { width: 60%; margin: 10px 0 0 0; align-self: flex-end; }
+      
     }
 
     /* ===== CTA Banner (3ab2f36) ===== */
@@ -3262,7 +3291,7 @@ export default function BytechPage() {
       <section className="hero">
         {/* 背景画像: PC=合成画像(女性+紫BG) / SP=女性のみ縦長 */}
         <picture>
-          <source media="(min-width: 768px)" srcSet="/bytech/assets/images/hero-bg-from-generative-ai.bytech.jp.webp" />
+          <source media="(min-width: 480px)" srcSet="/bytech/assets/images/hero-bg-from-generative-ai.bytech.jp.webp" />
           <img src="/bytech/assets/images/Gemini_Generated_Image_vu6vv2vu6vv2vu6v.webp" alt="" className="hero__bg" />
         </picture>
 
@@ -3793,139 +3822,142 @@ export default function BytechPage() {
       </section>
 
       {/* ===== ENVIRONMENT ===== */}
-      <section id="environment">
-        {/* Triangle shape divider — white triangle cuts into dark section */}
-        <div className="env__shape-top">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 73" preserveAspectRatio="none">
-            <polygon points="500,73 0,0 1000,0" fill="#ffffff" />
-          </svg>
-        </div>
-
-        {/* ── elementor-element-3af9416e ── */}
-        <div className="env3af fadein">
-
-          {/* 86fc962: heading block */}
-          <div className="env3af__head">
-            {/* 84e1b66: desktop heading */}
-            <h2 className="env3af__h2">最短で成果に繋げるバイテック独自の学習環境</h2>
-            {/* f345ac3: mobile heading */}
-            <h2 className="env3af__h2-mobile">最短で成果に繋げる<br />バイテック独自の学習環境</h2>
-            {/* f942961: ENVIRONMENT label */}
-            <p className="env3af__label">ENVIRONMENT</p>
+      <section id="environment_wrapper">
+        <section id="environment">
+          {/* Triangle shape divider — white triangle cuts into dark section */}
+          <div className="env__shape-top">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 73" preserveAspectRatio="none">
+              <polygon points="500,73 0,0 1000,0" fill="#ffffff" />
+            </svg>
           </div>
 
-          {/* 3eda783: unique box — dividers + deco + subheadings */}
-          <div className="env3af__body">
-            {/* 67b4bce: slash divider */}
-            <div className="env3af__divider" />
-            {/* c6b2bd6: path-36598.svg (desktop) */}
-            <img
-              src="/bytech/assets/images/path-36598.svg"
-              alt="あなたの課題解決やゴール達成に必要な学習環境を設計"
-              className="env3af__deco-desktop"
-            />
-            {/* 21cf8a9: group-20914.svg (mobile) */}
-            <img
-              src="/bytech/assets/images/group-20914.svg"
-              alt="Unique"
-              className="env3af__deco-mobile"
-            />
-            {/* 68206a1: slash divider */}
-            <div className="env3af__divider" />
-            {/* 6fb2cab8 */}
-            <h2 className="env3af__sub1">あなた専用のカリキュラムとサポートで</h2>
-            {/* 84e12ea */}
-            <h2 className="env3af__sub2">最短で学びを成果に変える</h2>
+          {/* ── elementor-element-3af9416e ── */}
+          <div className="env3af fadein">
+
+            {/* 86fc962: heading block */}
+            <div className="env3af__head">
+              {/* 84e1b66: desktop heading */}
+              <h2 className="env3af__h2">最短で成果に繋げるバイテック独自の学習環境</h2>
+              {/* f345ac3: mobile heading */}
+              <h2 className="env3af__h2-mobile">最短で成果に繋げる<br />バイテック独自の学習環境</h2>
+              {/* f942961: ENVIRONMENT label */}
+              <p className="env3af__label">ENVIRONMENT</p>
+            </div>
+
+            {/* 3eda783: unique box — dividers + deco + subheadings */}
+            <div className="env3af__body">
+              {/* 67b4bce: slash divider */}
+              <div className="env3af__divider" />
+              {/* c6b2bd6: path-36598.svg (desktop) */}
+              <img
+                src="/bytech/assets/images/path-36598.svg"
+                alt="あなたの課題解決やゴール達成に必要な学習環境を設計"
+                className="env3af__deco-desktop"
+              />
+              {/* 21cf8a9: group-20914.svg (mobile) */}
+              <img
+                src="/bytech/assets/images/group-20914.svg"
+                alt="Unique"
+                className="env3af__deco-mobile"
+              />
+              {/* 68206a1: slash divider */}
+              <div className="env3af__divider" />
+              {/* 6fb2cab8 */}
+              <h2 className="env3af__sub1">あなた専用のカリキュラムとサポートで</h2>
+              {/* 84e12ea */}
+              <h2 className="env3af__sub2">最短で学びを成果に変える</h2>
+            </div>
+
+            {/* 7910406: 3 feature images with × separators */}
+            <div className="env3af__images">
+              {/* fc98640: グループ-20897 */}
+              <div className="env3af__img">
+                <img src="/bytech/assets/images/group-20897.webp" alt="600以上のカリキュラム" loading="lazy" />
+              </div>
+              {/* 632b683: × separator */}
+              <div className="env3af__sep">
+                <img src="/bytech/assets/images/×.svg" alt="×" />
+              </div>
+              {/* 2de6772: グループ-20895-1 */}
+              <div className="env3af__img">
+                <img src="/bytech/assets/images/group-20895-1.webp" alt="AI活用コンサルティング" loading="lazy" />
+              </div>
+              {/* 2f3b46b: × separator */}
+              <div className="env3af__sep">
+                <img src="/bytech/assets/images/×.svg" alt="×" />
+              </div>
+              {/* ff33265: グループ-20896-1 */}
+              <div className="env3af__img">
+                <img src="/bytech/assets/images/group-20896-1.webp" alt="100種以上の実践課題" loading="lazy" />
+              </div>
+            </div>
+
           </div>
-
-          {/* 7910406: 3 feature images with × separators */}
-          <div className="env3af__images">
-            {/* fc98640: グループ-20897 */}
-            <div className="env3af__img">
-              <img src="/bytech/assets/images/group-20897.webp" alt="600以上のカリキュラム" loading="lazy" />
-            </div>
-            {/* 632b683: × separator */}
-            <div className="env3af__sep">
-              <img src="/bytech/assets/images/×.svg" alt="×" />
-            </div>
-            {/* 2de6772: グループ-20895-1 */}
-            <div className="env3af__img">
-              <img src="/bytech/assets/images/group-20895-1.webp" alt="AI活用コンサルティング" loading="lazy" />
-            </div>
-            {/* 2f3b46b: × separator */}
-            <div className="env3af__sep">
-              <img src="/bytech/assets/images/×.svg" alt="×" />
-            </div>
-            {/* ff33265: グループ-20896-1 */}
-            <div className="env3af__img">
-              <img src="/bytech/assets/images/group-20896-1.webp" alt="100種以上の実践課題" loading="lazy" />
-            </div>
-          </div>
-
-        </div>
-      
-        {/* Mentor card — overlaps the bottom of this section */}
-        <div className="env__mentor-wrap fadein">
-          <div className="env__mentor">
-            <div className="env__mentor-shape-top" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
-                <path className="env__mentor-shape-fill" d="M500,98.9L0,6.1V0h1000v6.1L500,98.9z"/>
-              </svg>
-            </div>
-            <div className="env__mentor-heading-frame">
-              <img
-                src="/bytech/assets/images/instructor-title.svg"
-                alt="AI業界の最前線で活躍する講師陣があなたのできたらいいなを現実にします！"
-                className="env__mentor-heading"
-              />
-            </div>
-            <p className="env__mentor-sub">
-              20名以上の様々な領域に特化したメンターの中から<br />
-              あなたの課題とゴールに最適な専任AIメンターがゴールまで徹底サポート
-            </p>
-
-            <div className="env__mentor-grid">
-              {/* PC: composite grid image */}
-              <img
-                src="/bytech/assets/images/instructors-1.webp"
-                alt="講師陣"
-                loading="lazy"
-                className="env__mentor-grid-img env__mentor-grid-img--pc"
-              />
-              {/* SP: mobile-optimised composite image */}
-              <img
-                src="/bytech/assets/images/group-16191.webp"
-                alt="講師陣"
-                loading="lazy"
-                className="env__mentor-grid-img env__mentor-grid-img--sp"
-              />
-            </div>
-
-            <div className="env__mentor-cta">
-              <a href="https://generative-ai.bytech.jp/counseling/" target="_blank">
+        
+          {/* Mentor card — overlaps the bottom of this section */}
+          <div className="env__mentor-wrap fadein">
+            <div className="env__mentor">
+              <div className="env__mentor-shape-top" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+                  <path className="env__mentor-shape-fill" d="M500,98.9L0,6.1V0h1000v6.1L500,98.9z"/>
+                </svg>
+              </div>
+              <div className="env__mentor-heading-frame">
                 <img
-                  src="/bytech/assets/images/cta-counseling.webp"
-                  alt="まずは無料で相談してみる"
-                  style={{display: 'block', width: '100%', maxWidth: '500px', height: 'auto'}}
+                  src="/bytech/assets/images/instructor-title.svg"
+                  alt="AI業界の最前線で活躍する講師陣があなたのできたらいいなを現実にします！"
+                  className="env__mentor-heading"
                 />
-              </a>
+              </div>
+              <p className="env__mentor-sub">
+                20名以上の様々な領域に特化したメンターの中から<br />
+                あなたの課題とゴールに最適な専任AIメンターがゴールまで徹底サポート
+              </p>
+
+              <div className="env__mentor-grid">
+                {/* PC: composite grid image */}
+                <img
+                  src="/bytech/assets/images/instructors-1.webp"
+                  alt="講師陣"
+                  loading="lazy"
+                  className="env__mentor-grid-img env__mentor-grid-img--pc"
+                />
+                {/* SP: mobile-optimised composite image */}
+                <img
+                  src="/bytech/assets/images/group-16191.webp"
+                  alt="講師陣"
+                  loading="lazy"
+                  className="env__mentor-grid-img env__mentor-grid-img--sp"
+                />
+              </div>
+
+              <div className="env__mentor-cta">
+                <a href="https://generative-ai.bytech.jp/counseling/" target="_blank">
+                  <img
+                    src="/bytech/assets/images/cta-counseling.webp"
+                    alt="まずは無料で相談してみる"
+                    style={{display: 'block', width: '100%', maxWidth: '500px', height: 'auto'}}
+                  />
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="env__arrow-wrap">
-          <img
-            src="/bytech/assets/images/yajirushi.svg"
-            alt="矢印"
-            className="env__arrow"
-          />
-        </div>
+        </section>
       </section>
       
 
       {/* ===== 5 REASONS ===== */}
       <section className="features u-section" id="aboutus">
+        
         <div className="features__inner">
           <div className="features__background">
+            <div className="env__arrow-wrap">
+              <img
+                src="/bytech/assets/images/yajirushi.svg"
+                alt="矢印"
+                className="env__arrow"
+              />
+            </div>
           {/* Section heading */}
           <div className="reason-head fadein">
             <h2 className="reason-head__ttl">バイテックが最短で<br />実務レベルのAI人材を育成できる<br /><span>5つの理由</span></h2>
@@ -3951,7 +3983,7 @@ export default function BytechPage() {
                   <img src="/bytech/assets/images/s2-1024x716.webp" alt="600以上のカリキュラム" loading="lazy" />
                 </div>
               </div>
-              <div className="reason-item__sub">
+              <div className="reason-item__sub_wrapper">
                 <div className="reason-sub__card">
                   {/* Desktop heading (hidden on mobile) */}
                   <h4 className="reason-sub__card-ttl">最新のAIスキルが学べるアップデートされるカリキュラム</h4>
