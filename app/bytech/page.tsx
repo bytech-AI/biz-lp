@@ -358,13 +358,12 @@ export default function BytechPage() {
       
     
     /* ===== Section Header Common ===== */
-    .plan-header { text-align: center; margin: 20px auto 50px; position: relative; overflow: hidden; }
+    .plan-header { text-align: center; margin: 20px auto 50px; position: relative; overflow: hidden; min-height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
     .plan-header::before {
       content: ''; position: absolute; inset: 0;
       background-image: url('/bytech/assets/images/plan.svg');
-      background-position: center 30px; background-repeat: no-repeat; background-size: 0% auto;
+      background-position: center center; background-repeat: no-repeat; background-size: 30% auto;
       opacity: 0.03; pointer-events: none; z-index: 0;
-      width:400px; height: auto; top: -60px; left: 50%; transform: translateX(-50%);
     }
     .plan-header__tag {
       font-family: "Reem Kufi", sans-serif;
@@ -375,8 +374,13 @@ export default function BytechPage() {
     .plan-header__sub { font-size: 15px; color: var(--color-text-light); margin-top: 12px; line-height: 1.8; }
     
     @media (max-width: 767px) {
-    .plan-header__ttl { font-size: 24px; }
+      #plan {padding: 0px;}
+      .plan-header {margin-bottom: 0px;}
+      .plan-header__ttl { font-size: 24px; }
+      .plan-header::before { background-size: 60% auto;}
+      
     }
+        
 
     /* ===== Consultation Form (mobile only) ===== */
     .consult-form-section {
@@ -1179,11 +1183,6 @@ export default function BytechPage() {
     @media (max-width: 767px) {
       #problem {
         padding: 50px 0 30px;
-        background-image: url('/bytech/assets/images/problem.svg');
-        background-repeat: no-repeat;
-        background-size: 466px auto;
-        background-position: center center;
-        background-blend-mode: normal;
       }
       #problem::before {
         content: '';
@@ -1195,7 +1194,7 @@ export default function BytechPage() {
         z-index: 0;
       }
       .problem__bg-text { display: none; }
-      .problem__inner::before { background-size: 466px auto; }
+      .problem__inner::before { background-size: 100% auto;}
       .problem__head { margin-bottom: 0; }
       .problem__h2 { display: none; }
       .problem__h2-sp {
@@ -1622,10 +1621,11 @@ export default function BytechPage() {
     @media (max-width: 767px) {
       #environment {
         padding-top: 60px;
-        padding-bottom: 200px;
+        padding-bottom: 160px;
       }
       .env__mentor-wrap {
         margin-top: 0;
+        bottom: -170px;
       }
       .env__mentor {
         padding: 50px 15px;
@@ -1912,7 +1912,7 @@ export default function BytechPage() {
     .features__inner {  margin-top: 400px; }
     .features__background { background: #fafafa;  margin-top: 450px; padding: 24px 24px; }
     @media (max-width: 767px) {
-      .features__inner {  margin-top: 630px; }
+      .features__inner {  margin-top: 550px; }
     }
 
     .reason-head { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 30px 0; position: relative; overflow: hidden; margin-bottom: 0; }
@@ -1923,6 +1923,7 @@ export default function BytechPage() {
     .reason-head__sub { font-family: "Reem Kufi", sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.05em; color: var(--color-accent); margin: 5px 0 0; }
     @media (max-width: 767px) {
       .reason-head { padding: 30px 0 0 0; }
+      .reason-head::before { background-size: 100% auto; }
       .reason-head__ttl { font-size: 20px; }
       .reason-head__sub { font-size: 12px; }
     }
@@ -2337,6 +2338,8 @@ export default function BytechPage() {
         font-size: 11px; font-weight: 500; letter-spacing: 0.07em; color: #292525;
         text-align: start; margin: 0; padding: 0 15px;
       }
+      .curric-head::before{
+        background-size: 100% auto; background-position: center 20px;}
       .curric-panel__badge { margin-left: 0; width: 40px; }
       .curric-panel__badge svg { width: 28px; }
       .curric-panel__heading { font-size: 16px; margin-top: -8px; }
@@ -2400,6 +2403,9 @@ export default function BytechPage() {
       position: relative; left: 50%; transform: translateX(-50%);
     }
     .skills-section__shape .shape-fill { fill: #fff; }
+    @media (max-width: 767px) {
+      .skills-section__shape svg { height: 50px; }
+    }
 
     /* 内部コンテンツは z-index:1 で重ねる */
     .skills-section__inner {
@@ -2469,7 +2475,7 @@ export default function BytechPage() {
     .skills-carousel__dot.is-active { background: var(--color-accent); }
 
     @media (max-width: 767px) {
-      .skills-section__ttl { font-size: 24px; }
+      .skills-section__ttl { font-size: 20px;  padding-top: 0px; }
       .skills-section__tag { font-size: 14px; }
       .skills-carousel__slide { flex: 0 0 100%; }
     }
@@ -2657,6 +2663,7 @@ export default function BytechPage() {
         display: flex;
         justify-content: center;
         margin-top: 24px;
+        margin-bottom: 40px;
       }
       .plan__sp-detail-btn {
         display: flex;
@@ -2682,7 +2689,7 @@ export default function BytechPage() {
     .plan__sp-tabs { display: none; }
     @media (max-width: 767px) {
       .plan__grid { display: none; }
-      .plan__sp-tabs { display: block; margin-top: 24px; }
+      .plan__sp-tabs { display: block; margin-top: 0px; }
       .plan__tab-radio { display: none; }
 
       /* タブ全体のシャドウ */
@@ -2719,6 +2726,7 @@ export default function BytechPage() {
       .plan__sp-tabs:has(#plan-tab-pro:checked) .plan__tab-label--pro {
         background: #533afc;
         color: #fff;
+        
       }
 
       .plan__sp-tabs:has(#plan-tab-lite:checked) .plan__tab-panel--pro { display: none; }
@@ -2787,13 +2795,39 @@ export default function BytechPage() {
       margin-top: 20px; margin-bottom: 48px;
       max-width: 1140px; margin-left: auto; margin-right: auto;
     }
+    .interview-flow-wrap {
+      position: relative;
+    }
+    .interview-flow-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('/bytech/assets/images/bg-interview-flow-pc.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center -520px;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .interview-flow-wrap > * { position: relative; z-index: 1; }
+    @media (max-width: 767px) {
+      .interview-flow-wrap::before {
+        background-image: url('/bytech/assets/images/bg-interview-flow-sp.svg');
+        background-position: center 320px;
+        opacity: 0.5;
+      }
+    }
     .interview-header { text-align: center; margin: 20px auto 50px; position: relative; overflow: hidden; }
     .interview-header::before {
       content: ''; position: absolute; inset: 0;
       background-image: url('/bytech/assets/images/パス-36612.svg');
-      background-position: center 30px; background-repeat: no-repeat; background-size: 60% auto;
+      background-position: center center; background-repeat: no-repeat; background-size: 50% auto;
       opacity: 0.03; pointer-events: none; z-index: 0;
-      width:900px; height: auto; top: -50px; left: 50%; transform: translateX(-50%);
+    }
+    @media (max-width: 767px) {
+      .interview-header { min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+      .interview-header::before { background-size: 90% auto; }
     }
     .interview-header__tag {
       font-family: "Reem Kufi", sans-serif;
@@ -2896,6 +2930,7 @@ export default function BytechPage() {
     }
     @media (max-width: 767px) {
       .flow { padding: 30px 0; }
+      .flow__header::before { background-size: 60%; }
       .flow__ttl { display: none; }
       .flow__ttl--sp { display: block; font-size: 25px; }
       .flow__steps { flex-direction: column; gap: 10px 0; padding: 0; }
@@ -4665,6 +4700,9 @@ export default function BytechPage() {
         </div>
       </section>
 
+      {/* ===== INTERVIEW + FLOW wrapper ===== */}
+      <div className="interview-flow-wrap">
+
       {/* ===== INTERVIEW ===== */}
       <section className="interview" id="interview">
         <div className="interview__inner">
@@ -4769,6 +4807,8 @@ export default function BytechPage() {
           </div>
         </div>
       </section>
+
+      </div>{/* end interview-flow-wrap */}
 
       {/* ===== FAQ ===== */}
       <section className="faq" id="faq">
