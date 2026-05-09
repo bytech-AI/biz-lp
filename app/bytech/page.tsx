@@ -171,8 +171,8 @@ export default function BytechPage() {
       .header__inner { padding: 0; max-width: 100%; }
       .header__bar { border-radius: 0; box-shadow: none; padding: 5px 10px 5px 0; background: transparent; overflow: hidden; }
       /* ロゴ: 136px固定幅、画像は66%（≈90px）、左余白20px */
-      .header__logo { width: 136px; min-width: 136px; margin-left: 0; }
-      .header__logo img { width: 66%; margin-left: 20px; }
+      .header__logo { width: 136px; min-width: 136px; margin: 7px 0;}
+      .header__logo img { width: 55%; margin-left: 20px; }
       /* ナビ非表示 */
       .header__nav { display: none; }
       /* ハンバーガーを表示 */
@@ -225,6 +225,7 @@ export default function BytechPage() {
     .hero__body-sp {
       display: flex; flex-direction: column; align-items: center;
       position: relative; z-index: 2; width: 100%;
+      margin-top: 24px; 
     }
 
     /* 見出し共通 */
@@ -307,7 +308,7 @@ export default function BytechPage() {
       .hero {
         min-height: 480px;
         padding: 130px 10px 20px;
-        margin-top: 0;
+        margin-top: 30px;
         justify-content: flex-start;
         background-image: url('/bytech/assets/images/Gemini_Generated_Image_vu6vv2vu6vv2vu6v.webp');
         background-position: -25px -15px;
@@ -372,6 +373,10 @@ export default function BytechPage() {
     }
     .plan-header__ttl { font-size: clamp(22px, 3.5vw, 34px); font-weight: 900; line-height: 1.4; }
     .plan-header__sub { font-size: 15px; color: var(--color-text-light); margin-top: 12px; line-height: 1.8; }
+    
+    @media (max-width: 767px) {
+    .plan-header__ttl { font-size: 24px; }
+    }
 
     /* ===== Consultation Form (mobile only) ===== */
     .consult-form-section {
@@ -441,7 +446,7 @@ export default function BytechPage() {
     .cs-day-btn:not(.active):hover { background: rgba(83,58,252,0.08); color: var(--cs-blue); }
     .cs-day-btn .cs-day-label { display: block; font-size: 11px; font-weight: 500; opacity: 0.8; margin-top: 2px; }
     .cs-day-btn.active .cs-day-label { opacity: 1; }
-    .cs-slots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .cs-slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
     .cs-slot { border: 2px solid var(--cs-border); border-radius: 10px; padding: 14px 6px; text-align: center; cursor: pointer; transition: all 0.2s; background: var(--cs-card); }
     .cs-slot:hover { border-color: #c4b9fd; transform: translateY(-1px); }
     .cs-slot.selected { border-color: var(--cs-blue); background: var(--cs-blue-light); box-shadow: 0 0 0 3px rgba(83,58,252,0.12); }
@@ -489,7 +494,7 @@ export default function BytechPage() {
     .cs-view-all a { display: inline-flex; align-items: center; gap: 5px; color: var(--cs-blue); font-size: 13px; font-weight: 600; text-decoration: none; padding: 8px 18px; border: 1.5px solid var(--cs-blue); border-radius: 24px; transition: all 0.2s; }
     .cs-view-all a:hover { background: var(--cs-blue-light); }
     .cs-view-all a svg { width: 14px; height: 14px; }
-    @media (max-width: 380px) {
+    @media (max-width: 385px) {
       .cs-wrapper { padding: 0 10px; }
       .cs-card-body { padding: 20px 16px; }
       .cs-slots { grid-template-columns: repeat(2, 1fr); }
@@ -661,7 +666,7 @@ export default function BytechPage() {
     }
     @media (max-width: 767px) {
       .voices__inner { margin-top: 0; }
-      .voices__carousel-wrap { padding: 0 40px; }
+      .voices__carousel-wrap { padding: 0 8px; }
       .voices__item { flex: 0 0 100%; scroll-snap-align: start; }
       .voices__carousel { gap: 15px; padding-bottom: 0; margin-top: 20px; }
     }
@@ -713,7 +718,7 @@ export default function BytechPage() {
       .about-sp-stats {
         display: block;
         position: relative;
-        background-color: #353535;
+        
         background-image: url('/bytech/assets/images/背景-1.svg');
         background-repeat: no-repeat;
         background-size: cover;
@@ -860,7 +865,7 @@ export default function BytechPage() {
     }
     @media (max-width: 767px) {
       .campaign-banner { padding: 30px 16px; }
-      .campaign-banner__inner { flex-direction: column; }
+      .campaign-banner__inner { flex-direction: column; padding: 0 8px;}
       .campaign-banner__media { width: 100%; max-width: 100%; }
       .campaign-banner__content { padding-left: 0; padding-top: 24px; width: 100%; }
     }
@@ -1010,11 +1015,11 @@ export default function BytechPage() {
       .about__sub { font-size: 18px; }
     }
     @media (max-width: 767px) {
-      .about { padding: 100px 16px 5px; }
+      .about { padding: 60px 5px 5px; }
       .about::before { background-size: 100% auto; background-position: 0 0; }
-      .about__card { padding: 20px 30px 30px; }
-      .about__badge { width: 55%; min-width: unset; max-width: unset; margin-top: -30px; }
-      .about__body { flex-direction: column; gap: 0; margin-top: 20px; }
+      .about__card { padding: 20px 12px 30px; width: 94%; }
+      .about__badge { width: 55%; min-width: unset; max-width: unset; margin-top: -40px; }
+      .about__body { flex-direction: column; gap: 0; margin-top: 28px; }
       .about__body-left { flex-direction: column; align-items: center; }
       .about__body-text { margin-top: 25px; align-items: center; }
       .about__heading-main { font-size: 14px; letter-spacing: 0.08em; text-align: center; }
@@ -1173,7 +1178,7 @@ export default function BytechPage() {
 
     @media (max-width: 767px) {
       #problem {
-        padding: 20px 0 15px;
+        padding: 50px 0 30px;
         background-image: url('/bytech/assets/images/problem.svg');
         background-repeat: no-repeat;
         background-size: 466px auto;
@@ -1227,7 +1232,7 @@ export default function BytechPage() {
         margin-top: 20px;
         width: 100%;
         margin-left: 0;
-        padding: 0 15px;
+        padding: 0 5px;
         gap: 16px;
       }
       .problem__item {
@@ -1265,7 +1270,7 @@ export default function BytechPage() {
         letter-spacing: 0.05em;
         color: #191722;
         text-align: center;
-        margin-top: 5px;
+        margin-top: 10px;
       }
       .problem__subtitle-sp span {
         background: #583FFD;
@@ -1369,9 +1374,9 @@ export default function BytechPage() {
       height: 10px;
       margin: 15px auto;
       background-image: repeating-linear-gradient(
-        -60deg,
-        transparent, transparent 6px,
-        #B4A481 6px, #B4A481 9px
+        -45deg,
+        transparent, transparent 4px,
+        #B4A481 4px, #B4A481 6px
       );
     }
 
@@ -1449,15 +1454,19 @@ export default function BytechPage() {
 
     /* ── responsive ── */
     @media (max-width: 767px) {
-      #environment { padding-top: 60px; padding-bottom: 200px; }
+      #environment { padding-top: 60px; padding-bottom: 200px; height: 1400px; }
+      .env3af { margin-top: 0px; padding: 0 8px; }
+      .env3af__body { padding: 0 8px; }
+      .env3af__divider{ width: 100%; }
       .env3af__h2 { display: none; }
-      .env3af__h2-mobile { display: block; }
+      .env3af__h2-mobile { display: block; font-size: 24px; }
       .env3af__deco-desktop { display: none; }
-      .env3af__deco-mobile { display: block; }
+      .env3af__deco-mobile { display: block; width: 95%; }
       .env3af__sub1, .env3af__sub2 { font-size: 17px; }
       .env3af__images { flex-direction: column; align-items: center; }
       .env3af__img { width: 90%; }
       .env3af__sep { width: auto; transform: rotate(90deg); padding: 8px 0; }
+      .env3af__head { padding: 0;}
     }
     @media (max-width: 1024px) { .env__arrow { width: 4%; position: absolute; } }
    
@@ -1616,11 +1625,13 @@ export default function BytechPage() {
         padding-bottom: 200px;
       }
       .env__mentor-wrap {
-        bottom: -120px;
         margin-top: 0;
       }
       .env__mentor {
-        padding: 70px 15px 50px;
+        padding: 50px 15px;
+      }
+      .env__mentor-shape-top {
+        top: -15px;
       }
       .env__mentor-shape-top svg {
         height: 40px;
@@ -1634,9 +1645,7 @@ export default function BytechPage() {
       /* SP: decorative corner-bracket frame around heading */
       .env__mentor-heading-frame {
         width: 100%;
-        padding: 18px 20px;
-        margin-bottom: 8px;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Crect x='0.5' y='0.5' width='99' height='99' fill='none' stroke='%23191722' stroke-width='0.6'/%3E%3Cpath d='M0.5 16 L0.5 0.5 L16 0.5' stroke='%23191722' stroke-width='2' fill='none' stroke-linecap='square'/%3E%3Cpath d='M84 0.5 L99.5 0.5 L99.5 16' stroke='%23191722' stroke-width='2' fill='none' stroke-linecap='square'/%3E%3Cpath d='M0.5 84 L0.5 99.5 L16 99.5' stroke='%23191722' stroke-width='2' fill='none' stroke-linecap='square'/%3E%3Cpath d='M84 99.5 L99.5 99.5 L99.5 84' stroke='%23191722' stroke-width='2' fill='none' stroke-linecap='square'/%3E%3C/svg%3E");
+        margin-bottom: 16px;
         background-repeat: no-repeat;
         background-size: 100% 100%;
       }
@@ -1647,6 +1656,9 @@ export default function BytechPage() {
         letter-spacing: 0.04em;
         margin: 0;
         max-width: 100%;
+      }
+      .env__mentor-sub{
+        display: none;
       }
       .env__mentor-card {
         width: 140px;
@@ -1666,7 +1678,10 @@ export default function BytechPage() {
         transform: rotate(90deg);
         width: 30px;
       }
-      .env__arrow { width: 8%;  position: absolute; } 
+      .env__arrow { width: 8%; position: absolute; left: 50%; top:-60px;
+      transform: translateX(-50%); }
+      
+
     }
 
     
@@ -1850,19 +1865,19 @@ export default function BytechPage() {
     /* ===== SP overrides (mobile only) ===== */
     @media (max-width: 767px) {
       /* e7cb04a: no outer padding on SP — carousel section uses its own width */
-      .voice-section { padding: 0; }
+      .voice-section { padding: 0; margin-top: 130px; }
       /* Remove inner padding so carousel-section can be truly full-width */
       .voice-section__inner { padding: 0; }
 
       /* 6eae7bf: heading block — SP: static flow, below about-sp-stats__shape */
-      .voice-section__heading { position: static; transform: none; left: auto; width: 100%; padding: 40px 16px 0; }
+      .voice-section__heading { position: static; transform: none; left: auto; width: 100%; padding: 40px 16px 0; margin-top: -220px; }
 
 
       /* f9f7624: arrow 3% on mobile */
       .voice-section__arrow { width: 3%; }
 
       /* bbb0535: 90% width, margin-top 60px on mobile */
-      .voice-section__ttl-deco { width: 90%; margin-top: 60px; }
+      .voice-section__ttl-deco { width: 95%; margin-top: 24px; }
 
       /* a6eb53f: 11px on mobile */
       .voice-section__en { font-size: 11px; }
@@ -1872,9 +1887,9 @@ export default function BytechPage() {
 
       /* 8abba32: width 80%, centered, padding 15px top 35px bottom 15px sides */
       .voice-carousel-wrap {
-        width: 80%;
-        margin: 0 auto;
-        padding: 15px 15px 35px;
+        width: 98%;
+        margin: 10px auto 0px;
+        padding: 15px 15px 0px 15px;
       }
 
       /* 6f3df4d: padding-bottom 10px */
@@ -1888,7 +1903,7 @@ export default function BytechPage() {
       .voice-section__disclaimer { font-size: 10px; margin-top: 10px; padding: 0 15px; }
 
       /* 347e5ba: font 18px, padding 15px 30px, margin-top 20px */
-      .voice-section__cta { margin-top: 20px; }
+      .voice-section__cta { margin: 20px auto 35px; }
       .voice-section__cta-btn { font-size: 18px; padding: 15px 30px; border-width: 2px; }
     }
 
@@ -1896,6 +1911,10 @@ export default function BytechPage() {
     .features { padding-top: 50px;  background: #fff; }
     .features__inner {  margin-top: 400px; }
     .features__background { background: #fafafa;  margin-top: 450px; padding: 24px 24px; }
+    @media (max-width: 767px) {
+      .features__inner {  margin-top: 630px; }
+    }
+
     .reason-head { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 30px 0; position: relative; overflow: hidden; margin-bottom: 0; }
     .reason-head::before { content: ''; position: absolute; inset: 0; background-image: url('/bytech/assets/images/REASON.svg'); background-position: center center; background-repeat: no-repeat; background-size: 50% auto; opacity: 0.03; pointer-events: none; z-index: 0; }
     .reason-head > * { position: relative; z-index: 1; }
@@ -1903,6 +1922,7 @@ export default function BytechPage() {
     .reason-head__ttl span { color: #533AFC; }
     .reason-head__sub { font-family: "Reem Kufi", sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.05em; color: var(--color-accent); margin: 5px 0 0; }
     @media (max-width: 767px) {
+      .reason-head { padding: 30px 0 0 0; }
       .reason-head__ttl { font-size: 20px; }
       .reason-head__sub { font-size: 12px; }
     }
@@ -2027,6 +2047,8 @@ export default function BytechPage() {
     .r5-carousel__dot { width: 8px; height: 8px; border-radius: 50%; background: #ccc; border: none; padding: 0; cursor: pointer; transition: background 0.2s; }
     .r5-carousel__dot--active { background: #888; }
     @media (max-width: 767px) {
+      .r5-sub__webinar-label{width: 100%; }
+
       .r5-carousel__slide { flex: 0 0 100%; }
       .r5-carousel__btn { width: 60px; height: 60px; }
       .r5-carousel__btn--prev { left: -10px; }
@@ -2067,11 +2089,12 @@ export default function BytechPage() {
     @media (max-width: 767px) {
       .r3-sub__slide { flex: 0 0 100%; }
       .r3-sub__btn { width: 60px; height: 60px; }
-      .r3-sub__btn--prev { left: -10px; }
-      .r3-sub__btn--next { right: -10px; }
+      .r3-sub__btn--prev { left: -25px; }
+      .r3-sub__btn--next { right: -25px; }
+      .r3-sub__carousel{width: 100%; }
     }
     @media (max-width: 767px) {
-      .r3-sub { padding: 20px; }
+      .r3-sub { padding: 15px; }
       .r3-sub__ttl { display: none; }
       .r3-sub__ttl--mobile { display: block; font-family: "Noto Sans JP", sans-serif; font-size: 18px; font-weight: 700; line-height: 1.4em; letter-spacing: 0.05em; color: #333; margin: 0; }
       .r3-sub__slide { flex: 0 0 100%; }
@@ -2084,18 +2107,18 @@ export default function BytechPage() {
       .reason-item__h3 { font-size: 22px; }
     }
     @media (max-width: 767px) {
-      .reason-item { padding: 40px 0 20px; }
+      .reason-item { padding: 0px 0 40px; margin-top: 40px; }
       .reason-item__row { flex-direction: column; }
       .reason-item--rev .reason-item__row { flex-direction: column; }
       .reason-item__text { flex: none; width: 100%; }
-      .reason-item__img { width: 100%; margin-top: 20px; }
-      .reason-item__label { font-size: 16px; }
-      .reason-item__h3 { font-size: 18px; }
+      .reason-item__img { width: 100%; margin-top: 20px; display: flex; justify-content: center; }
+      .reason-item__label { font-size: 20px; }
+      .reason-item__h3 { font-size: 20px; }
       .reason-sub__card { padding: 20px; }
       .reason-sub__card-ttl { display: none; }
-      .reason-sub__card-ttl--mobile { display: block; font-family: "Noto Sans JP", sans-serif; font-size: 18px; font-weight: 700; line-height: 1.5em; letter-spacing: 0.05em; color: #333; margin: 0; }
+      .reason-sub__card-ttl--mobile { display: block; font-family: "Noto Sans JP", sans-serif; font-size: 20px; font-weight: 700; line-height: 1.5em; letter-spacing: 0.05em; color: #333; margin: 0; }
       .reason-sub__card-body { padding: 0; font-size: 14px; }
-      .reason-sub__card-progress { width: 60%; margin: 10px 0 0 0; align-self: flex-start; }
+      .reason-sub__card-progress { width: 60%; margin: 10px 0 0 0; align-self: flex-end; }
     }
 
     /* ===== CTA Banner (3ab2f36) ===== */
@@ -2317,7 +2340,7 @@ export default function BytechPage() {
       .curric-panel__badge { margin-left: 0; width: 40px; }
       .curric-panel__badge svg { width: 28px; }
       .curric-panel__heading { font-size: 16px; margin-top: -8px; }
-      .curric-panel__heading--sp { display: block; }
+      .curric-panel__heading--sp { display: block; margin-top: 2px; }
       .curric-panel__heading--pc { display: none; }
       .curric-cards {
         flex-direction: column;
@@ -2330,6 +2353,21 @@ export default function BytechPage() {
         flex: none;
         width: 100%;
         max-width: 100%;
+        height: auto;
+      }
+      .curric-card__btn {
+        width: 70%;
+        display: block;
+        margin: -20px auto 0;
+        padding: 6px 0;
+        font-size: 18px;
+      }
+      .curric-card__btn--coming{
+        width: 70%;
+        display: block;
+        margin: -20px auto 0;
+        padding: 6px 0;
+        font-size: 18px;
       }
     }
 
@@ -2431,7 +2469,7 @@ export default function BytechPage() {
     .skills-carousel__dot.is-active { background: var(--color-accent); }
 
     @media (max-width: 767px) {
-      .skills-section__ttl { font-size: 30px; }
+      .skills-section__ttl { font-size: 24px; }
       .skills-section__tag { font-size: 14px; }
       .skills-carousel__slide { flex: 0 0 100%; }
     }
@@ -2527,6 +2565,7 @@ export default function BytechPage() {
 
     /* ===== Plan SP payment ===== */
     @media (max-width: 767px) {
+      .plan__inner { padding: 0 15px; }
       .plan__payment {
         margin-top: 32px;
         padding: 24px 20px;
@@ -2571,6 +2610,14 @@ export default function BytechPage() {
       }
       .plan__payment__cards img {
         max-width: 260px;
+      }
+
+      .plan-card__cta {
+        width: 80%;
+        display: block;
+        margin: -20px auto 0;
+        padding: 6px 0;
+        font-size: 16px;
       }
     }
 
