@@ -1,6 +1,7 @@
 'use client'
 
 import Script from 'next/script'
+import Image from 'next/image'
 
 export default function BytechPage() {
   return (
@@ -212,6 +213,7 @@ export default function BytechPage() {
       object-fit: cover; object-position: right top;
       display: block; z-index: 0;
     }
+    .hero__bg-sp { display: none; }
 
     /* max-width 1100px の中央寄せラッパー */
     .hero__inner {
@@ -317,15 +319,10 @@ export default function BytechPage() {
       .hero__bg { object-position: calc(100% + 100px) top; }
     }
 
-    /* 480px以下: SP背景画像をCSSで表示、imgタグ非表示 */
+    /* 480px以下: PC背景画像を非表示、SP背景画像を表示 */
     @media (max-width: 480px) {
-      .hero__bg { display: none; }
-      .hero {
-        background-image: url('/bytech/assets/images/Gemini_Generated_Image_vu6vv2vu6vv2vu6v.webp');
-        background-position: center top;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
+      .hero__bg-pc { display: none; }
+      .hero__bg-sp { display: block; object-position: center top; }
       .hero::before {
         background-image: linear-gradient(360deg, #000 40%, rgba(255,255,255,0) 70%);
         opacity: 0.5;
@@ -3280,10 +3277,22 @@ export default function BytechPage() {
       {/* ===== HERO ===== */}
       <section className="hero">
         {/* 背景画像: PC=合成画像(女性+紫BG) / SP=女性のみ縦長 */}
-        <picture>
-          <source media="(min-width: 480px)" srcSet="/bytech/assets/images/hero-bg-from-generative-ai.bytech.jp.webp" />
-          <img src="/bytech/assets/images/Gemini_Generated_Image_vu6vv2vu6vv2vu6v.webp" alt="" className="hero__bg" />
-        </picture>
+        <Image
+          src="/bytech/assets/images/hero-bg-from-generative-ai.bytech.jp.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="hero__bg hero__bg-pc"
+        />
+        <Image
+          src="/bytech/assets/images/Gemini_Generated_Image_vu6vv2vu6vv2vu6v.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="hero__bg hero__bg-sp"
+        />
 
         <div className="hero__inner">
 
