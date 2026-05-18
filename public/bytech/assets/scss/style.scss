@@ -8,7 +8,7 @@ $color-yellow: #FFD464;
 $color-blue: #533AFC;
 
 body {
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: var(--font-noto-jp), "Noto Sans JP", sans-serif;
   color: $color-text;
   background-color: $color-bg;
   margin: 0;

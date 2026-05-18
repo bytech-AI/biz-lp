@@ -32,7 +32,7 @@ $px-breakpoints: (
 $designWidth: 1920px;
 
 :root {
-  --font-jp: 'Noto Sans JP', sans-serif;
-  --font-en: 'Montserrat', sans-serif;
+  --font-jp: var(--font-noto-jp), 'Noto Sans JP', sans-serif;
+  --font-en: var(--font-montserrat), 'Montserrat', sans-serif;
 
 }

@@ -7,11 +7,8 @@ export default function CoursePage() {
     <>
       <link rel="stylesheet" href="/bytech/assets/css/style.min.css" />
       <link rel="stylesheet" href="/bytech/assets/css/endless-river.css" />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       <link rel="stylesheet" href="/bytech/assets/slick/slick.css" />
       <link rel="stylesheet" href="/bytech/assets/slick/slick-theme.css" />
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
       <div className="page-course">
         <header className="header">

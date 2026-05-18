@@ -5,10 +5,6 @@ import Script from 'next/script'
 export default function BytechPage() {
   return (
     <>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
-
       <style dangerouslySetInnerHTML={{ __html: `
     /* ===== CSS Custom Properties ===== */
     :root {
@@ -24,7 +20,7 @@ export default function BytechPage() {
       --color-bg-light: #f6f6f6;
       --color-bg-purple-light: #f0eeff;
       --color-green: #217346;
-      --font-jp: 'Noto Sans JP', sans-serif;
+      --font-jp: var(--font-noto-jp), 'Noto Sans JP', sans-serif;
       --font-en: 'Futura', 'Futura-Medium', 'Century Gothic', sans-serif;
       --max-width: 1200px;
       --radius: 12px;
@@ -239,7 +235,7 @@ export default function BytechPage() {
 
     /* 見出し共通 */
     .hero__heading {
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 50px; font-weight: 900; line-height: 1.2;
       letter-spacing: 0.05em; color: #fff; margin: 0; display: block;
     }
@@ -283,7 +279,7 @@ export default function BytechPage() {
 
     /* 注釈テキスト */
     .hero__note {
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 12px; font-weight: 400; color: #fff;
       line-height: 1.8; margin: 40px 0 30px;
       max-width: 500px;
@@ -299,7 +295,7 @@ export default function BytechPage() {
 
     /* SP注釈テキスト */
     .hero__note-sp {
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 12px; font-weight: 400; color: #fff;
       line-height: 1.8; margin-top: 20px;
     }
@@ -415,12 +411,12 @@ export default function BytechPage() {
       .consult-form-section { display: block; }
     }
     .consult-form__heading {
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 25px; font-weight: 600; letter-spacing: 0.03em;
       color: #000; text-align: center; margin: 0 0 0;
     }
     .consult-form__subheading {
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 16px; font-weight: 600; letter-spacing: 0.03em;
       text-align: center; margin: 10px 0 0; color: #000;
     }
@@ -445,7 +441,7 @@ export default function BytechPage() {
       --shadow: 0 4px 20px rgba(0,30,80,0.08);
     }
     /* ── cs-wrapper本体 ── */
-    .cs-wrapper { max-width: 440px; margin: 0 auto; padding: 0 14px; font-family: "Noto Sans JP", sans-serif; }
+    .cs-wrapper { max-width: 440px; margin: 0 auto; padding: 0 14px; font-family: var(--font-jp); }
     .cs-header { text-align: center; padding: 20px 0 14px; }
     .cs-progress { display: flex; align-items: center; justify-content: center; margin: 0 0 16px; }
     .cs-step { display: flex; flex-direction: column; align-items: center; flex: 1; z-index: 2; }
@@ -667,7 +663,7 @@ export default function BytechPage() {
     .voices__inner { position: relative; z-index: 1; margin: -70px 0 0; }
     .voices__heading-sp {
       display: none; color: #fff; font-size: 20px; font-weight: 600;
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       text-align: center; line-height: 1.6em; letter-spacing: 0.05em; margin: 0;
     }
     .voices__underline-sp { display: none; text-align: center; margin: 10px 0 0; }
@@ -786,7 +782,7 @@ export default function BytechPage() {
       }
       /* heading: 20px on SP (reduced from 32px desktop) */
       .about-sp-stats__heading {
-        font-family: "Noto Sans JP", sans-serif;
+        font-family: var(--font-jp);
         font-size: 20px;
         font-weight: 600;
         letter-spacing: 0.05em;
@@ -978,7 +974,7 @@ export default function BytechPage() {
       flex-direction: column;
     }
     .about__heading-main {
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 24px;
       font-weight: 600;
       color: #191722;
@@ -988,7 +984,7 @@ export default function BytechPage() {
       text-align: center;
     }
     .about__heading-highlight {
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 34px;
       font-weight: 600;
       color: #fff;
@@ -1000,7 +996,7 @@ export default function BytechPage() {
       padding: 4px 14px;
     }
     .about__sub {
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       text-align: center;
       font-size: 22px;
       font-weight: 600;
@@ -1355,7 +1351,7 @@ export default function BytechPage() {
     }
     /* desktop h2 (84e1b66) */
     .env3af__h2 {
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 32px;
       font-weight: 600;
       color: #fff;
@@ -1366,7 +1362,7 @@ export default function BytechPage() {
     /* mobile h2 (f345ac3) — hidden on desktop */
     .env3af__h2-mobile {
       display: none;
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 28px;
       font-weight: 600;
       color: #fff;
@@ -1423,7 +1419,7 @@ export default function BytechPage() {
 
     /* 6fb2cab8: "あなた専用のカリキュラムとサポートで" */
     .env3af__sub1 {
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 28px;
       font-weight: 600;
       color: #fff;
@@ -1435,7 +1431,7 @@ export default function BytechPage() {
     }
     /* 84e12ea: "最短で学びを成果に変える" */
     .env3af__sub2 {
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 28px;
       font-weight: 600;
       color: #fff;
@@ -1547,7 +1543,7 @@ export default function BytechPage() {
       margin: 0 0 8px;
     }
     .env__mentor-sub {
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: clamp(16px, 1.4vw, 14px);
       font-weight: 700;
       color: #000;
@@ -1586,7 +1582,7 @@ export default function BytechPage() {
       display: block;
     }
     .env__mentor-name {
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 15px;
       font-weight: 600;
       color: #191722;
@@ -1594,7 +1590,7 @@ export default function BytechPage() {
       margin: 0 0 4px;
     }
     .env__mentor-tag {
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 11px;
       font-weight: 500;
       color: #555;
@@ -1619,7 +1615,7 @@ export default function BytechPage() {
       gap: 10px;
       background: var(--color-accent);
       color: #191722;
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 16px;
       font-weight: 600;
       padding: 16px 36px;
@@ -1810,7 +1806,7 @@ export default function BytechPage() {
     }
     /* 7e2f1b0: disclaimer — Noto Sans JP 12px 300, white, center, margin-top 15px */
     .voice-section__disclaimer {
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 12px;
       font-weight: 300;
       line-height: 13px;
@@ -1830,7 +1826,7 @@ export default function BytechPage() {
       align-items: center;
       gap: 5px;
       background-color: #533afc;
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 22px;
       font-weight: 600;
       letter-spacing: .03em;
@@ -1954,7 +1950,7 @@ export default function BytechPage() {
     .reason-head { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 30px 0; position: relative; overflow: hidden; margin-bottom: 0; margin-top: 40px; }
     .reason-head::before { content: ''; position: absolute; inset: 0; background-image: url('/bytech/assets/images/REASON.svg'); background-position: center center; background-repeat: no-repeat; background-size: 50% auto; opacity: 0.03; pointer-events: none; z-index: 0; }
     .reason-head > * { position: relative; z-index: 1; }
-    .reason-head__ttl { font-family: "Noto Sans JP", sans-serif; font-size: 32px; font-weight: 600; letter-spacing: 0.05em; color: #000; line-height: 1.5; margin: 0; }
+    .reason-head__ttl { font-family: var(--font-jp); font-size: 32px; font-weight: 600; letter-spacing: 0.05em; color: #000; line-height: 1.5; margin: 0; }
     .reason-head__ttl span { color: #533AFC; }
     .reason-head__sub { font-family: "Reem Kufi", sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.05em; color: var(--color-accent); margin: 5px 0 0; }
     @media (max-width: 767px) {
@@ -1980,11 +1976,11 @@ export default function BytechPage() {
       background: #533AFC; color: #fff;
       font-family: "Reem Kufi", sans-serif; font-size: 28px; font-weight: 700;
     }
-    .reason-item__label { font-family: "Noto Sans JP", sans-serif; font-size: 27px; font-weight: 700; line-height: 1.3em; letter-spacing: 0.03em; color: #191722; }
+    .reason-item__label { font-family: var(--font-jp); font-size: 27px; font-weight: 700; line-height: 1.3em; letter-spacing: 0.03em; color: #191722; }
     .reason-item__divider-img { width: 80%; height: auto; margin-top: 10px; display: block; }
-    .reason-item__h3 { font-family: "Noto Sans JP", sans-serif; font-size: 27px; font-weight: 600; line-height: 1.6em; letter-spacing: 0.03em; color: #191722; margin: 10px 0 0; }
+    .reason-item__h3 { font-family: var(--font-jp); font-size: 27px; font-weight: 600; line-height: 1.6em; letter-spacing: 0.03em; color: #191722; margin: 10px 0 0; }
     .reason-item__h3 span { background: #191722; color: #fff; padding: 0px 5px; margin-right: 3px; display: inline; }
-    .reason-item__body { font-family: "Noto Sans JP", sans-serif; font-size: 15px; font-weight: 500; line-height: 1.8em; letter-spacing: 0.05em; color: #191722; margin: 20px 0 0; }
+    .reason-item__body { font-family: var(--font-jp); font-size: 15px; font-weight: 500; line-height: 1.8em; letter-spacing: 0.05em; color: #191722; margin: 20px 0 0; }
 
     /* Right image column */
     .reason-item__img { flex: 1 1 auto; }
@@ -1994,9 +1990,9 @@ export default function BytechPage() {
     .reason-item__sub { display: flex; flex-direction: column; gap: 40px; margin-top: 40px; }
     .reason-item__sub_wrapper  { display: flex; flex-direction: column; gap: 40px; margin-top: 40px; }
     .reason-sub__card { display: flex; flex-direction: column; background: #fff; padding: 30px 30px 30px 50px; }
-    .reason-sub__card-ttl { font-family: "Noto Sans JP", sans-serif; font-size: 25px; font-weight: 700; line-height: 1.4em; letter-spacing: 0.05em; color: #333; margin: 0; }
+    .reason-sub__card-ttl { font-family: var(--font-jp); font-size: 25px; font-weight: 700; line-height: 1.4em; letter-spacing: 0.05em; color: #333; margin: 0; }
     .reason-sub__card-ttl--mobile { display: none; }
-    .reason-sub__card-body { font-family: "Noto Sans JP", sans-serif; font-size: 15px; font-weight: 500; line-height: 2em; letter-spacing: 0.05em; color: #333; margin: 5px 0 0; padding: 0 50px 0 0; }
+    .reason-sub__card-body { font-family: var(--font-jp); font-size: 15px; font-weight: 500; line-height: 2em; letter-spacing: 0.05em; color: #333; margin: 5px 0 0; padding: 0 50px 0 0; }
     .reason-sub__card-progress { width: 19%; height: auto; display: block; margin: 15px 10px 0 0; align-self: flex-end; }
     
     @media (max-width: 767px) and (min-width: 490px)  {
@@ -2033,7 +2029,7 @@ export default function BytechPage() {
       opacity: 0.66;
     }
     .r2-sub__overlay-ttl {
-      font-family: "Noto Sans JP", sans-serif; font-size: 25px; font-weight: 600;
+      font-family: var(--font-jp); font-size: 25px; font-weight: 600;
       line-height: 1.4em; letter-spacing: 0.05em; color: #fff;
       text-align: center; position: relative; z-index: 1; margin: 0;
     }
@@ -2062,22 +2058,22 @@ export default function BytechPage() {
 
     /* Reason 4 sub-card (0f3e499) */
     .r4-sub { display: flex; flex-direction: column; background: #fff; margin-top: 30px; padding: 30px 50px 30px 50px; text-align: center; }
-    .r4-sub__ttl { font-family: "Noto Sans JP", sans-serif; font-size: 25px; font-weight: 700; line-height: 1.4em; letter-spacing: 0.05em; color: #333; margin: 0; }
+    .r4-sub__ttl { font-family: var(--font-jp); font-size: 25px; font-weight: 700; line-height: 1.4em; letter-spacing: 0.05em; color: #333; margin: 0; }
     .r4-sub__ttl span { color: #533AFC; }
     .r4-sub__ttl--mobile { display: none; }
-    .r4-sub__body { font-family: "Noto Sans JP", sans-serif; font-size: 16px; font-weight: 500; line-height: 1.6em; letter-spacing: 0.05em; color: #333; margin: 5px 0 0; }
+    .r4-sub__body { font-family: var(--font-jp); font-size: 16px; font-weight: 500; line-height: 1.6em; letter-spacing: 0.05em; color: #333; margin: 5px 0 0; }
     .r4-sub__img-desktop { width: 100%; height: auto; display: block; margin: 20px 0 0; }
     .r4-sub__img-mobile { display: none; width: 100%; height: auto; margin: 20px 0 0; }
-    .r4-sub__note { font-family: "Noto Sans JP", sans-serif; font-size: 13px; font-weight: 400; line-height: 1.8em; letter-spacing: 0.05em; color: #191722; margin-top: -20px; text-align: left; }
+    .r4-sub__note { font-family: var(--font-jp); font-size: 13px; font-weight: 400; line-height: 1.8em; letter-spacing: 0.05em; color: #191722; margin-top: -20px; text-align: left; }
 
     /* Reason 5 sub-section (16068b5) */
     .r5-sub { display: flex; flex-direction: column; margin-top: 30px; padding: 30px 50px 30px 50px; background-color: #fff; }
-    .r5-sub__ttl { font-family: "Noto Sans JP", sans-serif; font-size: 25px; font-weight: 700; line-height: 1.4em; letter-spacing: 0.05em; color: #333; text-align: center; margin: 0; }
-    .r5-sub__ttl--mobile { display: none; font-family: "Noto Sans JP", sans-serif; font-size: 20px; font-weight: 700; line-height: 1.4em; letter-spacing: 0.05em; color: #333; text-align: center; margin: 0; }
-    .r5-sub__body { font-family: "Noto Sans JP", sans-serif; font-size: 16px; font-weight: 500; line-height: 2em; letter-spacing: 0.05em; color: #333; margin: 5px 0 0; text-align: center; }
+    .r5-sub__ttl { font-family: var(--font-jp); font-size: 25px; font-weight: 700; line-height: 1.4em; letter-spacing: 0.05em; color: #333; text-align: center; margin: 0; }
+    .r5-sub__ttl--mobile { display: none; font-family: var(--font-jp); font-size: 20px; font-weight: 700; line-height: 1.4em; letter-spacing: 0.05em; color: #333; text-align: center; margin: 0; }
+    .r5-sub__body { font-family: var(--font-jp); font-size: 16px; font-weight: 500; line-height: 2em; letter-spacing: 0.05em; color: #333; margin: 5px 0 0; text-align: center; }
     .r5-sub__content-img { width: 79%; height: auto; display: block; margin: 20px auto 0; }
     .r5-sub__content-img--mobile { display: none; width: 79%; height: auto; margin: 20px auto 0; }
-    .r5-sub__note { font-family: "Noto Sans JP", sans-serif; font-size: 13px; font-weight: 400; line-height: 1.8em; color: #191722; margin: 20px 0 0; }
+    .r5-sub__note { font-family: var(--font-jp); font-size: 13px; font-weight: 400; line-height: 1.8em; color: #191722; margin: 20px 0 0; }
     .r5-sub__webinar { display: flex; flex-direction: column; margin-top: 50px; }
     .r5-sub__webinar-label { width: 40%; height: auto; display: block; margin: 10px auto 0; }
     .r5-carousel { position: relative; margin-top: 15px; }
@@ -2103,7 +2099,7 @@ export default function BytechPage() {
     @media (max-width: 767px) {
       .r4-sub { padding: 20px; }
       .r4-sub__ttl { display: none; }
-      .r4-sub__ttl--mobile { display: block; font-family: "Noto Sans JP", sans-serif; font-size: 18px; font-weight: 700; line-height: 1.4em; letter-spacing: 0.05em; color: #333; margin: 0; }
+      .r4-sub__ttl--mobile { display: block; font-family: var(--font-jp); font-size: 18px; font-weight: 700; line-height: 1.4em; letter-spacing: 0.05em; color: #333; margin: 0; }
       .r4-sub__body { display: none; }
       .r4-sub__img-desktop { display: none; }
       .r4-sub__img-mobile { display: block; }
@@ -2117,9 +2113,9 @@ export default function BytechPage() {
 
     /* Reason 3 sub-card (6cade3e / 60c79f5 / 20f36a6) */
     .r3-sub { display: flex; flex-direction: column; background: #fff; margin-top: 30px; padding: 40px 50px 30px 50px; }
-    .r3-sub__ttl { font-family: "Noto Sans JP", sans-serif; font-size: 25px; font-weight: 700; line-height: 1.4em; letter-spacing: 0.05em; color: #333; margin: 0; }
+    .r3-sub__ttl { font-family: var(--font-jp); font-size: 25px; font-weight: 700; line-height: 1.4em; letter-spacing: 0.05em; color: #333; margin: 0; }
     .r3-sub__ttl--mobile { display: none; }
-    .r3-sub__body { font-family: "Noto Sans JP", sans-serif; font-size: 15px; font-weight: 500; line-height: 2em; letter-spacing: 0.05em; color: #333; margin: 5px 0 0; }
+    .r3-sub__body { font-family: var(--font-jp); font-size: 15px; font-weight: 500; line-height: 2em; letter-spacing: 0.05em; color: #333; margin: 5px 0 0; }
     .r3-sub__carousel { margin-top: 20px; position: relative; }
     .r3-sub__viewport { overflow: hidden; }
     .r3-sub__slides { display: flex; }
@@ -2142,7 +2138,7 @@ export default function BytechPage() {
     @media (max-width: 767px) {
       .r3-sub { padding: 15px; }
       .r3-sub__ttl { display: none; }
-      .r3-sub__ttl--mobile { display: block; font-family: "Noto Sans JP", sans-serif; font-size: 18px; font-weight: 700; line-height: 1.4em; letter-spacing: 0.05em; color: #333; margin: 0; }
+      .r3-sub__ttl--mobile { display: block; font-family: var(--font-jp); font-size: 18px; font-weight: 700; line-height: 1.4em; letter-spacing: 0.05em; color: #333; margin: 0; }
       .r3-sub__slide { flex: 0 0 100%; }
     }
 
@@ -2162,7 +2158,7 @@ export default function BytechPage() {
       .reason-item__h3 { font-size: 20px; }
       .reason-sub__card { padding: 20px; }
       .reason-sub__card-ttl { display: none; }
-      .reason-sub__card-ttl--mobile { display: block; font-family: "Noto Sans JP", sans-serif; font-size: 20px; font-weight: 700; line-height: 1.5em; letter-spacing: 0.05em; color: #333; margin: 0; }
+      .reason-sub__card-ttl--mobile { display: block; font-family: var(--font-jp); font-size: 20px; font-weight: 700; line-height: 1.5em; letter-spacing: 0.05em; color: #333; margin: 0; }
       .reason-sub__card-body { padding: 0; font-size: 14px; }
       
     }
@@ -2186,7 +2182,7 @@ export default function BytechPage() {
       gap: 0;
     }
     .cta-banner__ttl {
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 25px;
       font-weight: 600;
       letter-spacing: 0.05em;
@@ -2210,7 +2206,7 @@ export default function BytechPage() {
       display: block;
     }
     .cta-banner__note {
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 11px;
       font-weight: 400;
       color: #fff;
@@ -2244,7 +2240,7 @@ export default function BytechPage() {
     }
     .curric-head > * { position: relative; z-index: 1; }
     .curric-head__ttl {
-      font-family: "Noto Sans JP", sans-serif; font-size: 32px; font-weight: 600;
+      font-family: var(--font-jp); font-size: 32px; font-weight: 600;
       letter-spacing: 0.05em; color: #333; margin: 0;
     }
     .curric-head__tag {
@@ -2253,12 +2249,12 @@ export default function BytechPage() {
     }
     /* desktop+tablet description */
     .curric-head__desc {
-      font-family: "Noto Sans JP", sans-serif; font-size: 16px; font-weight: 700;
+      font-family: var(--font-jp); font-size: 16px; font-weight: 700;
       letter-spacing: 0.07em; color: #333; margin-top: 10px;
     }
     .curric-head__desc span { color: #583ffd; font-size: 22px;}
     .curric-head__note {
-      font-family: "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 500;
+      font-family: var(--font-jp); font-size: 14px; font-weight: 500;
       letter-spacing: 0.07em; color: #292525; margin: 0;
     }
     /* mobile-only description */
@@ -2292,7 +2288,7 @@ export default function BytechPage() {
     /* Label divider (bc6ecac: line_text divider, element-align-left) */
     .curric-panel__label-row { display: flex; align-items: center; width: 100%; }
     .curric-panel__label {
-      font-family: "Noto Sans JP", sans-serif; font-size: 13px; font-weight: 700;
+      font-family: var(--font-jp); font-size: 13px; font-weight: 700;
       color: #533AFC; white-space: nowrap; flex-shrink: 0;
     }
     .curric-panel__label-line {
@@ -2301,7 +2297,7 @@ export default function BytechPage() {
 
     /* Heading (74d932f: 28px 800 #191722) */
     .curric-panel__heading {
-      font-family: "Noto Sans JP", sans-serif; font-size: 28px; font-weight: 600;
+      font-family: var(--font-jp); font-size: 28px; font-weight: 600;
       letter-spacing: 0.03em; color: #191722; margin: 0; margin-top: 0px; line-height: 1.4;
     }
     .curric-panel__heading--sp { display: none; }
@@ -2333,22 +2329,22 @@ export default function BytechPage() {
       padding: 15px 10px 30px; display: flex; flex-direction: column; flex: 1;
     }
     .curric-card__name {
-      font-family: "Noto Sans JP", sans-serif; font-size: 18px; font-weight: 700;
+      font-family: var(--font-jp); font-size: 18px; font-weight: 700;
       letter-spacing: 0.03em; color: #191722; margin: 0;
     }
     .curric-card__chapters {
-      font-family: "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 600;
+      font-family: var(--font-jp); font-size: 14px; font-weight: 600;
       color: #191722; margin: 0;
     }
     .curric-card__desc-wrap { min-height: 120px; margin-top: 10px; flex: 1; }
     .curric-card__desc {
-      font-family: "Noto Sans JP", sans-serif; font-size: 13px; font-weight: 400;
+      font-family: var(--font-jp); font-size: 13px; font-weight: 400;
       line-height: 22px; letter-spacing: 0.03em; color: #191722; margin: 0;
     }
     .curric-card__btn {
       display: block; text-align: center; margin-top: 8px;
       background: #fff; color: #533afc; border: 2px solid #533afc;
-      border-radius: 100px; font-family: "Noto Sans JP", sans-serif;
+      border-radius: 100px; font-family: var(--font-jp);
       font-size: 15px; font-weight: 700; letter-spacing: 0.03em;
       padding: 12px 25px; text-decoration: none; cursor: pointer;
       transition: background 0.2s, color 0.2s;
@@ -2357,7 +2353,7 @@ export default function BytechPage() {
     .curric-card__btn--coming {
       display: block; text-align: center; margin-top: 8px;
       background: #e8e8e8; color: #999; border: 2px solid #e8e8e8;
-      border-radius: 100px; font-family: "Noto Sans JP", sans-serif;
+      border-radius: 100px; font-family: var(--font-jp);
       font-size: 15px; font-weight: 700; letter-spacing: 0.03em;
       padding: 12px 25px; cursor: default; pointer-events: none;
     }
@@ -2373,13 +2369,13 @@ export default function BytechPage() {
       .curric-head__desc { display: none; }
       .curric-head__note { display: none; }
       .curric-head__desc--sp {
-        display: block; font-family: "Noto Sans JP", sans-serif;
+        display: block; font-family: var(--font-jp);
         font-size: 12px; font-weight: 700; letter-spacing: 0.07em; color: #333;
         text-align: start; margin-top: 10px; padding: 0 15px;
       }
       .curric-head__desc--sp span { font-size: 1.3em; color: #533afc; }
       .curric-head__note--sp {
-        display: block; font-family: "Noto Sans JP", sans-serif;
+        display: block; font-family: var(--font-jp);
         font-size: 11px; font-weight: 500; letter-spacing: 0.07em; color: #292525;
         text-align: start; margin: 0; padding: 0 15px;
       }
@@ -2460,7 +2456,7 @@ export default function BytechPage() {
 
     /* 見出し (6aea1c3) */
     .skills-section__ttl {
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 32px; font-weight: 600;
       letter-spacing: 0.05em; color: #fff;
       text-align: center; margin: 0; padding-top: 30px; line-height: 1.5;
@@ -2567,7 +2563,7 @@ export default function BytechPage() {
     .plan-card__services-divider span { 
       color: var(--color-primary); 
       white-space: nowrap; 
-      font-family: "Noto Sans JP", Sans-serif;
+      font-family: var(--font-jp);
       font-size: 16px;
       font-weight: 600;
       }
@@ -2758,7 +2754,7 @@ export default function BytechPage() {
         padding: 12px 8px;
         font-size: 15px;
         font-weight: 700;
-        font-family: "Noto Sans JP", sans-serif;
+        font-family: var(--font-jp);
         border-radius: 0;
         cursor: pointer;
         background: #f1f1f1;
@@ -2891,7 +2887,7 @@ export default function BytechPage() {
     .interview-card__thumb:hover img { transform: scale(0.95); }
     .interview-card__body { margin-top: 20px; flex: 1; min-height: 100px; }
     .interview-card__ttl {
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 18px; font-weight: 600;
       line-height: 25px; letter-spacing: 0.03em;
       color: #191722; margin: 0;
@@ -2909,7 +2905,7 @@ export default function BytechPage() {
     }
     .interview-card__avatar img { width: 100%; height: 100%; object-fit: cover; }
     .interview-card__meta {
-      font-family: "Noto Sans JP", sans-serif;
+      font-family: var(--font-jp);
       font-size: 16px; font-weight: 700;
       line-height: 25px; letter-spacing: 0.03em;
       color: #191722;
@@ -2945,7 +2941,7 @@ export default function BytechPage() {
       
     }
     .flow__ttl {
-      font-family: "Noto Sans JP", sans-serif; font-size: 32px; font-weight: 600;
+      font-family: var(--font-jp); font-size: 32px; font-weight: 600;
       letter-spacing: 0.05em; color: #191722; margin: 0; position: relative; z-index: 1;
     }
     .flow__ttl--sp { display: none; }
@@ -2998,7 +2994,7 @@ export default function BytechPage() {
       background-size: 130px auto; opacity: 0.03; pointer-events: none;
     }
     .faq__ttl {
-      font-family: "Noto Sans JP", sans-serif; font-size: 32px; font-weight: 600;
+      font-family: var(--font-jp); font-size: 32px; font-weight: 600;
       letter-spacing: 0.05em; color: #000; margin: 0; position: relative; z-index: 1;
     }
     .faq__tag {
@@ -3010,7 +3006,7 @@ export default function BytechPage() {
     .faq__group { margin-top: 20px; }
     .faq__group:first-child { margin-top: 10px; }
     .faq__group__ttl {
-      font-family: "Noto Sans JP", sans-serif; font-size: 18px; font-weight: 600;
+      font-family: var(--font-jp); font-size: 18px; font-weight: 600;
       letter-spacing: 0.05em; color: #000; text-align: center; margin: 0;
       padding-bottom: 18px;
     }
@@ -3029,7 +3025,7 @@ export default function BytechPage() {
     .faq__item__q-icon { flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
     .faq__item__q-icon svg { width: 17px; height: 17px; fill: #533afc; }
     .faq__item__q-text {
-      flex: 1; font-family: "Noto Sans JP", sans-serif; font-size: 15px; font-weight: 400;
+      flex: 1; font-family: var(--font-jp); font-size: 15px; font-weight: 400;
       letter-spacing: 0.07em; line-height: 1.4em; color: #000;
     }
     .faq__item__q-toggle {
@@ -3043,7 +3039,7 @@ export default function BytechPage() {
     .faq__item__a {
       background: #fff; padding: 0 18px; max-height: 0; overflow: hidden;
       transition: max-height 0.3s ease, padding 0.3s;
-      font-family: "Noto Sans JP", sans-serif; font-size: 15px;
+      font-family: var(--font-jp); font-size: 15px;
       letter-spacing: 0.05em; line-height: 1.7; color: #333;
     }
     .faq__item.is-open .faq__item__a { max-height: 600px; padding: 0 18px 18px; }

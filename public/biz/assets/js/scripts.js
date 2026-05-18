@@ -225,6 +225,55 @@ jQuery(function ($) {
 });
 
 /******************************************************************
+ * ハンバーガーメニュー（SP）
+ ******************************************************************/
+jQuery(function ($) {
+  var $hamburger = $('.top-header__hamburger');
+  var $nav = $('.top-header__nav');
+  var $overlay = $('.top-header__overlay');
+
+  function closeMenu() {
+    $hamburger.removeClass('active');
+    $nav.removeClass('active');
+    $overlay.removeClass('active');
+    $('html').css('overflow', '');
+  }
+
+  $hamburger.on('click', function () {
+    var isOpen = $nav.hasClass('active');
+    if (isOpen) {
+      closeMenu();
+    } else {
+      $hamburger.addClass('active');
+      $nav.addClass('active');
+      $overlay.addClass('active');
+      $('html').css('overflow', 'hidden');
+    }
+  });
+
+  $overlay.on('click', closeMenu);
+
+  $nav.find('a').on('click', function () {
+    if ($(window).width() <= 768) {
+      closeMenu();
+    }
+  });
+});
+
+/******************************************************************
+ * 研修プランタブ切り替え（SP）
+ ******************************************************************/
+jQuery(function ($) {
+  $('.index_plan__tab-sp').on('click', function () {
+    var tab = $(this).data('plan-tab');
+    $('.index_plan__tab-sp').removeClass('active');
+    $(this).addClass('active');
+    $('.index_plan__card').removeClass('sp-active');
+    $('.index_plan__card[data-plan-card="' + tab + '"]').addClass('sp-active');
+  });
+});
+
+/******************************************************************
  * FAQアコーディオン
  ******************************************************************/
 jQuery(function ($) {
@@ -322,6 +371,24 @@ $(function () {
     slidesToShow: 3,
     responsive: [
       { breakpoint: 768, settings: { arrows: false, centerPadding: '20px', slidesToShow: 1 } }
+    ]
+  });
+});
+
+/******************************************************************
+ * Benefits スライダー（SP）
+ ******************************************************************/
+$(function () {
+  $('.index_benefits__slider').slick({
+    autoplay: true,
+    dots: true,
+    arrows: false,
+    centerMode: true,
+    centerPadding: '20px',
+    slidesToShow: 1,
+    mobileFirst: true,
+    responsive: [
+      { breakpoint: 768, settings: 'unslick' }
     ]
   });
 });

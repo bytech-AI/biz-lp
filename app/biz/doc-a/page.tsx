@@ -7,12 +7,9 @@ export default function DocAPage() {
     <>
       <link rel="stylesheet" href="/biz/assets/slick/slick.css" />
       <link rel="stylesheet" href="/biz/assets/slick/slick-theme.css" />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
       <style dangerouslySetInnerHTML={{ __html: `
         body {
-          font-family: "Noto Sans JP", sans-serif;
+          font-family: var(--font-noto-jp), sans-serif;
           color: #333;
           background: #f5f7fa url(/biz/assets/img/common/dots.png) repeat;
           margin: 0;

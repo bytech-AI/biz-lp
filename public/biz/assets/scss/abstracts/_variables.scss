@@ -27,7 +27,7 @@ $color-gray: #999;
 // Font Settings
 // -------------------------------------
 $font-base: 16px;
-$font-family: "Noto Sans JP", sans-serif;
+$font-family: var(--font-noto-jp), "Noto Sans JP", sans-serif;
 $font-heading: "Quantico", sans-serif;
 
 // -------------------------------------

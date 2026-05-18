@@ -29,7 +29,7 @@
 
 /* --- font --- */
 @font-face {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
 }
 .font-jp {
   font-family: var(--font-jp);

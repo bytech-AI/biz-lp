@@ -7,16 +7,17 @@ export default function BizPage() {
     <>
       <link rel="stylesheet" href="/biz/assets/css/style.css" />
       <link rel="stylesheet" href="/biz/assets/css/endless-river.css" />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       <link rel="stylesheet" href="/biz/assets/slick/slick.css" />
       <link rel="stylesheet" href="/biz/assets/slick/slick-theme.css" />
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
       <div className="top-header-wrap">
         <div className="top-header__logo">
           <a href="index.html"><img src="/biz/assets/img/common/hd-logo.svg" alt="バイテックBiz" id="top-logo" data-white="/biz/assets/img/common/hd-logo.svg" data-dark="/biz/assets/img/common/hd-logo-dark.svg" /></a>
         </div>
+        <button className="top-header__hamburger" aria-label="メニューを開く">
+          <span></span><span></span><span></span>
+        </button>
+        <div className="top-header__overlay"></div>
         <nav className="top-header__nav">
           <a href="index.html" className="top-nav-link">バイテックBizとは</a>
           <a href="#feature" className="top-nav-link">3つの特徴</a>
@@ -304,9 +305,13 @@ export default function BizPage() {
             <h3 className="index_plan__subtitle fadein delay-time02">目的ごとに選べる2つの研修スタイル</h3>
             <p className="index_plan__desc fadein delay-time03">バイテックBizの法人向けAI研修では、企業様の抱えられている課題に合わせて、2つのタイプの研修を用意しております。</p>
 
+            <div className="index_plan__tabs-sp">
+              <button className="index_plan__tab-sp active" data-plan-tab="handson">ハンズオン研修</button>
+              <button className="index_plan__tab-sp" data-plan-tab="elearning">eラーニング研修</button>
+            </div>
             <div className="index_plan__cards">
               {/* ハンズオン研修 */}
-              <div className="index_plan__card fadein delay-time04">
+              <div className="index_plan__card sp-active fadein delay-time04" data-plan-card="handson">
                 <h4 className="index_plan__card-title">ハンズオン研修</h4>
                 <div className="index_plan__card-img">
                   <img src="/biz/assets/img/index/img_plan_handson.webp" alt="ハンズオン研修" />
@@ -342,7 +347,7 @@ export default function BizPage() {
               </div>
 
               {/* eラーニング研修 */}
-              <div className="index_plan__card fadein delay-time05">
+              <div className="index_plan__card fadein delay-time05" data-plan-card="elearning">
                 <h4 className="index_plan__card-title">eラーニング研修</h4>
                 <div className="index_plan__card-img">
                   <img src="/biz/assets/img/index/img_plan_elearning.webp" alt="eラーニング研修" />
@@ -1789,7 +1794,7 @@ export default function BizPage() {
           <div className="index_benefits__inner u-inner">
             <h2 className="index_benefits__title font-en fadein">BENEFITS</h2>
             <p className="index_benefits__subtitle fadein delay-time02">バイテックBizの導入効果</p>
-            <div className="index_benefits__list">
+            <div className="index_benefits__list index_benefits__slider">
               {/* 1 */}
               <div className="index_benefits__item fadein delay-time03">
                 <div className="index_benefits__item__image">
@@ -1845,6 +1850,33 @@ export default function BizPage() {
                 <li className="index_works__section__slider__list__item"><img src="/biz/assets/img/index/img_index_works_s04.jpg" alt="" /></li>
                 <li className="index_works__section__slider__list__item"><img src="/biz/assets/img/index/img_index_works_s05.jpg" alt="" /></li>
               </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="index_subsidy">
+          <div className="index_subsidy__inner">
+            <div className="index_subsidy__card fadein">
+              {/* 上段：見出し */}
+              <h2 className="index_subsidy__heading">
+                バイテックBizは<br />
+                <span className="index_subsidy__heading-accent">厚生労働省の「人材開発支援助成金」</span>の申請が可能です。
+              </h2>
+              {/* 下段：2カラム */}
+              <div className="index_subsidy__body">
+                <div className="index_subsidy__text-col">
+                  <h3 className="index_subsidy__detail-title">人材開発支援助成金とは</h3>
+                  <p className="index_subsidy__detail-text">
+                    従業員に<strong>新しい知識や技術</strong>を身につけさせるための教育・研修にかかる費用の一部を、<strong>国が負担してくれる</strong>仕組みです。この助成金を活用することで、<strong>企業は自社の負担</strong>を抑えながら、従業員のスキル向上に取り組むことができます。
+                  </p>
+                  <p className="index_subsidy__detail-note">
+                    ※本補助金の交付を保証するものではございません。本記載内容は、令和5年6月26日時点で厚生労働省から公表されている資料をもとに作成しております。実際に助成金を申請される際は、必ず厚生労働省のホームページ等で最新の情報をご確認ください。
+                  </p>
+                </div>
+                <div className="index_subsidy__img-col">
+                  <img src="/biz/assets/img/index/img_subsidy_illust.svg" alt="人材開発支援助成金のイメージ" />
+                </div>
+              </div>
             </div>
           </div>
         </section>

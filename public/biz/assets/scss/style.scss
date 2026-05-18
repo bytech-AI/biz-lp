@@ -2030,7 +2030,7 @@ main {
       height: 70px;
       font-weight: 700;
       font-size: rem(28);
-      font-family: "Montserrat", sans-serif;
+      font-family: var(--font-montserrat), "Montserrat", sans-serif;
       margin-bottom: 1em;
       @include mq(tab) {
         margin: 0 10px;

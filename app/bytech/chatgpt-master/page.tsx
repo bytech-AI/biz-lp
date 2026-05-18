@@ -7,9 +7,6 @@ export default function ChatgptMasterPage() {
     <>
       <link rel="icon" type="image/png" href="/bytech/assets/images/favicon.png" />
       <link rel="apple-touch-icon" href="/bytech/assets/images/favicon.png" />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
       <style dangerouslySetInnerHTML={{ __html: `
     /* ===== CSS Custom Properties ===== */
     :root {
@@ -24,7 +21,7 @@ export default function ChatgptMasterPage() {
       --color-white: #fff;
       --color-bg-light: #f6f6f6;
       --color-bg-purple-light: #f0eeff;
-      --font-jp: 'Noto Sans JP', sans-serif;
+      --font-jp: var(--font-noto-jp), 'Noto Sans JP', sans-serif;
       --font-en: 'Futura', 'Futura-Medium', 'Century Gothic', sans-serif;
       --max-width: 1200px;
       --radius: 12px;
