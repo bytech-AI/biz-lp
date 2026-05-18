@@ -1,4 +1,11 @@
 import type { Metadata } from "next";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "【公式】バイテックBiz",
@@ -14,5 +21,5 @@ export default function BizLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div className="biz-root" style={{ all: "initial" }}>{children}</div>;
+  return <div className={`biz-root ${montserrat.variable}`} style={{ all: "initial" }}>{children}</div>;
 }
