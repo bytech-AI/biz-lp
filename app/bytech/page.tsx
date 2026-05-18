@@ -3738,7 +3738,7 @@ export default function BytechPage() {
 
           <div className="problem__body fadein">
             <div className="problem__illust">
-              <img src="https://generative-ai.bytech.jp/wp-content/uploads/2026/02/Isometric-man-with-laptop-working-on-sofa-at-his-house.svg" alt="お悩みイラスト" />
+              <img src="/bytech/assets/images/wp/Isometric-man-with-laptop-working-on-sofa-at-his-house.svg" alt="お悩みイラスト" />
             </div>
 
             <div className="problem__list">

@@ -212,7 +212,7 @@ export default function DocAPage() {
       <div className="doc-header-wrap">
         <div className="doc-header__logo">
           <a href="/biz/">
-            <img src="https://bytech.jp/biz/wp-content/uploads/2024/08/グループ-16110.svg" alt="バイテックBiz" />
+            <img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" />
           </a>
         </div>
         <nav className="doc-header__nav">
@@ -225,7 +225,7 @@ export default function DocAPage() {
         <div className="doc-content">
           <p className="doc-content__eyebrow">Download _</p>
           <h1 className="doc-content__title">3分でわかるバイテックBiz</h1>
-          <img src="https://bytech.jp/biz/wp-content/uploads/2025/12/Certificate-MockUp-02-2-1024x683.webp" alt="バイテックBiz資料サムネ" className="doc-content__image" />
+          <img src="/biz/assets/img/wp/Certificate-MockUp-02-2-1024x683.webp" alt="バイテックBiz資料サムネ" className="doc-content__image" />
           <p className="doc-content__desc">ハンズオン型法人AI研修サービスバイテックBizを紹介する「サービス概要資料」となります！</p>
           <h2 className="doc-content__subtitle">この資料で分かること</h2>
           <div className="doc-content__list-wrap">
@@ -243,14 +243,14 @@ export default function DocAPage() {
           </div>
           <div className="doc-content__carousel">
             <div className="doc-carousel">
-              <div><img src="https://bytech.jp/biz/wp-content/uploads/2025/12/スクリーンショット-2025-12-20-18.13.33_1-1-2048x1154.webp" alt="スライド1" /></div>
-              <div><img src="https://bytech.jp/biz/wp-content/uploads/2025/12/スクリーンショット-2025-12-20-18.41.41_6-2048x1153.webp" alt="スライド2" /></div>
-              <div><img src="https://bytech.jp/biz/wp-content/uploads/2025/12/スクリーンショット-2025-12-20-18.13.42_2-1-2048x1153.webp" alt="スライド3" /></div>
-              <div><img src="https://bytech.jp/biz/wp-content/uploads/2025/12/スクリーンショット-2025-12-20-18.41.53_7-2048x1148.webp" alt="スライド4" /></div>
-              <div><img src="https://bytech.jp/biz/wp-content/uploads/2025/12/スクリーンショット-2025-12-20-18.13.53_5-2048x1146.webp" alt="スライド5" /></div>
-              <div><img src="https://bytech.jp/biz/wp-content/uploads/2025/12/スクリーンショット-2025-12-20-18.42.12_3-2048x1153.webp" alt="スライド6" /></div>
-              <div><img src="https://bytech.jp/biz/wp-content/uploads/2025/12/スクリーンショット-2025-12-20-18.42.25_4-2048x1158.webp" alt="スライド7" /></div>
-              <div><img src="https://bytech.jp/biz/wp-content/uploads/2025/12/スクリーンショット-2025-12-20-18.42.37_8-1-2048x1152.webp" alt="スライド8" /></div>
+              <div><img src="/biz/assets/img/wp/スクリーンショット-2025-12-20-18.13.33_1-1-2048x1154.webp" alt="スライド1" /></div>
+              <div><img src="/biz/assets/img/wp/スクリーンショット-2025-12-20-18.41.41_6-2048x1153.webp" alt="スライド2" /></div>
+              <div><img src="/biz/assets/img/wp/スクリーンショット-2025-12-20-18.13.42_2-1-2048x1153.webp" alt="スライド3" /></div>
+              <div><img src="/biz/assets/img/wp/スクリーンショット-2025-12-20-18.41.53_7-2048x1148.webp" alt="スライド4" /></div>
+              <div><img src="/biz/assets/img/wp/スクリーンショット-2025-12-20-18.13.53_5-2048x1146.webp" alt="スライド5" /></div>
+              <div><img src="/biz/assets/img/wp/スクリーンショット-2025-12-20-18.42.12_3-2048x1153.webp" alt="スライド6" /></div>
+              <div><img src="/biz/assets/img/wp/スクリーンショット-2025-12-20-18.42.25_4-2048x1158.webp" alt="スライド7" /></div>
+              <div><img src="/biz/assets/img/wp/スクリーンショット-2025-12-20-18.42.37_8-1-2048x1152.webp" alt="スライド8" /></div>
             </div>
           </div>
         </div>
@@ -264,7 +264,7 @@ export default function DocAPage() {
       <footer className="doc-footer">
         <div className="doc-footer__logo">
           <a href="/biz/">
-            <img src="https://bytech.jp/biz/wp-content/uploads/2024/08/グループ-16110.svg" alt="バイテックBiz" />
+            <img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" />
           </a>
         </div>
         <p>&copy; 2025 バイテックBiz All Rights Reserved.</p>

@@ -32,7 +32,7 @@ export default function SpecifiedCommercialPage() {
       ` }} />
 
       <div className="pg-header-wrap">
-        <div className="pg-header__logo"><a href="/biz/"><img src="https://bytech.jp/biz/wp-content/uploads/2024/08/グループ-16110.svg" alt="バイテックBiz" /></a></div>
+        <div className="pg-header__logo"><a href="/biz/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" /></a></div>
         <nav className="pg-header__nav">
           <a href="/biz/" className="btn-outline">トップページ</a>
           <a href="/biz/counseling" className="btn-fill">無料個別相談を予約する</a>
@@ -65,7 +65,7 @@ export default function SpecifiedCommercialPage() {
         </table>
       </main>
       <footer className="pg-footer">
-        <div className="pg-footer__logo"><a href="/biz/"><img src="https://bytech.jp/biz/wp-content/uploads/2024/08/グループ-16110.svg" alt="バイテックBiz" /></a></div>
+        <div className="pg-footer__logo"><a href="/biz/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" /></a></div>
         <p>&copy; 2025 バイテックBiz All Rights Reserved.</p>
       </footer>
     </>

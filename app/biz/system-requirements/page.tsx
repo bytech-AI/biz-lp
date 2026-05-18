@@ -33,7 +33,7 @@ export default function SystemRequirementsPage() {
       ` }} />
 
       <div className="pg-header-wrap">
-        <div className="pg-header__logo"><a href="/biz/"><img src="https://bytech.jp/biz/wp-content/uploads/2024/08/グループ-16110.svg" alt="バイテックBiz" /></a></div>
+        <div className="pg-header__logo"><a href="/biz/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" /></a></div>
         <nav className="pg-header__nav">
           <a href="/biz/" className="btn-outline">トップページ</a>
           <a href="/biz/counseling" className="btn-fill">無料個別相談を予約する</a>
@@ -77,7 +77,7 @@ export default function SystemRequirementsPage() {
         <p className="note">どのブラウザーを使用しているかわからない場合、お使いのシステムの詳細については、whatismybrowser.comで現在使用中のブラウザーおよびOSを確認できます。コース視聴にはGoogle Chromeの利用を推奨しております。</p>
       </main>
       <footer className="pg-footer">
-        <div className="pg-footer__logo"><a href="/biz/"><img src="https://bytech.jp/biz/wp-content/uploads/2024/08/グループ-16110.svg" alt="バイテックBiz" /></a></div>
+        <div className="pg-footer__logo"><a href="/biz/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" /></a></div>
         <p>&copy; 2025 バイテックBiz All Rights Reserved.</p>
       </footer>
     </>

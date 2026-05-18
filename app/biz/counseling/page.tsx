@@ -144,7 +144,7 @@ export default function CounselingPage() {
       <div className="csl-header-wrap">
         <div className="csl-header__logo">
           <a href="/biz/">
-            <img src="https://bytech.jp/biz/wp-content/uploads/2024/08/グループ-16110.svg" alt="バイテックBiz" />
+            <img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" />
           </a>
         </div>
         <nav className="csl-header__nav">
@@ -157,7 +157,7 @@ export default function CounselingPage() {
         <div className="csl-content">
           <h1 className="csl-content__title">社内でのAI活用に関する<br />ご質問・ご相談を承ります。</h1>
           <p className="csl-content__desc">当日はZoomにて約1時間のセッションを行います。<br />社内でのAI活用方法や学ぶべき内容など、課題やお悩みに合わせた解決策をご提案します。</p>
-          <img src="https://bytech.jp/biz/wp-content/uploads/2025/08/formグラフィック.svg" alt="個別相談予約フォーム" className="csl-content__image" />
+          <img src="/biz/assets/img/wp/formグラフィック.svg" alt="個別相談予約フォーム" className="csl-content__image" />
         </div>
 
         <div className="csl-calendar">
@@ -168,7 +168,7 @@ export default function CounselingPage() {
       <footer className="csl-footer">
         <div className="csl-footer__logo">
           <a href="/biz/">
-            <img src="https://bytech.jp/biz/wp-content/uploads/2024/08/グループ-16110.svg" alt="バイテックBiz" />
+            <img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" />
           </a>
         </div>
         <p>&copy; 2025 バイテックBiz All Rights Reserved.</p>
