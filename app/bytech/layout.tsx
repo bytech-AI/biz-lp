@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import './bytech.css';
 
 export const metadata: Metadata = {
   title: "【公式】バイテック生成AI｜未経験からプロのAI活用人材を目指せる実践型AIスクール",
@@ -18,5 +19,5 @@ export default function BytechLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div className="bytech-root" style={{ all: "initial" }}>{children}</div>;
+  return <div className="bytech-root">{children}</div>;
 }

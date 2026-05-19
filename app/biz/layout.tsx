@@ -1,9 +1,20 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import localFont from "next/font/local";
 
-const montserrat = Montserrat({
+const montserrat = localFont({
+  src: [
+    {
+      path: "../fonts/Montserrat-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Montserrat-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
   variable: "--font-montserrat",
-  subsets: ["latin"],
   display: "swap",
 });
 
@@ -21,5 +32,5 @@ export default function BizLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div className={`biz-root ${montserrat.variable}`} style={{ all: "initial" }}>{children}</div>;
+  return <div className={`biz-root ${montserrat.variable}`}>{children}</div>;
 }

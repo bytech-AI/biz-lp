@@ -1,19 +1,27 @@
 import type { Metadata } from "next";
-import { Noto_Sans_JP, Zen_Kaku_Gothic_New } from "next/font/google";
+import localFont from "next/font/local";
 
-const notoSansJP = Noto_Sans_JP({
-  subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
+const notoSansJP = localFont({
+  src: "../fonts/NotoSansJP-VF.woff2",
+  weight: "100 900",
   display: "swap",
-  preload: false,
   variable: "--font-noto-sans-jp",
 });
 
-const zenKakuGothicNew = Zen_Kaku_Gothic_New({
-  subsets: ["latin"],
-  weight: ["400", "700", "900"],
+const zenKakuGothicNew = localFont({
+  src: [
+    {
+      path: "../fonts/ZenKakuGothicNew-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/ZenKakuGothicNew-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
   display: "swap",
-  preload: false,
   variable: "--font-zen-kaku",
 });
 
