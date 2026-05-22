@@ -27,26 +27,6 @@ const nextConfig: NextConfig = {
         source: "/blog/:path*",
         destination: "https://bytech.jp/blog/:path*",
       },
-      {
-        source: "/wp-admin/:path*",
-        destination: "https://bytech.jp/wp-admin/:path*",
-      },
-      {
-        source: "/wp-content/:path*",
-        destination: "https://bytech.jp/wp-content/:path*",
-      },
-      {
-        source: "/wp-includes/:path*",
-        destination: "https://bytech.jp/wp-includes/:path*",
-      },
-      {
-        source: "/wp-json/:path*",
-        destination: "https://bytech.jp/wp-json/:path*",
-      },
-      {
-        source: "/wp-login.php",
-        destination: "https://bytech.jp/wp-login.php",
-      },
     ];
   },
 };
