@@ -18,23 +18,23 @@ export default function BytechPage() {
             </div>
             <nav className="header__nav">
               <ul className="header__nav__list">
-                <li><a href="https://generative-ai.bytech.jp/support/" target="_blank">サポート詳細</a></li>
+                <li><a href="/support" target="_blank">サポート詳細</a></li>
                 <li>
                   <a href="#courses">コース一覧</a>
                   <div className="header__dropdown">
-                    <a href="https://generative-ai.bytech.jp/chatgpt-master/" target="_blank">ChatGPTマスターコース</a>
-                    <a href="https://generative-ai.bytech.jp/gemini-master/" target="_blank">Geminiマスターコース</a>
-                    <a href="https://generative-ai.bytech.jp/copilot-master/" target="_blank">Copilotマスターコース</a>
-                    <a href="https://generative-ai.bytech.jp/dify-master/" target="_blank">Difyマスターコース</a>
-                    <a href="https://generative-ai.bytech.jp/notebooklm-master/" target="_blank">NotebookLMマスターコース</a>
-                    <a href="https://generative-ai.bytech.jp/business-worker/" target="_blank">ビジネスワーカーコース</a>
-                    <a href="https://generative-ai.bytech.jp/ai-writer/" target="_blank">AIウェブライターコース</a>
-                    <a href="https://generative-ai.bytech.jp/ai-image-creator/" target="_blank">AI画像クリエイターコース</a>
-                    <a href="https://generative-ai.bytech.jp/ai-movie-creator/" target="_blank">AI動画クリエイターコース</a>
+                    <a href="/chatgpt-master" target="_blank">ChatGPTマスターコース</a>
+                    <a href="/gemini-master" target="_blank">Geminiマスターコース</a>
+                    <a href="/copilot-master" target="_blank">Copilotマスターコース</a>
+                    <a href="/dify-master" target="_blank">Difyマスターコース</a>
+                    <a href="/notebooklm-master" target="_blank">NotebookLMマスターコース</a>
+                    <a href="/business-worker" target="_blank">ビジネスワーカーコース</a>
+                    <a href="/ai-writer" target="_blank">AIウェブライターコース</a>
+                    <a href="/ai-image-creator" target="_blank">AI画像クリエイターコース</a>
+                    <a href="/ai-movie-creator" target="_blank">AI動画クリエイターコース</a>
                     <a href="https://generative-ai.bytech.jp/generative-ai-passport/" target="_blank">生成AIパスポート試験対策コース</a>
                   </div>
                 </li>
-                <li><a href="https://generative-ai.bytech.jp/plan/" target="_blank">料金プラン</a></li>
+                <li><a href="/plan" target="_blank">料金プラン</a></li>
                 <li><a href="https://bytech.jp/blog/category/interview/" target="_blank">受講生インタビュー</a></li>
                 <li><a href="#faq">よくある質問</a></li>
                 <li className="header__nav__divider" aria-hidden="true" />
@@ -43,7 +43,7 @@ export default function BytechPage() {
             </nav>
 
             {/* CTAボタン（SVG画像＋パルスアニメ） */}
-            <a href="https://generative-ai.bytech.jp/counseling/" target="_blank" className="header__cta">
+            <a href="/counseling" target="_blank" className="header__cta">
               <img src="/bytech/assets/images/cta-consultation.svg" alt="まずは無料で相談してみる" />
             </a>
 
@@ -56,23 +56,23 @@ export default function BytechPage() {
           {/* SP ドロワーナビ */}
           <nav className="header__nav-drawer" id="headerNavDrawer" aria-hidden="true">
             <ul className="header__nav-drawer__list">
-              <li><a href="https://generative-ai.bytech.jp/support/">サポート詳細</a></li>
+              <li><a href="/support">サポート詳細</a></li>
               <li className="header__nav-drawer__item">
                 <button className="header__nav-drawer__toggle">コース一覧 <span className="arrow">▼</span></button>
                 <ul className="header__nav-drawer__sub">
-                  <li><a href="https://generative-ai.bytech.jp/chatgpt-master/">ChatGPTマスターコース</a></li>
-                  <li><a href="https://generative-ai.bytech.jp/gemini-master/">Geminiマスターコース</a></li>
-                  <li><a href="https://generative-ai.bytech.jp/copilot-master/">Copilotマスターコース</a></li>
-                  <li><a href="https://generative-ai.bytech.jp/dify-master/">DIfyマスターコース</a></li>
-                  <li><a href="https://generative-ai.bytech.jp/notebooklm-master/">NotebookLMマスターコース</a></li>
-                  <li><a href="https://generative-ai.bytech.jp/business-worker/">ビジネスワーカーコース</a></li>
-                  <li><a href="https://generative-ai.bytech.jp/ai-writer/">AIウェブライターコース</a></li>
-                  <li><a href="https://generative-ai.bytech.jp/ai-image-creator/">AI画像クリエイターコース</a></li>
-                  <li><a href="https://generative-ai.bytech.jp/ai-movie-creator/">AI動画クリエイターコース</a></li>
+                  <li><a href="/chatgpt-master">ChatGPTマスターコース</a></li>
+                  <li><a href="/gemini-master">Geminiマスターコース</a></li>
+                  <li><a href="/copilot-master">Copilotマスターコース</a></li>
+                  <li><a href="/dify-master">DIfyマスターコース</a></li>
+                  <li><a href="/notebooklm-master">NotebookLMマスターコース</a></li>
+                  <li><a href="/business-worker">ビジネスワーカーコース</a></li>
+                  <li><a href="/ai-writer">AIウェブライターコース</a></li>
+                  <li><a href="/ai-image-creator">AI画像クリエイターコース</a></li>
+                  <li><a href="/ai-movie-creator">AI動画クリエイターコース</a></li>
                   <li><a href="https://generative-ai.bytech.jp/generative-ai-passport/">生成AIパスポート試験対策コース</a></li>
                 </ul>
               </li>
-              <li><a href="https://generative-ai.bytech.jp/plan/">料金プラン</a></li>
+              <li><a href="/plan">料金プラン</a></li>
               <li><a href="https://bytech.jp/blog/category/interview/">受講生インタビュー</a></li>
               <li><a href="#faq">よくある質問</a></li>
             </ul>
@@ -124,7 +124,7 @@ export default function BytechPage() {
 
             {/* CTAボタン */}
             <div className="hero-cta-wrapper">
-              <a href="https://generative-ai.bytech.jp/counseling/" target="_blank" className="hero__cta">
+              <a href="/counseling" target="_blank" className="hero__cta">
                 <img src="/bytech/assets/images/plan/cta-setsumeikai-3.webp" alt="無料カウンセリングで相談する" />
               </a>
             </div>
@@ -275,7 +275,7 @@ export default function BytechPage() {
           </div>
           <div className="cs-counter" id="csCounter">1 / 3</div>
           <div className="cs-view-all">
-            <a href="https://generative-ai.bytech.jp/counseling">全ての日程を見る
+            <a href="/counseling">全ての日程を見る
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9"/></svg>
             </a>
           </div>
@@ -336,7 +336,7 @@ export default function BytechPage() {
         <div className="campaign-banner__inner">
           <div className="campaign-banner__media">
             <a
-              href="https://generative-ai.bytech.jp/counseling/"
+              href="/counseling"
               target="_blank"
               rel="noopener noreferrer"
               className="campaign-banner__link"
@@ -737,7 +737,7 @@ export default function BytechPage() {
               </div>
 
               <div className="env__mentor-cta">
-                <a href="https://generative-ai.bytech.jp/counseling/" target="_blank">
+                <a href="/counseling" target="_blank">
                   <img
                     src="/bytech/assets/images/cta-counseling.webp"
                     alt="まずは無料で相談してみる"
@@ -1076,7 +1076,7 @@ export default function BytechPage() {
           <h2 className="cta-banner__ttl">もっとバイテックの特徴が知りたい</h2>
           {/* b9b7e9c: CTA ボタン画像 */}
           <div className="cta-banner__img-wrap">
-            <a href="https://generative-ai.bytech.jp/counseling/">
+            <a href="/counseling">
               <img
                 src="/bytech/assets/images/cta-setsumeikai-3.webp"
                 alt="無料説明会に申し込む"
@@ -1144,7 +1144,7 @@ export default function BytechPage() {
                     <div className="curric-card__desc-wrap">
                       <p className="curric-card__desc">ChatGPTの基本操作から、プロンプト設計、メール・資料・アイデア出しからZapier・MCPとの連携など実務応用まで体系的に学ぶコースです。</p>
                     </div>
-                    <a href="https://generative-ai.bytech.jp/chatgpt-master/" className="curric-card__btn">コースの詳細を見る</a>
+                    <a href="/chatgpt-master" className="curric-card__btn">コースの詳細を見る</a>
                   </div>
                 </div>
                 {/* Claude */}
@@ -1156,7 +1156,7 @@ export default function BytechPage() {
                     <div className="curric-card__desc-wrap">
                       <p className="curric-card__desc">Claudeの基本操作から、思考を引き出すプロンプト設計、長文処理、業務アプリ連携、Claude Cowork・Codeを駆使したエージェント開発を学ぶコースです。</p>
                     </div>
-                    <a href="https://generative-ai.bytech.jp/claude-master/" className="curric-card__btn">コースの詳細を見る</a>
+                    <a href="/claude-master" className="curric-card__btn">コースの詳細を見る</a>
                   </div>
                 </div>
                 {/* 0aa3371: Gemini */}
@@ -1168,7 +1168,7 @@ export default function BytechPage() {
                     <div className="curric-card__desc-wrap">
                       <p className="curric-card__desc">リサーチ、要約、レポート作成など&quot;調べて・まとめる&quot;作業を効率化するするスキルやGoogle関連のツールとAIを連携してエージェントを作成する応用スキルも習得します。</p>
                     </div>
-                    <a href="https://generative-ai.bytech.jp/gemini-master/" className="curric-card__btn">コースの詳細を見る</a>
+                    <a href="/gemini-master" className="curric-card__btn">コースの詳細を見る</a>
                   </div>
                 </div>
                 {/* e5e65e3: Copilot */}
@@ -1180,7 +1180,7 @@ export default function BytechPage() {
                     <div className="curric-card__desc-wrap">
                       <p className="curric-card__desc">Microsoft 365に組み込まれたCopilotを使い、文書作成、資料作成、データ整理の工数を減らす実践的なスキルを身につけます。</p>
                     </div>
-                    <a href="https://generative-ai.bytech.jp/copilot-master/" className="curric-card__btn">コースの詳細を見る</a>
+                    <a href="/copilot-master" className="curric-card__btn">コースの詳細を見る</a>
                   </div>
                 </div>
                 {/* c975f0f: Dify */}
@@ -1192,7 +1192,7 @@ export default function BytechPage() {
                     <div className="curric-card__desc-wrap">
                       <p className="curric-card__desc">Dify(ディフィ)を活用して、申請フローや顧客管理、レポート自動化などの簡易システムを構築する方法を学びます。エンジニアでなくても、自分の部署の業務フローを自動化することができます。</p>
                     </div>
-                    <a href="https://generative-ai.bytech.jp/dify-master/" className="curric-card__btn">コースの詳細を見る</a>
+                    <a href="/dify-master" className="curric-card__btn">コースの詳細を見る</a>
                   </div>
                 </div>
                 {/* 24c1b75: NotebookLM */}
@@ -1204,7 +1204,7 @@ export default function BytechPage() {
                     <div className="curric-card__desc-wrap">
                       <p className="curric-card__desc">マニュアル・議事録・企画書などの社内資料をNotebookLMに読み込ませ、質問に答えてくれるナレッジAIを構築する方法を学びます。</p>
                     </div>
-                    <a href="https://generative-ai.bytech.jp/notebooklm-master/" className="curric-card__btn">コースの詳細を見る</a>
+                    <a href="/notebooklm-master" className="curric-card__btn">コースの詳細を見る</a>
                   </div>
                 </div>
               </div>
@@ -1241,7 +1241,7 @@ export default function BytechPage() {
                     <div className="curric-card__desc-wrap">
                       <p className="curric-card__desc">ブログ・オウンドメディア・LP・メルマガなど、Webライティングに特化したAI活用術を学ぶコースです。</p>
                     </div>
-                    <a href="https://generative-ai.bytech.jp/ai-writer/" className="curric-card__btn">コースの詳細を見る</a>
+                    <a href="/ai-writer" className="curric-card__btn">コースの詳細を見る</a>
                   </div>
                 </div>
                 {/* AI画像クリエイター */}
@@ -1253,7 +1253,7 @@ export default function BytechPage() {
                     <div className="curric-card__desc-wrap">
                       <p className="curric-card__desc">バナー、サムネイル、SNS用画像などを、画像生成AIで制作するスキルを身につけるコースです。プロンプト設計のコツや、AIで作った画像をCanva等で微調整する実務フローを学びます。</p>
                     </div>
-                    <a href="https://generative-ai.bytech.jp/ai-image-creator/" className="curric-card__btn">コースの詳細を見る</a>
+                    <a href="/ai-image-creator" className="curric-card__btn">コースの詳細を見る</a>
                   </div>
                 </div>
                 {/* AI動画クリエイター */}
@@ -1265,7 +1265,7 @@ export default function BytechPage() {
                     <div className="curric-card__desc-wrap">
                       <p className="curric-card__desc">画像・プロンプトからイメージ通りの動画制作を実現するスキルを身につけるコースです。編集スキルがなくても、画像生成スキルとプロンプトを組み合わせて&quot;見られる動画&quot;を作成するスキルを習得できます。</p>
                     </div>
-                    <a href="https://generative-ai.bytech.jp/ai-movie-creator/" className="curric-card__btn">コースの詳細を見る</a>
+                    <a href="/ai-movie-creator" className="curric-card__btn">コースの詳細を見る</a>
                   </div>
                 </div>
               </div>
@@ -1302,7 +1302,7 @@ export default function BytechPage() {
                     <div className="curric-card__desc-wrap">
                       <p className="curric-card__desc">幅広い職種で共通して役立つAI活用スキルを横断的に学ぶコースです。メール作成、議事録、リサーチ、報告書、資料作成など、日々のルーチンをAIに手伝わせる具体的なパターンを紹介します。</p>
                     </div>
-                    <a href="https://generative-ai.bytech.jp/business-worker/" className="curric-card__btn">コースの詳細を見る</a>
+                    <a href="/business-worker" className="curric-card__btn">コースの詳細を見る</a>
                   </div>
                 </div>
                 {/* 営業職 */}
@@ -1481,7 +1481,7 @@ export default function BytechPage() {
               </div>
               <div className="plan-card__services-divider"><span>このプランで受けれるサービス</span></div>
               <img className="plan-card__services-img" src="/bytech/assets/images/PRO.svg" alt="PROプランサービス内容" />
-              <a href="https://generative-ai.bytech.jp/counseling/" target="_blank" className="plan-card__cta plan-card__cta--pro">まずは無料相談を予約する<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+              <a href="/counseling" target="_blank" className="plan-card__cta plan-card__cta--pro">まずは無料相談を予約する<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
             </div>
           </div>
                     {/* SP: tab switching */}
@@ -1528,7 +1528,7 @@ export default function BytechPage() {
                   </div>
                   <div className="plan-card__services-divider"><span>このプランで受けれるサービス</span></div>
                   <img className="plan-card__services-img" src="/bytech/assets/images/PRO.svg" alt="PROプランサービス内容" />
-                  <a href="https://generative-ai.bytech.jp/counseling/" target="_blank" className="plan-card__cta plan-card__cta--pro">まずは無料相談を予約する<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+                  <a href="/counseling" target="_blank" className="plan-card__cta plan-card__cta--pro">まずは無料相談を予約する<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
                 </div>
               </div>
             </div>
@@ -1551,7 +1551,7 @@ export default function BytechPage() {
             </div>
           </div>
           <div className="plan__detail-link-wrap">
-            <a href="https://generative-ai.bytech.jp/plan" className="plan__detail-link">
+            <a href="/plan" className="plan__detail-link">
               料金プランの詳細を見る
               <svg className="plan__detail-link__icon" aria-hidden="true" viewBox="0 0 256 512" xmlns="http://www.w3.org/2000/svg">
                 <path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z" />
@@ -1560,7 +1560,7 @@ export default function BytechPage() {
           </div>
           {/* SP only: plan detail link button */}
           <div className="plan__sp-detail-btn-wrap">
-            <a href="https://generative-ai.bytech.jp/plan" className="plan__sp-detail-btn">
+            <a href="/plan" className="plan__sp-detail-btn">
               料金プランの詳細を見る
               <span className="plan__sp-detail-btn__arrow">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
@@ -1575,7 +1575,7 @@ export default function BytechPage() {
         <div className="cta-banner__inner">
           <h2 className="cta-banner__ttl">料金に見合ったサービスが受けれるか不安...</h2>
           <div className="cta-banner__img-wrap">
-            <a href="https://generative-ai.bytech.jp/counseling/">
+            <a href="/counseling">
               <img src="/bytech/assets/images/cta-setsumeikai-3.webp" alt="無料説明会に申し込む" loading="lazy" />
             </a>
           </div>
@@ -1684,7 +1684,7 @@ export default function BytechPage() {
           </div>
           {/* CTA */}
           <div className="flow__cta fadein">
-            <a href="https://generative-ai.bytech.jp/counseling/">
+            <a href="/counseling">
               <img src="/bytech/assets/images/cta-setsumeikai-3.webp" alt="無料説明会に申し込む" loading="lazy" />
             </a>
           </div>
@@ -1729,7 +1729,7 @@ export default function BytechPage() {
                     <span className="faq__item__q-text">どのコースが自分にあっているかわかりません</span>
                     <span className="faq__item__q-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
                   </button>
-                  <div className="faq__item__a">「無料相談」でご相談いただくことをお勧めします。ご自身でご受講を通してできるようになりたいこと・学びたいことを無料相談にてお尋ねください。最適なコースをご提案させていただきます。無料相談は<a href="https://generative-ai.bytech.jp/counseling" target="_blank" style={{color: '#533afc', textDecoration: 'underline'}}>こちら</a>よりお申し込みください。</div>
+                  <div className="faq__item__a">「無料相談」でご相談いただくことをお勧めします。ご自身でご受講を通してできるようになりたいこと・学びたいことを無料相談にてお尋ねください。最適なコースをご提案させていただきます。無料相談は<a href="/counseling" target="_blank" style={{color: '#533afc', textDecoration: 'underline'}}>こちら</a>よりお申し込みください。</div>
                 </div>
               </div>
             </div>
@@ -1811,7 +1811,7 @@ export default function BytechPage() {
                     <span className="faq__item__q-text">受講する上で、準備するべきものはありますか？</span>
                     <span className="faq__item__q-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
                   </button>
-                  <div className="faq__item__a">こちらの<a href="https://generative-ai.bytech.jp/system-requirements" target="_blank" style={{color: '#533afc', textDecoration: 'underline'}}>システム要件</a>をご確認の上ご準備していただけたらと思います。</div>
+                  <div className="faq__item__a">こちらの<a href="/system-requirements" target="_blank" style={{color: '#533afc', textDecoration: 'underline'}}>システム要件</a>をご確認の上ご準備していただけたらと思います。</div>
                 </div>
                 <div className="faq__item">
                   <button className="faq__item__q">
@@ -1865,21 +1865,21 @@ export default function BytechPage() {
                     <div className="footer__nav-sub-col">
                       <div className="footer__nav-sub-ttl">- 主要AI別</div>
                       <ul className="footer__nav-list">
-                        <li><a href="https://generative-ai.bytech.jp/chatgpt-master/">ChatGPTマスターコース</a></li>
-                        <li><a href="https://generative-ai.bytech.jp/gemini-master/">Geminiマスターコース</a></li>
-                        <li><a href="https://generative-ai.bytech.jp/copilot-master/">Copilotマスターコース</a></li>
-                        <li><a href="https://generative-ai.bytech.jp/dify-master/">DIfyマスターコース</a></li>
-                        <li><a href="https://generative-ai.bytech.jp/notebooklm-master/">NotebookLMマスターコース</a></li>
-                        <li><a href="https://generative-ai.bytech.jp/claude-master/">Claudeマスターコース</a></li>
+                        <li><a href="/chatgpt-master">ChatGPTマスターコース</a></li>
+                        <li><a href="/gemini-master">Geminiマスターコース</a></li>
+                        <li><a href="/copilot-master">Copilotマスターコース</a></li>
+                        <li><a href="/dify-master">DIfyマスターコース</a></li>
+                        <li><a href="/notebooklm-master">NotebookLMマスターコース</a></li>
+                        <li><a href="/claude-master">Claudeマスターコース</a></li>
                       </ul>
                     </div>
                     <div className="footer__nav-sub-col">
                       <div className="footer__nav-sub-ttl">- 目的別</div>
                       <ul className="footer__nav-list">
-                        <li><a href="https://generative-ai.bytech.jp/ai-writer/">AIウェブライターコース</a></li>
-                        <li><a href="https://generative-ai.bytech.jp/ai-movie-creator/">AI動画クリエイターコース</a></li>
-                        <li><a href="https://generative-ai.bytech.jp/ai-image-creator/">AI画像クリエイターコース</a></li>
-                        <li><a href="https://generative-ai.bytech.jp/business-worker/">ビジネスワーカーコース</a></li>
+                        <li><a href="/ai-writer">AIウェブライターコース</a></li>
+                        <li><a href="/ai-movie-creator">AI動画クリエイターコース</a></li>
+                        <li><a href="/ai-image-creator">AI画像クリエイターコース</a></li>
+                        <li><a href="/business-worker">ビジネスワーカーコース</a></li>
                         <li><a href="https://generative-ai.bytech.jp/generative-ai-passport/">生成AIパスポートコース</a></li>
                       </ul>
                     </div>
@@ -1890,11 +1890,11 @@ export default function BytechPage() {
                   <div className="footer__nav-section-ttl">サポート</div>
                   <div className="footer__nav-divider" />
                   <ul className="footer__nav-list">
-                    <li><a href="https://generative-ai.bytech.jp/membership-terms/">会員規約</a></li>
-                    <li><a href="https://generative-ai.bytech.jp/refund-policy/">返金ポリシー</a></li>
+                    <li><a href="/membership-terms">会員規約</a></li>
+                    <li><a href="/refund-policy">返金ポリシー</a></li>
                     <li><a href="https://generative-ai.bytech.jp/job-membership-terms/">案件獲得保証プラン利用規約</a></li>
-                    <li><a href="https://generative-ai.bytech.jp/specified_commercial/">特定商取引法に関する表示</a></li>
-                    <li><a href="https://generative-ai.bytech.jp/system-requirements/">システム要件</a></li>
+                    <li><a href="/specified_commercial">特定商取引法に関する表示</a></li>
+                    <li><a href="/system-requirements">システム要件</a></li>
                   </ul>
                 </div>
                 {/* 会社情報 + 関連サービス */}
@@ -1903,7 +1903,7 @@ export default function BytechPage() {
                   <div className="footer__nav-divider" />
                   <ul className="footer__nav-list">
                     <li><a href="https://ai-bou.co.jp">会社概要</a></li>
-                    <li><a href="https://generative-ai.bytech.jp/privacy-policy/">プライバシーポリシー</a></li>
+                    <li><a href="/privacy-policy">プライバシーポリシー</a></li>
                   </ul>
                   <div className="footer__nav-section-ttl" style={{marginTop: '20px'}}>関連サービス</div>
                   <div className="footer__nav-divider" />
@@ -1933,7 +1933,7 @@ export default function BytechPage() {
       </footer>
       {/* Fixed mobile CTA */}
       <div className="fixed-footer-cta" id="fixedFooterCta">
-        <a className="fixed-footer-cta__link" href="https://generative-ai.bytech.jp/counseling/">
+        <a className="fixed-footer-cta__link" href="/counseling">
           <img src="/bytech/assets/images/cta-setsumeikai.svg" alt="無料説明会に申し込む" />
         </a>
       </div>
