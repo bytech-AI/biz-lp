@@ -21,7 +21,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/blog",
-        destination: "https://bytech.jp/blog",
+        destination: "https://bytech.jp/blog/",
       },
       {
         source: "/blog/:path*",
