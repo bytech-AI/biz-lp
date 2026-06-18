@@ -202,32 +202,31 @@ jQuery(function($) {
 // ------------------------------------------
 //  事例スライダ― top
 // ------------------------------------------
-const caseSwiper = new Swiper('.caseSwiper', {
+document.querySelectorAll('.caseSwiper').forEach((swiperEl) => {
+  new Swiper(swiperEl, {
     loop: true,
     autoplay: {
       delay: 3000,
     },
-    slidesPerView: 1.2, // コンテナ内に表示させるスライド数
-    spaceBetween: 16, // スライド間の余白（px）
-
-    breakpoints: { // ブレークポイント
-        768: { // 画面幅768px以上で適用
-            slidesPerView: 3.5,
-            centeredSlides: true, 
-            centeredSlidesBounds: true,
-            spaceBetween: 24, //スライド感の余白
-        },
+    slidesPerView: 1.2,
+    spaceBetween: 16,
+    breakpoints: {
+      768: {
+        slidesPerView: 3.5,
+        centeredSlides: true,
+        centeredSlidesBounds: true,
+        spaceBetween: 24,
+      },
     },
-  pagination: {
-    el: '.js-page3',
-		clickable: true,
-  },
- 
-  navigation: {
-    nextEl: '.js-next3',
-    prevEl: '.js-prev3',
-  },
-
+    pagination: {
+      el: '.js-page3',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.js-next3',
+      prevEl: '.js-prev3',
+    },
+  });
 });
 // ------------------------------------------
 //  事例スライダ― 共通

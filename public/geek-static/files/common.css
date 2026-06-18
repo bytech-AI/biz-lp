@@ -261,6 +261,15 @@ video {
 
 /* セクションタイトル
 ------------------------------*/
+:root {
+  --g2-title-content-gap: 40px;
+}
+@media (max-width: 767px) {
+  :root {
+    --g2-title-content-gap: 32px;
+  }
+}
+
 .c-sec-ttl {
   text-align: center;
 }
@@ -279,12 +288,11 @@ video {
 .c-sec-ttl__en::before {
   content: "";
   position: absolute;
-  top: 50%;
+  bottom: 0.18em;
   left: 0;
-  transform: translateY(-50%);
-  background: url(../img/img_rectangle.png) no-repeat center center/contain;
-  width: 1em;
-  aspect-ratio: 34/40;
+  background: url(../img/sec_title_mark.svg) no-repeat center center/contain;
+  width: 1.18em;
+  aspect-ratio: 128.331/35.82;
 }
 @media (max-width: 767px) {
   .c-sec-ttl__en {
@@ -2382,7 +2390,7 @@ body[class][class] .u-text-black {
   padding: min(96px, 7vw) 0;
   color: #071a3a;
 }
-.g2a-sectiontitle { margin-bottom: 48px; }
+.g2a-sectiontitle { margin-bottom: var(--g2-title-content-gap); }
 .g2a-sectiontitle span { color: #E9662B; font-size: 12px; font-weight: 900; }
 .g2a-sectiontitle h2 {
   margin: 14px 0 0;
@@ -2471,7 +2479,7 @@ body[class][class] .u-text-black {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
-  margin-top: 24px;
+  margin-top: var(--g2-title-content-gap);
 }
 .g2f-grid article {
   display: grid;
@@ -2561,7 +2569,7 @@ body[class][class] .u-text-black {
 /* === geek2: コース一覧セクション（/geek の Course を移植） === */
 .g2c-course { background: #fff; padding: min(96px, 7vw) 0; color: #071a3a; }
 .g2c-panel {
-  margin-top: -8px;
+  margin-top: var(--g2-title-content-gap);
   padding: 36px clamp(20px, 4vw, 44px);
   background: #eef2f5;
   border-radius: 12px;
@@ -2696,7 +2704,7 @@ body[class][class] .u-text-black {
 
 /* === geek2: 料金プランセクション（/geek の Price を移植） === */
 .g2p-price { background: #fff; padding: min(96px, 7vw) 0; color: #071a3a; }
-.g2p-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 8px; }
+.g2p-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: var(--g2-title-content-gap); }
 .g2p-card {
   position: relative;
   display: flex;

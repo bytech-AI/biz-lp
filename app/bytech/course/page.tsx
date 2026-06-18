@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Script from 'next/script'
 
 export default function CoursePage() {
@@ -17,14 +18,14 @@ export default function CoursePage() {
             <nav className="header__nav">
               <ul className="header__nav__gnav--menu">
                 <li className="menu-item"><a href="/bytech" className="gnav--link menu_home"><span className="ttl">トップ</span></a></li>
-                <li className="menu-item"><a href="#" className="gnav--link menu_home"><span className="ttl">サポート詳細</span></a></li>
+                <li className="menu-item"><a href="/support" className="gnav--link menu_home"><span className="ttl">サポート詳細</span></a></li>
                 <li className="menu-item"><a href="/bytech#course" className="gnav--link menu_home"><span className="ttl">コース一覧</span></a></li>
                 <li className="menu-item"><a href="/bytech#plan" className="gnav--link menu_home"><span className="ttl">料金プラン</span></a></li>
-                <li className="menu-item"><a href="#" className="gnav--link menu_home"><span className="ttl">受講生の声</span></a></li>
+                <li className="menu-item"><a href="https://bytech.jp/blog/category/interview/" target="_blank" rel="noopener" className="gnav--link menu_home"><span className="ttl">受講生の声</span></a></li>
                 <li className="menu-item"><a href="/bytech#faq" className="gnav--link menu_home"><span className="ttl">よくある質問</span></a></li>
               </ul>
               <div className="c-btn _yellow _shadow02">
-                <a href="#" rel="noopener"><span>お問い合わせ</span></a>
+                <a href="/counseling" rel="noopener"><span>お問い合わせ</span></a>
               </div>
             </nav>
             <div className="header__toggle" id="js-toggle">
@@ -95,7 +96,7 @@ export default function CoursePage() {
                             <span className="tags_time">統計 4時間12分</span>
                             <p>ミラーレス・一眼カメラ・Premiere Proの基礎を学ぼう！ミラーレス・一眼カメラ・Premiere Proの基礎を学ぼう！</p>
                             <div className="c-btn _blue _shadow02">
-                              <a href="#" rel="noopener"><span>お問い合わせ</span></a>
+                              <a href="/counseling" rel="noopener"><span>お問い合わせ</span></a>
                             </div>
                           </div>
                         </div>
@@ -108,7 +109,7 @@ export default function CoursePage() {
                             <span className="tags_time">統計 4時間12分</span>
                             <p>ミラーレス・一眼カメラ・Premiere Proの基礎を学ぼう！ミラーレス・一眼カメラ・Premiere Proの基礎を学ぼう！</p>
                             <div className="c-btn _blue _shadow02">
-                              <a href="#" rel="noopener"><span>お問い合わせ</span></a>
+                              <a href="/counseling" rel="noopener"><span>お問い合わせ</span></a>
                             </div>
                           </div>
                         </div>
@@ -121,7 +122,7 @@ export default function CoursePage() {
                             <span className="tags_time">統計 4時間12分</span>
                             <p>ミラーレス・一眼カメラ・Premiere Proの基礎を学ぼう！ミラーレス・一眼カメラ・Premiere Proの基礎を学ぼう！</p>
                             <div className="c-btn _blue _shadow02">
-                              <a href="#" rel="noopener"><span>お問い合わせ</span></a>
+                              <a href="/counseling" rel="noopener"><span>お問い合わせ</span></a>
                             </div>
                           </div>
                         </div>
@@ -215,10 +216,10 @@ export default function CoursePage() {
                 </div>
                 <div className="p-outline-detail__btn">
                   <div className="c-btn _blue _shadow02">
-                    <a href="#" rel="noopener"><span>お申し込みはこちら</span></a>
+                    <a href="/counseling" rel="noopener"><span>お申し込みはこちら</span></a>
                   </div>
                   <div className="c-btn _yellow _shadow02">
-                    <a href="#" rel="noopener"><span>他のコースも見る</span></a>
+                    <a href="/#courses" rel="noopener"><span>他のコースも見る</span></a>
                   </div>
                 </div>
               </div>
@@ -417,7 +418,7 @@ export default function CoursePage() {
               </div>
 
               <div className="c-btn01">
-                <a href="#" className="c-btn01__button">
+                <a href="/counseling" className="c-btn01__button">
                   <div className="c-btn01__button__inner">
                     <div className="c-btn01__button__inner__span">オンライン説明会に参加する</div>
                     <div className="c-btn01__button__inner__icon"></div>
@@ -439,21 +440,21 @@ export default function CoursePage() {
                   <div className="l-footer__links__box__item__top">
                     <h3>まずはお気軽に無料説明会にご参加ください</h3>
                     <p className="l-footer__links__box__bt">
-                      <a href="#" className="c-btn02__button">無料説明会に申し込む</a>
+                      <a href="/counseling" className="c-btn02__button">無料説明会に申し込む</a>
                     </p>
                   </div>
                   <ul className="l-footer__links__box__item__list">
-                    <li><a href="#">サポート詳細</a></li>
-                    <li><a href="#">コース一覧</a></li>
-                    <li><a href="#">料金プラン</a></li>
-                    <li><a href="#">受講生の声</a></li>
-                    <li><a href="#">よくある質問</a></li>
-                    <li><a href="#" target="_blank">運営会社</a></li>
-                    <li><a href="#">特定商取引法に関する表⽰</a></li>
-                    <li><a href="#">プライバシーポリシー</a></li>
-                    <li><a href="#">返金ポリシー</a></li>
-                    <li><a href="#">システム要件</a></li>
-                    <li><a href="#">会員規約</a></li>
+                    <li><a href="/support">サポート詳細</a></li>
+                    <li><Link href="/#courses">コース一覧</Link></li>
+                    <li><a href="/bytech/plan">料金プラン</a></li>
+                    <li><a href="https://bytech.jp/blog/category/interview/" target="_blank" rel="noopener">受講生の声</a></li>
+                    <li><Link href="/#faq">よくある質問</Link></li>
+                    <li><a href="https://ai-bou.co.jp" target="_blank" rel="noopener">運営会社</a></li>
+                    <li><a href="/specified_commercial">特定商取引法に関する表⽰</a></li>
+                    <li><a href="/privacy-policy">プライバシーポリシー</a></li>
+                    <li><a href="/refund-policy">返金ポリシー</a></li>
+                    <li><a href="/system-requirements">システム要件</a></li>
+                    <li><a href="/membership-terms">会員規約</a></li>
                   </ul>
                 </div>
 
@@ -476,7 +477,7 @@ export default function CoursePage() {
 
         <div className="btn__cta js-c-cv02 c-cv02">
           <div className="btn__cta_wrap fadein delay-time04 is-show">
-            <a href="#" className="btn btn-c">
+            <a href="/counseling" className="btn btn-c">
               <div className="btn-c__shine-wrapper">
                 <div className="btn-c__shine"></div>
               </div>

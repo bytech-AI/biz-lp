@@ -1,5 +1,6 @@
 import Script from 'next/script'
 import Image from 'next/image'
+import Link from 'next/link'
 import { R2Carousel, R3Carousel, R5Carousel } from "./components/carousels"
 
 export default function BytechPage() {
@@ -19,19 +20,64 @@ export default function BytechPage() {
             <nav className="header__nav">
               <ul className="header__nav__list">
                 <li><a href="/support" target="_blank">サポート詳細</a></li>
-                <li>
+                <li className="has-mega">
                   <a href="#courses">コース一覧</a>
-                  <div className="header__dropdown">
-                    <a href="/chatgpt-master" target="_blank">ChatGPTマスターコース</a>
-                    <a href="/gemini-master" target="_blank">Geminiマスターコース</a>
-                    <a href="/copilot-master" target="_blank">Copilotマスターコース</a>
-                    <a href="/dify-master" target="_blank">Difyマスターコース</a>
-                    <a href="/notebooklm-master" target="_blank">NotebookLMマスターコース</a>
-                    <a href="/business-worker" target="_blank">ビジネスワーカーコース</a>
-                    <a href="/ai-writer" target="_blank">AIウェブライターコース</a>
-                    <a href="/ai-image-creator" target="_blank">AI画像クリエイターコース</a>
-                    <a href="/ai-movie-creator" target="_blank">AI動画クリエイターコース</a>
-                    <a href="https://generative-ai.bytech.jp/generative-ai-passport/" target="_blank">生成AIパスポート試験対策コース</a>
+                  <div className="header__mega" role="menu" aria-label="コース一覧">
+                    <div className="header__mega__intro">
+                      <div className="header__mega__image">
+                        <img src="/bytech/assets/images/mega-course-bg.webp" alt="" />
+                      </div>
+                      <div className="header__mega__heading">
+                        <div className="header__mega__ttl">コース一覧</div>
+                        <div className="header__mega__sub">COURSES</div>
+                      </div>
+                    </div>
+                    <div className="header__mega__grid">
+                      <a className="header__mega__card" href="/chatgpt-master" target="_blank">
+                        <span className="header__mega__card-label">ChatGPTマスターコース</span>
+                        <span className="header__mega__arrow" aria-hidden="true">›</span>
+                      </a>
+                      <a className="header__mega__card" href="/gemini-master" target="_blank">
+                        <span className="header__mega__card-label">Geminiマスターコース</span>
+                        <span className="header__mega__arrow" aria-hidden="true">›</span>
+                      </a>
+                      <a className="header__mega__card" href="/copilot-master" target="_blank">
+                        <span className="header__mega__card-label">Copilotマスターコース</span>
+                        <span className="header__mega__arrow" aria-hidden="true">›</span>
+                      </a>
+                      <a className="header__mega__card" href="/dify-master" target="_blank">
+                        <span className="header__mega__card-label">Difyマスターコース</span>
+                        <span className="header__mega__arrow" aria-hidden="true">›</span>
+                      </a>
+                      <a className="header__mega__card" href="/notebooklm-master" target="_blank">
+                        <span className="header__mega__card-label">NotebookLMマスターコース</span>
+                        <span className="header__mega__arrow" aria-hidden="true">›</span>
+                      </a>
+                      <a className="header__mega__card" href="/claude-master" target="_blank">
+                        <span className="header__mega__card-label">Claudeマスターコース</span>
+                        <span className="header__mega__arrow" aria-hidden="true">›</span>
+                      </a>
+                      <a className="header__mega__card" href="/business-worker" target="_blank">
+                        <span className="header__mega__card-label">ビジネスワーカーコース</span>
+                        <span className="header__mega__arrow" aria-hidden="true">›</span>
+                      </a>
+                      <a className="header__mega__card" href="/ai-writer" target="_blank">
+                        <span className="header__mega__card-label">AIウェブライターコース</span>
+                        <span className="header__mega__arrow" aria-hidden="true">›</span>
+                      </a>
+                      <a className="header__mega__card" href="/ai-image-creator" target="_blank">
+                        <span className="header__mega__card-label">AI画像クリエイターコース</span>
+                        <span className="header__mega__arrow" aria-hidden="true">›</span>
+                      </a>
+                      <a className="header__mega__card" href="/ai-movie-creator" target="_blank">
+                        <span className="header__mega__card-label">AI動画クリエイターコース</span>
+                        <span className="header__mega__arrow" aria-hidden="true">›</span>
+                      </a>
+                      <a className="header__mega__card" href="https://generative-ai.bytech.jp/generative-ai-passport/" target="_blank">
+                        <span className="header__mega__card-label">生成AIパスポートコース</span>
+                        <span className="header__mega__arrow" aria-hidden="true">›</span>
+                      </a>
+                    </div>
                   </div>
                 </li>
                 <li><a href="/plan" target="_blank">料金プラン</a></li>
@@ -84,7 +130,7 @@ export default function BytechPage() {
       <section className="hero">
         {/* 背景画像: PC=合成画像(女性+紫BG) / SP=女性のみ縦長 */}
         <Image
-          src="/bytech/assets/images/hero-bg-from-generative-ai.bytech.jp.webp"
+          src="/bytech/assets/images/hero-bg-fv-ver2.webp"
           alt=""
           fill
           priority
@@ -92,7 +138,7 @@ export default function BytechPage() {
           className="hero__bg hero__bg-pc"
         />
         <Image
-          src="/bytech/assets/images/Gemini_Generated_Image_vu6vv2vu6vv2vu6v.webp"
+          src="/bytech/assets/images/hero-bg-sp-fv-ver2.webp"
           alt=""
           fill
           priority
@@ -111,7 +157,7 @@ export default function BytechPage() {
 
             {/* 見出し 2行目: 年収・キャリアを上げる（紫ボックス） */}
             <h2 className="hero__heading hero__heading-line2">
-              <span className="highlight">稼げるAIスキル<span className="sm"></span><span className="sm">を</span>武器に。</span>
+              <span className="highlight">稼げる<span className="accent">AIスキル</span><span className="sm">を</span>武器に。</span>
             </h2>
 
             {/* サブテキスト */}
@@ -179,7 +225,7 @@ export default function BytechPage() {
 
       {/* ===== CONSULTATION FORM (mobile only) ===== */}
       <section className="consult-form-section">
-        <h2 className="consult-form__heading">まずは無料で相談！</h2>
+        <h2 className="consult-form__heading"><span className="consult-form__bubble">＼ まずは<span className="accent">無料</span>で相談！ ／</span></h2>
         <h3 className="consult-form__subheading">▼ <span className="accent">今日、明日</span>の空き枠を確認する ▼</h3>
         <div className="cs-wrapper">
           <div className="cs-header"></div>
@@ -342,8 +388,8 @@ export default function BytechPage() {
               className="campaign-banner__link"
             >
               <img
-                src="/bytech/assets/images/2man-off-2048x991.webp"
-                alt="キャンペーンのお知らせ"
+                src="/bytech/assets/images/campaign-2man-off-june.webp"
+                alt="6月のスタート応援キャンペーン！説明会でのPROプラン受講申し込みで受講料2万円OFF"
                 className="campaign-banner__image"
                 loading="lazy"
               />
@@ -1855,7 +1901,7 @@ export default function BytechPage() {
           <div className="footer__inner">
             {/* Top: tagline + nav */}
             <div className="footer__body">
-              <h2 className="footer__tagline">最短4ヶ月で、<br />生成AI活用のプロに。</h2>
+              <h2 className="footer__tagline">最短2ヶ月で、<br />生成AI活用のプロに。</h2>
               <nav className="footer__nav">
                 {/* コース一覧 */}
                 <div className="footer__nav-col footer__nav-col--courses">
@@ -1917,10 +1963,10 @@ export default function BytechPage() {
             </div>
             {/* Bottom bar: logo + copyright */}
             <div className="footer__bottom-bar">
-              <a href="https://generative-ai.bytech.jp/" className="footer__logo-link">
+              <Link href="/" className="footer__logo-link">
                 <img className="footer__logo-img" src="/bytech/assets/images/logowhite.png" alt="バイテック生成AI" />
                 <span className="footer__logo-sub">GENERATIVE AI</span>
-              </a>
+              </Link>
               <p className="footer__copyright">2026 株式会社AI棒</p>
             </div>
           </div>

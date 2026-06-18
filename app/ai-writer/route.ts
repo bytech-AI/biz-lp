@@ -1,16 +1,8 @@
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
+import { staticHtmlResponse } from "@/lib/static-html-response";
 
 export const runtime = "nodejs";
 export const dynamic = "force-static";
 
 export async function GET() {
-  const htmlPath = join(process.cwd(), "public", "ai-writer-static", "index.html");
-  const html = await readFile(htmlPath, "utf8");
-
-  return new Response(html, {
-    headers: {
-      "content-type": "text/html; charset=utf-8",
-    },
-  });
+  return staticHtmlResponse("ai-writer-static/index.html");
 }

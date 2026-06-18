@@ -231,11 +231,11 @@ case
 }
 
 .case__list {
-  margin-top: min(60px, 4.1666666667vw);
+  margin-top: var(--g2-title-content-gap);
 }
 @media (max-width: 767px) {
   .case__list {
-    margin-top: 12%;
+    margin-top: var(--g2-title-content-gap);
   }
 }
 
@@ -422,11 +422,11 @@ values
 }
 
 .values__container {
-  margin-top: 3%;
+  margin-top: var(--g2-title-content-gap);
 }
 @media (max-width: 767px) {
   .values__container {
-    margin-top: 10.6666666667%;
+    margin-top: var(--g2-title-content-gap);
   }
 }
 
@@ -578,7 +578,7 @@ service
 }
 
 .services__content {
-  margin-top: 6%;
+  margin-top: var(--g2-title-content-gap);
 }
 
 /*------------------------------
@@ -594,7 +594,7 @@ cases
 }
 
 .cases__lead {
-  margin-top: 2.6666666667%;
+  margin-top: var(--g2-title-content-gap);
   font-size: min(1.5rem, 1.8vw);
   font-weight: 700;
   line-height: 1.5;
@@ -821,13 +821,13 @@ comparison
 
 .comparison__content {
   background: #fff;
-  margin-top: 5%;
+  margin-top: var(--g2-title-content-gap);
   padding: 4.5% 6.6666666667% 1%;
 }
 @media (max-width: 767px) {
   .comparison__content {
     padding: 0;
-    margin-top: 19%;
+    margin-top: var(--g2-title-content-gap);
     padding-bottom: 24px;
     padding-left: 2%;
   }
@@ -882,7 +882,7 @@ flow
 .flow__content {
   border: 1px solid #ECECEC;
   background: #fff;
-  margin-top: 5%;
+  margin-top: var(--g2-title-content-gap);
   padding: 6% 0;
   width: 105%;
   transform: translateX(-50%);
@@ -891,7 +891,7 @@ flow
 @media (max-width: 767px) {
   .flow__content {
     padding: 10.6666666667% 7% 18%;
-    margin-top: 13%;
+    margin-top: var(--g2-title-content-gap);
   }
 }
 
@@ -1158,10 +1158,12 @@ media
 faq
 ------------------------------*/
 .faq {
+  padding-top: min(120px, 8.3333333333vw);
   padding-bottom: min(190px, 13.1944444444vw);
 }
 @media (max-width: 767px) {
   .faq {
+    padding-top: min(80px, 21.3333333333vw);
     padding-bottom: min(150px, 40vw);
   }
 }
@@ -1169,7 +1171,7 @@ faq
 .faq__wrapper {
   display: flex;
   justify-content: space-between;
-  margin-top: 5%;
+  margin-top: var(--g2-title-content-gap);
 }
 @media (max-width: 767px) {
   .faq__wrapper {
@@ -1220,7 +1222,7 @@ faq
 }
 
 .faq__content {
-  width: 75.8333333333%;
+  width: 100%;
 }
 @media (max-width: 767px) {
   .faq__content {
@@ -1230,22 +1232,22 @@ faq
 }
 
 .faq__item {
-  padding: 3.5164835165% 5.2747252747%;
+  padding: 2.2% 5.2747252747%;
   background: #F6F6F6;
 }
 .faq__item:nth-child(n+2) {
-  margin-top: 1.7582417582%;
+  margin-top: 1.2%;
 }
 @media (max-width: 767px) {
   .faq__item {
-    padding: 7.1641791045% 5.9701492537%;
+    padding: 5.2% 5.9701492537%;
   }
 }
 
 .faq__q {
   font-size: min(1rem, 1.2vw);
   font-weight: 500;
-  line-height: 1.8;
+  line-height: 1.6;
   letter-spacing: 0.04em;
   position: relative;
   padding: 0 11.3022113022% 0 9.4594594595%;

@@ -52,7 +52,7 @@ export default function PrivacyPolicyPage() {
       </div>
       <main className="pg-card">
         <p className="updated">本プライバシーポリシーは、2025年7月に最新版に更新されました。</p>
-        <p className="lead">このプライバシーポリシーは、株式会社LIBREX（以下、「乙」とする。）が運営するバイテックBiz（以下、「本サービス」とする。）をご利用の皆様（以下、「利用者」とする。）から取得される個人情報について、その取扱方針を定めるものです。</p>
+        <p className="lead">このプライバシーポリシーは、株式会社AI棒（以下、「乙」とする。）が運営するバイテックBiz（以下、「本サービス」とする。）をご利用の皆様（以下、「利用者」とする。）から取得される個人情報について、その取扱方針を定めるものです。</p>
 
         <h2>個人情報の利用目的</h2>
         <p>バイテックBizは、本サービスを通じて利用者から取得した個人情報を次の目的に利用します。</p>
@@ -84,7 +84,7 @@ export default function PrivacyPolicyPage() {
         <div className="contact-info">
           〒150-0021<br />
           東京都渋谷区恵比寿西2丁目4番8号ウィンド恵比寿ビル8F<br />
-          株式会社Librex<br />
+          株式会社AI棒<br />
           担当部署：バイテックBiz事業部<br />
           電子メール：support@bytech.jp
         </div>

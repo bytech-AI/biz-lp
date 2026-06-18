@@ -1,0 +1,290 @@
+/*
+ * site-chrome.css
+ * Generated from app/bytech/bytech.css (header + footer rules only).
+ * Every selector is namespaced under .bt-site-header / .bt-site-footer so the
+ * shared chrome renders faithfully without leaking into — or being overridden
+ * by — the CSS of whichever static page injects it.
+ *
+ * Do not edit by hand; re-derive from app/bytech/bytech.css if the source changes.
+ */
+
+/* CSS custom properties used by the chrome, scoped to the chrome containers so
+ * they resolve even on pages that don't define them. Values mirror :root in
+ * app/bytech/bytech.css. */
+.bt-site-header,
+.bt-site-footer {
+  --color-primary: #533afc;
+  --color-primary-dark: #3b25d4;
+  --color-dark: #191722;
+  --color-accent: #ffd464;
+  --color-text: #333;
+  --color-text-light: #555;
+  --color-bg-purple-light: #f0eeff;
+  --font-en: var(--font-jost), 'Futura', 'Futura-Medium', 'Century Gothic', sans-serif;
+  --radius: 12px;
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.15);
+}
+
+/* ===== Header ===== */
+.bt-site-header .header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: transparent; width: 100%; box-sizing: border-box;
+}
+.bt-site-header .header__inner {
+  max-width: 1300px; margin: 0 auto; padding: 10px 20px;
+  width: 100%; display: flex; align-items: center;
+}
+/* ロゴ+ナビ のカード（border-radius + 軽いシャドウ） */
+.bt-site-header .header__bar {
+  flex: 1; display: flex; align-items: center;
+  background: #fff; border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.21);
+  padding: 8px 20px;
+  gap: 0;
+}
+/* ロゴ */
+.bt-site-header .header__logo { flex-shrink: 0; width: 15%; min-width: 120px; margin-left: 40px; }
+.bt-site-header .header__logo a { display: block; }
+.bt-site-header .header__logo img { width: 55%; height: auto; display: block; }
+/* ナビ */
+.bt-site-header .header__nav { display: flex; align-items: center; flex: 1; }
+.bt-site-header .header__nav__list { display: flex; align-items: center; list-style: none; margin: 0; padding: 0; }
+.bt-site-header .header__nav__list li { position: relative; }
+.bt-site-header .header__nav__list a {
+  display: block; padding: 15px 10px;
+  font-size: 14px; font-weight: 600; color: var(--color-text);
+  transition: color 0.2s; white-space: nowrap;
+  letter-spacing: 0.03em;
+}
+.bt-site-header .header__nav__list a:hover { color: var(--color-primary); }
+/* ドロップダウン */
+.bt-site-header .header__dropdown {
+  display: none; position: absolute; top: 100%; left: -16px;
+  background: #fff; border-radius: var(--radius);
+  box-shadow: var(--shadow-lg); padding: 12px 0; min-width: 240px; z-index: 100;
+}
+.bt-site-header .header__dropdown a { display: block; padding: 8px 20px; font-size: 13px; }
+.bt-site-header .header__dropdown a:hover { background: var(--color-bg-purple-light); }
+.bt-site-header .header__nav__list li:hover .header__dropdown { display: block; }
+.bt-site-header .header__nav__divider { width: 1px; height: 16px; background: #ccc; margin: 0 8px; flex-shrink: 0; }
+/* ===== メガメニュー（コース一覧 hover） ===== */
+.bt-site-header .header__bar { position: relative; }
+.bt-site-header .header__nav__list li.has-mega { position: static; }
+.bt-site-header .header__nav__list li.has-mega > a { position: relative; display: inline-flex; align-items: center; gap: 5px; }
+/* 下層メニューあり: ナビ項目に▾を表示（hoverで反転） */
+.bt-site-header .header__nav__caret { font-size: 10px; line-height: 1; transition: transform 0.2s; }
+.bt-site-header .header__nav__list li.has-mega:hover > a .header__nav__caret { transform: rotate(180deg); }
+/* hover ブリッジ：トリガーとメガメニューの隙間をホバー継続 */
+.bt-site-header .header__nav__list li.has-mega > a::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 100%;
+  height: 16px;
+}
+.bt-site-header .header__mega {
+  display: none; position: absolute; top: 100%;
+  left: 50%; transform: translateX(-50%);
+  width: min(1080px, calc(100vw - 32px));
+  background: #fff; border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  padding: 32px 40px; gap: 40px;
+  margin-top: 14px; z-index: 100;
+  animation: header-mega-in 0.18s ease-out;
+}
+.bt-site-header .header__nav__list li.has-mega:hover .header__mega,
+.bt-site-header .header__mega:hover { display: flex; }
+@keyframes header-mega-in {
+  from { opacity: 0; transform: translate(-50%, -6px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+.bt-site-header .header__mega__intro {
+  width: 220px; flex-shrink: 0;
+  display: flex; flex-direction: column; gap: 18px;
+}
+.bt-site-header .header__mega__image {
+  width: 100%; aspect-ratio: 4 / 3;
+  border-radius: 10px; overflow: hidden;
+}
+.bt-site-header .header__mega__image img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.bt-site-header .header__mega__heading { display: flex; flex-direction: column; gap: 4px; }
+.bt-site-header .header__mega__ttl { font-size: 14px; font-weight: 700; color: var(--color-text-light); letter-spacing: 0.04em; }
+.bt-site-header .header__mega__sub {
+  font-family: var(--font-en); font-size: 26px; font-weight: 900;
+  letter-spacing: 0.06em; color: var(--color-dark); line-height: 1.1;
+}
+.bt-site-header .header__mega__grid {
+  flex: 1; display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 20px; row-gap: 0;
+  grid-auto-rows: minmax(58px, auto);
+  align-content: start;
+}
+.bt-site-header .header__mega .header__mega__card {
+  display: flex; align-items: center; justify-content: flex-start;
+  gap: 16px; padding: 8px 4px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  font-size: 13px; font-weight: 700; color: var(--color-text);
+  transition: color 0.18s; background: transparent;
+  line-height: 1.4; height: 100%;
+}
+.bt-site-header .header__mega .header__mega__card:hover {
+  color: var(--color-primary); background: transparent;
+}
+.bt-site-header .header__mega__card-label { flex: 0 1 auto; min-width: 0; white-space: normal; overflow-wrap: anywhere; }
+.bt-site-header .header__mega__arrow {
+  width: 28px; height: 28px; border-radius: 6px;
+  background: var(--color-dark); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0; line-height: 1;
+  flex-shrink: 0; align-self: center;
+  transition: background 0.18s, transform 0.18s;
+}
+.bt-site-header .header__mega__arrow::before {
+  content: ""; display: block; width: 6px; height: 6px;
+  border-top: 2px solid #fff; border-right: 2px solid #fff;
+  transform: translateX(-1px) rotate(45deg);
+}
+.bt-site-header .header__mega .header__mega__card:hover .header__mega__arrow {
+  background: var(--color-primary); transform: translateX(2px);
+}
+@media (max-width: 1024px) {
+  .bt-site-header .header__mega { display: none !important; }
+}
+/* ヘッダー CTA ボタン（SVG画像＋パルスアニメ） */
+.bt-site-header .header__cta { display: block; flex-shrink: 0; margin-left: auto; }
+.bt-site-header .header__cta img {
+  height: 46px; width: auto; display: block;
+  animation: header-cta-pulse 2s linear infinite;
+}
+@keyframes header-cta-pulse {
+  0%, 20%, 100% { transform: scale(1); }
+  10% { transform: scale(1.05); }
+}
+/* ハンバーガー（SP） */
+.bt-site-header .header__hamburger { display: none; flex-direction: column; justify-content: center; gap: 6px; cursor: pointer; padding: 8px; background: none; border: none; margin-left: auto; flex-shrink: 0; }
+.bt-site-header .header__hamburger span { width: 22px; height: 2px; background: var(--color-text); transition: all 0.3s; display: block; }
+/* モバイルナビドロワー */
+.bt-site-header .header__nav-drawer { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; z-index: 9998; box-shadow: 0 4px 10px rgba(0,0,0,0.12); }
+.bt-site-header .header__nav-drawer.is-open { display: block; }
+.bt-site-header .header__nav-drawer__list { list-style: none; margin: 0; padding: 4px 0 8px; }
+.bt-site-header .header__nav-drawer__list li { border-bottom: 1px solid #f0f0f0; }
+.bt-site-header .header__nav-drawer__list li:last-child { border-bottom: none; }
+.bt-site-header .header__nav-drawer__list > li > a { display: block; padding: 10px 20px; font-size: 13px; font-weight: 500; color: var(--color-text); }
+.bt-site-header .header__nav-drawer__sub { display: none; background: #f9f9ff; padding: 4px 0; }
+.bt-site-header .header__nav-drawer__sub a { display: block; padding: 8px 20px 8px 32px; font-size: 12px; color: #555; }
+.bt-site-header .header__nav-drawer__toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; font-size: 13px; font-weight: 500; color: var(--color-text); background: none; border: none; cursor: pointer; text-align: left; }
+.bt-site-header .header__nav-drawer__toggle .arrow { font-size: 10px; transition: transform 0.2s; }
+.bt-site-header .header__nav-drawer__item.is-open .header__nav-drawer__sub { display: block; }
+.bt-site-header .header__nav-drawer__item.is-open .arrow { transform: rotate(180deg); }
+@media (max-width: 1024px) {
+  .bt-site-header .header__nav__list { display: none; }
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .bt-site-header .header__logo { width: 12%; min-width: 90px; margin-left: 16px; }
+  .bt-site-header .header__nav__list a { font-size: 12px; padding: 12px 6px; }
+  .bt-site-header .header__nav__divider { margin: 0 4px; }
+  .bt-site-header .header__cta img { height: 36px; }
+  .bt-site-header .header__bar { padding: 6px 12px; }
+  /* 中間幅では tagline は折り返し許可（nowrap の溢れ防止） */
+  .bt-site-footer .footer__tagline { white-space: normal; font-size: 28px; }
+}
+@media (max-width: 767px) {
+  /* フラットな白背景バーに変更（角丸・シャドウなし） */
+  .bt-site-header .header { background: #fff; box-shadow: 0 0 10px 0 rgba(0,0,0,0.21); max-width: 100%; }
+  .bt-site-header .header__inner { padding: 0; max-width: 100%; }
+  .bt-site-header .header__bar { border-radius: 0; box-shadow: none; padding: 5px 10px 5px 0; background: transparent; overflow: hidden; }
+  /* ロゴ: 136px固定幅、画像は66%（≈90px）、左余白20px */
+  .bt-site-header .header__logo { width: 136px; min-width: 136px; margin: 7px 0;}
+  .bt-site-header .header__logo img { width: 55%; margin-left: 20px; }
+  /* ナビ非表示 */
+  .bt-site-header .header__nav { display: none; }
+  /* ハンバーガーを表示 */
+  .bt-site-header .header__hamburger { display: flex; }
+  /* ヘッダーCTA非表示 */
+  .bt-site-header .header__cta { display: none; }
+}
+
+/* ===== Footer ===== */
+.bt-site-footer .footer { background: #1a1723; color: #fff; }
+.bt-site-footer .footer__main { padding: 56px 0 0; }
+.bt-site-footer .footer__inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+/* Top body: tagline + nav */
+.bt-site-footer .footer__body {
+  display: flex; flex-direction: row; align-items: flex-start; gap: 0;
+  padding-bottom: 48px;
+}
+.bt-site-footer .footer__tagline {
+  flex: 0 0 30%; font-size: 31px; font-weight: 700; white-space: nowrap;
+  color: #fff; line-height: 1.55; margin: 0; letter-spacing: 0.02em;
+}
+/* Nav area */
+.bt-site-footer .footer__nav {
+  flex: 1; display: flex; flex-direction: row; gap: 0; align-items: flex-start;
+}
+.bt-site-footer .footer__nav-col { flex: 1; padding-right: 24px; }
+.bt-site-footer .footer__nav-col--courses { flex: 0 0 46%; }
+/* Section title */
+.bt-site-footer .footer__nav-section-ttl {
+  font-size: 16px; font-weight: 700; color: #735fff; letter-spacing: 0.05em; margin: 0;
+}
+.bt-site-footer .footer__nav-divider { height: 0.5px; background: rgba(255,255,255,0.2); margin: 6px 0 10px; }
+/* Two sub-columns inside courses */
+.bt-site-footer .footer__nav-sub-cols { display: flex; flex-direction: row; gap: 16px; }
+.bt-site-footer .footer__nav-sub-col { flex: 1; }
+.bt-site-footer .footer__nav-sub-ttl {
+  font-size: 13px; font-weight: 700; color: var(--color-accent); margin: 0 0 8px;
+}
+/* Link lists */
+.bt-site-footer .footer__nav-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.bt-site-footer .footer__nav-list li a {
+  font-size: 13px; font-weight: 500; color: #fff; text-decoration: none; transition: color 0.2s;
+}
+.bt-site-footer .footer__nav-list li a:hover { color: rgba(255,255,255,0.6); }
+/* Support/company extra section spacing */
+.bt-site-footer .footer__nav-section-ttl + .footer__nav-divider + .footer__nav-list + .footer__nav-section-ttl { margin-top: 20px; }
+.bt-site-footer .footer__nav-col--company .footer__nav-section-ttl ~ .footer__nav-section-ttl { margin-top: 20px; }
+/* Bottom bar: divider + logo + copyright */
+.bt-site-footer .footer__bottom-bar {
+  display: flex; flex-direction: row; align-items: center; justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.15); padding: 24px 0 48px;
+}
+.bt-site-footer .footer__bottom-left { display: flex; flex-direction: row; align-items: center; gap: 44px; }
+.bt-site-footer .footer__sns { display: flex; flex-direction: row; align-items: center; gap: 10px; }
+.bt-site-footer .footer__sns-link { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 9px; overflow: hidden; transition: opacity .2s ease, transform .2s ease; }
+.bt-site-footer .footer__sns-link:hover { opacity: 0.82; transform: translateY(-1px); }
+.bt-site-footer .footer__sns-link svg { width: 100%; height: 100%; display: block; }
+.bt-site-footer .footer__logo-link { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
+.bt-site-footer .footer__logo-img { width: 110px; height: auto; display: block; }
+.bt-site-footer .footer__logo-sub { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 0.15em; margin: 2px 0 0; }
+.bt-site-footer .footer__copyright { font-size: 13px; color: #fff; margin: 0; letter-spacing: 0.05em; }
+/* Bottom fine print */
+.bt-site-footer .footer__bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 16px 0; text-align: center; }
+.bt-site-footer .footer__bottom p { font-size: 11px; color: rgba(255,255,255,0.3); margin: 0; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .bt-site-footer .footer__tagline { flex: 0 0 20%; font-size: 28px; }
+  .bt-site-footer .footer__nav-col--courses { flex: 0 0 44%; }
+}
+@media (max-width: 767px) {
+  .bt-site-footer .footer__main { padding: 36px 0 0; }
+  .bt-site-footer .footer__inner { padding: 0 20px; }
+  .bt-site-footer .footer__body { flex-direction: column; gap: 28px; padding-bottom: 32px; }
+  .bt-site-footer .footer__tagline { font-size: 28px; }
+  .bt-site-footer .footer__nav { flex-direction: column; gap: 24px; }
+  .bt-site-footer .footer__nav-col--courses { flex: unset; width: 100%; }
+  .bt-site-footer .footer__nav-col { padding-right: 0; }
+  .bt-site-footer .footer__bottom-bar { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .bt-site-footer .footer__copyright { font-size: 12px; }
+}
+@media (max-width: 1024px) and (min-width: 768px) {
+  .bt-site-footer .footer__inner { padding: 0 20px; }
+  .bt-site-footer .footer__tagline { font-size: 28px; line-height: 1.4em; }
+}
+@media (max-width: 767px) {
+  .bt-site-footer .footer__inner { padding: 0 15px; }
+  .bt-site-footer .footer__main { padding: 30px 0; }
+  .bt-site-footer .footer__tagline { width: 100%; font-size: 28px; margin-bottom: 20px; }
+  .bt-site-footer .footer__copyright { text-align: left; letter-spacing: 0.15em; }
+}
+

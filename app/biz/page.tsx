@@ -3,10 +3,129 @@ import Script from 'next/script'
 export default function BizPage() {
   return (
     <>
+      <link
+        rel="preload"
+        as="image"
+        type="image/webp"
+        href="/biz/assets/img/index/biz_fv-768.webp"
+        imageSrcSet="/biz/assets/img/index/biz_fv-480.webp 480w, /biz/assets/img/index/biz_fv-768.webp 768w, /biz/assets/img/index/biz_fv-1280.webp 1280w"
+        imageSizes="100vw"
+        fetchPriority="high"
+      />
       <link rel="stylesheet" href="/biz/assets/css/style.css" />
-      <link rel="stylesheet" href="/biz/assets/css/endless-river.css" />
-      <link rel="stylesheet" href="/biz/assets/slick/slick.css" />
-      <link rel="stylesheet" href="/biz/assets/slick/slick-theme.css" />
+      {/* Below-the-fold stylesheets: load async via media="print" → swap to "all" on load */}
+      <link rel="stylesheet" href="/biz/assets/css/endless-river.css" media="print" data-async-css="1" />
+      <link rel="stylesheet" href="/biz/assets/slick/slick.css" media="print" data-async-css="1" />
+      <link rel="stylesheet" href="/biz/assets/slick/slick-theme.css" media="print" data-async-css="1" />
+      <Script id="css-async-swap" strategy="beforeInteractive">{`
+        document.querySelectorAll('link[data-async-css]').forEach(function(l){
+          l.addEventListener('load', function(){ l.media = 'all'; }, { once: true });
+          if (l.sheet) l.media = 'all';
+        });
+      `}</Script>
+      <style dangerouslySetInnerHTML={{ __html: `
+        /* Show above-the-fold hero immediately — bypass fadein JS dependency for LCP */
+        .hero .fadein {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
+        /* === AIR Design-style sticky right-side download form === */
+        @media (min-width: 1081px) {
+          /* Constrain sticky header so it never sits under the right rail */
+          .top-header-wrap {
+            left: 0 !important;
+            right: 320px !important;
+            transform: none !important;
+            max-width: none !important;
+            width: auto !important;
+          }
+          /* Center hero text/CTA within the visible (non-rail) area */
+          .hero__catch {
+            width: 100% !important;
+            justify-content: center !important;
+            text-align: center !important;
+          }
+          .hero__form { display: none !important; }
+          /* Reserve space for the fixed rail and shift body content left */
+          body { padding-right: 320px; }
+          .right-form-fixed {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 320px;
+            background: #fff;
+            box-shadow: 0 -20px 15px 0 rgb(0 0 0 / 10%);
+            overflow-y: auto;
+            scrollbar-width: thin;
+            z-index: 100;
+            box-sizing: border-box;
+            white-space: nowrap;
+          }
+          .right-form-fixed::-webkit-scrollbar { width: 6px; }
+          .right-form-fixed::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
+          /* Footer keeps its full width but stays under the rail */
+          .footer { margin-right: -320px; position: relative; z-index: 1; }
+          .top-header-wrap { z-index: 1000 !important; }
+          .right-form-fixed .fv_form {
+            padding: 24px 14px 80px 14px;
+          }
+          .right-form-fixed .form_header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 16px;
+          }
+          .right-form-fixed .form_header__text { flex: 1; min-width: 0; }
+          .right-form-fixed .form_eyebrow {
+            color: #D4215F;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: left;
+            margin: 0 0 4px;
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+            line-height: 1.3;
+          }
+          .right-form-fixed .form_title {
+            color: #323232;
+            font-size: 22px;
+            text-align: left;
+            margin: 0;
+            padding-top: 0;
+            white-space: nowrap;
+            font-weight: 800;
+            line-height: 1.25;
+          }
+          .right-form-fixed .form_cover {
+            display: block;
+            width: 95px;
+            height: auto;
+            flex-shrink: 0;
+            border-radius: 2px;
+            box-shadow: none;
+            background: transparent;
+          }
+          .right-form-fixed .formrun-embed {
+            white-space: normal;
+            min-width: 0;
+            border: 0 !important;
+            box-shadow: none !important;
+            background: transparent !important;
+          }
+          .right-form-fixed .formrun-embed > div,
+          .right-form-fixed .formrun-embed iframe,
+          .right-form-fixed .formrun-embed form {
+            border: 0 !important;
+            box-shadow: none !important;
+            background: transparent !important;
+          }
+        }
+        @media (max-width: 1080px) {
+          .right-form-fixed { display: none; }
+        }
+      ` }} />
 
       <div className="top-header-wrap">
         <div className="top-header__logo">
@@ -20,9 +139,7 @@ export default function BizPage() {
           <a href="index.html" className="top-nav-link">バイテックBizとは</a>
           <a href="#feature" className="top-nav-link">3つの特徴</a>
           <a href="#courses" className="top-nav-link">導入事例</a>
-          <a href="#plan" className="top-nav-link">お役立ち資料</a>
           <a href="#faq" className="top-nav-link">よくある質問</a>
-          <a href="https://bytech.jp/" target="_blank" rel="noopener" className="top-nav-link top-nav-link--ext">個人向けスクール</a>
           <a href="./doc-a/" className="btn-outline">資料をダウンロード</a>
           <a href="./counseling" className="btn-fill">無料個別相談を予約する</a>
         </nav>
@@ -32,8 +149,25 @@ export default function BizPage() {
         <section className="hero" id="hero">
           <div className="hero__l-main-img__img">
             <picture>
-              <source srcSet="/biz/assets/img/index/biz_fv-scaled.jpg" media="(min-width: 768px)" width={1280} height={720} />
-              <img src="/biz/assets/img/index/biz_fv-scaled.jpg" alt="" loading="eager" width={750} height={1066} />
+              <source
+                type="image/avif"
+                srcSet="/biz/assets/img/index/biz_fv-480.avif 480w, /biz/assets/img/index/biz_fv-768.avif 768w, /biz/assets/img/index/biz_fv-1280.avif 1280w"
+                sizes="(min-width: 768px) 100vw, 100vw"
+              />
+              <source
+                type="image/webp"
+                srcSet="/biz/assets/img/index/biz_fv-480.webp 480w, /biz/assets/img/index/biz_fv-768.webp 768w, /biz/assets/img/index/biz_fv-1280.webp 1280w"
+                sizes="(min-width: 768px) 100vw, 100vw"
+              />
+              <img
+                src="/biz/assets/img/index/biz_fv-768.webp"
+                alt=""
+                decoding="async"
+                loading="eager"
+                fetchPriority="high"
+                width={1280}
+                height={720}
+              />
             </picture>
           </div>
           <div className="hero__catch">
@@ -45,8 +179,8 @@ export default function BizPage() {
               </h1>
               <div className="hero__label__logo fadein delay-time02">
                 <picture>
-                  <source srcSet="/biz/assets/img/index/hero_lavel_mdl.png" media="(max-width: 768px)" />
-                  <img src="/biz/assets/img/index/hero_lavel_mdl.png" alt="" />
+                  <source type="image/webp" srcSet="/biz/assets/img/index/hero_lavel_mdl.webp" />
+                  <img decoding="async" loading="lazy" src="/biz/assets/img/index/hero_lavel_mdl.png" alt="" />
                 </picture>
               </div>
               <div className="hero__cta fadein delay-time03">
@@ -2017,7 +2151,20 @@ export default function BizPage() {
         </section>
       </main>
 
-      <footer className="footer">
+      <aside className="right-form-fixed" id="rightFormFixed">
+        <div className="fv_form">
+          <div className="form_header">
+            <div className="form_header__text">
+              <p className="form_eyebrow">導入事例や料金プランが分かる</p>
+              <h3 className="form_title">資料ダウンロード</h3>
+            </div>
+            <img className="form_cover" src="/biz/assets/img/wp/biz-doc-cover.webp" alt="バイテックBiz サービス概要資料" width={390} height={512} loading="lazy" />
+          </div>
+          <div className="formrun-embed" data-formrun-form="@customer-success-azf2Fhi6yw5jcjVaWdVt" data-formrun-redirect="true"></div>
+        </div>
+      </aside>
+
+      <footer className="footer" id="pageFooter">
         <div className="footer__inner">
           <div className="footer__col footer__col--lead">
             <p className="footer__lead">
@@ -2047,7 +2194,7 @@ export default function BizPage() {
           <div className="footer__col">
             <p className="footer__title">会社情報</p>
             <ul className="footer__list">
-              <li><a href="https://www.librex.co.jp/" target="_blank" rel="noopener">会社概要</a></li>
+              <li><a href="https://ai-bou.co.jp" target="_blank" rel="noopener">会社概要</a></li>
               <li><a href="./privacy-policy/">プライバシーポリシー</a></li>
             </ul>
             <p className="footer__title footer__title--service">サービス</p>
@@ -2059,7 +2206,7 @@ export default function BizPage() {
         </div>
         <div className="footer__bottom">
           <img src="/biz/assets/img/common/ft-logo_w.svg" alt="footer logo" className="footer__logo" />
-          <p className="footer__copy">2025 Librex Inc.</p>
+          <p className="footer__copy">2025 株式会社AI棒</p>
         </div>
       </footer>
 
@@ -2074,6 +2221,30 @@ export default function BizPage() {
       <Script src="/biz/assets/js/main.js" strategy="afterInteractive" />
       <Script src="/biz/assets/js/scripts.js" strategy="afterInteractive" />
       <Script src="https://sdk.form.run/js/v2/embed.js" strategy="afterInteractive" />
+      <Script id="right-rail-stop-above-footer" strategy="afterInteractive">{`
+        (function(){
+          var rail = document.getElementById('rightFormFixed');
+          var footer = document.getElementById('pageFooter');
+          if (!rail || !footer) return;
+          var ticking = false;
+          function update(){
+            ticking = false;
+            var footerTop = footer.getBoundingClientRect().top;
+            var viewportH = window.innerHeight;
+            if (footerTop < viewportH) {
+              rail.style.bottom = (viewportH - footerTop) + 'px';
+            } else {
+              rail.style.bottom = '0px';
+            }
+          }
+          function onScroll(){
+            if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+          }
+          window.addEventListener('scroll', onScroll, { passive: true });
+          window.addEventListener('resize', onScroll);
+          update();
+        })();
+      `}</Script>
       <Script id="logo-scroll" strategy="afterInteractive">{`
         (function(){
           var logo = document.getElementById('top-logo');

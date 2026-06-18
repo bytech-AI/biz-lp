@@ -13,7 +13,7 @@
       --color-bg-purple-light: #f0eeff;
       --color-green: #217346;
       --font-jp: var(--font-noto-jp), 'Noto Sans JP', sans-serif;
-      --font-en: 'Futura', 'Futura-Medium', 'Century Gothic', sans-serif;
+      --font-en: var(--font-jost), 'Futura', 'Futura-Medium', 'Century Gothic', sans-serif;
       --max-width: 1200px;
       --radius: 12px;
       --radius-lg: 20px;
@@ -24,7 +24,7 @@
     /* ===== Reset ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; overflow-x: hidden; }
-    body { font-family: var(--font-jp); color: var(--color-text); background: var(--color-white); line-height: 1.7; font-size: 15px; overflow-x: hidden; }
+    body { font-family: var(--font-jost), var(--font-jp); color: var(--color-text); background: var(--color-white); line-height: 1.7; font-size: 15px; overflow-x: hidden; }
     img { max-width: 100%; height: auto; vertical-align: middle; }
     a { color: inherit; text-decoration: none; }
     ul, ol { list-style: none; }
@@ -85,7 +85,7 @@
     /* ===== Header ===== */
     .header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
-      background: transparent; width: 100%; box-sizing: border-box; overflow: hidden;
+      background: transparent; width: 100%; box-sizing: border-box;
     }
     .header__inner {
       max-width: 1300px; margin: 0 auto; padding: 10px 20px;
@@ -124,6 +124,86 @@
     .header__dropdown a:hover { background: var(--color-bg-purple-light); }
     .header__nav__list li:hover .header__dropdown { display: block; }
     .header__nav__divider { width: 1px; height: 16px; background: #ccc; margin: 0 8px; flex-shrink: 0; }
+    /* ===== メガメニュー（コース一覧 hover） ===== */
+    .header__bar { position: relative; }
+    .header__nav__list li.has-mega { position: static; }
+    .header__nav__list li.has-mega > a { position: relative; }
+    /* hover ブリッジ：トリガーとメガメニューの隙間をホバー継続 */
+    .header__nav__list li.has-mega > a::after {
+      content: ""; position: absolute; left: 0; right: 0; top: 100%;
+      height: 16px;
+    }
+    .header__mega {
+      display: none; position: absolute; top: 100%;
+      left: 50%; transform: translateX(-50%);
+      width: min(1080px, calc(100vw - 32px));
+      background: #fff; border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+      padding: 32px 40px; gap: 40px;
+      margin-top: 14px; z-index: 100;
+      animation: header-mega-in 0.18s ease-out;
+    }
+    .header__nav__list li.has-mega:hover .header__mega,
+    .header__mega:hover { display: flex; }
+    @keyframes header-mega-in {
+      from { opacity: 0; transform: translate(-50%, -6px); }
+      to   { opacity: 1; transform: translate(-50%, 0); }
+    }
+    .header__mega__intro {
+      width: 220px; flex-shrink: 0;
+      display: flex; flex-direction: column; gap: 18px;
+    }
+    .header__mega__image {
+      width: 100%; aspect-ratio: 4 / 3;
+      border-radius: 10px; overflow: hidden;
+    }
+    .header__mega__image img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .header__mega__heading { display: flex; flex-direction: column; gap: 4px; }
+    .header__mega__ttl { font-size: 14px; font-weight: 700; color: var(--color-text-light); letter-spacing: 0.04em; }
+    .header__mega__sub {
+      font-family: var(--font-en); font-size: 26px; font-weight: 900;
+      letter-spacing: 0.06em; color: var(--color-dark); line-height: 1.1;
+    }
+    .header__mega__grid {
+      flex: 1; display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      column-gap: 20px; row-gap: 0;
+      grid-auto-rows: minmax(58px, auto);
+      align-content: start;
+    }
+    .header__mega .header__mega__card {
+      display: flex; align-items: center; justify-content: flex-start;
+      gap: 16px; padding: 8px 4px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      font-size: 13px; font-weight: 500; color: var(--color-text);
+      transition: color 0.18s; background: transparent;
+      line-height: 1.4; height: 100%;
+    }
+    .header__mega .header__mega__card:hover {
+      color: var(--color-primary); background: transparent;
+    }
+    .header__mega__card-label { flex: 0 1 auto; min-width: 0; white-space: normal; overflow-wrap: anywhere; }
+    .header__mega__arrow {
+      width: 28px; height: 28px; border-radius: 6px;
+      background: var(--color-dark); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0; line-height: 1;
+      flex-shrink: 0; align-self: center;
+      transition: background 0.18s, transform 0.18s;
+    }
+    .header__mega__arrow::before {
+      content: ""; display: block; width: 6px; height: 6px;
+      border-top: 2px solid #fff; border-right: 2px solid #fff;
+      transform: translateX(-1px) rotate(45deg);
+    }
+    .header__mega .header__mega__card:hover .header__mega__arrow {
+      background: var(--color-primary); transform: translateX(2px);
+    }
+    @media (max-width: 1024px) {
+      .header__mega { display: none !important; }
+    }
     /* ヘッダー CTA ボタン（SVG画像＋パルスアニメ） */
     .header__cta { display: block; flex-shrink: 0; margin-left: auto; }
     .header__cta img {
@@ -187,7 +267,7 @@
     /* セクション全体 */
     .hero {
       display: flex; flex-direction: column; justify-content: center;
-      min-height: 550px; position: relative; overflow: hidden;
+      min-height: 680px; position: relative; overflow: hidden;
       background-color: var(--color-primary);
       padding: 70px 0 30px;
     }
@@ -205,6 +285,8 @@
       display: block; z-index: 0;
     }
     .hero__bg-sp { display: none; }
+    /* PC背景の人物をズーム（右側を基準に拡大） */
+    .hero__bg-pc { transform: scale(1.25) translateX(40px); transform-origin: right center; }
 
     /* max-width 1100px の中央寄せラッパー */
     .hero__inner {
@@ -236,7 +318,8 @@
     .hero__heading-line1 { margin-top: 20px; text-shadow: 0 0 12px rgba(0,0,0,0.48); }
     /* 行2: 紫ボックス、テキストシャドウなし */
     .hero__heading-line2 { margin-top: 10px; }
-    .hero__heading-line2 .highlight { background-color: #533AFC; padding: 1px 10px; }
+    .hero__heading-line2 .highlight { background-color: #fff; color: #000; padding: 1px 10px; }
+    .hero__heading-line2 .accent { color: #533AFC; }
     /* 行3: テキストシャドウあり */
     .hero__heading-line3 { margin-top: 5px; text-shadow: 0 0 12px rgba(0,0,0,0.48); }
     /* 小さい文字（・や助詞「を」） */
@@ -313,7 +396,7 @@
     /* 480px以下: PC背景画像を非表示、SP背景画像を表示 */
     @media (max-width: 480px) {
       .hero__bg-pc { display: none; }
-      .hero__bg-sp { display: block; object-position: center top; }
+      .hero__bg-sp { display: block; object-position: center 40%; transform: scale(1.2) translateX(-30px); transform-origin: center 40%; }
       .hero::before {
         background-image: linear-gradient(360deg, #000 40%, rgba(255,255,255,0) 70%);
         opacity: 0.5;
@@ -323,8 +406,8 @@
     /* モバイル (max-width: 767px) */
     @media (max-width: 767px) {
       .hero {
-        min-height: 480px;
-        padding: 130px 10px 20px;
+        min-height: 400px;
+        padding: 95px 10px 20px;
         margin-top: 30px;
         justify-content: flex-start;
       }
@@ -400,8 +483,29 @@
     }
     .consult-form__heading {
       font-family: var(--font-jp);
-      font-size: 25px; font-weight: 600; letter-spacing: 0.03em;
-      color: #000; text-align: center; margin: 0 0 0;
+      font-size: 19px; font-weight: 800; letter-spacing: 0.03em;
+      color: #000; text-align: center; margin: 0 0 12px;
+    }
+    /* 吹き出し（紫ボーダー） */
+    .consult-form__bubble {
+      position: relative; display: inline-block;
+      background: #fff; border: 2px solid #533AFC; border-radius: 999px;
+      padding: 8px 22px; line-height: 1.2;
+    }
+    .consult-form__bubble .accent { color: #533AFC; }
+    /* しっぽ: 外側（ボーダー色） */
+    .consult-form__bubble::before {
+      content: ''; position: absolute; left: 50%; bottom: -13px;
+      transform: translateX(-50%);
+      border-left: 11px solid transparent; border-right: 11px solid transparent;
+      border-top: 13px solid #533AFC;
+    }
+    /* しっぽ: 内側（白で塗りつぶし） */
+    .consult-form__bubble::after {
+      content: ''; position: absolute; left: 50%; bottom: -9px;
+      transform: translateX(-50%);
+      border-left: 8px solid transparent; border-right: 8px solid transparent;
+      border-top: 10px solid #fff;
     }
     .consult-form__subheading {
       font-family: var(--font-jp);

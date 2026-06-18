@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Jost } from "next/font/google";
 import "./globals.css";
 
 const notoSansJp = localFont({
   src: "./fonts/NotoSansJP-VF.woff2",
   weight: "100 900",
   variable: "--font-noto-jp",
+  display: "swap",
+});
+
+// 英語(ラテン文字)用: Futura系の幾何学サンセリフ
+const jost = Jost({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-jost",
   display: "swap",
 });
 
@@ -23,7 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${notoSansJp.variable} h-full antialiased`}
+      className={`${notoSansJp.variable} ${jost.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

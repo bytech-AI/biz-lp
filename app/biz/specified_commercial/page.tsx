@@ -49,7 +49,7 @@ export default function SpecifiedCommercialPage() {
       <main className="pg-card">
         <table className="pg-table">
           <tbody>
-            <tr><th>事業者の名称</th><td>株式会社 LIBREX</td></tr>
+            <tr><th>事業者の名称</th><td>株式会社AI棒</td></tr>
             <tr><th>代表責任者</th><td>塩田 稜</td></tr>
             <tr><th>所在地</th><td>〒150-0021 東京都渋谷区恵比寿西2丁目4番8号ウィンド恵比寿ビル8F</td></tr>
             <tr><th>電話番号</th><td>03-4400-6693</td></tr>

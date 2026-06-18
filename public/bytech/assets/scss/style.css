@@ -4860,7 +4860,7 @@ li {
   z-index: 99;
   margin-inline: auto;
   width: calc(95% - 100px);
-  padding: 2rem;
+  padding: 2.75rem 2rem 2rem;
   text-align: center;
 }
 @media screen and (max-width: 67.5em) {
