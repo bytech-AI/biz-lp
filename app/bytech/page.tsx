@@ -2,129 +2,25 @@ import Script from 'next/script'
 import Image from 'next/image'
 import Link from 'next/link'
 import { R2Carousel, R3Carousel, R5Carousel } from "./components/carousels"
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
 
 export default function BytechPage() {
+  const sharedHeaderHtml = readFileSync(join(process.cwd(), 'public/_shared/header.html'), 'utf8').replace(/<script[\s\S]*?<\/script>/g, '')
+  const sharedFooterHtml = readFileSync(join(process.cwd(), 'public/_shared/footer.html'), 'utf8')
   return (
     <>
+      {/* ===== ANALYTICS (GTM + Ahrefs) ===== */}
+      <Script id="gtm-base" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-K6HH9C2F');` }} />
+      <Script src="https://analytics.ahrefs.com/analytics.js" data-key="aZ898U8dJ/4/mdj4DgCDyg" strategy="afterInteractive" />
+      <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K6HH9C2F" height="0" width="0" style={{ display: 'none', visibility: 'hidden' }} />
+      </noscript>
 
       {/* ===== HEADER ===== */}
-      <header className="header">
-        <div className="header__inner">
-          {/* ロゴ + ナビ カード */}
-          <div className="header__bar">
-            <div className="header__logo">
-              <a href="/bytech">
-                <img src="/bytech/assets/images/logo-black.svg" alt="バイテック生成AI" />
-              </a>
-            </div>
-            <nav className="header__nav">
-              <ul className="header__nav__list">
-                <li><a href="/support" target="_blank">サポート詳細</a></li>
-                <li className="has-mega">
-                  <a href="#courses">コース一覧</a>
-                  <div className="header__mega" role="menu" aria-label="コース一覧">
-                    <div className="header__mega__intro">
-                      <div className="header__mega__image">
-                        <img src="/bytech/assets/images/mega-course-bg.webp" alt="" />
-                      </div>
-                      <div className="header__mega__heading">
-                        <div className="header__mega__ttl">コース一覧</div>
-                        <div className="header__mega__sub">COURSES</div>
-                      </div>
-                    </div>
-                    <div className="header__mega__grid">
-                      <a className="header__mega__card" href="/chatgpt-master" target="_blank">
-                        <span className="header__mega__card-label">ChatGPTマスターコース</span>
-                        <span className="header__mega__arrow" aria-hidden="true">›</span>
-                      </a>
-                      <a className="header__mega__card" href="/gemini-master" target="_blank">
-                        <span className="header__mega__card-label">Geminiマスターコース</span>
-                        <span className="header__mega__arrow" aria-hidden="true">›</span>
-                      </a>
-                      <a className="header__mega__card" href="/copilot-master" target="_blank">
-                        <span className="header__mega__card-label">Copilotマスターコース</span>
-                        <span className="header__mega__arrow" aria-hidden="true">›</span>
-                      </a>
-                      <a className="header__mega__card" href="/dify-master" target="_blank">
-                        <span className="header__mega__card-label">Difyマスターコース</span>
-                        <span className="header__mega__arrow" aria-hidden="true">›</span>
-                      </a>
-                      <a className="header__mega__card" href="/notebooklm-master" target="_blank">
-                        <span className="header__mega__card-label">NotebookLMマスターコース</span>
-                        <span className="header__mega__arrow" aria-hidden="true">›</span>
-                      </a>
-                      <a className="header__mega__card" href="/claude-master" target="_blank">
-                        <span className="header__mega__card-label">Claudeマスターコース</span>
-                        <span className="header__mega__arrow" aria-hidden="true">›</span>
-                      </a>
-                      <a className="header__mega__card" href="/business-worker" target="_blank">
-                        <span className="header__mega__card-label">ビジネスワーカーコース</span>
-                        <span className="header__mega__arrow" aria-hidden="true">›</span>
-                      </a>
-                      <a className="header__mega__card" href="/ai-writer" target="_blank">
-                        <span className="header__mega__card-label">AIウェブライターコース</span>
-                        <span className="header__mega__arrow" aria-hidden="true">›</span>
-                      </a>
-                      <a className="header__mega__card" href="/ai-image-creator" target="_blank">
-                        <span className="header__mega__card-label">AI画像クリエイターコース</span>
-                        <span className="header__mega__arrow" aria-hidden="true">›</span>
-                      </a>
-                      <a className="header__mega__card" href="/ai-movie-creator" target="_blank">
-                        <span className="header__mega__card-label">AI動画クリエイターコース</span>
-                        <span className="header__mega__arrow" aria-hidden="true">›</span>
-                      </a>
-                      <a className="header__mega__card" href="https://generative-ai.bytech.jp/generative-ai-passport/" target="_blank">
-                        <span className="header__mega__card-label">生成AIパスポートコース</span>
-                        <span className="header__mega__arrow" aria-hidden="true">›</span>
-                      </a>
-                    </div>
-                  </div>
-                </li>
-                <li><a href="/plan" target="_blank">料金プラン</a></li>
-                <li><a href="https://bytech.jp/blog/category/interview/" target="_blank">受講生インタビュー</a></li>
-                <li><a href="#faq">よくある質問</a></li>
-                <li className="header__nav__divider" aria-hidden="true" />
-                <li><a href="https://bytech.jp/biz" target="_blank">法人研修 ↗</a></li>
-              </ul>
-            </nav>
-
-            {/* CTAボタン（SVG画像＋パルスアニメ） */}
-            <a href="/counseling" target="_blank" className="header__cta">
-              <img src="/bytech/assets/images/cta-consultation.svg" alt="まずは無料で相談してみる" />
-            </a>
-
-            {/* ハンバーガーボタン（SP用） */}
-            <button className="header__hamburger" id="headerHamburger" aria-label="メニューを開く" aria-expanded="false">
-              <span /><span /><span />
-            </button>
-          </div>
-
-          {/* SP ドロワーナビ */}
-          <nav className="header__nav-drawer" id="headerNavDrawer" aria-hidden="true">
-            <ul className="header__nav-drawer__list">
-              <li><a href="/support">サポート詳細</a></li>
-              <li className="header__nav-drawer__item">
-                <button className="header__nav-drawer__toggle">コース一覧 <span className="arrow">▼</span></button>
-                <ul className="header__nav-drawer__sub">
-                  <li><a href="/chatgpt-master">ChatGPTマスターコース</a></li>
-                  <li><a href="/gemini-master">Geminiマスターコース</a></li>
-                  <li><a href="/copilot-master">Copilotマスターコース</a></li>
-                  <li><a href="/dify-master">DIfyマスターコース</a></li>
-                  <li><a href="/notebooklm-master">NotebookLMマスターコース</a></li>
-                  <li><a href="/business-worker">ビジネスワーカーコース</a></li>
-                  <li><a href="/ai-writer">AIウェブライターコース</a></li>
-                  <li><a href="/ai-image-creator">AI画像クリエイターコース</a></li>
-                  <li><a href="/ai-movie-creator">AI動画クリエイターコース</a></li>
-                  <li><a href="https://generative-ai.bytech.jp/generative-ai-passport/">生成AIパスポート試験対策コース</a></li>
-                </ul>
-              </li>
-              <li><a href="/plan">料金プラン</a></li>
-              <li><a href="https://bytech.jp/blog/category/interview/">受講生インタビュー</a></li>
-              <li><a href="#faq">よくある質問</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+      {/* 共通ヘッダー: public/_shared/header.html を読み込み（CSSは /_shared/site-chrome.css） */}
+      <link rel="stylesheet" href="/_shared/site-chrome.css" />
+      <div dangerouslySetInnerHTML={{ __html: sharedHeaderHtml }} />
 
       {/* ===== HERO ===== */}
       <section className="hero">
@@ -570,7 +466,7 @@ export default function BytechPage() {
             {/* 347e5ba: CTA button — flex-direction row-reverse, icon on right */}
             <div className="voice-section__cta fadein">
               <a
-                href="https://bytech.jp/blog/category/interview/"
+                href="https://note.com/makun_bytech"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="voice-section__cta-btn"
@@ -1896,87 +1792,8 @@ export default function BytechPage() {
       </section>
 
       {/* ===== FOOTER ===== */}
-      <footer className="footer">
-        <div className="footer__main">
-          <div className="footer__inner">
-            {/* Top: tagline + nav */}
-            <div className="footer__body">
-              <h2 className="footer__tagline">最短2ヶ月で、<br />生成AI活用のプロに。</h2>
-              <nav className="footer__nav">
-                {/* コース一覧 */}
-                <div className="footer__nav-col footer__nav-col--courses">
-                  <div className="footer__nav-section-ttl">コース一覧</div>
-                  <div className="footer__nav-divider" />
-                  <div className="footer__nav-sub-cols">
-                    <div className="footer__nav-sub-col">
-                      <div className="footer__nav-sub-ttl">- 主要AI別</div>
-                      <ul className="footer__nav-list">
-                        <li><a href="/chatgpt-master">ChatGPTマスターコース</a></li>
-                        <li><a href="/gemini-master">Geminiマスターコース</a></li>
-                        <li><a href="/copilot-master">Copilotマスターコース</a></li>
-                        <li><a href="/dify-master">DIfyマスターコース</a></li>
-                        <li><a href="/notebooklm-master">NotebookLMマスターコース</a></li>
-                        <li><a href="/claude-master">Claudeマスターコース</a></li>
-                      </ul>
-                    </div>
-                    <div className="footer__nav-sub-col">
-                      <div className="footer__nav-sub-ttl">- 目的別</div>
-                      <ul className="footer__nav-list">
-                        <li><a href="/ai-writer">AIウェブライターコース</a></li>
-                        <li><a href="/ai-movie-creator">AI動画クリエイターコース</a></li>
-                        <li><a href="/ai-image-creator">AI画像クリエイターコース</a></li>
-                        <li><a href="/business-worker">ビジネスワーカーコース</a></li>
-                        <li><a href="https://generative-ai.bytech.jp/generative-ai-passport/">生成AIパスポートコース</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                {/* サポート */}
-                <div className="footer__nav-col footer__nav-col--support">
-                  <div className="footer__nav-section-ttl">サポート</div>
-                  <div className="footer__nav-divider" />
-                  <ul className="footer__nav-list">
-                    <li><a href="/membership-terms">会員規約</a></li>
-                    <li><a href="/refund-policy">返金ポリシー</a></li>
-                    <li><a href="https://generative-ai.bytech.jp/job-membership-terms/">案件獲得保証プラン利用規約</a></li>
-                    <li><a href="/specified_commercial">特定商取引法に関する表示</a></li>
-                    <li><a href="/system-requirements">システム要件</a></li>
-                  </ul>
-                </div>
-                {/* 会社情報 + 関連サービス */}
-                <div className="footer__nav-col footer__nav-col--company">
-                  <div className="footer__nav-section-ttl">会社情報</div>
-                  <div className="footer__nav-divider" />
-                  <ul className="footer__nav-list">
-                    <li><a href="https://ai-bou.co.jp">会社概要</a></li>
-                    <li><a href="/privacy-policy">プライバシーポリシー</a></li>
-                  </ul>
-                  <div className="footer__nav-section-ttl" style={{marginTop: '20px'}}>関連サービス</div>
-                  <div className="footer__nav-divider" />
-                  <ul className="footer__nav-list">
-                    <li><a href="https://bytech.jp/biz">法人向けAI研修 【バイテックBiz】</a></li>
-                    <li><a href="https://bytech.jp/blog">個人向けAIメディア【バイテックBLOG】</a></li>
-                    <li><a href="https://biz.bytech.jp/blog/">企業向けAIメディア【バイテックBLOG Biz】</a></li>
-                  </ul>
-                </div>
-              </nav>
-            </div>
-            {/* Bottom bar: logo + copyright */}
-            <div className="footer__bottom-bar">
-              <Link href="/" className="footer__logo-link">
-                <img className="footer__logo-img" src="/bytech/assets/images/logowhite.png" alt="バイテック生成AI" />
-                <span className="footer__logo-sub">GENERATIVE AI</span>
-              </Link>
-              <p className="footer__copyright">2026 株式会社AI棒</p>
-            </div>
-          </div>
-        </div>
-        <div className="footer__bottom">
-          <div className="footer__inner">
-            <p>&copy; 2026 株式会社AI棒 All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      {/* 共通フッター: public/_shared/footer.html を読み込み */}
+      <div dangerouslySetInnerHTML={{ __html: sharedFooterHtml }} />
       {/* Fixed mobile CTA */}
       <div className="fixed-footer-cta" id="fixedFooterCta">
         <a className="fixed-footer-cta__link" href="/counseling">

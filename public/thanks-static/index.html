@@ -12,9 +12,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PBV72V8S');</script>
 
 <!-- End Google Tag Manager -->
-<link rel="icon" href="/lp/wp-content/uploads/2025/10/cropped-logo丸-32x32.png" sizes="32x32">
-<link rel="icon" href="/lp/wp-content/uploads/2025/10/cropped-logo丸-192x192.png" sizes="192x192">
-<link rel="apple-touch-icon" href="/lp/wp-content/uploads/2025/10/cropped-logo丸-180x180.png">
+<link rel="icon" href="/thanks-static/files/favicon-32.png" sizes="32x32">
+<link rel="icon" href="/thanks-static/files/favicon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/thanks-static/files/favicon-180.png">
 <title>ご予約ありがとうございます – バイテック | 無料個別カウンセリング</title>
 <style>
   :root {
@@ -26,7 +26,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     --color-bg: #F8FAFC;
     --color-surface: #FFFFFF;
     --color-border: #E2E8F0;
-    --color-footer-bg: #0F172A;
+    --color-footer-bg: #000000;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
@@ -112,6 +112,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     border: 0;
     display: block;
   }
+  /* formrun 埋め込み: SDK が高さを自動設定するが、読み込み/調整前でも表示されるよう最低高さを確保 */
+  .formrun-embed { width: 100%; }
+  .formrun-embed iframe { width: 100%; min-height: 560px; border: 0; display: block; }
   @media (min-width: 768px) {
     main { padding: 56px 20px 80px; }
     .hero { padding: 48px 36px; }
@@ -128,7 +131,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   footer p { margin: 0; }
 </style>
-</head>
+<style id="bt-heading-weight">h2{font-weight:900!important}h3{font-weight:800!important}</style></head>
 <body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBV72V8S"
@@ -143,7 +146,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <noscript><img src="https://r.moshimo.com/af/r/result?p_id=6298&pc_id=17753&m_v=msm_yoyaku1" width="1" height="1" alt=""></noscript>
 <header>
   <a class="brand" href="/">
-    <img src="/lp/wp-content/uploads/2026/01/生成AIロゴ黒.svg" alt="バイテック生成AI" />
+    <img src="/thanks-static/files/logo.svg" alt="バイテック生成AI" />
   </a>
 </header>
 <main>
@@ -159,11 +162,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="form-section">
     <h2>事前カウンセリングシートのご記入のお願い</h2>
     <p class="lead">当日のカウンセリングを充実させるため、以下フォームへのご記入をお願いいたします。</p>
-    <iframe
-      class="form-frame"
-      src="https://docs.google.com/forms/d/e/1FAIpQLSfJYu5qLeff7FuKJSts2Rfu8aVVXBeoFmne9l_W4u0bHMA0Xg/viewform?embedded=true"
-      title="事前カウンセリングシート"
-      loading="lazy">読み込んでいます…</iframe>
+    <script src="https://sdk.form.run/js/v2/embed.js"></script>
+    <div
+      class="formrun-embed"
+      data-formrun-form="@counseling-sheet"
+      data-formrun-redirect="true"
+    >
+    </div>
   </section>
 </main>
 <footer>

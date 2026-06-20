@@ -288,7 +288,7 @@ video {
 .c-sec-ttl__en::before {
   content: "";
   position: absolute;
-  bottom: 0.18em;
+  bottom: 0.08em;
   left: 0;
   background: url(../img/sec_title_mark.svg) no-repeat center center/contain;
   width: 1.18em;
@@ -1121,7 +1121,7 @@ WorXの範囲
 
 .worx-service__container {
   background: #fff;
-  padding: 5.4% 2% 2.5641025641%;
+  padding: 3.2% 2% 2.5641025641%;
 }
 @media (max-width: 767px) {
   .worx-service__container {
@@ -1130,15 +1130,15 @@ WorXの範囲
 }
 
 .worx-service__title {
-  width: 47.2310126582%;
+  width: 38%;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: min(1.4375rem, 1.6381766382vw);
+  font-size: min(1.0625rem, 1.22vw);
   font-weight: 700;
   letter-spacing: 0.04em;
-  padding: 0.6em 0;
+  padding: 0.3em 0;
   border-radius: 50px;
   background: linear-gradient(270deg, #008477 0%, #14C9B4 100%);
   text-align: center;
@@ -1228,7 +1228,7 @@ WorXの範囲
   left: 0;
   width: 100%;
   transform: translateY(-100%);
-  font-size: min(1rem, 1.1396011396vw);
+  font-size: min(0.875rem, 1vw);
   font-weight: 700;
   letter-spacing: 0.04em;
   text-align: center;
@@ -1236,7 +1236,7 @@ WorXの範囲
   border-radius: 50px;
   color: #fff;
   text-align: center;
-  padding: 0.625em 0;
+  padding: 0.3em 0;
 }
 @media (max-width: 767px) {
   .worx-service__label {
@@ -2391,7 +2391,25 @@ body[class][class] .u-text-black {
   color: #071a3a;
 }
 .g2a-sectiontitle { margin-bottom: var(--g2-title-content-gap); }
-.g2a-sectiontitle span { color: #E9662B; font-size: 12px; font-weight: 900; }
+.g2a-kicker {
+  position: relative;
+  display: inline-block;
+  padding-left: 1.39em;
+  color: #00AC9B;
+  font-family: "Outfit", sans-serif;
+  font-size: min(1.125rem, 1.35vw);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.g2a-kicker::before {
+  content: "";
+  position: absolute;
+  bottom: 0.08em;
+  left: 0;
+  width: 1.18em;
+  aspect-ratio: 128.331/35.82;
+  background: url(../img/sec_title_mark.svg) no-repeat center center/contain;
+}
 .g2a-sectiontitle h2 {
   margin: 14px 0 0;
   color: #071a3a;
@@ -2567,7 +2585,7 @@ body[class][class] .u-text-black {
 }
 
 /* === geek2: コース一覧セクション（/geek の Course を移植） === */
-.g2c-course { background: #fff; padding: min(96px, 7vw) 0; color: #071a3a; }
+.g2c-course { background: #fff; padding: min(48px, 3.3333333333vw) 0 min(96px, 7vw); color: #071a3a; }
 .g2c-panel {
   margin-top: var(--g2-title-content-gap);
   padding: 36px clamp(20px, 4vw, 44px);

@@ -17,18 +17,8 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  async rewrites() {
-    return [
-      {
-        source: "/blog",
-        destination: "https://bytech.jp/blog/",
-      },
-      {
-        source: "/blog/:path*",
-        destination: "https://bytech.jp/blog/:path*",
-      },
-    ];
-  },
+  // /blog（WPブログ）は Cloudflare の Origin Rule で WPサーバーへ振り分けるため、
+  // Next 側の rewrite は不要（apex が Vercel になると bytech.jp/blog への転送はループするため削除）。
 };
 
 export default nextConfig;

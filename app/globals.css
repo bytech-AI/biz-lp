@@ -30,3 +30,7 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* 全ページ共通: 見出しウェイト統一 (h2=900 / h3=800) */
+h2 { font-weight: 900 !important; }
+h3 { font-weight: 800 !important; }

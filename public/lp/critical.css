@@ -1,7 +1,7 @@
 *,::before,::after{box-sizing:border-box}
 html{line-height:1.15;-webkit-text-size-adjust:100%}
 body{margin:0}
-body.pre-page-root{padding-top:76px!important}@media(max-width:640px){body.pre-page-root{padding-top:52px!important}}
+.pre-page-root{padding-top:61px!important}@media(max-width:640px){.pre-page-root{padding-top:52px!important}}
 img,svg{vertical-align:middle}
 /* === public/pre/semantic.css === */
 /* Semantic replacements for legacy builder-generated sections in public/pre/index.html. */
@@ -11,7 +11,7 @@ img,svg{vertical-align:middle}
   justify-content:flex-end;
   border-radius:10px 10px 0 0;
   padding-top:20px;
-  background:#eee url("/ah/wp-content/uploads/2026/05/ChatGPT-Image-2026年5月2日-01_42_51.webp") -53px -423px / 130% auto no-repeat;
+  background:#eee url("/lp/wp-content/uploads/2026/05/ChatGPT-Image-2026年5月2日-01_42_51.webp") -123px -202px / 130% auto no-repeat;
 }
 .hero-bg{
   margin-top:10px;
@@ -27,7 +27,7 @@ img,svg{vertical-align:middle}
   padding-left:10px;
   font:oblique 700 20px "Arial",sans-serif;
   letter-spacing:.05em;
-  color:#000;
+  color:#fff;
   text-align:start;
   text-shadow:0 0 52px rgba(0,0,0,.62);
 }
@@ -70,12 +70,7 @@ img,svg{vertical-align:middle}
   letter-spacing:.05em;
   color:#fff;
 }
-.hero-logo{
-  position:relative;
-  z-index:1;
-  margin-top:30px;
-  text-align:center;
-}
+.hero-logo{position:relative;z-index:1;margin-top:30px;display:flex;justify-content:center;align-items:center;}
 .hero-logo img{
   width:35%;
   height:auto;
@@ -84,7 +79,7 @@ img,svg{vertical-align:middle}
 @media(max-width:1024px){
   .hero{
     padding:0;
-    background-position:-15px 0;
+    background-position:-123px -202px;
   }
   .hero-bg img{
     width:33%;
@@ -105,7 +100,7 @@ img,svg{vertical-align:middle}
     margin:0;
     border-radius:0;
     padding-top:10px;
-    background-position:-13px -382px;
+    background-position:-123px -202px;
   }
   .hero-bg{
     margin:0;

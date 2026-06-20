@@ -37,8 +37,13 @@
 /* ロゴ+ナビ のカード（border-radius + 軽いシャドウ） */
 .bt-site-header .header__bar {
   flex: 1; display: flex; align-items: center;
-  background: #fff; border-radius: 10px;
-  box-shadow: 0 0 10px 0 rgba(0,0,0,0.21);
+  /* すりガラス: 半透明の白＋背景ぼかしで後ろが少し透ける */
+  background: rgba(255,255,255,0.68);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid rgba(255,255,255,0.55);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,0.12);
   padding: 8px 20px;
   gap: 0;
 }
@@ -57,6 +62,8 @@
   letter-spacing: 0.03em;
 }
 .bt-site-header .header__nav__list a:hover { color: var(--color-primary); }
+/* 外部リンクアイコン（法人研修など） */
+.bt-site-header .header__ext-icon { display: inline-block; width: 13px; height: 13px; margin-left: 5px; vertical-align: -1px; stroke: currentColor; }
 /* ドロップダウン */
 .bt-site-header .header__dropdown {
   display: none; position: absolute; top: 100%; left: -16px;
@@ -120,7 +127,7 @@
   align-content: start;
 }
 .bt-site-header .header__mega .header__mega__card {
-  display: flex; align-items: center; justify-content: flex-start;
+  display: flex; align-items: center; justify-content: space-between;
   gap: 16px; padding: 8px 4px;
   border-bottom: 1px solid rgba(0,0,0,0.08);
   font-size: 13px; font-weight: 700; color: var(--color-text);
@@ -130,7 +137,7 @@
 .bt-site-header .header__mega .header__mega__card:hover {
   color: var(--color-primary); background: transparent;
 }
-.bt-site-header .header__mega__card-label { flex: 0 1 auto; min-width: 0; white-space: normal; overflow-wrap: anywhere; }
+.bt-site-header .header__mega__card-label { flex: 1; min-width: 0; white-space: normal; overflow-wrap: anywhere; }
 .bt-site-header .header__mega__arrow {
   width: 28px; height: 28px; border-radius: 6px;
   background: var(--color-dark); color: #fff;
@@ -207,22 +214,22 @@
 /* ===== Footer ===== */
 .bt-site-footer .footer { background: #1a1723; color: #fff; }
 .bt-site-footer .footer__main { padding: 56px 0 0; }
-.bt-site-footer .footer__inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+.bt-site-footer .footer__inner { max-width: 1300px; margin: 0 auto; padding: 0 40px; }
 /* Top body: tagline + nav */
 .bt-site-footer .footer__body {
   display: flex; flex-direction: row; align-items: flex-start; gap: 0;
   padding-bottom: 48px;
 }
 .bt-site-footer .footer__tagline {
-  flex: 0 0 30%; font-size: 31px; font-weight: 700; white-space: nowrap;
-  color: #fff; line-height: 1.55; margin: 0; letter-spacing: 0.02em;
+  flex: 0 0 auto; font-size: 30px; font-weight: 700; white-space: nowrap;
+  color: #fff; line-height: 1.55; margin: 0 48px 0 0; letter-spacing: 0.02em;
 }
 /* Nav area */
 .bt-site-footer .footer__nav {
   flex: 1; display: flex; flex-direction: row; gap: 0; align-items: flex-start;
 }
-.bt-site-footer .footer__nav-col { flex: 1; padding-right: 24px; }
-.bt-site-footer .footer__nav-col--courses { flex: 0 0 46%; }
+.bt-site-footer .footer__nav-col { flex: 1; padding-right: 14px; }
+.bt-site-footer .footer__nav-col--courses { flex: 0 0 48%; }
 /* Section title */
 .bt-site-footer .footer__nav-section-ttl {
   font-size: 16px; font-weight: 700; color: #735fff; letter-spacing: 0.05em; margin: 0;
@@ -263,7 +270,7 @@
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .bt-site-footer .footer__tagline { flex: 0 0 20%; font-size: 28px; }
+  .bt-site-footer .footer__tagline { flex: 0 0 20%; font-size: 28px; white-space: normal; }
   .bt-site-footer .footer__nav-col--courses { flex: 0 0 44%; }
 }
 @media (max-width: 767px) {
