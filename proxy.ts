@@ -31,7 +31,13 @@ export function proxy(request: NextRequest) {
     return NextResponse.rewrite(new URL(newPath, request.url))
   }
 
-  // bytech.jp はルートのpage.tsxをそのまま返す
+  // /bytech は廃止し / に統合（静的HTML化）。ロゴ/サブページの旧 /bytech リンク救済のため恒久リダイレクト。
+  // /bytech/course 等のサブページは対象外（厳密一致のみ）。
+  if (pathname === '/bytech' || pathname === '/bytech/') {
+    return NextResponse.redirect(new URL('/', request.url), 308)
+  }
+
+  // bytech.jp はルートの静的ホーム(app/route.ts)をそのまま返す
   return NextResponse.next()
 }
 
