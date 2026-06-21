@@ -1304,7 +1304,7 @@ export default function BytechPage() {
                     <div className="curric-card__desc-wrap">
                       <p className="curric-card__desc">生成AIパスポート試験の出題範囲を押さえながら、主要ツールの特徴やリスク、ビジネス活用のポイントを体系的に学ぶ講座です。AIリテラシーを証明したいビジネスパーソンにおすすめです。</p>
                     </div>
-                    <a href="https://generative-ai.bytech.jp/generative-ai-passport/" className="curric-card__btn">コースの詳細を見る</a>
+                    <a href="/generative-ai-passport" className="curric-card__btn">コースの詳細を見る</a>
                   </div>
                 </div>
               </div>

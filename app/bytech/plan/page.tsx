@@ -572,7 +572,7 @@ export default function PlanPage() {
                   <span className="header__mega__card-label">AI動画クリエイターコース</span>
                   <span className="header__mega__arrow" aria-hidden="true">›</span>
                 </a>
-                <a className="header__mega__card" href="https://generative-ai.bytech.jp/generative-ai-passport/" target="_blank">
+                <a className="header__mega__card" href="/generative-ai-passport" target="_blank">
                   <span className="header__mega__card-label">生成AIパスポートコース</span>
                   <span className="header__mega__arrow" aria-hidden="true">›</span>
                 </a>
@@ -614,7 +614,7 @@ export default function PlanPage() {
             <li><a href="/ai-writer">AIウェブライターコース</a></li>
             <li><a href="/ai-image-creator">AI画像クリエイターコース</a></li>
             <li><a href="/ai-movie-creator">AI動画クリエイターコース</a></li>
-            <li><a href="https://generative-ai.bytech.jp/generative-ai-passport/">生成AIパスポート試験対策コース</a></li>
+            <li><a href="/generative-ai-passport">生成AIパスポート試験対策コース</a></li>
           </ul>
         </li>
         <li><a href="/plan">料金プラン</a></li>
@@ -1052,7 +1052,7 @@ export default function PlanPage() {
             <li><a href="/ai-movie-creator" target="_blank">AI動画クリエイターコース</a></li>
             <li><a href="/ai-image-creator" target="_blank">AI画像クリエイターコース</a></li>
             <li><a href="/business-worker" target="_blank">ビジネスワーカーコース</a></li>
-            <li><a href="https://generative-ai.bytech.jp/generative-ai-passport/" target="_blank">生成AIパスポートコース</a></li>
+            <li><a href="/generative-ai-passport" target="_blank">生成AIパスポートコース</a></li>
           </ul>
         </div>
         <div>

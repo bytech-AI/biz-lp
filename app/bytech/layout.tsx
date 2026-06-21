@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     apple: "/bytech/assets/images/favicon.png",
   },
   alternates: {
-    canonical: "https://generative-ai.bytech.jp/",
+    canonical: "https://bytech.jp/",
   },
 };
 
