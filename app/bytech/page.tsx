@@ -1792,7 +1792,7 @@ export default function BytechPage() {
         <div className="sp-popup-modal">
           <button className="sp-popup-close" id="spPopupClose" aria-label="閉じる">×</button>
           <div className="sp-popup-image">
-            <img width={1000} height={1490} src="/bytech/assets/images/modal.png" alt="" loading="lazy" />
+            <img width={1000} height={1490} src="/bytech/assets/images/modal.webp" alt="" fetchPriority="low" decoding="async" />
           </div>
           <div className="sp-popup-body">
             <p className="sp-popup-sub">あなたにぴったりの</p>
