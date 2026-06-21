@@ -524,7 +524,7 @@ export default function PlanPage() {
       </div>
       <nav className="header__nav">
         <ul className="header__nav__list">
-          <li><a href="/support" target="_blank">サポート詳細</a></li>
+          <li><a href="/support">サポート詳細</a></li>
           <li className="has-mega">
             <a href="/#courses">コース一覧</a>
             <div className="header__mega" role="menu" aria-label="コース一覧">
@@ -538,54 +538,54 @@ export default function PlanPage() {
                 </div>
               </div>
               <div className="header__mega__grid">
-                <a className="header__mega__card" href="/chatgpt-master" target="_blank">
+                <a className="header__mega__card" href="/chatgpt-master">
                   <span className="header__mega__card-label">ChatGPTマスターコース</span>
                   <span className="header__mega__arrow" aria-hidden="true">›</span>
                 </a>
-                <a className="header__mega__card" href="/gemini-master" target="_blank">
+                <a className="header__mega__card" href="/gemini-master">
                   <span className="header__mega__card-label">Geminiマスターコース</span>
                   <span className="header__mega__arrow" aria-hidden="true">›</span>
                 </a>
-                <a className="header__mega__card" href="/copilot-master" target="_blank">
+                <a className="header__mega__card" href="/copilot-master">
                   <span className="header__mega__card-label">Copilotマスターコース</span>
                   <span className="header__mega__arrow" aria-hidden="true">›</span>
                 </a>
-                <a className="header__mega__card" href="/dify-master" target="_blank">
+                <a className="header__mega__card" href="/dify-master">
                   <span className="header__mega__card-label">Difyマスターコース</span>
                   <span className="header__mega__arrow" aria-hidden="true">›</span>
                 </a>
-                <a className="header__mega__card" href="/notebooklm-master" target="_blank">
+                <a className="header__mega__card" href="/notebooklm-master">
                   <span className="header__mega__card-label">NotebookLMマスターコース</span>
                   <span className="header__mega__arrow" aria-hidden="true">›</span>
                 </a>
-                <a className="header__mega__card" href="/claude-master" target="_blank">
+                <a className="header__mega__card" href="/claude-master">
                   <span className="header__mega__card-label">Claudeマスターコース</span>
                   <span className="header__mega__arrow" aria-hidden="true">›</span>
                 </a>
-                <a className="header__mega__card" href="/business-worker" target="_blank">
+                <a className="header__mega__card" href="/business-worker">
                   <span className="header__mega__card-label">ビジネスワーカーコース</span>
                   <span className="header__mega__arrow" aria-hidden="true">›</span>
                 </a>
-                <a className="header__mega__card" href="/ai-writer" target="_blank">
+                <a className="header__mega__card" href="/ai-writer">
                   <span className="header__mega__card-label">AIウェブライターコース</span>
                   <span className="header__mega__arrow" aria-hidden="true">›</span>
                 </a>
-                <a className="header__mega__card" href="/ai-image-creator" target="_blank">
+                <a className="header__mega__card" href="/ai-image-creator">
                   <span className="header__mega__card-label">AI画像クリエイターコース</span>
                   <span className="header__mega__arrow" aria-hidden="true">›</span>
                 </a>
-                <a className="header__mega__card" href="/ai-movie-creator" target="_blank">
+                <a className="header__mega__card" href="/ai-movie-creator">
                   <span className="header__mega__card-label">AI動画クリエイターコース</span>
                   <span className="header__mega__arrow" aria-hidden="true">›</span>
                 </a>
-                <a className="header__mega__card" href="/generative-ai-passport" target="_blank">
+                <a className="header__mega__card" href="/generative-ai-passport">
                   <span className="header__mega__card-label">生成AIパスポートコース</span>
                   <span className="header__mega__arrow" aria-hidden="true">›</span>
                 </a>
               </div>
             </div>
           </li>
-          <li><a href="/plan" target="_blank">料金プラン</a></li>
+          <li><a href="/plan">料金プラン</a></li>
           <li><a href="https://bytech.jp/blog/category/interview/" target="_blank">受講生インタビュー</a></li>
           <li><a href="#faq">よくある質問</a></li>
           <li className="header__nav__divider" aria-hidden="true" />
@@ -594,7 +594,7 @@ export default function PlanPage() {
       </nav>
 
       {/* CTAボタン（SVG画像＋パルスアニメ） */}
-      <a href="/counseling" target="_blank" className="header__cta">
+      <a href="/counseling" className="header__cta">
         <img src="/bytech/assets/images/cta-consultation.svg" alt="まずは無料で相談してみる" />
       </a>
 
@@ -1038,42 +1038,42 @@ export default function PlanPage() {
           </div>
           <p className="footer__brand__catch">最短2ヶ月で、<br />生成AI活用のプロに。</p>
           <div className="footer__brand__cta">
-            <a href="/counseling" target="_blank">無料カウンセリングに申し込む</a>
+            <a href="/counseling">無料カウンセリングに申し込む</a>
           </div>
         </div>
         <div>
           <div className="footer__col__ttl">コース一覧 - 主要AI別</div>
           <ul className="footer__col__list">
-            <li><a href="/chatgpt-master" target="_blank">ChatGPTマスターコース</a></li>
-            <li><a href="/gemini-master" target="_blank">Geminiマスターコース</a></li>
-            <li><a href="/copilot-master" target="_blank">Copilotマスターコース</a></li>
-            <li><a href="/dify-master" target="_blank">Difyマスターコース</a></li>
-            <li><a href="/notebooklm-master" target="_blank">NotebookLMマスターコース</a></li>
+            <li><a href="/chatgpt-master">ChatGPTマスターコース</a></li>
+            <li><a href="/gemini-master">Geminiマスターコース</a></li>
+            <li><a href="/copilot-master">Copilotマスターコース</a></li>
+            <li><a href="/dify-master">Difyマスターコース</a></li>
+            <li><a href="/notebooklm-master">NotebookLMマスターコース</a></li>
           </ul>
         </div>
         <div>
           <div className="footer__col__ttl">コース一覧 - 目的別</div>
           <ul className="footer__col__list">
-            <li><a href="/ai-writer" target="_blank">AIウェブライターコース</a></li>
-            <li><a href="/ai-movie-creator" target="_blank">AI動画クリエイターコース</a></li>
-            <li><a href="/ai-image-creator" target="_blank">AI画像クリエイターコース</a></li>
-            <li><a href="/business-worker" target="_blank">ビジネスワーカーコース</a></li>
-            <li><a href="/generative-ai-passport" target="_blank">生成AIパスポートコース</a></li>
+            <li><a href="/ai-writer">AIウェブライターコース</a></li>
+            <li><a href="/ai-movie-creator">AI動画クリエイターコース</a></li>
+            <li><a href="/ai-image-creator">AI画像クリエイターコース</a></li>
+            <li><a href="/business-worker">ビジネスワーカーコース</a></li>
+            <li><a href="/generative-ai-passport">生成AIパスポートコース</a></li>
           </ul>
         </div>
         <div>
           <div className="footer__col__ttl">サポート</div>
           <ul className="footer__col__list">
-            <li><a href="/membership-terms" target="_blank">会員規約</a></li>
-            <li><a href="/refund-policy" target="_blank">返金ポリシー</a></li>
+            <li><a href="/membership-terms">会員規約</a></li>
+            <li><a href="/refund-policy">返金ポリシー</a></li>
             <li><a href="https://generative-ai.bytech.jp/job-membership-terms/" target="_blank">案件獲得保証プラン利用規約</a></li>
-            <li><a href="/specified_commercial" target="_blank">特定商取引法に関する表示</a></li>
-            <li><a href="/system-requirements" target="_blank">システム要件</a></li>
+            <li><a href="/specified_commercial">特定商取引法に関する表示</a></li>
+            <li><a href="/system-requirements">システム要件</a></li>
           </ul>
           <div className="footer__col__ttl" style={{ 'marginTop': '24px' }}>会社情報</div>
           <ul className="footer__col__list">
             <li><a href="https://www.librex.co.jp/" target="_blank">会社概要</a></li>
-            <li><a href="/privacy-policy" target="_blank">プライバシーポリシー</a></li>
+            <li><a href="/privacy-policy">プライバシーポリシー</a></li>
           </ul>
           <div className="footer__col__ttl" style={{ 'marginTop': '24px' }}>関連サービス</div>
           <ul className="footer__col__list">
