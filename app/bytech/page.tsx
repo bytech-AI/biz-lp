@@ -66,7 +66,7 @@ export default function BytechPage() {
 
             {/* CTAボタン */}
             <div className="hero-cta-wrapper">
-              <a href="/counseling" target="_blank" className="hero__cta">
+              <a href="/counseling" className="hero__cta">
                 <img width={1024} height={233} src="/bytech/assets/images/plan/cta-setsumeikai-3.webp" alt="無料カウンセリングで相談する" />
               </a>
             </div>
@@ -279,7 +279,6 @@ export default function BytechPage() {
           <div className="campaign-banner__media">
             <a
               href="/counseling"
-              target="_blank"
               rel="noopener noreferrer"
               className="campaign-banner__link"
             >
@@ -670,7 +669,7 @@ export default function BytechPage() {
               </div>
 
               <div className="env__mentor-cta">
-                <a href="/counseling" target="_blank">
+                <a href="/counseling">
                   <img loading="lazy" width={1024} height={233}                     src="/bytech/assets/images/cta-counseling.webp"
                     alt="まずは無料で相談してみる"
                     style={{display: 'block', width: '100%', maxWidth: '500px', height: 'auto'}}
@@ -1411,7 +1410,7 @@ export default function BytechPage() {
               </div>
               <div className="plan-card__services-divider"><span>このプランで受けれるサービス</span></div>
               <img loading="lazy" width={716} height={634} className="plan-card__services-img" src="/bytech/assets/images/PRO.svg" alt="PROプランサービス内容" />
-              <a href="/counseling" target="_blank" className="plan-card__cta plan-card__cta--pro">まずは無料相談を予約する<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+              <a href="/counseling" className="plan-card__cta plan-card__cta--pro">まずは無料相談を予約する<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
             </div>
           </div>
                     {/* SP: tab switching */}
@@ -1458,7 +1457,7 @@ export default function BytechPage() {
                   </div>
                   <div className="plan-card__services-divider"><span>このプランで受けれるサービス</span></div>
                   <img loading="lazy" width={716} height={634} className="plan-card__services-img" src="/bytech/assets/images/PRO.svg" alt="PROプランサービス内容" />
-                  <a href="/counseling" target="_blank" className="plan-card__cta plan-card__cta--pro">まずは無料相談を予約する<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+                  <a href="/counseling" className="plan-card__cta plan-card__cta--pro">まずは無料相談を予約する<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
                 </div>
               </div>
             </div>
@@ -1659,7 +1658,7 @@ export default function BytechPage() {
                     <span className="faq__item__q-text">どのコースが自分にあっているかわかりません</span>
                     <span className="faq__item__q-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
                   </button>
-                  <div className="faq__item__a">「無料相談」でご相談いただくことをお勧めします。ご自身でご受講を通してできるようになりたいこと・学びたいことを無料相談にてお尋ねください。最適なコースをご提案させていただきます。無料相談は<a href="/counseling" target="_blank" style={{color: '#533afc', textDecoration: 'underline'}}>こちら</a>よりお申し込みください。</div>
+                  <div className="faq__item__a">「無料相談」でご相談いただくことをお勧めします。ご自身でご受講を通してできるようになりたいこと・学びたいことを無料相談にてお尋ねください。最適なコースをご提案させていただきます。無料相談は<a href="/counseling" style={{color: '#533afc', textDecoration: 'underline'}}>こちら</a>よりお申し込みください。</div>
                 </div>
               </div>
             </div>
@@ -1741,7 +1740,7 @@ export default function BytechPage() {
                     <span className="faq__item__q-text">受講する上で、準備するべきものはありますか？</span>
                     <span className="faq__item__q-toggle" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></span>
                   </button>
-                  <div className="faq__item__a">こちらの<a href="/system-requirements" target="_blank" style={{color: '#533afc', textDecoration: 'underline'}}>システム要件</a>をご確認の上ご準備していただけたらと思います。</div>
+                  <div className="faq__item__a">こちらの<a href="/system-requirements" style={{color: '#533afc', textDecoration: 'underline'}}>システム要件</a>をご確認の上ご準備していただけたらと思います。</div>
                 </div>
                 <div className="faq__item">
                   <button className="faq__item__q">
