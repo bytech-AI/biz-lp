@@ -140,8 +140,8 @@ export default function BizPage() {
           <a href="#feature" className="top-nav-link">3つの特徴</a>
           <a href="#courses" className="top-nav-link">導入事例</a>
           <a href="#faq" className="top-nav-link">よくある質問</a>
-          <a href="./doc-a/" className="btn-outline">資料をダウンロード</a>
-          <a href="./counseling" className="btn-fill">無料個別相談を予約する</a>
+          <a href="/biz/doc-a" className="btn-outline">資料をダウンロード</a>
+          <a href="/biz/counseling" className="btn-fill">無料個別相談を予約する</a>
         </nav>
       </div>
 
@@ -188,7 +188,7 @@ export default function BizPage() {
                   <span className="hero__cta-btn__label">まずは資料をダウンロード</span>
                   <span className="hero__cta-btn__main">資料をダウンロードする</span>
                 </a>
-                <a href="./counseling" className="hero__cta-btn hero__cta-btn--fill">
+                <a href="/biz/counseling" className="hero__cta-btn hero__cta-btn--fill">
                   <span className="hero__cta-btn__label">まずは話を聞いてみたい</span>
                   <span className="hero__cta-btn__main">無料相談を予約する</span>
                 </a>
@@ -409,7 +409,7 @@ export default function BizPage() {
                   </div>
                   <div className="cta-card__cta">
                     <p className="cta-card__text">これでバイテックBizがまる分かり</p>
-                    <a href="#" className="c-btn c-btn--outline">資料をダウンロードする</a>
+                    <a href="/biz/doc-a" className="c-btn c-btn--outline">資料をダウンロードする</a>
                   </div>
                 </div>
               </div>
@@ -423,7 +423,7 @@ export default function BizPage() {
                   </div>
                   <div className="cta-card__cta">
                     <p className="cta-card__text">AI活用でのお困り事、ご相談ください</p>
-                    <a href="#" className="c-btn c-btn--fill">無料相談を予約する</a>
+                    <a href="/biz/counseling" className="c-btn c-btn--fill">無料相談を予約する</a>
                   </div>
                 </div>
               </div>
@@ -2027,7 +2027,7 @@ export default function BizPage() {
                   </div>
                   <div className="cta-card__cta">
                     <p className="cta-card__text">これでバイテックBizがまる分かり</p>
-                    <a href="#" className="c-btn c-btn--outline">資料をダウンロードする</a>
+                    <a href="/biz/doc-a" className="c-btn c-btn--outline">資料をダウンロードする</a>
                   </div>
                 </div>
               </div>
@@ -2041,7 +2041,7 @@ export default function BizPage() {
                   </div>
                   <div className="cta-card__cta">
                     <p className="cta-card__text">AI活用でのお困り事、ご相談ください</p>
-                    <a href="#" className="c-btn c-btn--fill">無料相談を予約する</a>
+                    <a href="/biz/counseling" className="c-btn c-btn--fill">無料相談を予約する</a>
                   </div>
                 </div>
               </div>
@@ -2220,7 +2220,21 @@ export default function BizPage() {
       <Script src="/biz/assets/js/revealFx.js" strategy="afterInteractive" />
       <Script src="/biz/assets/js/main.js" strategy="afterInteractive" />
       <Script src="/biz/assets/js/scripts.js" strategy="afterInteractive" />
-      <Script src="https://sdk.form.run/js/v2/embed.js" strategy="afterInteractive" />
+      {/* 同一formrunフォームを1ページに2回埋め込むとSDKの自動リサイズが破綻し
+          両iframeが高さ0になる。表示するビューポートの埋め込みだけ残してSDKを読み込む。 */}
+      <Script id="biz-formrun-loader" strategy="afterInteractive">{`
+        (function(){
+          var desktop = window.matchMedia('(min-width:1081px)').matches;
+          var hero = document.querySelector('.hero__form .formrun-embed');
+          var rail = document.querySelector('#rightFormFixed .formrun-embed');
+          if (desktop) { if (hero) hero.remove(); }
+          else { if (rail) rail.remove(); }
+          var s = document.createElement('script');
+          s.src = 'https://sdk.form.run/js/v2/embed.js';
+          s.async = true;
+          document.body.appendChild(s);
+        })();
+      `}</Script>
       <Script id="right-rail-stop-above-footer" strategy="afterInteractive">{`
         (function(){
           var rail = document.getElementById('rightFormFixed');
