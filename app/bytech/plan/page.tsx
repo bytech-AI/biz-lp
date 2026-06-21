@@ -4,6 +4,12 @@ import Link from 'next/link'
 export default function PlanPage() {
   return (
     <>
+      {/* ===== ANALYTICS (GTM) ===== */}
+      <Script id="gtm-base" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-K6HH9C2F');` }} />
+      <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K6HH9C2F" height="0" width="0" style={{ display: 'none', visibility: 'hidden' }} />
+      </noscript>
+
       <link rel="icon" type="image/png" href="/bytech/assets/images/favicon.png" />
       <link rel="apple-touch-icon" href="/bytech/assets/images/favicon.png" />
       <style dangerouslySetInnerHTML={{ __html: `    /* ===== CSS Custom Properties ===== */
