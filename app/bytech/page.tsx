@@ -61,13 +61,13 @@ export default function BytechPage() {
 
             {/* 統計バッジ（SP非表示） */}
             <div className="hero__badges hide-sp">
-              <img src="/bytech/assets/images/stats-badge-bar.svg" alt="案件獲得率95% 受講生満足度96% カリキュラム数600以上" />
+              <img width={13416} height={1517} src="/bytech/assets/images/stats-badge-bar.svg" alt="案件獲得率95% 受講生満足度96% カリキュラム数600以上" />
             </div>
 
             {/* CTAボタン */}
             <div className="hero-cta-wrapper">
               <a href="/counseling" target="_blank" className="hero__cta">
-                <img src="/bytech/assets/images/plan/cta-setsumeikai-3.webp" alt="無料カウンセリングで相談する" />
+                <img width={1024} height={233} src="/bytech/assets/images/plan/cta-setsumeikai-3.webp" alt="無料カウンセリングで相談する" />
               </a>
             </div>
             {/* 注釈 */}
@@ -81,7 +81,7 @@ export default function BytechPage() {
             {/* ロゴ（SP・タブレット表示） */}
             <div className="hero__sp-widget hero__sp-widget--logo">
               <div className="hero__logo-sp">
-                <img src="/bytech/assets/images/group-18733-1.svg" alt="バイテック生成AI" />
+                <img width={1497} height={186} src="/bytech/assets/images/group-18733-1.svg" alt="バイテック生成AI" />
               </div>
             </div>
 
@@ -102,7 +102,7 @@ export default function BytechPage() {
             {/* 統計バッジ（SP専用・タブレット非表示） */}
             <div className="hero__sp-widget hero__sp-widget--stats hide-tablet">
               <div className="hero__stats-sp">
-                <img src="/bytech/assets/images/group-18722.svg" alt="案件獲得率95% 受講生満足度96% カリキュラム数600以上" />
+                <img width={8774} height={1517} src="/bytech/assets/images/group-18722.svg" alt="案件獲得率95% 受講生満足度96% カリキュラム数600以上" />
               </div>
             </div>
 
@@ -230,26 +230,26 @@ export default function BytechPage() {
         <div className="voices__inner">
           <h2 className="voices__heading-sp">未経験からAIスキルを<br />成果に繋げている受講生の方々</h2>
           <div className="voices__underline-sp">
-            <img src="/bytech/assets/images/underline.svg" alt="" />
+            <img loading="lazy" width={1092} height={60} src="/bytech/assets/images/underline.svg" alt="" />
           </div>
           <div className="voices__carousel-wrap">
             <button className="voices__btn voices__btn--prev" type="button" aria-label="前へ">
               <svg viewBox="0 0 1000 1000" aria-hidden="true"><path d="M646 125C629 125 613 133 604 142L308 442C296 454 292 471 292 487 292 504 296 521 308 533L604 854C617 867 629 875 646 875 663 875 679 871 692 858 704 846 713 829 713 812 713 796 708 779 692 767L438 487 692 225C700 217 708 204 708 187 708 171 704 154 692 142 675 129 663 125 646 125Z"/></svg>
             </button>
             <div className="voices__carousel" id="voicesCarousel">
-              <div className="voices__item"><img src="/bytech/assets/images/artboard-5.webp" alt="受講生の声" loading="lazy" /></div>
-              <div className="voices__item"><img src="/bytech/assets/images/artboard-1.webp" alt="受講生の声" loading="lazy" /></div>
-              <div className="voices__item"><img src="/bytech/assets/images/artboard-6.webp" alt="受講生の声" loading="lazy" /></div>
-              <div className="voices__item"><img src="/bytech/assets/images/artboard-4.webp" alt="受講生の声" loading="lazy" /></div>
-              <div className="voices__item"><img src="/bytech/assets/images/artboard-19-v.webp" alt="受講生の声" loading="lazy" /></div>
-              <div className="voices__item"><img src="/bytech/assets/images/artboard-7.webp" alt="受講生の声" loading="lazy" /></div>
-              <div className="voices__item"><img src="/bytech/assets/images/artboard-2.webp" alt="受講生の声" loading="lazy" /></div>
-              <div className="voices__item"><img src="/bytech/assets/images/artboard-20-v.webp" alt="受講生の声" loading="lazy" /></div>
-              <div className="voices__item"><img src="/bytech/assets/images/artboard-3.webp" alt="受講生の声" loading="lazy" /></div>
-              <div className="voices__item"><img src="/bytech/assets/images/artboard-9.webp" alt="受講生の声" loading="lazy" /></div>
-              <div className="voices__item"><img src="/bytech/assets/images/artboard-8.webp" alt="受講生の声" loading="lazy" /></div>
-              <div className="voices__item"><img src="/bytech/assets/images/artboard-18.webp" alt="受講生の声" loading="lazy" /></div>
-              <div className="voices__item"><img src="/bytech/assets/images/artboard-10.webp" alt="受講生の声" loading="lazy" /></div>
+              <div className="voices__item"><img width={1852} height={1583} src="/bytech/assets/images/artboard-5.webp" alt="受講生の声" loading="lazy" /></div>
+              <div className="voices__item"><img width={1852} height={1583} src="/bytech/assets/images/artboard-1.webp" alt="受講生の声" loading="lazy" /></div>
+              <div className="voices__item"><img width={1852} height={1583} src="/bytech/assets/images/artboard-6.webp" alt="受講生の声" loading="lazy" /></div>
+              <div className="voices__item"><img width={1852} height={1583} src="/bytech/assets/images/artboard-4.webp" alt="受講生の声" loading="lazy" /></div>
+              <div className="voices__item"><img width={1852} height={1583} src="/bytech/assets/images/artboard-19-v.webp" alt="受講生の声" loading="lazy" /></div>
+              <div className="voices__item"><img width={1852} height={1583} src="/bytech/assets/images/artboard-7.webp" alt="受講生の声" loading="lazy" /></div>
+              <div className="voices__item"><img width={1852} height={1583} src="/bytech/assets/images/artboard-2.webp" alt="受講生の声" loading="lazy" /></div>
+              <div className="voices__item"><img width={1852} height={1583} src="/bytech/assets/images/artboard-20-v.webp" alt="受講生の声" loading="lazy" /></div>
+              <div className="voices__item"><img width={1852} height={1583} src="/bytech/assets/images/artboard-3.webp" alt="受講生の声" loading="lazy" /></div>
+              <div className="voices__item"><img width={1852} height={1583} src="/bytech/assets/images/artboard-9.webp" alt="受講生の声" loading="lazy" /></div>
+              <div className="voices__item"><img width={1852} height={1583} src="/bytech/assets/images/artboard-8.webp" alt="受講生の声" loading="lazy" /></div>
+              <div className="voices__item"><img width={1852} height={1583} src="/bytech/assets/images/artboard-18.webp" alt="受講生の声" loading="lazy" /></div>
+              <div className="voices__item"><img width={1852} height={1583} src="/bytech/assets/images/artboard-10.webp" alt="受講生の声" loading="lazy" /></div>
             </div>
             <button className="voices__btn voices__btn--next" type="button" aria-label="次へ">
               <svg viewBox="0 0 1000 1000" aria-hidden="true"><path d="M696 533C708 521 713 504 713 487 713 471 708 454 696 446L400 146C388 133 375 125 354 125 338 125 325 129 313 142 300 154 292 171 292 187 292 204 296 221 308 233L563 492 304 771C292 783 288 800 288 817 288 833 296 850 308 863 321 871 338 875 354 875 371 875 388 867 400 854L696 533Z"/></svg>
@@ -283,8 +283,7 @@ export default function BytechPage() {
               rel="noopener noreferrer"
               className="campaign-banner__link"
             >
-              <img
-                src="/bytech/assets/images/campaign-2man-off-june.webp"
+              <img width={1804} height={872}                 src="/bytech/assets/images/campaign-2man-off-june.webp"
                 alt="6月のスタート応援キャンペーン！説明会でのPROプラン受講申し込みで受講料2万円OFF"
                 className="campaign-banner__image"
                 loading="lazy"
@@ -300,7 +299,7 @@ export default function BytechPage() {
 
           {/* floating badge — 9edc72a: group-20884.svg */}
           <div className="about__badge">
-            <img src="/bytech/assets/images/group-20884.svg" alt="" />
+            <img loading="lazy" width={406} height={132} src="/bytech/assets/images/group-20884.svg" alt="" />
           </div>
 
           {/* two-column body — 8094411: flex row, gap 60px, margin-top 50px */}
@@ -310,7 +309,7 @@ export default function BytechPage() {
             <div className="about__body-left">
               {/* d7f5bb2: SP-only no1.svg above text */}
               <div className="about__no1-sp hide-pc hide-tablet">
-                <img src="/bytech/assets/images/no1.svg" alt="AIがおすすめする生成AIスクール No.1" />
+                <img loading="lazy" width={1091} height={1019} src="/bytech/assets/images/no1.svg" alt="AIがおすすめする生成AIスクール No.1" />
               </div>
               <div className="about__body-text">
                 {/* b1a013e: 24px #191722 */}
@@ -329,8 +328,7 @@ export default function BytechPage() {
             {/* right column — 356c516: desktop/tablet only */}
             <div className="about__body-right hide-sp">
               <div className="about__no1">
-                <img
-                  src="/bytech/assets/images/no1.svg"
+                <img loading="lazy" width={1091} height={1019}                   src="/bytech/assets/images/no1.svg"
                   alt="AIがおすすめする生成AIスクール No.1"
                 />
               </div>
@@ -340,7 +338,7 @@ export default function BytechPage() {
 
           {/* KV image */}
           <div className="about__kv">
-            <img src="/bytech/assets/images/KV2.webp" alt="バイテック生成AI" loading="lazy" />
+            <img width={1024} height={589} src="/bytech/assets/images/KV2.webp" alt="バイテック生成AI" loading="lazy" />
           </div>
 
           <p className="about__note">
@@ -368,14 +366,14 @@ export default function BytechPage() {
           </div>
           {/* KV wide image */}
           <div className="about-sp-stats__kv">
-            <img src="/bytech/assets/images/KV_11zon.webp" alt="" loading="lazy" />
+            <img width={1024} height={425} src="/bytech/assets/images/KV_11zon.webp" alt="" loading="lazy" />
           </div>
           {/* person photos — stacked 100% width on SP */}
           <div className="about-sp-stats__photo about-sp-stats__photo--first">
-            <img src="/bytech/assets/images/ozaki-1.webp" alt="" loading="lazy" />
+            <img width={1024} height={890} src="/bytech/assets/images/ozaki-1.webp" alt="" loading="lazy" />
           </div>
           <div className="about-sp-stats__photo about-sp-stats__photo--second">
-            <img src="/bytech/assets/images/iida-1.webp" alt="" loading="lazy" />
+            <img width={1024} height={890} src="/bytech/assets/images/iida-1.webp" alt="" loading="lazy" />
           </div>
         </div>
         {/* tilt shape divider bottom — fills with voice-section purple */}
@@ -391,14 +389,12 @@ export default function BytechPage() {
       <section className="voice-section">
         {/* e7cb04a / 6eae7bf: heading block — straddles about/voice-section boundary on PC; appears below about-sp-stats__shape on SP */}
         <div className="voice-section__heading fadein">
-          <img
-            src="/bytech/assets/images/yajirushi.svg"
+          <img loading="lazy" width={42} height={200}             src="/bytech/assets/images/yajirushi.svg"
             alt=""
             className="voice-section__arrow"
             aria-hidden="true"
           />
-          <img
-            src="/bytech/assets/images/2months-change.svg"
+          <img loading="lazy" width={1730} height={271}             src="/bytech/assets/images/2months-change.svg"
             alt="2ヶ月でこう変わる"
             className="voice-section__ttl-deco"
           />
@@ -421,25 +417,25 @@ export default function BytechPage() {
               <div className="voice-carousel" id="voiceCarouselViewport">
                 <div className="voice-carousel__track" id="voiceTrack">
                   <div className="voice-card">
-                    <img src="/bytech/assets/images/artboard-14-5.webp" alt="受講生の声1" loading="lazy" />
+                    <img width={1257} height={2150} src="/bytech/assets/images/artboard-14-5.webp" alt="受講生の声1" loading="lazy" />
                   </div>
                   <div className="voice-card">
-                    <img src="/bytech/assets/images/artboard-7-1.webp" alt="受講生の声2" loading="lazy" />
+                    <img width={1258} height={2150} src="/bytech/assets/images/artboard-7-1.webp" alt="受講生の声2" loading="lazy" />
                   </div>
                   <div className="voice-card">
-                    <img src="/bytech/assets/images/artboard-18-7.webp" alt="受講生の声3" loading="lazy" />
+                    <img width={1257} height={2150} src="/bytech/assets/images/artboard-18-7.webp" alt="受講生の声3" loading="lazy" />
                   </div>
                   <div className="voice-card">
-                    <img src="/bytech/assets/images/artboard-17-6.webp" alt="受講生の声4" loading="lazy" />
+                    <img width={1257} height={2150} src="/bytech/assets/images/artboard-17-6.webp" alt="受講生の声4" loading="lazy" />
                   </div>
                   <div className="voice-card">
-                    <img src="/bytech/assets/images/uehara-1-1.webp" alt="受講生の声5" loading="lazy" />
+                    <img width={1257} height={2150} src="/bytech/assets/images/uehara-1-1.webp" alt="受講生の声5" loading="lazy" />
                   </div>
                   <div className="voice-card">
-                    <img src="/bytech/assets/images/artboard-10-4.webp" alt="受講生の声6" loading="lazy" />
+                    <img width={1257} height={2150} src="/bytech/assets/images/artboard-10-4.webp" alt="受講生の声6" loading="lazy" />
                   </div>
                   <div className="voice-card">
-                    <img src="/bytech/assets/images/artboard-9-3.webp" alt="受講生の声7" loading="lazy" />
+                    <img width={1257} height={2150} src="/bytech/assets/images/artboard-9-3.webp" alt="受講生の声7" loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -495,7 +491,7 @@ export default function BytechPage() {
 
           <div className="problem__body fadein">
             <div className="problem__illust">
-              <img src="/bytech/assets/images/wp/Isometric-man-with-laptop-working-on-sofa-at-his-house.svg" alt="お悩みイラスト" />
+              <img loading="lazy" width={2500} height={2064} src="/bytech/assets/images/wp/Isometric-man-with-laptop-working-on-sofa-at-his-house.svg" alt="お悩みイラスト" />
             </div>
 
             <div className="problem__list">
@@ -554,7 +550,7 @@ export default function BytechPage() {
 
           <div className="problem__bottom">
             <div className="problem__arrow fadein">
-              <img src="/bytech/assets/images/yajirushi2.svg" alt="" className="problem__arrow-img" aria-hidden="true" />
+              <img loading="lazy" width={37} height={70} src="/bytech/assets/images/yajirushi2.svg" alt="" className="problem__arrow-img" aria-hidden="true" />
             </div>
 
             <div className="problem__cta fadein">
@@ -596,14 +592,12 @@ export default function BytechPage() {
               {/* 67b4bce: slash divider */}
               <div className="env3af__divider" />
               {/* c6b2bd6: path-36598.svg (desktop) */}
-              <img
-                src="/bytech/assets/images/path-36598.svg"
+              <img loading="lazy" width={940} height={35}                 src="/bytech/assets/images/path-36598.svg"
                 alt="あなたの課題解決やゴール達成に必要な学習環境を設計"
                 className="env3af__deco-desktop"
               />
               {/* 21cf8a9: group-20914.svg (mobile) */}
-              <img
-                src="/bytech/assets/images/group-20914.svg"
+              <img loading="lazy" width={560} height={81}                 src="/bytech/assets/images/group-20914.svg"
                 alt="Unique"
                 className="env3af__deco-mobile"
               />
@@ -619,23 +613,23 @@ export default function BytechPage() {
             <div className="env3af__images">
               {/* fc98640: グループ-20897 */}
               <div className="env3af__img">
-                <img src="/bytech/assets/images/group-20897.webp" alt="600以上のカリキュラム" loading="lazy" />
+                <img width={1024} height={693} src="/bytech/assets/images/group-20897.webp" alt="600以上のカリキュラム" loading="lazy" />
               </div>
               {/* 632b683: × separator */}
               <div className="env3af__sep">
-                <img src="/bytech/assets/images/×.svg" alt="×" />
+                <img loading="lazy" width={38} height={38} src="/bytech/assets/images/×.svg" alt="×" />
               </div>
               {/* 2de6772: グループ-20895-1 */}
               <div className="env3af__img">
-                <img src="/bytech/assets/images/group-20895-1.webp" alt="AI活用コンサルティング" loading="lazy" />
+                <img width={1024} height={692} src="/bytech/assets/images/group-20895-1.webp" alt="AI活用コンサルティング" loading="lazy" />
               </div>
               {/* 2f3b46b: × separator */}
               <div className="env3af__sep">
-                <img src="/bytech/assets/images/×.svg" alt="×" />
+                <img loading="lazy" width={38} height={38} src="/bytech/assets/images/×.svg" alt="×" />
               </div>
               {/* ff33265: グループ-20896-1 */}
               <div className="env3af__img">
-                <img src="/bytech/assets/images/group-20896-1.webp" alt="100種以上の実践課題" loading="lazy" />
+                <img width={1024} height={692} src="/bytech/assets/images/group-20896-1.webp" alt="100種以上の実践課題" loading="lazy" />
               </div>
             </div>
 
@@ -650,8 +644,7 @@ export default function BytechPage() {
                 </svg>
               </div>
               <div className="env__mentor-heading-frame">
-                <img
-                  src="/bytech/assets/images/instructor-title.svg"
+                <img loading="lazy" width={705} height={134}                   src="/bytech/assets/images/instructor-title.svg"
                   alt="AI業界の最前線で活躍する講師陣があなたのできたらいいなを現実にします！"
                   className="env__mentor-heading"
                 />
@@ -663,15 +656,13 @@ export default function BytechPage() {
 
               <div className="env__mentor-grid">
                 {/* PC: composite grid image */}
-                <img
-                  src="/bytech/assets/images/instructors-1.webp"
+                <img width={1679} height={830}                   src="/bytech/assets/images/instructors-1.webp"
                   alt="講師陣"
                   loading="lazy"
                   className="env__mentor-grid-img env__mentor-grid-img--pc"
                 />
                 {/* SP: mobile-optimised composite image */}
-                <img
-                  src="/bytech/assets/images/group-16191.webp"
+                <img width={819} height={1718}                   src="/bytech/assets/images/group-16191.webp"
                   alt="講師陣"
                   loading="lazy"
                   className="env__mentor-grid-img env__mentor-grid-img--sp"
@@ -680,8 +671,7 @@ export default function BytechPage() {
 
               <div className="env__mentor-cta">
                 <a href="/counseling" target="_blank">
-                  <img
-                    src="/bytech/assets/images/cta-counseling.webp"
+                  <img loading="lazy" width={1024} height={233}                     src="/bytech/assets/images/cta-counseling.webp"
                     alt="まずは無料で相談してみる"
                     style={{display: 'block', width: '100%', maxWidth: '500px', height: 'auto'}}
                   />
@@ -699,8 +689,7 @@ export default function BytechPage() {
         <div className="features__inner">
           <div className="features__background">
             <div className="env__arrow-wrap">
-              <img
-                src="/bytech/assets/images/yajirushi.svg"
+              <img loading="lazy" width={42} height={200}                 src="/bytech/assets/images/yajirushi.svg"
                 alt="矢印"
                 className="env__arrow"
               />
@@ -722,12 +711,12 @@ export default function BytechPage() {
                     <span className="reason-item__num-badge">01</span>
                     <span className="reason-item__label">生涯学習が可能な</span>
                   </div>
-                  <img src="/bytech/assets/images/group-18615.svg" alt="" className="reason-item__divider-img" />
+                  <img loading="lazy" width={228} height={13} src="/bytech/assets/images/group-18615.svg" alt="" className="reason-item__divider-img" />
                   <h3 className="reason-item__h3">受講目的に合わせて学習できる<br /><span>10コース600以上の</span>カリキュラム</h3>
                   <p className="reason-item__body">ChatGPTやGeminiなどの主要AIマスターコースからAI副業で収益化を目指せる副業コースまで、全て買い切りで無期限で見ることができます。受講生の課題や目的に合わせてカリキュラムをカスタマイズできるので、自分に必要なAI活用スキルを身につけることが可能です。</p>
                 </div>
                 <div className="reason-item__img">
-                  <img src="/bytech/assets/images/s2-1024x716.webp" alt="600以上のカリキュラム" loading="lazy" />
+                  <img width={1024} height={716} src="/bytech/assets/images/s2-1024x716.webp" alt="600以上のカリキュラム" loading="lazy" />
                 </div>
               </div>
               <div className="reason-item__sub_wrapper">
@@ -737,12 +726,12 @@ export default function BytechPage() {
                   {/* Mobile heading (hidden on desktop/tablet) */}
                   <h4 className="reason-sub__card-ttl--mobile"><span style={{color:'#533AFC'}}>最新のAIスキル</span>が学べる<br />アップデートされるカリキュラム</h4>
                   <p className="reason-sub__card-body">カリキュラムは毎月追加・アップデートされているので、継続して最新のカリキュラムを学習することができます。</p>
-                  <img src="/bytech/assets/images/group-16195.svg" alt="" className="reason-sub__card-progress" />
+                  <img loading="lazy" width={1213} height={80} src="/bytech/assets/images/group-16195.svg" alt="" className="reason-sub__card-progress" />
                   {/* Course cards slider */}
                   <div className="course-slider">
                     <div className="course-slider__col">
                       <div className="course-card-sp">
-                        <img src="/bytech/assets/images/group-16172-4.webp" alt="ChatGPTマスターコース" className="course-card-sp__img" />
+                        <img loading="lazy" width={1953} height={1306} src="/bytech/assets/images/group-16172-4.webp" alt="ChatGPTマスターコース" className="course-card-sp__img" />
                         <div className="course-card-sp__body">
                           <div className="course-card-sp__title">ChatGPTマスターコース</div>
                           <div className="course-card-sp__sub">全8チャプター｜45レッスン</div>
@@ -752,7 +741,7 @@ export default function BytechPage() {
                     </div>
                     <div className="course-slider__col">
                       <div className="course-card-sp">
-                        <img src="/bytech/assets/images/group-16203-2-1-1024x685.webp" alt="Geminiマスターコース" className="course-card-sp__img" />
+                        <img loading="lazy" width={1024} height={685} src="/bytech/assets/images/group-16203-2-1-1024x685.webp" alt="Geminiマスターコース" className="course-card-sp__img" />
                         <div className="course-card-sp__body">
                           <div className="course-card-sp__title">Claudeマスターコース</div>
                           <div className="course-card-sp__sub">全14チャプター｜81レッスン</div>
@@ -762,7 +751,7 @@ export default function BytechPage() {
                     </div>
                     <div className="course-slider__col">
                       <div className="course-card-sp">
-                        <img src="/bytech/assets/images/group-16175-7.webp" alt="Geminiマスターコース" className="course-card-sp__img" />
+                        <img loading="lazy" width={1953} height={1311} src="/bytech/assets/images/group-16175-7.webp" alt="Geminiマスターコース" className="course-card-sp__img" />
                         <div className="course-card-sp__body">
                           <div className="course-card-sp__title">Geminiマスターコース</div>
                           <div className="course-card-sp__sub">全6チャプター｜36レッスン</div>
@@ -772,7 +761,7 @@ export default function BytechPage() {
                     </div>
                     <div className="course-slider__col">
                       <div className="course-card-sp">
-                        <img src="/bytech/assets/images/group-16173-5.webp" alt="Copilotマスターコース" className="course-card-sp__img" />
+                        <img loading="lazy" width={1953} height={1306} src="/bytech/assets/images/group-16173-5.webp" alt="Copilotマスターコース" className="course-card-sp__img" />
                         <div className="course-card-sp__body">
                           <div className="course-card-sp__title">Copilotマスターコース</div>
                           <div className="course-card-sp__sub">全6チャプター｜48レッスン</div>
@@ -782,7 +771,7 @@ export default function BytechPage() {
                     </div>
                     <div className="course-slider__col">
                       <div className="course-card-sp">
-                        <img src="/bytech/assets/images/group-16174-6.webp" alt="Difyマスターコース" className="course-card-sp__img" />
+                        <img loading="lazy" width={1953} height={1306} src="/bytech/assets/images/group-16174-6.webp" alt="Difyマスターコース" className="course-card-sp__img" />
                         <div className="course-card-sp__body">
                           <div className="course-card-sp__title">Difyマスターコース</div>
                           <div className="course-card-sp__sub">全21チャプター｜82レッスン</div>
@@ -792,7 +781,7 @@ export default function BytechPage() {
                     </div>
                     <div className="course-slider__col">
                       <div className="course-card-sp">
-                        <img src="/bytech/assets/images/group-16176-8.webp" alt="NotebookLMマスターコース" className="course-card-sp__img" />
+                        <img loading="lazy" width={1953} height={1306} src="/bytech/assets/images/group-16176-8.webp" alt="NotebookLMマスターコース" className="course-card-sp__img" />
                         <div className="course-card-sp__body">
                           <div className="course-card-sp__title">NotebookLMマスターコース</div>
                           <div className="course-card-sp__sub">全7チャプター｜31レッスン</div>
@@ -802,7 +791,7 @@ export default function BytechPage() {
                     </div>
                     <div className="course-slider__col">
                       <div className="course-card-sp">
-                        <img src="/bytech/assets/images/group-16178-10.webp" alt="ビジネスワーカーコース" className="course-card-sp__img" />
+                        <img loading="lazy" width={1953} height={1306} src="/bytech/assets/images/group-16178-10.webp" alt="ビジネスワーカーコース" className="course-card-sp__img" />
                         <div className="course-card-sp__body">
                           <div className="course-card-sp__title">ビジネスワーカーコース</div>
                           <div className="course-card-sp__sub">全19チャプター｜92レッスン</div>
@@ -812,7 +801,7 @@ export default function BytechPage() {
                     </div>
                     <div className="course-slider__col">
                       <div className="course-card-sp">
-                        <img src="/bytech/assets/images/group-16169-1.webp" alt="AIウェブライターコース" className="course-card-sp__img" />
+                        <img loading="lazy" width={1953} height={1306} src="/bytech/assets/images/group-16169-1.webp" alt="AIウェブライターコース" className="course-card-sp__img" />
                         <div className="course-card-sp__body">
                           <div className="course-card-sp__title">AIウェブライターコース</div>
                           <div className="course-card-sp__sub">全18チャプター｜46レッスン</div>
@@ -822,7 +811,7 @@ export default function BytechPage() {
                     </div>
                     <div className="course-slider__col">
                       <div className="course-card-sp">
-                        <img src="/bytech/assets/images/group-16170-2.webp" alt="AI画像クリエイターコース" className="course-card-sp__img" />
+                        <img loading="lazy" width={1953} height={1306} src="/bytech/assets/images/group-16170-2.webp" alt="AI画像クリエイターコース" className="course-card-sp__img" />
                         <div className="course-card-sp__body">
                           <div className="course-card-sp__title">AI画像クリエイターコース</div>
                           <div className="course-card-sp__sub">全31チャプター｜89レッスン</div>
@@ -832,7 +821,7 @@ export default function BytechPage() {
                     </div>
                     <div className="course-slider__col">
                       <div className="course-card-sp">
-                        <img src="/bytech/assets/images/group-16171-3.webp" alt="AI動画クリエイターコース" className="course-card-sp__img" />
+                        <img loading="lazy" width={1953} height={1306} src="/bytech/assets/images/group-16171-3.webp" alt="AI動画クリエイターコース" className="course-card-sp__img" />
                         <div className="course-card-sp__body">
                           <div className="course-card-sp__title">AI動画クリエイターコース</div>
                           <div className="course-card-sp__sub">全4チャプター｜19レッスン</div>
@@ -842,7 +831,7 @@ export default function BytechPage() {
                     </div>
                     <div className="course-slider__col">
                       <div className="course-card-sp">
-                        <img src="/bytech/assets/images/group-16177-9.webp" alt="生成AIパスポートコース" className="course-card-sp__img" />
+                        <img loading="lazy" width={1953} height={1306} src="/bytech/assets/images/group-16177-9.webp" alt="生成AIパスポートコース" className="course-card-sp__img" />
                         <div className="course-card-sp__body">
                           <div className="course-card-sp__title">生成AIパスポートコース</div>
                           <div className="course-card-sp__sub">全15チャプター｜32レッスン</div>
@@ -865,12 +854,12 @@ export default function BytechPage() {
                     <span className="reason-item__num-badge">02</span>
                     <span className="reason-item__label">ポートフォリオとして使える</span>
                   </div>
-                  <img src="/bytech/assets/images/group-18615.svg" alt="" className="reason-item__divider-img" />
+                  <img loading="lazy" width={228} height={13} src="/bytech/assets/images/group-18615.svg" alt="" className="reason-item__divider-img" />
                   <h3 className="reason-item__h3">学びを<span>見える形の成果</span>にする<br />AI活用スキル証明課題</h3>
                   <p className="reason-item__body">バイテックのAIメンター陣がカウンセリング参加者含めた5000人以上のヒアリングをもとに制作した初級〜上級まで網羅する証明書発行課題。各主要AIコース5コース全てにスキル証明課題が設置されているので、各種ツールでできるタスクや課題解決スキルを見える形で証明することができます。</p>
                 </div>
                 <div className="reason-item__img">
-                  <img src="/bytech/assets/images/certificate-1024x545.webp" alt="AI活用スキル証明課題" loading="lazy" />
+                  <img width={1024} height={545} src="/bytech/assets/images/certificate-1024x545.webp" alt="AI活用スキル証明課題" loading="lazy" />
                 </div>
               </div>
               <div className="reason-item__sub">
@@ -896,12 +885,12 @@ export default function BytechPage() {
                     <span className="reason-item__num-badge">03</span>
                     <span className="reason-item__label">領域ごとに選び抜かれた</span>
                   </div>
-                  <img src="/bytech/assets/images/group-18615.svg" alt="" className="reason-item__divider-img" />
+                  <img loading="lazy" width={228} height={13} src="/bytech/assets/images/group-18615.svg" alt="" className="reason-item__divider-img" />
                   <h3 className="reason-item__h3"><span>専属AIメンター</span>の<br />マンツーマン個別サポート</h3>
                   <p className="reason-item__body">様々な業務課題や目的が存在するからこそ、領域に特化したAIメンターが必要となります。業務でのAI活用から副業収入UP・AIフリーランスを目指す方もあなたに最適な専任メンターが最短でゴールまで導きます。</p>
                 </div>
                 <div className="reason-item__img">
-                  <img src="/bytech/assets/images/group-20906-1024x640.webp" alt="特徴2_専任のAIメンター" loading="lazy" style={{width:'90%'}} />
+                  <img width={1024} height={640} src="/bytech/assets/images/group-20906-1024x640.webp" alt="特徴2_専任のAIメンター" loading="lazy" style={{width:'90%'}} />
                 </div>
               </div>
               <div className="reason-item__sub">
@@ -928,12 +917,12 @@ export default function BytechPage() {
                     <span className="reason-item__num-badge">04</span>
                     <span className="reason-item__label">最短で収益化を実現する</span>
                   </div>
-                  <img src="/bytech/assets/images/group-18615.svg" alt="" className="reason-item__divider-img" />
+                  <img loading="lazy" width={228} height={13} src="/bytech/assets/images/group-18615.svg" alt="" className="reason-item__divider-img" />
                   <h3 className="reason-item__h3">身につけたスキルを<span style={{marginLeft:'3px'}}>仕事に変える</span><br />案件マッチングサービス「b-Works」</h3>
                   <p className="reason-item__body">AIライティングから画像・動画生成、Difyを活用したワークフローの自動化までバイテックで身につけたAI活用スキルを案件という形で存分に発揮する場を設けています。</p>
                 </div>
                 <div className="reason-item__img">
-                  <img src="/bytech/assets/images/b-works2-1024x640.webp" alt="案件獲得マッチング機能" loading="lazy" style={{width:'90%'}} />
+                  <img width={1024} height={640} src="/bytech/assets/images/b-works2-1024x640.webp" alt="案件獲得マッチング機能" loading="lazy" style={{width:'90%'}} />
                 </div>
               </div>
               <div className="reason-item__sub">
@@ -946,9 +935,9 @@ export default function BytechPage() {
                   {/* Body text (9a7ca70, hidden mobile) */}
                   <p className="r4-sub__body">案件は定期的に更新・追加されていくので、自分に合った案件にチャレンジできます。また、90%の方が未経験から案件獲得に成功しているのでしっかりスキル習得をしていただければ最短で収益化をすることも可能です。</p>
                   {/* Desktop image (65afc44, hidden mobile) */}
-                  <img src="/bytech/assets/images/b-works-features.svg" alt="掲載中の案件" className="r4-sub__img-desktop" />
+                  <img loading="lazy" width={1475} height={309} src="/bytech/assets/images/b-works-features.svg" alt="掲載中の案件" className="r4-sub__img-desktop" />
                   {/* Mobile image (099006b, hidden desktop+tablet) */}
-                  <img src="/bytech/assets/images/b-works-features-sp.svg" alt="b-works掲載案件_SP" className="r4-sub__img-mobile" />
+                  <img loading="lazy" width={723} height={646} src="/bytech/assets/images/b-works-features-sp.svg" alt="b-works掲載案件_SP" className="r4-sub__img-mobile" />
                 </div>
                 {/* Disclaimer (3558e61) */}
                   <p className="r4-sub__note">※案件斡旋を保証するサポートではありません。必ずテスト案件を実施していただき、合格した方のみアサインされます。</p>
@@ -969,7 +958,7 @@ export default function BytechPage() {
                     <span className="reason-item__label">サポート終了後も安心の</span>
                   </div>
                   {/* 2dd31c5: 区切り線 */}
-                  <img src="/bytech/assets/images/group-18615.svg" alt="" className="reason-item__divider-img" />
+                  <img loading="lazy" width={228} height={13} src="/bytech/assets/images/group-18615.svg" alt="" className="reason-item__divider-img" />
                   {/* 6a3a136: h3 */}
                   <h3 className="reason-item__h3"><span>仲間と一緒にスキルアップ</span>ができる<br />実践型のAIコミュニティ「b-Crew」</h3>
                   {/* db08453: 本文 */}
@@ -977,7 +966,7 @@ export default function BytechPage() {
                 </div>
                 {/* 6a650ff: 画像列 */}
                 <div className="reason-item__img">
-                  <img src="/bytech/assets/images/group-19623-1024x569.webp" alt="b-Crew" loading="lazy" />
+                  <img width={1024} height={569} src="/bytech/assets/images/group-19623-1024x569.webp" alt="b-Crew" loading="lazy" />
                 </div>
               </div>
 
@@ -990,9 +979,9 @@ export default function BytechPage() {
                 {/* ffade09: 本文（モバイル非表示） */}
                 <p className="r5-sub__body">コミュニティ内コンテンツは随時アップデートされているので、自分に合った使い方が必ず見つかるコミュニティになっています。</p>
                 {/* 8c0c79c: デスクトップ画像（モバイル非表示） */}
-                <img src="/bytech/assets/images/community-contents.svg" alt="コミュニティコンテンツ" className="r5-sub__content-img" />
+                <img loading="lazy" width={2206} height={960} src="/bytech/assets/images/community-contents.svg" alt="コミュニティコンテンツ" className="r5-sub__content-img" />
                 {/* 00546db: モバイル画像（デスクトップ・タブレット非表示） */}
-                <img src="/bytech/assets/images/group-19629.svg" alt="コミュニティコンテンツSP" className="r5-sub__content-img--mobile" />
+                <img loading="lazy" width={1651} height={1482} src="/bytech/assets/images/group-19629.svg" alt="コミュニティコンテンツSP" className="r5-sub__content-img--mobile" />
                 {/* 8fbf7e7: 注記 */}
               </div>
               <p className="r5-sub__note">※コミュニティ内のイベントは今後実施予定のものもあります。</p>
@@ -1000,7 +989,7 @@ export default function BytechPage() {
                 
               <div className="r5-sub__webinar">
                   {/* d8b40a1: ウェビナーラベル */}
-                  <img src="/bytech/assets/images/premium-webinar.svg" alt="有料級ウェビナー" className="r5-sub__webinar-label" />
+                  <img loading="lazy" width={2857} height={219} src="/bytech/assets/images/premium-webinar.svg" alt="有料級ウェビナー" className="r5-sub__webinar-label" />
                   {/* 724407c: カルーセル */}
                   <R5Carousel />
                 </div>
@@ -1019,8 +1008,7 @@ export default function BytechPage() {
           {/* b9b7e9c: CTA ボタン画像 */}
           <div className="cta-banner__img-wrap">
             <a href="/counseling">
-              <img
-                src="/bytech/assets/images/cta-setsumeikai-3.webp"
+              <img width={1024} height={233}                 src="/bytech/assets/images/cta-setsumeikai-3.webp"
                 alt="無料説明会に申し込む"
                 loading="lazy"
               />
@@ -1079,7 +1067,7 @@ export default function BytechPage() {
               <div className="curric-cards">
                 {/* a0cb2f1: ChatGPT */}
                 <div className="curric-card">
-                  <img src="/bytech/assets/images/group-16172-4-1024x685.webp" alt="ChatGPTマスターコース" className="curric-card__thumb" loading="lazy" />
+                  <img width={1024} height={685} src="/bytech/assets/images/group-16172-4-1024x685.webp" alt="ChatGPTマスターコース" className="curric-card__thumb" loading="lazy" />
                   <div className="curric-card__body">
                     <p className="curric-card__name">ChatGPTマスターコース</p>
                     <p className="curric-card__chapters">全8チャプター｜45レッスン</p>
@@ -1091,7 +1079,7 @@ export default function BytechPage() {
                 </div>
                 {/* Claude */}
                 <div className="curric-card">
-                  <img src="/bytech/assets/images/group-16203-2-1-1024x685.webp" alt="Claudeマスターコース" className="curric-card__thumb" loading="lazy" />
+                  <img width={1024} height={685} src="/bytech/assets/images/group-16203-2-1-1024x685.webp" alt="Claudeマスターコース" className="curric-card__thumb" loading="lazy" />
                   <div className="curric-card__body">
                     <p className="curric-card__name">Claudeマスターコース</p>
                     <p className="curric-card__chapters">全14チャプター｜81レッスン</p>
@@ -1103,7 +1091,7 @@ export default function BytechPage() {
                 </div>
                 {/* 0aa3371: Gemini */}
                 <div className="curric-card">
-                  <img src="/bytech/assets/images/group-16175-7-1024x687.webp" alt="Geminiマスターコース" className="curric-card__thumb" loading="lazy" />
+                  <img width={1024} height={687} src="/bytech/assets/images/group-16175-7-1024x687.webp" alt="Geminiマスターコース" className="curric-card__thumb" loading="lazy" />
                   <div className="curric-card__body">
                     <p className="curric-card__name">Geminiマスターコース</p>
                     <p className="curric-card__chapters">全6チャプター | 36レッスン</p>
@@ -1115,7 +1103,7 @@ export default function BytechPage() {
                 </div>
                 {/* e5e65e3: Copilot */}
                 <div className="curric-card">
-                  <img src="/bytech/assets/images/group-16173-5-1024x685.webp" alt="Copilotマスターコース" className="curric-card__thumb" loading="lazy" />
+                  <img width={1024} height={685} src="/bytech/assets/images/group-16173-5-1024x685.webp" alt="Copilotマスターコース" className="curric-card__thumb" loading="lazy" />
                   <div className="curric-card__body">
                     <p className="curric-card__name">Copilotマスターコース</p>
                     <p className="curric-card__chapters">全6チャプター | 48レッスン</p>
@@ -1127,7 +1115,7 @@ export default function BytechPage() {
                 </div>
                 {/* c975f0f: Dify */}
                 <div className="curric-card">
-                  <img src="/bytech/assets/images/group-16174-6-1024x685.webp" alt="Difyマスターコース" className="curric-card__thumb" loading="lazy" />
+                  <img width={1024} height={685} src="/bytech/assets/images/group-16174-6-1024x685.webp" alt="Difyマスターコース" className="curric-card__thumb" loading="lazy" />
                   <div className="curric-card__body">
                     <p className="curric-card__name">Difyマスターコース</p>
                     <p className="curric-card__chapters">全21チャプター | 82レッスン</p>
@@ -1139,7 +1127,7 @@ export default function BytechPage() {
                 </div>
                 {/* 24c1b75: NotebookLM */}
                 <div className="curric-card">
-                  <img src="/bytech/assets/images/group-16176-8-1024x685.webp" alt="NotebookLMマスターコース" className="curric-card__thumb" loading="lazy" />
+                  <img width={1024} height={685} src="/bytech/assets/images/group-16176-8-1024x685.webp" alt="NotebookLMマスターコース" className="curric-card__thumb" loading="lazy" />
                   <div className="curric-card__body">
                     <p className="curric-card__name">NotebookLMマスターコース</p>
                     <p className="curric-card__chapters">全7チャプター | 31レッスン</p>
@@ -1176,7 +1164,7 @@ export default function BytechPage() {
               <div className="curric-cards">
                 {/* AIウェブライター */}
                 <div className="curric-card">
-                  <img src="/bytech/assets/images/group-16169-1-1024x685.webp" alt="AIウェブライターコース" className="curric-card__thumb" loading="lazy" />
+                  <img width={1024} height={685} src="/bytech/assets/images/group-16169-1-1024x685.webp" alt="AIウェブライターコース" className="curric-card__thumb" loading="lazy" />
                   <div className="curric-card__body">
                     <p className="curric-card__name">AIウェブライターコース</p>
                     <p className="curric-card__chapters">全18チャプター | 46レッスン</p>
@@ -1188,7 +1176,7 @@ export default function BytechPage() {
                 </div>
                 {/* AI画像クリエイター */}
                 <div className="curric-card">
-                  <img src="/bytech/assets/images/group-16170-2-1024x685.webp" alt="AI画像クリエイターコース" className="curric-card__thumb" loading="lazy" />
+                  <img width={1024} height={685} src="/bytech/assets/images/group-16170-2-1024x685.webp" alt="AI画像クリエイターコース" className="curric-card__thumb" loading="lazy" />
                   <div className="curric-card__body">
                     <p className="curric-card__name">AI画像クリエイターコース</p>
                     <p className="curric-card__chapters">全31チャプター | 89レッスン</p>
@@ -1200,7 +1188,7 @@ export default function BytechPage() {
                 </div>
                 {/* AI動画クリエイター */}
                 <div className="curric-card">
-                  <img src="/bytech/assets/images/group-16171-3-1024x685.webp" alt="AI動画クリエイターコース" className="curric-card__thumb" loading="lazy" />
+                  <img width={1024} height={685} src="/bytech/assets/images/group-16171-3-1024x685.webp" alt="AI動画クリエイターコース" className="curric-card__thumb" loading="lazy" />
                   <div className="curric-card__body">
                     <p className="curric-card__name">AI動画クリエイターコース</p>
                     <p className="curric-card__chapters">全4チャプター | 19レッスン</p>
@@ -1237,7 +1225,7 @@ export default function BytechPage() {
               <div className="curric-cards">
                 {/* ビジネスワーカー */}
                 <div className="curric-card">
-                  <img src="/bytech/assets/images/group-16178-10-1024x685.webp" alt="ビジネスワーカーコース" className="curric-card__thumb" loading="lazy" />
+                  <img width={1024} height={685} src="/bytech/assets/images/group-16178-10-1024x685.webp" alt="ビジネスワーカーコース" className="curric-card__thumb" loading="lazy" />
                   <div className="curric-card__body">
                     <p className="curric-card__name">ビジネスワーカーコース</p>
                     <p className="curric-card__chapters">全19チャプター | 92レッスン</p>
@@ -1249,7 +1237,7 @@ export default function BytechPage() {
                 </div>
                 {/* 営業職 */}
                 <div className="curric-card">
-                  <img src="/bytech/assets/images/iPhone-14-Pro-–-135-1024x685.webp" alt="AI業務活用【営業職コース】" className="curric-card__thumb" loading="lazy" />
+                  <img width={1024} height={685} src="/bytech/assets/images/iPhone-14-Pro-–-135-1024x685.webp" alt="AI業務活用【営業職コース】" className="curric-card__thumb" loading="lazy" />
                   <div className="curric-card__body">
                     <p className="curric-card__name">AI業務活用【営業職コース】</p>
                     <p className="curric-card__chapters">全6チャプター | 36レッスン</p>
@@ -1261,7 +1249,7 @@ export default function BytechPage() {
                 </div>
                 {/* 事務職 */}
                 <div className="curric-card">
-                  <img src="/bytech/assets/images/iPhone-14-Pro-–-138-1024x685.webp" alt="AI業務活用【事務職コース】" className="curric-card__thumb" loading="lazy" />
+                  <img width={1024} height={685} src="/bytech/assets/images/iPhone-14-Pro-–-138-1024x685.webp" alt="AI業務活用【事務職コース】" className="curric-card__thumb" loading="lazy" />
                   <div className="curric-card__body">
                     <p className="curric-card__name">AI業務活用【事務職コース】</p>
                     <p className="curric-card__chapters">全8チャプター｜45レッスン</p>
@@ -1273,7 +1261,7 @@ export default function BytechPage() {
                 </div>
                 {/* 企画職 */}
                 <div className="curric-card">
-                  <img src="/bytech/assets/images/iPhone-14-Pro-–-137-1024x685.webp" alt="AI業務活用【企画職コース】" className="curric-card__thumb" loading="lazy" />
+                  <img width={1024} height={685} src="/bytech/assets/images/iPhone-14-Pro-–-137-1024x685.webp" alt="AI業務活用【企画職コース】" className="curric-card__thumb" loading="lazy" />
                   <div className="curric-card__body">
                     <p className="curric-card__name">AI業務活用【企画職コース】</p>
                     <p className="curric-card__chapters">全8チャプター｜45レッスン</p>
@@ -1285,7 +1273,7 @@ export default function BytechPage() {
                 </div>
                 {/* 人事職 */}
                 <div className="curric-card">
-                  <img src="/bytech/assets/images/iPhone-14-Pro-–-136-1024x685.webp" alt="AI業務活用【人事職コース】" className="curric-card__thumb" loading="lazy" />
+                  <img width={1024} height={685} src="/bytech/assets/images/iPhone-14-Pro-–-136-1024x685.webp" alt="AI業務活用【人事職コース】" className="curric-card__thumb" loading="lazy" />
                   <div className="curric-card__body">
                     <p className="curric-card__name">AI業務活用【人事職コース】</p>
                     <p className="curric-card__chapters">全8チャプター｜45レッスン</p>
@@ -1297,7 +1285,7 @@ export default function BytechPage() {
                 </div>
                 {/* 生成AIパスポート */}
                 <div className="curric-card">
-                  <img src="/bytech/assets/images/group-16177-9-1024x685.webp" alt="生成AIパスポートコース" className="curric-card__thumb" loading="lazy" />
+                  <img width={1024} height={685} src="/bytech/assets/images/group-16177-9-1024x685.webp" alt="生成AIパスポートコース" className="curric-card__thumb" loading="lazy" />
                   <div className="curric-card__body">
                     <p className="curric-card__name">生成AIパスポートコース</p>
                     <p className="curric-card__chapters">全15チャプター｜32レッスン</p>
@@ -1343,22 +1331,22 @@ export default function BytechPage() {
             <div className="skills-carousel__viewport">
               <div className="skills-carousel__track" id="skillsTrack">
                 <div className="skills-carousel__slide">
-                  <img src="/bytech/assets/images/CG-1-–-16.webp" alt="身につくスキル01_広告バナーデザイン" loading="lazy" />
+                  <img width={1920} height={1080} src="/bytech/assets/images/CG-1-–-16.webp" alt="身につくスキル01_広告バナーデザイン" loading="lazy" />
                 </div>
                 <div className="skills-carousel__slide">
-                  <img src="/bytech/assets/images/CG-1-–-15.webp" alt="身につくスキル02_スライドデザイン" loading="lazy" />
+                  <img width={1920} height={1080} src="/bytech/assets/images/CG-1-–-15.webp" alt="身につくスキル02_スライドデザイン" loading="lazy" />
                 </div>
                 <div className="skills-carousel__slide">
-                  <img src="/bytech/assets/images/CG-1-–-18.webp" alt="身につくスキル03_チャットボット制作" loading="lazy" />
+                  <img width={1920} height={1080} src="/bytech/assets/images/CG-1-–-18.webp" alt="身につくスキル03_チャットボット制作" loading="lazy" />
                 </div>
                 <div className="skills-carousel__slide">
-                  <img src="/bytech/assets/images/CG-1-–-17.webp" alt="身につくスキル04_AIアプリ開発" loading="lazy" />
+                  <img width={1920} height={1080} src="/bytech/assets/images/CG-1-–-17.webp" alt="身につくスキル04_AIアプリ開発" loading="lazy" />
                 </div>
                 <div className="skills-carousel__slide">
-                  <img src="/bytech/assets/images/CG-1-–-19.webp" alt="身につくスキル05_ブログ記事制作" loading="lazy" />
+                  <img width={1920} height={1080} src="/bytech/assets/images/CG-1-–-19.webp" alt="身につくスキル05_ブログ記事制作" loading="lazy" />
                 </div>
                 <div className="skills-carousel__slide">
-                  <img src="/bytech/assets/images/CG-1-–-14.webp" alt="身につくスキル06_GPTs制作" loading="lazy" />
+                  <img width={1920} height={1080} src="/bytech/assets/images/CG-1-–-14.webp" alt="身につくスキル06_GPTs制作" loading="lazy" />
                 </div>
               </div>
             </div>
@@ -1393,36 +1381,36 @@ export default function BytechPage() {
           <div className="plan__grid fadein">
             {/* LITE */}
             <div className="plan-card">
-              <img className="plan-card__logo" src="/bytech/assets/images/LITEPLAN.svg" alt="" />
+              <img loading="lazy" width={93} height={84} className="plan-card__logo" src="/bytech/assets/images/LITEPLAN.svg" alt="" />
               <h3 className="plan-card__en-name">LITE PLAN</h3>
               <span className="plan-card__ja-name">ライトプラン</span>
               <div className="plan-card__tagline">
                 <span className="plan-card__tagline-em">自分のペース</span>で学習したい方向け
               </div>
               <div className="plan-card__price-area">
-                <img className="plan-card__price-img" src="/bytech/assets/images/17.8.svg" alt="17.8万円（税込）" />
-                <img className="plan-card__price-img-month" src="/bytech/assets/images/monthly-lite.svg" alt="月額費用" />
-                <img className="plan-card__price-img-sub" src="/bytech/assets/images/lite_plan2.svg" alt="料金詳細" />
+                <img loading="lazy" width={306} height={40} className="plan-card__price-img" src="/bytech/assets/images/17.8.svg" alt="17.8万円（税込）" />
+                <img loading="lazy" width={342} height={40} className="plan-card__price-img-month" src="/bytech/assets/images/monthly-lite.svg" alt="月額費用" />
+                <img loading="lazy" width={547} height={89} className="plan-card__price-img-sub" src="/bytech/assets/images/lite_plan2.svg" alt="料金詳細" />
               </div>
               <div className="plan-card__services-divider"><span>このプランで受けれるサービス</span></div>
-              <img className="plan-card__services-img" src="/bytech/assets/images/LITE.svg" alt="LITEプランサービス内容" />
+              <img loading="lazy" width={716} height={634} className="plan-card__services-img" src="/bytech/assets/images/LITE.svg" alt="LITEプランサービス内容" />
               <a href="https://form.run/@ds-form" target="_blank" className="plan-card__cta plan-card__cta--lite">今すぐ受講を申し込む<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
             </div>
             {/* PRO */}
             <div className="plan-card plan-card--pro">
-              <img className="plan-card__logo" src="/bytech/assets/images/PROPLAN.svg" alt="" />
+              <img loading="lazy" width={93} height={84} className="plan-card__logo" src="/bytech/assets/images/PROPLAN.svg" alt="" />
               <h3 className="plan-card__en-name">PRO PLAN</h3>
               <span className="plan-card__ja-name">プロプラン</span>
               <div className="plan-card__tagline">
                 <span className="plan-card__tagline-em">専任のAIメンター</span>が伴走サポート
               </div>
               <div className="plan-card__price-area">
-                <img className="plan-card__price-img" src="/bytech/assets/images/29.8.svg" alt="29.8万円（税込）" />
-                <img className="plan-card__price-img-month" src="/bytech/assets/images/pro-monthly.svg" alt="月額費用" />
-                <img className="plan-card__price-img-sub" src="/bytech/assets/images/pro-pricing-detail.svg" alt="料金詳細" />
+                <img loading="lazy" width={306} height={40} className="plan-card__price-img" src="/bytech/assets/images/29.8.svg" alt="29.8万円（税込）" />
+                <img loading="lazy" width={373} height={40} className="plan-card__price-img-month" src="/bytech/assets/images/pro-monthly.svg" alt="月額費用" />
+                <img loading="lazy" width={547} height={89} className="plan-card__price-img-sub" src="/bytech/assets/images/pro-pricing-detail.svg" alt="料金詳細" />
               </div>
               <div className="plan-card__services-divider"><span>このプランで受けれるサービス</span></div>
-              <img className="plan-card__services-img" src="/bytech/assets/images/PRO.svg" alt="PROプランサービス内容" />
+              <img loading="lazy" width={716} height={634} className="plan-card__services-img" src="/bytech/assets/images/PRO.svg" alt="PROプランサービス内容" />
               <a href="/counseling" target="_blank" className="plan-card__cta plan-card__cta--pro">まずは無料相談を予約する<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
             </div>
           </div>
@@ -1438,38 +1426,38 @@ export default function BytechPage() {
               {/* LITE tab panel */}
               <div className="plan__tab-panel plan__tab-panel--lite">
                 <div className="plan-card">
-                  <img className="plan-card__logo" src="/bytech/assets/images/LITEPLAN.svg" alt="" />
+                  <img loading="lazy" width={93} height={84} className="plan-card__logo" src="/bytech/assets/images/LITEPLAN.svg" alt="" />
                   <h3 className="plan-card__en-name">LITE PLAN</h3>
                   <span className="plan-card__ja-name">ライトプラン</span>
                   <div className="plan-card__tagline">
                     <span className="plan-card__tagline-em">自分のペース</span>で学習したい方向け
                   </div>
                   <div className="plan-card__price-area">
-                    <img className="plan-card__price-img" src="/bytech/assets/images/17.8.svg" alt="17.8万円（税込）" />
-                    <img className="plan-card__price-img" src="/bytech/assets/images/monthly-lite.svg" alt="月額費用" />
-                    <img className="plan-card__price-img" src="/bytech/assets/images/lite_plan2.svg" alt="料金詳細" />
+                    <img loading="lazy" width={306} height={40} className="plan-card__price-img" src="/bytech/assets/images/17.8.svg" alt="17.8万円（税込）" />
+                    <img loading="lazy" width={342} height={40} className="plan-card__price-img" src="/bytech/assets/images/monthly-lite.svg" alt="月額費用" />
+                    <img loading="lazy" width={547} height={89} className="plan-card__price-img" src="/bytech/assets/images/lite_plan2.svg" alt="料金詳細" />
                   </div>
                   <div className="plan-card__services-divider"><span>このプランで受けれるサービス</span></div>
-                  <img className="plan-card__services-img" src="/bytech/assets/images/LITE.svg" alt="LITEプランサービス内容" />
+                  <img loading="lazy" width={716} height={634} className="plan-card__services-img" src="/bytech/assets/images/LITE.svg" alt="LITEプランサービス内容" />
                   <a href="https://form.run/@ds-form" target="_blank" className="plan-card__cta plan-card__cta--lite">今すぐ受講を申し込む<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
                 </div>
               </div>
               {/* PRO tab panel */}
               <div className="plan__tab-panel plan__tab-panel--pro">
                 <div className="plan-card plan-card--pro">
-                  <img className="plan-card__logo" src="/bytech/assets/images/PROPLAN.svg" alt="" />
+                  <img loading="lazy" width={93} height={84} className="plan-card__logo" src="/bytech/assets/images/PROPLAN.svg" alt="" />
                   <h3 className="plan-card__en-name">PRO PLAN</h3>
                   <span className="plan-card__ja-name">プロプラン</span>
                   <div className="plan-card__tagline">
                     <span className="plan-card__tagline-em plan-card__tagline-em--pro">専任のAIメンター</span>が伴走サポート
                   </div>
                   <div className="plan-card__price-area">
-                    <img className="plan-card__price-img" src="/bytech/assets/images/29.8.svg" alt="29.8万円（税込）" />
-                    <img className="plan-card__price-img" src="/bytech/assets/images/pro-monthly.svg" alt="月額費用" />
-                    <img className="plan-card__price-img" src="/bytech/assets/images/pro-pricing-detail.svg" alt="料金詳細" />
+                    <img loading="lazy" width={306} height={40} className="plan-card__price-img" src="/bytech/assets/images/29.8.svg" alt="29.8万円（税込）" />
+                    <img loading="lazy" width={373} height={40} className="plan-card__price-img" src="/bytech/assets/images/pro-monthly.svg" alt="月額費用" />
+                    <img loading="lazy" width={547} height={89} className="plan-card__price-img" src="/bytech/assets/images/pro-pricing-detail.svg" alt="料金詳細" />
                   </div>
                   <div className="plan-card__services-divider"><span>このプランで受けれるサービス</span></div>
-                  <img className="plan-card__services-img" src="/bytech/assets/images/PRO.svg" alt="PROプランサービス内容" />
+                  <img loading="lazy" width={716} height={634} className="plan-card__services-img" src="/bytech/assets/images/PRO.svg" alt="PROプランサービス内容" />
                   <a href="/counseling" target="_blank" className="plan-card__cta plan-card__cta--pro">まずは無料相談を予約する<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
                 </div>
               </div>
@@ -1489,7 +1477,7 @@ export default function BytechPage() {
               </div>
             </div>
             <div className="plan__payment__cards">
-              <img src="/bytech/assets/images/card-brands.svg" alt="VISA / Mastercard / American Express / Diners Club" />
+              <img loading="lazy" width={1493} height={237} src="/bytech/assets/images/card-brands.svg" alt="VISA / Mastercard / American Express / Diners Club" />
             </div>
           </div>
           <div className="plan__detail-link-wrap">
@@ -1518,7 +1506,7 @@ export default function BytechPage() {
           <h2 className="cta-banner__ttl">料金に見合ったサービスが受けれるか不安...</h2>
           <div className="cta-banner__img-wrap">
             <a href="/counseling">
-              <img src="/bytech/assets/images/cta-setsumeikai-3.webp" alt="無料説明会に申し込む" loading="lazy" />
+              <img width={1024} height={233} src="/bytech/assets/images/cta-setsumeikai-3.webp" alt="無料説明会に申し込む" loading="lazy" />
             </a>
           </div>
           <p className="cta-banner__note">※ 無理な勧誘は行っていません。</p>
@@ -1539,14 +1527,14 @@ export default function BytechPage() {
             {/* Card 1: 山本大輔さん */}
             <div className="interview-card fadein">
               <a href="https://bytech.jp/blog/sutudent-voice-1/" target="_blank" className="interview-card__thumb">
-                <img src="/bytech/assets/images/UV-1-1-1024x576.webp" alt="山本大輔さん" loading="lazy" />
+                <img width={1024} height={576} src="/bytech/assets/images/UV-1-1-1024x576.webp" alt="山本大輔さん" loading="lazy" />
               </a>
               <div className="interview-card__body">
                 <h3 className="interview-card__ttl">「社内の小さなPoCから始めて、独立へ」――38歳・元メーカー勤務の山本大輔さんが&quot;AIコンサル&quot;で月収7桁に到達するまで　　　　　　　　　</h3>
                 <div className="interview-card__divider" />
                 <div className="interview-card__profile">
                   <div className="interview-card__avatar">
-                    <img src="/bytech/assets/images/cross-79.webp" alt="山本大輔さん" loading="lazy" />
+                    <img width={696} height={696} src="/bytech/assets/images/cross-79.webp" alt="山本大輔さん" loading="lazy" />
                   </div>
                   <p className="interview-card__meta">メーカー管理職<br />山本 大輔さん</p>
                 </div>
@@ -1555,14 +1543,14 @@ export default function BytechPage() {
             {/* Card 2: 佐藤健太さん */}
             <div className="interview-card fadein delay-1">
               <a href="https://bytech.jp/blog/sutudent-voice-2/" className="interview-card__thumb">
-                <img src="/bytech/assets/images/UV-2-1-1024x576.webp" alt="佐藤健太さん" loading="lazy" />
+                <img width={1024} height={576} src="/bytech/assets/images/UV-2-1-1024x576.webp" alt="佐藤健太さん" loading="lazy" />
               </a>
               <div className="interview-card__body">
                 <h3 className="interview-card__ttl">「&quot;削る・置き換える・任せる&quot;で定時帰りへ」――32歳・営業職の佐藤健太さんがAI活用で残業激減＆キャリア転換を実現するまで</h3>
                 <div className="interview-card__divider" />
                 <div className="interview-card__profile">
                   <div className="interview-card__avatar">
-                    <img src="/bytech/assets/images/cross-81.webp" alt="佐藤健太さん" loading="lazy" />
+                    <img width={696} height={696} src="/bytech/assets/images/cross-81.webp" alt="佐藤健太さん" loading="lazy" />
                   </div>
                   <p className="interview-card__meta">メーカー営業<br />佐藤 健太さん</p>
                 </div>
@@ -1571,14 +1559,14 @@ export default function BytechPage() {
             {/* Card 3: 田中美咲さん */}
             <div className="interview-card fadein delay-2">
               <a href="https://bytech.jp/blog/sutudent-voice-3/" className="interview-card__thumb">
-                <img src="/bytech/assets/images/UV-3-1-1024x576.webp" alt="田中美咲さん" loading="lazy" />
+                <img width={1024} height={576} src="/bytech/assets/images/UV-3-1-1024x576.webp" alt="田中美咲さん" loading="lazy" />
               </a>
               <div className="interview-card__body">
                 <h3 className="interview-card__ttl">「&quot;型×構成作り&quot;でスピード納品」――28歳・会社員の田中美咲さんがAIライティング副業で月収30万円達成＆Kindleでストック収入を築くまで</h3>
                 <div className="interview-card__divider" />
                 <div className="interview-card__profile">
                   <div className="interview-card__avatar">
-                    <img src="/bytech/assets/images/cross-80.webp" alt="田中美咲さん" loading="lazy" />
+                    <img width={696} height={696} src="/bytech/assets/images/cross-80.webp" alt="田中美咲さん" loading="lazy" />
                   </div>
                   <p className="interview-card__meta">不動産会社事務<br />田中 美咲さん</p>
                 </div>
@@ -1605,29 +1593,29 @@ export default function BytechPage() {
           {/* Steps row */}
           <div className="flow__steps fadein">
             <div className="flow__step">
-              <img src="/bytech/assets/images/group-20924-1024x528.webp" alt="STEP 01 無料カウンセリング" loading="lazy" />
+              <img width={1024} height={528} src="/bytech/assets/images/group-20924-1024x528.webp" alt="STEP 01 無料カウンセリング" loading="lazy" />
             </div>
             <div className="flow__arrow">
-              <img src="/bytech/assets/images/arrow.svg" alt="" aria-hidden="true" />
+              <img loading="lazy" width={99} height={326} src="/bytech/assets/images/arrow.svg" alt="" aria-hidden="true" />
             </div>
             <div className="flow__step">
-              <img src="/bytech/assets/images/group-20931-1024x528.webp" alt="STEP 02 受講申し込み" loading="lazy" />
+              <img width={1024} height={528} src="/bytech/assets/images/group-20931-1024x528.webp" alt="STEP 02 受講申し込み" loading="lazy" />
             </div>
             <div className="flow__arrow">
-              <img src="/bytech/assets/images/arrow.svg" alt="" aria-hidden="true" />
+              <img loading="lazy" width={99} height={326} src="/bytech/assets/images/arrow.svg" alt="" aria-hidden="true" />
             </div>
             <div className="flow__step">
-              <img src="/bytech/assets/images/group-20930-1024x528.webp" alt="STEP 03 学習スタート" loading="lazy" />
+              <img width={1024} height={528} src="/bytech/assets/images/group-20930-1024x528.webp" alt="STEP 03 学習スタート" loading="lazy" />
             </div>
           </div>
           {/* Bottom decoration (desktop only) */}
           <div className="flow__decoration fadein">
-            <img src="/bytech/assets/images/group-20935.svg" alt="" aria-hidden="true" />
+            <img loading="lazy" width={5091} height={280} src="/bytech/assets/images/group-20935.svg" alt="" aria-hidden="true" />
           </div>
           {/* CTA */}
           <div className="flow__cta fadein">
             <a href="/counseling">
-              <img src="/bytech/assets/images/cta-setsumeikai-3.webp" alt="無料説明会に申し込む" loading="lazy" />
+              <img width={1024} height={233} src="/bytech/assets/images/cta-setsumeikai-3.webp" alt="無料説明会に申し込む" loading="lazy" />
             </a>
           </div>
         </div>
@@ -1797,7 +1785,7 @@ export default function BytechPage() {
       {/* Fixed mobile CTA */}
       <div className="fixed-footer-cta" id="fixedFooterCta">
         <a className="fixed-footer-cta__link" href="/counseling">
-          <img src="/bytech/assets/images/cta-setsumeikai.svg" alt="無料説明会に申し込む" />
+          <img loading="lazy" width={1958} height={288} src="/bytech/assets/images/cta-setsumeikai.svg" alt="無料説明会に申し込む" />
         </a>
       </div>
       {/* ===== SP POPUP MODAL (SP only, timed) ===== */}
@@ -1805,7 +1793,7 @@ export default function BytechPage() {
         <div className="sp-popup-modal">
           <button className="sp-popup-close" id="spPopupClose" aria-label="閉じる">×</button>
           <div className="sp-popup-image">
-            <img src="/bytech/assets/images/modal.png" alt="" loading="lazy" />
+            <img width={1000} height={1490} src="/bytech/assets/images/modal.png" alt="" loading="lazy" />
           </div>
           <div className="sp-popup-body">
             <p className="sp-popup-sub">あなたにぴったりの</p>
@@ -1825,7 +1813,7 @@ export default function BytechPage() {
               </div>
             </a>
             <div className="sp-popup-footer">
-              <img src="/bytech/assets/images/genai-logo-black.svg" alt="byTech GENERATIVE AI" />
+              <img loading="lazy" width={1456} height={512} src="/bytech/assets/images/genai-logo-black.svg" alt="byTech GENERATIVE AI" />
               <p>2026 株式会社AI棒</p>
             </div>
           </div>
