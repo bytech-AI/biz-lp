@@ -139,12 +139,16 @@ export default function DocAPage() {
         .doc-content__carousel {
           margin-bottom: 30px;
         }
-        .doc-content__carousel .slick-slide img {
+        .doc-content__carousel img {
           width: 100%;
           height: auto;
           display: block;
           border-radius: 8px;
           box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        /* slick初期化前は最初の1枚だけ表示（巨大画像/8枚スタックのチラつき防止） */
+        .doc-carousel:not(.slick-initialized) > div:not(:first-child) {
+          display: none;
         }
         .doc-content__carousel .slick-dots {
           bottom: -30px;
@@ -189,6 +193,9 @@ export default function DocAPage() {
           min-height: 500px;
           width: 100%;
           display: block;
+        }
+        .doc-form .formrun-embed iframe {
+          border: 0 !important;
         }
         .doc-footer {
           background: #1a2e50;
@@ -271,19 +278,23 @@ export default function DocAPage() {
       </footer>
 
       <Script src="https://sdk.form.run/js/v2/embed.js" strategy="afterInteractive" />
-      <Script src="https://code.jquery.com/jquery-3.7.1.min.js" strategy="afterInteractive" />
-      <Script src="/biz/assets/slick/slick.min.js" strategy="afterInteractive" />
-      <Script id="slick-init" strategy="afterInteractive">
-        {`$(function(){
-          $('.doc-carousel').slick({
-            autoplay: true,
-            dots: true,
-            arrows: true,
-            slidesToShow: 1,
-            speed: 500,
-            autoplaySpeed: 5000
+      {/* jQuery→slick→初期化 を順番にロード。afterInteractive は実行順序を保証せず、
+          slick.min.js(ローカル) が jQuery(外部CDN) より先に実行されると $.fn.slick が
+          登録されずカルーセルが初期化されないため、依存順にチェーンする。 */}
+      <Script id="doc-carousel-loader" strategy="afterInteractive">
+        {`(function(){
+          function load(src, cb){ var s=document.createElement('script'); s.src=src; s.onload=cb; document.body.appendChild(s); }
+          load('https://code.jquery.com/jquery-3.7.1.min.js', function(){
+            load('/biz/assets/slick/slick.min.js', function(){
+              window.jQuery(function(){
+                window.jQuery('.doc-carousel').slick({
+                  autoplay: true, dots: true, arrows: true,
+                  slidesToShow: 1, speed: 500, autoplaySpeed: 5000
+                });
+              });
+            });
           });
-        });`}
+        })();`}
       </Script>
     </>
   )
