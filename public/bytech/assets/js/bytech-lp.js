@@ -553,38 +553,4 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
   });
 })();
 
-(function() {
-  // SPポップアップ: 最初のユーザー操作(スクロール/タップ)で表示する。
-  // 旧来は5秒タイマーで自動表示していたが、Lighthouse(SP)がこのポップアップ画像を
-  // LCP要素として計上しLCPが15秒前後に固定されていたため、操作トリガーに変更。
-  // Lighthouseはスクロール/タップしないので計測に出ず、実ユーザーはLP閲覧中の
-  // 最初のスクロールで表示される(=表示機会はほぼ維持)。
-  var STORAGE_KEY = 'bytech_sp_popup_shown';
-  if (window.innerWidth >= 768) return;
-  if (sessionStorage.getItem(STORAGE_KEY)) return;
-  var shown = false;
-  function showPopup() {
-    if (shown) return;
-    if (window.innerWidth >= 768) return;
-    var overlay = document.getElementById('spPopupOverlay');
-    var closeBtn = document.getElementById('spPopupClose');
-    if (!overlay) return;
-    shown = true;
-    overlay.classList.add('is-active');
-    overlay.setAttribute('aria-hidden', 'false');
-    sessionStorage.setItem(STORAGE_KEY, '1');
-    function closePopup() {
-      overlay.classList.remove('is-active');
-      overlay.setAttribute('aria-hidden', 'true');
-    }
-    if (closeBtn) closeBtn.addEventListener('click', closePopup);
-    overlay.addEventListener('click', function(e) {
-      if (e.target === overlay) closePopup();
-    });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closePopup();
-    }, { once: true });
-  }
-  window.addEventListener('scroll', showPopup, { passive: true, once: true });
-  window.addEventListener('touchstart', showPopup, { passive: true, once: true });
-})();
+// SPポップアップは廃止（LCP対策のため削除）。

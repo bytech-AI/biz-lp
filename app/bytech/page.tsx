@@ -1787,37 +1787,6 @@ export default function BytechPage() {
           <img loading="lazy" width={1958} height={288} src="/bytech/assets/images/cta-setsumeikai.svg" alt="無料説明会に申し込む" />
         </a>
       </div>
-      {/* ===== SP POPUP MODAL (SP only, timed) ===== */}
-      <div className="sp-popup-overlay" id="spPopupOverlay" aria-hidden="true" role="dialog" aria-modal="true">
-        <div className="sp-popup-modal">
-          <button className="sp-popup-close" id="spPopupClose" aria-label="閉じる">×</button>
-          <div className="sp-popup-image">
-            <img width={1000} height={1490} src="/bytech/assets/images/modal.webp" alt="" loading="lazy" decoding="async" />
-          </div>
-          <div className="sp-popup-body">
-            <p className="sp-popup-sub">あなたにぴったりの</p>
-            <h2 className="sp-popup-heading">生成AI<br />活用例は？</h2>
-            <span className="sp-popup-badge">簡単30秒！今すぐタップ！</span>
-            <a href="https://lin.ee/YOUR_LINE_URL" className="sp-popup-line-btn" target="_blank" rel="noopener noreferrer">
-              <div className="sp-popup-line-inner">
-                <div className="sp-popup-line-icon">
-                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="48" height="48" rx="10" fill="#06C755"/>
-                    <path d="M40 22.4C40 15.1 33.2 9.2 24.8 9.2C16.4 9.2 9.6 15.1 9.6 22.4C9.6 28.95 15.1 34.45 22.55 35.4C23.05 35.5 23.75 35.7 23.9 36.15C24.05 36.55 24 37.2 23.95 37.6L23.65 39.35C23.55 39.75 23.3 40.85 24.8 40.2C26.3 39.55 33.45 35.05 36.6 31.45C38.75 29.15 40 26.4 40 22.4Z" fill="white"/>
-                    <path d="M20.1 19.7H19.1C18.85 19.7 18.65 19.9 18.65 20.15V26.3C18.65 26.55 18.85 26.75 19.1 26.75H20.1C20.35 26.75 20.55 26.55 20.55 26.3V20.15C20.55 19.9 20.35 19.7 20.1 19.7Z" fill="#06C755"/>
-                    <path d="M28.9 19.7H27.9C27.65 19.7 27.45 19.9 27.45 20.15V23.7L24.65 19.9C24.6 19.85 24.55 19.8 24.5 19.75H23.5C23.25 19.75 23.05 19.95 23.05 20.2V26.35C23.05 26.6 23.25 26.8 23.5 26.8H24.5C24.75 26.8 24.95 26.6 24.95 26.35V22.8L27.75 26.6C27.8 26.65 27.85 26.7 27.9 26.75H28.9C29.15 26.75 29.35 26.55 29.35 26.3V20.15C29.35 19.9 29.15 19.7 28.9 19.7Z" fill="#06C755"/>
-                  </svg>
-                </div>
-                LINEでチェックする
-              </div>
-            </a>
-            <div className="sp-popup-footer">
-              <img loading="lazy" width={1456} height={512} src="/bytech/assets/images/genai-logo-black.svg" alt="byTech GENERATIVE AI" />
-              <p>2026 株式会社AI棒</p>
-            </div>
-          </div>
-        </div>
-      </div>
       <Script id="bytech-lp-scripts" src="/bytech/assets/js/bytech-lp.js" strategy="afterInteractive" />
 
     </>
