@@ -159,12 +159,24 @@ export default function DocAPage() {
         }
         .doc-content__carousel .slick-prev,
         .doc-content__carousel .slick-next {
-          z-index: 1;
+          z-index: 2;
+          width: 40px;
+          height: 40px;
+          background: rgba(255, 255, 255, 0.92);
+          border-radius: 50%;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+        }
+        .doc-content__carousel .slick-prev { left: 12px; }
+        .doc-content__carousel .slick-next { right: 12px; }
+        .doc-content__carousel .slick-prev:hover,
+        .doc-content__carousel .slick-next:hover {
+          background: #fff;
         }
         .doc-content__carousel .slick-prev:before,
         .doc-content__carousel .slick-next:before {
           color: #1a2e50;
-          font-size: 24px;
+          font-size: 22px;
+          opacity: 1;
         }
         .doc-form {
           width: 100%;
