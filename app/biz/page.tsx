@@ -1289,7 +1289,7 @@ export default function BizPage() {
                 <h3 className="index_flow__item__title">研修スタート</h3>
                 <div className="index_flow__item__icon"><img src="/biz/assets/img/index/index_flow__item__icon_03.png" alt="" /></div>
                 <p className="index_flow__item__text">
-                  課題・ゴールに最適化した研修サポート体制を構築します
+                  チャットサポート等を活用して分からないところは即座に解消しながら実際に研修を進めていきます。
                 </p>
               </div>
             </div>
