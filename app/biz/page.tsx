@@ -1,12 +1,14 @@
 export default function BizPage() {
   return (
     <>
+      {/* <picture>はAVIFを優先表示するため、プリロードもAVIFに一致させる
+          （WebPプリロードだと使われず無駄になり、実際に使うAVIFが非優先で遅延しLCP悪化していた） */}
       <link
         rel="preload"
         as="image"
-        type="image/webp"
-        href="/biz/assets/img/index/biz_fv-768.webp"
-        imageSrcSet="/biz/assets/img/index/biz_fv-480.webp 480w, /biz/assets/img/index/biz_fv-768.webp 768w, /biz/assets/img/index/biz_fv-1280.webp 1280w"
+        type="image/avif"
+        href="/biz/assets/img/index/biz_fv-768.avif"
+        imageSrcSet="/biz/assets/img/index/biz_fv-480.avif 480w, /biz/assets/img/index/biz_fv-768.avif 768w, /biz/assets/img/index/biz_fv-1280.avif 1280w"
         imageSizes="100vw"
         fetchPriority="high"
       />
