@@ -132,14 +132,14 @@ export default function BizPage() {
 
       <div className="top-header-wrap">
         <div className="top-header__logo">
-          <a href="index.html"><img loading="lazy" src="/biz/assets/img/common/hd-logo.svg" alt="バイテックBiz" id="top-logo" data-white="/biz/assets/img/common/hd-logo.svg" data-dark="/biz/assets/img/common/hd-logo-dark.svg" /></a>
+          <a href="/biz"><img loading="lazy" src="/biz/assets/img/common/hd-logo.svg" alt="バイテックBiz" id="top-logo" data-white="/biz/assets/img/common/hd-logo.svg" data-dark="/biz/assets/img/common/hd-logo-dark.svg" /></a>
         </div>
         <button className="top-header__hamburger" aria-label="メニューを開く">
           <span></span><span></span><span></span>
         </button>
         <div className="top-header__overlay"></div>
         <nav className="top-header__nav">
-          <a href="index.html" className="top-nav-link">バイテックBizとは</a>
+          <a href="#about" className="top-nav-link">バイテックBizとは</a>
           <a href="#feature" className="top-nav-link">3つの特徴</a>
           <a href="#courses" className="top-nav-link">導入事例</a>
           <a href="#faq" className="top-nav-link">よくある質問</a>
@@ -211,7 +211,7 @@ export default function BizPage() {
           </div>
         </section>
 
-        <section className="index_about">
+        <section className="index_about" id="about">
           <div className="index_about__inner u-inner">
             <div className="index_about__box">
               <div className="index_about__desc">
