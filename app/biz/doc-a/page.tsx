@@ -73,6 +73,10 @@ export default function DocAPage() {
         @media (max-width: 768px) {
           .doc-main {
             flex-direction: column;
+            /* align-items:flex-start のままだと子の幅がcontent基準になり、
+               slickのslick-track幅に引っ張られてレイアウトが暴走する。
+               stretchで子をコンテナ幅に固定して連鎖を断つ。 */
+            align-items: stretch;
             margin: 30px auto;
           }
         }
