@@ -709,7 +709,7 @@ export default function BizPage() {
                   <li><strong>受講対象者</strong>：新任担当者、中堅層</li>
                   <li><strong>目的</strong>：AI技術を活用した業務効率化、スキル向上</li>
                   <li><strong>受講方法</strong>：同時双方向型</li>
-                  <li><strong>訓練時間</strong>：10時間</li>
+                  <li><strong>訓練時間</strong>：1時間×10日（合計10時間）</li>
                   <li><strong>研修費</strong>：300,000円(税別)</li>
                 </ul>
                 <div className="index_course__curriculum">
