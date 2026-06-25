@@ -1086,7 +1086,7 @@ export default function BizPage() {
               <div className="index_feature__detail__text fadein">
                 <p className="index_feature__label"><span className="font-en">01</span>分かったで終わらせない</p>
                 <h3 className="index_feature__heading"><span>リアルな実務を想定した</span>実践型カリキュラム</h3>
-                <p className="index_feature__desc">バイテックBizでは、既存の業務でのベーシックな課題から部門別での課題まで実務を想定した学習を提供しています。初心者でも迷わず最短で課題解決・ゴールに必要なAIスキルの習得が可能です。毎日の小さな「できた」を積み上げ、理解で止まらず 実践と成長を加速させます。</p>
+                <p className="index_feature__desc">バイテックBizでは、既存の業務でのベーシックな課題から部門別での課題まで実務を想定した学習を提供しています。初心者でも迷わず最短で課題解決・ゴールに必要なAIスキルの習得が可能です。</p>
               </div>
               <div className="index_feature__detail__image fadein delay-time02">
                 <img src="/biz/assets/img/index/img_index_feature_001.png" alt="課題・ゴールに合わせたオーダーメイドカリキュラム" />
