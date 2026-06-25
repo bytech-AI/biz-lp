@@ -589,6 +589,28 @@ export default function BizPage() {
             box-sizing: border-box;
           }
         ` }} />
+        {/* === SP用デザイン調整（style.css/scripts.jsはimmutableキャッシュで編集が反映されないためインラインで上書き） === */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          @media (max-width: 680px) {
+            /* 研修タイプ タイトル: 折り返さないサイズに */
+            .biz-plan .index_plan__title { font-size: 2.0rem; letter-spacing: 0; }
+            /* 研修タイプ カードをSPでカルーセル化（slick有効時はgridを解除） */
+            .biz-plan .index_plan__cards.slick-initialized { display: block !important; }
+            .biz-plan .index_plan__cards.slick-initialized .index_plan__card { display: block !important; height: auto; margin: 0 6px; }
+            .biz-plan .index_plan__cards .slick-dots { position: static; margin-top: 16px; }
+            .biz-plan .index_plan__cards .slick-dots li button:before { color: #2e6dc4; font-size: 9px; opacity: .35; }
+            .biz-plan .index_plan__cards .slick-dots li.slick-active button:before { opacity: 1; }
+          }
+          @media (max-width: 768px) {
+            /* 導入までの流れ: 上余白を作り、番号とタイトルを大きく */
+            .index_flow { margin-top: 50px; }
+            .index_flow__heading { font-size: 2.6rem; }
+            .index_flow__item__number { font-size: 7rem; }
+            .index_flow__item__title { font-size: 2.0rem; margin-bottom: 12px; }
+            /* フッターのリードコピーを大きく */
+            .footer__lead { font-size: 2.4rem; }
+          }
+        ` }} />
 
         <section className="index_plan biz-plan" id="plan">
           <div className="index_plan__inner u-inner">
@@ -1459,6 +1481,25 @@ export default function BizPage() {
               logo.src = logo.dataset.white;
             }
           });
+        })();
+      ` }} />
+      {/* 研修タイプ(plan)カードをSP(≤680px)でslickカルーセル化。jQuery/slickロード後に初期化。
+          scripts.jsはimmutableキャッシュで編集が反映されないためインラインで初期化する。 */}
+      <script dangerouslySetInnerHTML={{ __html: `
+        (function(){
+          function init(){
+            if(!(window.jQuery && window.jQuery.fn && window.jQuery.fn.slick)){ return setTimeout(init, 120); }
+            var $c = window.jQuery('.biz-plan .index_plan__cards');
+            if(!$c.length || $c.hasClass('slick-initialized')) return;
+            $c.slick({
+              dots: true, arrows: false, slidesToShow: 1,
+              centerMode: true, centerPadding: '20px',
+              mobileFirst: true,
+              responsive: [{ breakpoint: 680, settings: 'unslick' }]
+            });
+          }
+          if(document.readyState !== 'loading'){ init(); }
+          else { document.addEventListener('DOMContentLoaded', init); }
         })();
       ` }} />
     </>
