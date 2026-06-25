@@ -203,10 +203,24 @@ function injectAnalytics(html: string, relativePath: string) {
   return out;
 }
 
+// レンダーブロッキングな <head> 内 JS を非ブロック化。
+// - token_create.js (= Pinterest タグ) は async（トラッキングなので非ブロックで十分）
+// - FA v4-shim は defer（FA本体JSが無い孤立shimでアイコンはCSS描画のため遅延可）
+// 注: jquery / jquery-migrate はインラインJSが同期利用しており defer すると
+//     `jQuery is not defined` で壊れるため非ブロック化しない（実測で確認済み）。
+function optimizeBlockingJs(html: string) {
+  let out = html;
+  out = out.replace(/<script(\s+src="[^"]*\/token_create\.js")\s*>/g, "<script async$1>");
+  out = out.replace(/<script(\s+id="font-awesome-4-shim-js")/g, "<script defer$1");
+  return out;
+}
+
 export async function staticHtmlResponse(relativePath: string) {
   const [html, chrome] = await Promise.all([readStaticHtml(relativePath), loadChrome()]);
-  const out = injectCarouselFix(
-    injectHeadingWeight(injectAnalytics(injectChrome(html, chrome), relativePath)),
+  const out = optimizeBlockingJs(
+    injectCarouselFix(
+      injectHeadingWeight(injectAnalytics(injectChrome(html, chrome), relativePath)),
+    ),
   );
   return new Response(out, { headers });
 }
