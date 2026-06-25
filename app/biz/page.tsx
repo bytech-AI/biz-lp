@@ -107,19 +107,12 @@ export default function BizPage() {
             box-shadow: none;
             background: transparent;
           }
-          .right-form-fixed .formrun-embed {
-            white-space: normal;
-            min-width: 0;
-            border: 0 !important;
-            box-shadow: none !important;
-            background: transparent !important;
-          }
-          .right-form-fixed .formrun-embed > div,
-          .right-form-fixed .formrun-embed iframe,
-          .right-form-fixed .formrun-embed form {
-            border: 0 !important;
-            box-shadow: none !important;
-            background: transparent !important;
+          .right-form-fixed .right-form-iframe {
+            width: 100%;
+            height: 680px;
+            border: 0;
+            display: block;
+            background: transparent;
           }
         }
         @media (max-width: 1080px) {
@@ -1361,7 +1354,14 @@ export default function BizPage() {
             </div>
             <img className="form_cover" src="/biz/assets/img/wp/biz-doc-cover.webp" alt="バイテックBiz サービス概要資料" width={390} height={512} loading="lazy" />
           </div>
-          <div className="formrun-embed" data-formrun-form="@biz-org-fv" data-formrun-redirect="true"></div>
+          {/* SDK(JS)に依存せず確実に表示するため、formrunのembedページを直接iframe埋め込み。
+              （SDKのlazy iframe生成/JS未実行などで空になる事象を回避。doc-aと同方式） */}
+          <iframe
+            className="right-form-iframe"
+            src="https://form.run/embed/@biz-org-fv"
+            title="資料ダウンロードフォーム"
+            loading="eager"
+          ></iframe>
         </div>
       </aside>
 
@@ -1419,15 +1419,7 @@ export default function BizPage() {
       <script defer src="/biz/assets/js/anime.min.js" />
       <script defer src="/biz/assets/js/main.js" />
       <script defer src="/biz/assets/js/scripts.js" />
-      {/* サイド固定フォーム(#rightFormFixed)のみ。formrun SDK を読み込む。 */}
-      <script dangerouslySetInnerHTML={{ __html: `
-        (function(){
-          var s = document.createElement('script');
-          s.src = 'https://sdk.form.run/js/v2/embed.js';
-          s.async = true;
-          document.body.appendChild(s);
-        })();
-      ` }} />
+      {/* サイド固定フォームは直接iframe埋め込みに変更したため formrun SDK は不要。 */}
       <script dangerouslySetInnerHTML={{ __html: `
         (function(){
           var rail = document.getElementById('rightFormFixed');
