@@ -1412,11 +1412,11 @@ export default function BizPage() {
 
       {/* External Scripts — ネイティブ<script defer>でDOM順に実行（next/scriptはNext16でinline評価が壊れ全スクリプト未実行になるため不使用）。revealFx は main.js 内で定義されるため別ファイル参照は削除。 */}
       <script defer src="/biz/assets/js/jquery-3.7.1.min.js" />
-      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" />
-      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js" />
+      {/* 以下は/bizで未使用のため削除しTBT/DLを削減:
+          - lottie-web: アニメ対象 .lottie-cta-robot が存在せず何も描画しない(約393msのJS実行=TBT最大要因)
+          - jquery-cookie / scrollMonitor: コード内で一切呼ばれていない */}
       <script defer src="/biz/assets/slick/slick.min.js" />
       <script defer src="/biz/assets/js/anime.min.js" />
-      <script defer src="/biz/assets/js/scrollMonitor.js" />
       <script defer src="/biz/assets/js/main.js" />
       <script defer src="/biz/assets/js/scripts.js" />
       {/* サイド固定フォーム(#rightFormFixed)のみ。formrun SDK を読み込む。 */}
