@@ -609,6 +609,13 @@ export default function BizPage() {
             .index_flow__item__title { font-size: 2.0rem; margin-bottom: 12px; }
             /* フッターのリードコピーを大きく */
             .footer__lead { font-size: 2.4rem; }
+            /* FAQ: 左右の余白を狭く */
+            .index_faq { padding-left: 12px; padding-right: 12px; }
+          }
+          /* feature ラベル下の矢印位置・高さを調整 */
+          .index_feature__detail__text .index_feature__label::after {
+            bottom: -35px;
+            height: 22px;
           }
         ` }} />
 
