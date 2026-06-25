@@ -186,8 +186,8 @@ export default function DocAPage() {
           line-height: 1;
           opacity: 1;
         }
-        .doc-content__carousel .slick-prev:before { content: "\2039"; }
-        .doc-content__carousel .slick-next:before { content: "\203A"; }
+        .doc-content__carousel .slick-prev:before { content: "‹"; }
+        .doc-content__carousel .slick-next:before { content: "›"; }
         .doc-form {
           width: 100%;
           max-width: 420px;
