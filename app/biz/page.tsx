@@ -710,7 +710,6 @@ export default function BizPage() {
                   <li><strong>目的</strong>：AI技術を活用した業務効率化、スキル向上</li>
                   <li><strong>受講方法</strong>：同時双方向型</li>
                   <li><strong>訓練時間</strong>：10時間</li>
-                  <li><strong>標準学習期間</strong>：1時間×10日（合計10時間）</li>
                   <li><strong>研修費</strong>：300,000円(税別)</li>
                 </ul>
                 <div className="index_course__curriculum">
@@ -776,7 +775,6 @@ export default function BizPage() {
                   <li><strong>目的</strong>：画像・動画AI技術を活用した業務効率化スキル向上</li>
                   <li><strong>受講方法</strong>：ブレンディッドラーニング形式（eラーニングとオンラインによる同時双方向型ライブ研修の組み合わせ）</li>
                   <li><strong>訓練時間</strong>：合計22時間48分（eラーニング: 13時間48分、オンライン研修: 9時間）</li>
-                  <li><strong>標準学習期間</strong>：4ヶ月</li>
                   <li><strong>研修費</strong>：300,000円(税別)</li>
                 </ul>
                 <div className="index_course__curriculum">
@@ -908,7 +906,6 @@ export default function BizPage() {
                   <li><strong>目的</strong>：AI開発ツールを活用した業務効率化、スキル向上</li>
                   <li><strong>受講方法</strong>：ブレンディッドラーニング形式（eラーニングとオンラインによる同時双方向型ライブ研修の組み合わせ）</li>
                   <li><strong>訓練時間</strong>：合計21時間49分（eラーニング: 12時間49分、オンライン研修: 9時間）</li>
-                  <li><strong>標準学習期間</strong>：4ヶ月</li>
                   <li><strong>研修費</strong>：300,000円(税別)</li>
                 </ul>
                 <div className="index_course__curriculum">
