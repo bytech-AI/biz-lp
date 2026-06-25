@@ -204,13 +204,15 @@ export default function DocAPage() {
           text-align: center;
           margin-bottom: 20px;
         }
-        .doc-form .formrun-embed {
-          min-height: 500px;
+        .doc-form__iframe {
           width: 100%;
+          height: 1850px;
+          border: 0;
           display: block;
+          background: #fff;
         }
-        .doc-form .formrun-embed iframe {
-          border: 0 !important;
+        @media (max-width: 768px) {
+          .doc-form__iframe { height: 1950px; }
         }
         .doc-footer {
           background: #1a2e50;
@@ -279,7 +281,14 @@ export default function DocAPage() {
 
         <div className="doc-form">
           <p className="doc-form__title">資料ダウンロード</p>
-          <div className="formrun-embed" data-formrun-form="@document-1" data-formrun-redirect="true"></div>
+          {/* SDK(JS)に依存せず確実に表示するため、formrunのembedページを直接iframe埋め込み。
+              （SDKのlazy iframe生成/React競合/JS未実行などの失敗要因を排除） */}
+          <iframe
+            className="doc-form__iframe"
+            src="https://form.run/embed/@document-1"
+            title="資料ダウンロードフォーム"
+            loading="eager"
+          ></iframe>
         </div>
       </main>
 
@@ -292,27 +301,7 @@ export default function DocAPage() {
         <p>&copy; 2025 バイテックBiz All Rights Reserved.</p>
       </footer>
 
-      {/* ネイティブ<script>（next/scriptはNext16でinline評価が壊れ未実行になるため不使用） */}
-      <script defer src="https://sdk.form.run/js/v2/embed.js" />
-      {/* formrunが生成するiframeは loading="lazy" のため、環境によっては
-          ビューポート内でも読み込まれずフォームが空のままになる。eagerに強制し、
-          数秒後も未ロード（高さ<100px）なら src を再設定して確実にロードさせる。 */}
-      <script dangerouslySetInnerHTML={{ __html: `(function(){
-        var embed = document.querySelector('.formrun-embed');
-        if(!embed) return;
-        function ensureEager(){ var ifr = embed.querySelector('iframe'); if(ifr){ ifr.loading='eager'; ifr.setAttribute('loading','eager'); } }
-        ensureEager();
-        var mo = new MutationObserver(ensureEager);
-        mo.observe(embed, { childList: true, subtree: true });
-        setTimeout(function(){
-          var ifr = embed.querySelector('iframe');
-          if(ifr && ifr.getBoundingClientRect().height < 100){
-            var s = ifr.getAttribute('src');
-            if(s){ ifr.setAttribute('src',''); ifr.setAttribute('src', s); }
-          }
-          mo.disconnect();
-        }, 4000);
-      })();` }} />
+      {/* フォームはSDK非依存の直接iframe埋め込みに変更したため、formrun SDKの読み込みは不要。 */}
       {/* jQuery→slick→初期化 を順番にロード（自前で依存順にチェーン）。 */}
       <script dangerouslySetInnerHTML={{ __html: `(function(){
           function load(src, cb){ var s=document.createElement('script'); s.src=src; s.onload=cb; document.body.appendChild(s); }
