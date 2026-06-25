@@ -1268,27 +1268,28 @@ export default function BizPage() {
                 <h3 className="index_flow__item__title">ヒアリング・ご提案</h3>
                 <div className="index_flow__item__icon"><img src="/biz/assets/img/index/index_flow__item__icon_02.png" alt="" /></div>
                 <p className="index_flow__item__text">
-                  現状をヒアリングし、貴社に最適な研修プログラムを提案します
+                  現状をヒアリングし、AI活用レベルに合わせた研修プランを提案します
                 </p>
               </div>
               <div className="index_flow__arrow"></div>
               {/* STEP 3 */}
               <div className="index_flow__item fadein delay-time04">
                 <p className="index_flow__item__number">03</p>
-                <h3 className="index_flow__item__title">研修スタート</h3>
-                <div className="index_flow__item__icon"><img src="/biz/assets/img/index/index_flow__item__icon_03.png" alt="" /></div>
+                <h3 className="index_flow__item__title">お見積もり</h3>
+                {/* TODO: お見積もり用イラストに差し替え（暫定でicon_04を流用） */}
+                <div className="index_flow__item__icon"><img src="/biz/assets/img/index/index_flow__item__icon_04.png" alt="" /></div>
                 <p className="index_flow__item__text">
-                  課題・ゴールに最適化した研修サポート体制を構築します
+                  ヒアリング内容をもとに、最適な研修プランのお見積もりをご提示します
                 </p>
               </div>
               <div className="index_flow__arrow"></div>
               {/* STEP 4 */}
               <div className="index_flow__item fadein delay-time05">
                 <p className="index_flow__item__number">04</p>
-                <h3 className="index_flow__item__title">モニタリング</h3>
-                <div className="index_flow__item__icon"><img src="/biz/assets/img/index/index_flow__item__icon_04.png" alt="" /></div>
+                <h3 className="index_flow__item__title">研修スタート</h3>
+                <div className="index_flow__item__icon"><img src="/biz/assets/img/index/index_flow__item__icon_03.png" alt="" /></div>
                 <p className="index_flow__item__text">
-                  研修の実施に伴い、ゴールに対してどのくらい効果があったのかを計測します
+                  課題・ゴールに最適化した研修サポート体制を構築します
                 </p>
               </div>
             </div>
