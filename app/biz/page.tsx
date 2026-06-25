@@ -123,6 +123,9 @@ export default function BizPage() {
         @media (max-width: 1080px) {
           .right-form-fixed { display: none; }
         }
+        /* 研修コースのeラーニング/オンライン研修見出し帯の角丸を無くす
+           （外部style.cssはimmutableキャッシュで即時反映されないためインラインで上書き） */
+        .index_course__section-title { border-radius: 0 !important; }
       ` }} />
 
       <div className="top-header-wrap">
