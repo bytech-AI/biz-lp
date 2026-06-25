@@ -232,11 +232,45 @@ function optimizeBlockingJs(html: string) {
   return out;
 }
 
+// LCP 改善: FVヒーローの背景画像(.course-fv の CSS background-image)を高優先 preload。
+// CSS background はブラウザの preload スキャナで先読みされず、CSSOM構築→レイアウト後に
+// やっと取得開始するため低速回線でLCPが大幅に遅れる。明示 preload で取得を最優先化する。
+// 見た目は不変（同じ画像を早く取りに行くだけ）。
+function injectLcpPreload(html: string) {
+  if (html.includes('rel="preload" as="image"')) {
+    return html;
+  }
+  const idMatch =
+    html.match(/class="[^"]*\belementor-element-(\w+)\b[^"]*\bcourse-fv\b[^"]*"/) ||
+    html.match(/class="[^"]*\bcourse-fv\b[^"]*\belementor-element-(\w+)\b[^"]*"/);
+  if (!idMatch) {
+    return html;
+  }
+  const bgRe = new RegExp(
+    "elementor-element-" + idMatch[1] + "[^{]*\\{[^}]*?background-image:\\s*url\\(\\s*\"?([^\")]+\\.(?:webp|jpe?g|png))\"?\\s*\\)",
+    "i",
+  );
+  const bg = html.match(bgRe);
+  if (!bg) {
+    return html;
+  }
+  const url = bg[1].replace(/&quot;/g, "").trim();
+  const link = `<link rel="preload" as="image" href="${url}" fetchpriority="high">`;
+  const headTag = html.match(/<head[^>]*>/i);
+  if (!headTag) {
+    return `${link}${html}`;
+  }
+  const idx = html.indexOf(headTag[0]) + headTag[0].length;
+  return html.slice(0, idx) + link + html.slice(idx);
+}
+
 export async function staticHtmlResponse(relativePath: string) {
   const [html, chrome] = await Promise.all([readStaticHtml(relativePath), loadChrome()]);
-  const out = optimizeBlockingJs(
-    injectCarouselFix(
-      injectHeadingWeight(injectAnalytics(injectChrome(html, chrome), relativePath)),
+  const out = injectLcpPreload(
+    optimizeBlockingJs(
+      injectCarouselFix(
+        injectHeadingWeight(injectAnalytics(injectChrome(html, chrome), relativePath)),
+      ),
     ),
   );
   return new Response(out, { headers });
