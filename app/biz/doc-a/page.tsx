@@ -163,31 +163,38 @@ export default function DocAPage() {
         .doc-content__carousel .slick-prev,
         .doc-content__carousel .slick-next {
           z-index: 2;
-          width: 40px;
-          height: 40px;
-          background: rgba(255, 255, 255, 0.92);
+          width: 44px;
+          height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #fff;
           border-radius: 50%;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+          box-shadow: 0 4px 14px rgba(26, 46, 80, 0.18);
+          transition: box-shadow .2s ease, transform .2s ease;
         }
         .doc-content__carousel .slick-prev { left: 12px; }
         .doc-content__carousel .slick-next { right: 12px; }
         .doc-content__carousel .slick-prev:hover,
         .doc-content__carousel .slick-next:hover {
           background: #fff;
+          box-shadow: 0 6px 18px rgba(26, 46, 80, 0.28);
+          transform: scale(1.06);
         }
-        /* slick標準フォントの矢印グリフは「ネイビー円＋矢印切り抜き(白く見える)」になるため、
-           通常フォントのシェブロン文字に差し替えて「白丸＋ネイビー矢印」にする */
+        /* slick標準フォントの矢印グリフ(ネイビー円＋切り抜き)をやめ、borderで描く端正なネイビー矢印に */
         .doc-content__carousel .slick-prev:before,
         .doc-content__carousel .slick-next:before {
-          font-family: -apple-system, "Helvetica Neue", Arial, sans-serif !important;
-          color: #1a2e50;
-          font-size: 26px;
-          font-weight: 700;
-          line-height: 1;
+          content: "";
+          display: block;
+          width: 11px;
+          height: 11px;
+          border-top: 2.5px solid #1a2e50;
+          border-right: 2.5px solid #1a2e50;
+          border-radius: 1.5px;
           opacity: 1;
         }
-        .doc-content__carousel .slick-prev:before { content: "‹"; }
-        .doc-content__carousel .slick-next:before { content: "›"; }
+        .doc-content__carousel .slick-prev:before { transform: translateX(2px) rotate(-135deg); }
+        .doc-content__carousel .slick-next:before { transform: translateX(-2px) rotate(45deg); }
         .doc-form {
           width: 100%;
           max-width: 420px;
