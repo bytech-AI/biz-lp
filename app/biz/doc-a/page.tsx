@@ -175,12 +175,19 @@ export default function DocAPage() {
         .doc-content__carousel .slick-next:hover {
           background: #fff;
         }
+        /* slick標準フォントの矢印グリフは「ネイビー円＋矢印切り抜き(白く見える)」になるため、
+           通常フォントのシェブロン文字に差し替えて「白丸＋ネイビー矢印」にする */
         .doc-content__carousel .slick-prev:before,
         .doc-content__carousel .slick-next:before {
+          font-family: -apple-system, "Helvetica Neue", Arial, sans-serif !important;
           color: #1a2e50;
-          font-size: 22px;
+          font-size: 26px;
+          font-weight: 700;
+          line-height: 1;
           opacity: 1;
         }
+        .doc-content__carousel .slick-prev:before { content: "\2039"; }
+        .doc-content__carousel .slick-next:before { content: "\203A"; }
         .doc-form {
           width: 100%;
           max-width: 420px;
