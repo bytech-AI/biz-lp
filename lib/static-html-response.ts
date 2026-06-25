@@ -203,15 +203,32 @@ function injectAnalytics(html: string, relativePath: string) {
   return out;
 }
 
-// レンダーブロッキングな <head> 内 JS を非ブロック化。
-// - token_create.js (= Pinterest タグ) は async（トラッキングなので非ブロックで十分）
-// - FA v4-shim は defer（FA本体JSが無い孤立shimでアイコンはCSS描画のため遅延可）
-// 注: jquery / jquery-migrate はインラインJSが同期利用しており defer すると
-//     `jQuery is not defined` で壊れるため非ブロック化しない（実測で確認済み）。
+// レンダーブロッキングな JS を非ブロック化。
+// 方針: jQuery を含む全ての同期外部script を defer 化する。defer は「パース後・
+// 文書順で実行」なので、jQuery→Elementor/eael ハンドラ→… の依存順序がそのまま保たれ、
+// メニュー/FAQ 等の挙動は不変のままレンダーブロックだけ解消できる。
+// ただし jQuery を同期利用するインラインJS（id=jquery-js-after / eael-inline-js 等）は
+// パース時に走ると defer された jQuery 未定義で壊れるため、DOMContentLoaded 包みにして
+// 全 defer script の後で実行させる。token_create(Pinterest) は async のまま。
 function optimizeBlockingJs(html: string) {
   let out = html;
+  // Pinterest タグは async（トラッキングなので非ブロックで十分）
   out = out.replace(/<script(\s+src="[^"]*\/token_create\.js")\s*>/g, "<script async$1>");
-  out = out.replace(/<script(\s+id="font-awesome-4-shim-js")/g, "<script defer$1");
+  // async/defer の付いていない外部script を全て defer（文書順実行で依存順序を保持）
+  out = out.replace(
+    /<script\b(?![^>]*\b(?:async|defer)\b)([^>]*\bsrc="[^"]*"[^>]*)>/g,
+    "<script defer$1>",
+  );
+  // jQuery を同期利用するインラインJS を DOMContentLoaded 包みにして defer 後に実行
+  out = out.replace(
+    /(<script\b(?![^>]*\bsrc=)[^>]*>)([\s\S]*?)(<\/script>)/g,
+    (full, open, bodyJs, close) => {
+      if (open.includes("bt-carousel-fix")) return full; // 自前注入はそのまま
+      if (!/jQuery|[^A-Za-z0-9_.]\$\s*\(/.test(bodyJs)) return full;
+      if (bodyJs.includes("DOMContentLoaded")) return full;
+      return `${open}document.addEventListener("DOMContentLoaded",function(){${bodyJs}\n});${close}`;
+    },
+  );
   return out;
 }
 
