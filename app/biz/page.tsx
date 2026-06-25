@@ -118,6 +118,8 @@ export default function BizPage() {
         @media (max-width: 1080px) {
           .right-form-fixed { display: none; }
         }
+        /* ヘッダー(position:fixed, 高さ約80px)にアンカー先が隠れないようオフセット */
+        #about, #course, #feature, #works, #faq { scroll-margin-top: 96px; }
         /* 研修コースのeラーニング/オンライン研修見出し帯の角丸を無くす
            （外部style.cssはimmutableキャッシュで即時反映されないためインラインで上書き） */
         .index_course__section-title { border-radius: 0 !important; }
@@ -133,8 +135,9 @@ export default function BizPage() {
         <div className="top-header__overlay"></div>
         <nav className="top-header__nav">
           <a href="#about" className="top-nav-link">バイテックBizとは</a>
+          <a href="#course" className="top-nav-link">研修一覧</a>
           <a href="#feature" className="top-nav-link">3つの特徴</a>
-          <a href="#courses" className="top-nav-link">導入事例</a>
+          <a href="#works" className="top-nav-link">導入事例</a>
           <a href="#faq" className="top-nav-link">よくある質問</a>
           <a href="/biz/doc-a" className="btn-outline">資料をダウンロード</a>
           <a href="/biz/counseling" className="btn-fill">無料個別相談を予約する</a>
@@ -1021,7 +1024,7 @@ export default function BizPage() {
           </div>
         </section>
 
-        <section className="index_feature">
+        <section className="index_feature" id="feature">
           <div className="index_feature__inner u-inner">
             {/* ヘッダー */}
             <div className="index_feature__head">
@@ -1226,7 +1229,7 @@ export default function BizPage() {
           </div>
         </section>
 
-        <section className="index_works">
+        <section className="index_works" id="works">
           <div className="index_works__inner u-inner">
             <p className="index_works__eyebrow font-en fadein">Works_</p>
             <h2 className="index_works__heading fadein delay-time02">導入事例</h2>
@@ -1291,7 +1294,7 @@ export default function BizPage() {
           </div>
         </section>
 
-        <section className="index_faq">
+        <section className="index_faq" id="faq">
           <div className="index_faq__inner u-inner">
             <p className="index_faq__eyebrow font-en fadein">FAQ_</p>
             <h2 className="index_faq__heading fadein delay-time02">よくあるご質問</h2>
@@ -1376,10 +1379,11 @@ export default function BizPage() {
           <div className="footer__col">
             <p className="footer__title">バイテックBizについて</p>
             <ul className="footer__list">
-              <li><a href="#">バイテックBizとは</a></li>
-              <li><a href="#">3つの特徴</a></li>
-              <li><a href="#">導入事例</a></li>
-              <li><a href="#">よくある質問</a></li>
+              <li><a href="#about">バイテックBizとは</a></li>
+              <li><a href="#course">研修一覧</a></li>
+              <li><a href="#feature">3つの特徴</a></li>
+              <li><a href="#works">導入事例</a></li>
+              <li><a href="#faq">よくある質問</a></li>
             </ul>
           </div>
           <div className="footer__col">
