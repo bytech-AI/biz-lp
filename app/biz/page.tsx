@@ -1279,7 +1279,7 @@ export default function BizPage() {
                 {/* TODO: お見積もり用イラストに差し替え（暫定でicon_04を流用） */}
                 <div className="index_flow__item__icon"><img src="/biz/assets/img/index/index_flow__item__icon_04.png" alt="" /></div>
                 <p className="index_flow__item__text">
-                  ヒアリング内容をもとに、最適な研修プランのお見積もりをご提示します
+                  お見積もりの確認後、ご決済から最短7日後から研修をスタートすることができます。
                 </p>
               </div>
               <div className="index_flow__arrow"></div>
