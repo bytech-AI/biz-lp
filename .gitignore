@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# biz redesign scratch / reference (not for deploy)
+/public/biz-static/
+/shot_biz_plan.mjs

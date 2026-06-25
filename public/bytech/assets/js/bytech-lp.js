@@ -554,3 +554,61 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
 })();
 
 // SPポップアップは廃止（LCP対策のため削除）。
+
+// FAQアコーディオン（eael未読込ページ用フォールバック: plan/support等）
+(function() {
+  var headers = document.querySelectorAll('.faqUi-accordion-header');
+  if (!headers.length) return;
+  // eael が制御している場合は二重バインドを避ける
+  if (window.eael || window.elementorFrontend) return;
+  headers.forEach(function(h) {
+    h.addEventListener('click', function() {
+      var open = h.classList.toggle('active');
+      var list = h.closest('.faqUi-accordion-list') || h.parentElement;
+      var content = list ? list.querySelector('.faqUi-accordion-content') : h.nextElementSibling;
+      if (content) content.classList.toggle('active', open);
+    });
+  });
+})();
+
+// 画像カルーセル（eael/swiper未読込ページ用フォールバック: plan/support等）
+(function() {
+  if (window.Swiper || window.eael) return;
+  var roots = document.querySelectorAll('.lpb-image-carousel-wrapper.swiper');
+  roots.forEach(function(root) {
+    var wrapper = root.querySelector('.swiper-wrapper');
+    if (!wrapper) return;
+    Array.prototype.slice.call(wrapper.querySelectorAll('.swiper-slide-duplicate')).forEach(function(d) { d.remove(); });
+    var slides = Array.prototype.slice.call(wrapper.querySelectorAll('.swiper-slide'));
+    var N = slides.length;
+    if (N < 2) { wrapper.style.transform = 'translate3d(0,0,0)'; return; }
+    var container = root.closest('.e-widget-swiper') || root;
+    var bullets = Array.prototype.slice.call(container.querySelectorAll('.swiper-pagination-bullet'));
+    var prev = container.querySelector('.lpb-swiper-button-prev, .swiper-button-prev');
+    var next = container.querySelector('.lpb-swiper-button-next, .swiper-button-next');
+    var idx = 0, timer = null;
+    wrapper.style.transition = 'transform .5s ease';
+    function visible() {
+      var w = slides[0].getBoundingClientRect().width || 1;
+      return Math.max(1, Math.round(root.getBoundingClientRect().width / w));
+    }
+    function go(i) {
+      var maxIdx = Math.max(0, N - visible());
+      if (i > maxIdx) i = 0;
+      if (i < 0) i = maxIdx;
+      idx = i;
+      var w = slides[0].getBoundingClientRect().width;
+      wrapper.style.transform = 'translate3d(' + (-idx * w) + 'px,0,0)';
+      bullets.forEach(function(b, bi) { b.classList.toggle('swiper-pagination-bullet-active', bi === idx); });
+    }
+    function play() { stop(); timer = setInterval(function() { go(idx + 1); }, 5000); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    if (prev) prev.addEventListener('click', function(e) { e.preventDefault(); go(idx - 1); play(); });
+    if (next) next.addEventListener('click', function(e) { e.preventDefault(); go(idx + 1); play(); });
+    bullets.forEach(function(b, bi) { b.addEventListener('click', function() { go(bi); play(); }); });
+    container.addEventListener('mouseenter', stop);
+    container.addEventListener('mouseleave', play);
+    var rt; window.addEventListener('resize', function() { clearTimeout(rt); rt = setTimeout(function() { go(idx); }, 150); });
+    go(0); play();
+  });
+})();
