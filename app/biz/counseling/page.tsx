@@ -1,5 +1,3 @@
-import Script from 'next/script'
-
 export default function CounselingPage() {
   return (
     <>
@@ -275,7 +273,8 @@ export default function CounselingPage() {
         <p>&copy; 2025 バイテックBiz All Rights Reserved.</p>
       </footer>
 
-      <Script id="bc-booking" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `
+      {/* 予約ウィジェット — ネイティブ<script>（next/scriptはNext16でinline評価が壊れ未実行になるため不使用） */}
+      <script dangerouslySetInnerHTML={{ __html: `
   const GAS_URL    = 'https://script.google.com/macros/s/AKfycbzFK2HDxL3BwTfK2DBR8flrCIll2lr5ZyOB1W9Vy5s6V5EcAIhNc_plwDu-lFMCU__1fg/exec';
   const THANKS_URL = '/thanks';
   const SOURCE     = 'Biz【Paid】';

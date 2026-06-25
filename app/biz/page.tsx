@@ -1,5 +1,3 @@
-import Script from 'next/script'
-
 export default function BizPage() {
   return (
     <>
@@ -17,12 +15,12 @@ export default function BizPage() {
       <link rel="stylesheet" href="/biz/assets/css/endless-river.css" media="print" data-async-css="1" />
       <link rel="stylesheet" href="/biz/assets/slick/slick.css" media="print" data-async-css="1" />
       <link rel="stylesheet" href="/biz/assets/slick/slick-theme.css" media="print" data-async-css="1" />
-      <Script id="css-async-swap" strategy="beforeInteractive">{`
+      <script dangerouslySetInnerHTML={{ __html: `
         document.querySelectorAll('link[data-async-css]').forEach(function(l){
           l.addEventListener('load', function(){ l.media = 'all'; }, { once: true });
           if (l.sheet) l.media = 'all';
         });
-      `}</Script>
+      ` }} />
       <style dangerouslySetInnerHTML={{ __html: `
         /* Show above-the-fold hero immediately — bypass fadein JS dependency for LCP */
         .hero .fadein {
@@ -1409,26 +1407,25 @@ export default function BizPage() {
         </div>
       </footer>
 
-      {/* External Scripts */}
-      <Script src="/biz/assets/js/jquery-3.7.1.min.js" strategy="afterInteractive" />
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" strategy="afterInteractive" />
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js" strategy="afterInteractive" />
-      <Script src="/biz/assets/slick/slick.min.js" strategy="afterInteractive" />
-      <Script src="/biz/assets/js/anime.min.js" strategy="afterInteractive" />
-      <Script src="/biz/assets/js/scrollMonitor.js" strategy="afterInteractive" />
-      <Script src="/biz/assets/js/revealFx.js" strategy="afterInteractive" />
-      <Script src="/biz/assets/js/main.js" strategy="afterInteractive" />
-      <Script src="/biz/assets/js/scripts.js" strategy="afterInteractive" />
+      {/* External Scripts — ネイティブ<script defer>でDOM順に実行（next/scriptはNext16でinline評価が壊れ全スクリプト未実行になるため不使用）。revealFx は main.js 内で定義されるため別ファイル参照は削除。 */}
+      <script defer src="/biz/assets/js/jquery-3.7.1.min.js" />
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" />
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js" />
+      <script defer src="/biz/assets/slick/slick.min.js" />
+      <script defer src="/biz/assets/js/anime.min.js" />
+      <script defer src="/biz/assets/js/scrollMonitor.js" />
+      <script defer src="/biz/assets/js/main.js" />
+      <script defer src="/biz/assets/js/scripts.js" />
       {/* サイド固定フォーム(#rightFormFixed)のみ。formrun SDK を読み込む。 */}
-      <Script id="biz-formrun-loader" strategy="afterInteractive">{`
+      <script dangerouslySetInnerHTML={{ __html: `
         (function(){
           var s = document.createElement('script');
           s.src = 'https://sdk.form.run/js/v2/embed.js';
           s.async = true;
           document.body.appendChild(s);
         })();
-      `}</Script>
-      <Script id="right-rail-stop-above-footer" strategy="afterInteractive">{`
+      ` }} />
+      <script dangerouslySetInnerHTML={{ __html: `
         (function(){
           var rail = document.getElementById('rightFormFixed');
           var footer = document.getElementById('pageFooter');
@@ -1451,8 +1448,8 @@ export default function BizPage() {
           window.addEventListener('resize', onScroll);
           update();
         })();
-      `}</Script>
-      <Script id="logo-scroll" strategy="afterInteractive">{`
+      ` }} />
+      <script dangerouslySetInnerHTML={{ __html: `
         (function(){
           var logo = document.getElementById('top-logo');
           var threshold = 100;
@@ -1464,7 +1461,7 @@ export default function BizPage() {
             }
           });
         })();
-      `}</Script>
+      ` }} />
     </>
   )
 }

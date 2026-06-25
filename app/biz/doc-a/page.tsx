@@ -1,4 +1,3 @@
-import Script from 'next/script'
 
 export default function DocAPage() {
   return (
@@ -289,12 +288,10 @@ export default function DocAPage() {
         <p>&copy; 2025 バイテックBiz All Rights Reserved.</p>
       </footer>
 
-      <Script src="https://sdk.form.run/js/v2/embed.js" strategy="afterInteractive" />
-      {/* jQuery→slick→初期化 を順番にロード。afterInteractive は実行順序を保証せず、
-          slick.min.js(ローカル) が jQuery(外部CDN) より先に実行されると $.fn.slick が
-          登録されずカルーセルが初期化されないため、依存順にチェーンする。 */}
-      <Script id="doc-carousel-loader" strategy="afterInteractive">
-        {`(function(){
+      {/* ネイティブ<script>（next/scriptはNext16でinline評価が壊れ未実行になるため不使用） */}
+      <script defer src="https://sdk.form.run/js/v2/embed.js" />
+      {/* jQuery→slick→初期化 を順番にロード（自前で依存順にチェーン）。 */}
+      <script dangerouslySetInnerHTML={{ __html: `(function(){
           function load(src, cb){ var s=document.createElement('script'); s.src=src; s.onload=cb; document.body.appendChild(s); }
           load('https://code.jquery.com/jquery-3.7.1.min.js', function(){
             load('/biz/assets/slick/slick.min.js', function(){
@@ -306,8 +303,7 @@ export default function DocAPage() {
               });
             });
           });
-        })();`}
-      </Script>
+        })();` }} />
     </>
   )
 }
