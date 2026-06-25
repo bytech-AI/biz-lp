@@ -1358,7 +1358,7 @@ export default function BizPage() {
             </div>
             <img className="form_cover" src="/biz/assets/img/wp/biz-doc-cover.webp" alt="バイテックBiz サービス概要資料" width={390} height={512} loading="lazy" />
           </div>
-          <div className="formrun-embed" data-formrun-form="@customer-success-azf2Fhi6yw5jcjVaWdVt" data-formrun-redirect="true"></div>
+          <div className="formrun-embed" data-formrun-form="@biz-org-fv" data-formrun-redirect="true"></div>
         </div>
       </aside>
 
