@@ -339,6 +339,20 @@ function stripStaleGtm(html: string) {
   );
 }
 
+// Google Fonts(@import) のレンダーブロック解消。
+// CSS の @import は描画前に必ず取得され render-blocking（低速回線で~780ms）。
+// preconnect ＋ 非同期 <link>(media=print onload) に置換しクリティカルパスから外す。
+// 既に display=swap 付きなのでテキストはフォールバックで即表示→Work Sansへ差し替え。
+function optimizeFonts(html: string) {
+  return html.replace(
+    /<style[^>]*>@import url\(['"]?(https:\/\/fonts\.googleapis\.com\/css2[^'")]+)['"]?\);?<\/style>/g,
+    (_m, url) =>
+      `<link rel="preconnect" href="https://fonts.googleapis.com">` +
+      `<link rel="stylesheet" href="${url}" media="print" onload="this.media='all';this.onload=null">` +
+      `<noscript><link rel="stylesheet" href="${url}"></noscript>`,
+  );
+}
+
 // Pinterest タグ(token_create.js + core.js + main.<hash>.js, 計~120KB, pintrk/epik)を削除。
 // ユーザー承認済み。インラインで pintrk() を呼ぶ箇所は無いため副作用なし。
 function stripPinterest(html: string) {
@@ -388,20 +402,22 @@ function deferNonCriticalCss(html: string, relativePath: string) {
 
 export async function staticHtmlResponse(relativePath: string) {
   const [html, chrome] = await Promise.all([readStaticHtml(relativePath), loadChrome()]);
-  const out = deferNonCriticalCss(
-    injectLcpPreload(
-      stripPinterest(
-        stripStaleGtm(
-          optimizeJs(
-            injectCarouselFix(
-              injectHeadingWeight(injectAnalytics(injectChrome(html, chrome), relativePath)),
+  const out = optimizeFonts(
+    deferNonCriticalCss(
+      injectLcpPreload(
+        stripPinterest(
+          stripStaleGtm(
+            optimizeJs(
+              injectCarouselFix(
+                injectHeadingWeight(injectAnalytics(injectChrome(html, chrome), relativePath)),
+              ),
+              relativePath,
             ),
-            relativePath,
           ),
         ),
       ),
+      relativePath,
     ),
-    relativePath,
   );
   return new Response(out, { headers });
 }
