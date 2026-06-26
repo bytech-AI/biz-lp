@@ -339,9 +339,19 @@ function stripStaleGtm(html: string) {
   );
 }
 
+// Pinterest タグ(token_create.js + core.js + main.<hash>.js, 計~120KB, pintrk/epik)を削除。
+// ユーザー承認済み。インラインで pintrk() を呼ぶ箇所は無いため副作用なし。
+function stripPinterest(html: string) {
+  return html.replace(
+    /<script\b[^>]*\bsrc="[^"]*\/(?:token_create\.js|core\.js|main\.[0-9a-f]+\.js)"[^>]*><\/script>/g,
+    "",
+  );
+}
+
 export async function staticHtmlResponse(relativePath: string) {
   const [html, chrome] = await Promise.all([readStaticHtml(relativePath), loadChrome()]);
   const out = injectLcpPreload(
+    stripPinterest(
     stripStaleGtm(
       optimizeJs(
         injectCarouselFix(
@@ -349,6 +359,7 @@ export async function staticHtmlResponse(relativePath: string) {
         ),
         relativePath,
       ),
+    ),
     ),
   );
   return new Response(out, { headers });
