@@ -348,6 +348,31 @@ function stripStaleGtm(html: string) {
   );
 }
 
+// ページ自前の即時GTMスニペット(googletagmanager.com/gtm.js を即ロード)を、
+// dataLayer は即初期化(イベントはキューされ取りこぼさない)しつつ gtm.js 本体の取得を
+// 初回操作 or 3.5秒まで遅延する版に置換。マスター系コースページは自前GTMを持つため
+// injectAnalytics の遅延GTMが当たらず即時実行されていた → これで全ページのGTMが遅延。
+// 既に遅延版(loaded=false / L=false)は触らない（冪等）。GTMユーザー承認済み。
+function deferOwnGtm(html: string) {
+  return html.replace(
+    /<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g,
+    (full, body) => {
+      if (!/w\[l\]\.push\(\{\s*['"]gtm\.start['"]/.test(body)) return full;
+      if (!/googletagmanager\.com\/gtm\.js/.test(body)) return full;
+      if (/loaded\s*=\s*false|var L=false/.test(body)) return full; // 既に遅延版
+      const idM = body.match(/['"](GTM-[A-Z0-9]+)['"]/);
+      if (!idM) return full;
+      return (
+        `<script>(function(w,d,s,l,i){w[l]=w[l]||[];var L=false;function load(){if(L)return;L=true;` +
+        `w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);` +
+        `j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;f.parentNode.insertBefore(j,f);}` +
+        `var ev=['scroll','mousemove','touchstart','keydown','pointerdown'];function go(){ev.forEach(function(e){w.removeEventListener(e,go);});load();}` +
+        `ev.forEach(function(e){w.addEventListener(e,go,{passive:true});});w.setTimeout(load,3500);})(window,document,'script','dataLayer','${idM[1]}');</script>`
+      );
+    },
+  );
+}
+
 // Google Fonts(@import) のレンダーブロック解消。
 // CSS の @import は描画前に必ず取得され render-blocking（低速回線で~780ms）。
 // preconnect ＋ 非同期 <link>(media=print onload) に置換しクリティカルパスから外す。
@@ -451,6 +476,7 @@ export async function staticHtmlResponse(relativePath: string) {
   const out = await inlineBlockingCss(
     optimizeFonts(
       injectLcpPreload(
+        deferOwnGtm(
         delayClarity(
         stripPinterest(
           stripStaleGtm(
@@ -461,6 +487,7 @@ export async function staticHtmlResponse(relativePath: string) {
               relativePath,
             ),
           ),
+        ),
         ),
         ),
       ),
