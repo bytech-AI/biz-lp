@@ -348,19 +348,60 @@ function stripPinterest(html: string) {
   );
 }
 
+// support 限定: 非クリティカルCSS（アイコンフォント/widget/carousel/未使用フォント等）を
+// 非ブロック化して FCP/LCP を短縮する。media="print"+onload で render-blocking を外す
+// 標準パターン（onload はパース時に登録されるためキャッシュ時の load 取りこぼしも無い）。
+// 本文フォント・レイアウト基幹（frontend / main.min / global / general / notosansjp / roboto /
+// site-header-footer / widget-heading / widget-image）は据え置きで FOUC / CLS を回避する。
+const SUPPORT_NONCRITICAL_CSS = [
+  "fontawesome.css",
+  "brands.css",
+  "solid.css",
+  "builder-icons.min.css",
+  "swiper.min.css", // e-swiper.min.css も包含
+  "widget-image-carousel.min.css",
+  "widget-divider.min.css",
+  "widget-icon-list.min.css",
+  "widget-social-icons.min.css",
+  "widget-menu-anchor.min.css",
+  "shapes.min.css",
+  "reemkufi.css",
+  "reemkufifun.css",
+  "robotoslab.css",
+];
+
+function deferNonCriticalCss(html: string, relativePath: string) {
+  if (!relativePath.startsWith("support-static")) {
+    return html;
+  }
+  return html.replace(/<link\b[^>]*\brel="stylesheet"[^>]*>/g, (tag) => {
+    if (!/\bmedia="all"/.test(tag) || /\bonload=/.test(tag)) {
+      return tag;
+    }
+    const href = tag.match(/\bhref="([^"]*)"/)?.[1] ?? "";
+    if (!SUPPORT_NONCRITICAL_CSS.some((name) => href.includes(name))) {
+      return tag;
+    }
+    return tag.replace(/\bmedia="all"/, "media=\"print\" onload=\"this.media='all'\"");
+  });
+}
+
 export async function staticHtmlResponse(relativePath: string) {
   const [html, chrome] = await Promise.all([readStaticHtml(relativePath), loadChrome()]);
-  const out = injectLcpPreload(
-    stripPinterest(
-    stripStaleGtm(
-      optimizeJs(
-        injectCarouselFix(
-          injectHeadingWeight(injectAnalytics(injectChrome(html, chrome), relativePath)),
+  const out = deferNonCriticalCss(
+    injectLcpPreload(
+      stripPinterest(
+        stripStaleGtm(
+          optimizeJs(
+            injectCarouselFix(
+              injectHeadingWeight(injectAnalytics(injectChrome(html, chrome), relativePath)),
+            ),
+            relativePath,
+          ),
         ),
-        relativePath,
       ),
     ),
-    ),
+    relativePath,
   );
   return new Response(out, { headers });
 }
