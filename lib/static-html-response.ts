@@ -324,14 +324,31 @@ function injectLcpPreload(html: string) {
   return html.slice(0, idx) + link + html.slice(idx);
 }
 
+// ローカルに保存された旧GTMコンテナ(js / js(1) / js(2) / gtm.js, 計~1.7MB)を削除。
+// これらは WP エクスポート時に焼き付いた静止スナップショットで、同じコンテナ
+// (GTM-K6HH9C2F) をライブのGTM(googletagmanager.com/gtm.js)が別途取得するため完全に
+// 重複（二重計測の原因にもなっていた）。低速回線で帯域を占有しヒーロー画像(LCP)を
+// 遅らせていた主因。ライブGTMが在るページでのみ削除し計測は維持する。
+function stripStaleGtm(html: string) {
+  if (!html.includes("googletagmanager.com/gtm.js")) {
+    return html;
+  }
+  return html.replace(
+    /<script\b[^>]*\bsrc="[^"]*\/(?:js|js\(1\)|js\(2\)|gtm\.js)"[^>]*><\/script>/g,
+    "",
+  );
+}
+
 export async function staticHtmlResponse(relativePath: string) {
   const [html, chrome] = await Promise.all([readStaticHtml(relativePath), loadChrome()]);
   const out = injectLcpPreload(
-    optimizeJs(
-      injectCarouselFix(
-        injectHeadingWeight(injectAnalytics(injectChrome(html, chrome), relativePath)),
+    stripStaleGtm(
+      optimizeJs(
+        injectCarouselFix(
+          injectHeadingWeight(injectAnalytics(injectChrome(html, chrome), relativePath)),
+        ),
+        relativePath,
       ),
-      relativePath,
     ),
   );
   return new Response(out, { headers });
