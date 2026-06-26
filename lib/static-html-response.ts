@@ -100,9 +100,13 @@ function injectCarouselFix(html: string) {
 // 解析タグ（GTM + Ahrefs）。<head> 直後に注入する。geek / career は除外（biz は別ルートなので対象外）。
 // 既に同じものがあるページ（旧マスター系は GTM 内包済み）には、無いものだけ足す。
 const ANALYTICS_EXCLUDE = ["geek-static", "career-static"];
+// GTM は GA4×4 で ~810KB の JS を実行し、低速端末でメインスレッドを長時間占有して
+// FCP/TBT を律速していた。dataLayer は即初期化（イベントはキューされ取りこぼさない）し、
+// gtm.js 本体の取得だけを「初回ユーザー操作 or 3.5秒」まで遅延して初期描画を空ける。
+// 計測は維持（pageview が操作/3.5秒まで僅かに遅れるのみ）。ユーザー承認済み。
 const GTM_HTML =
-  "\n<!-- Google Tag Manager -->\n" +
-  "<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-K6HH9C2F');</script>\n" +
+  "\n<!-- Google Tag Manager (defer until interaction/idle for perf) -->\n" +
+  "<script>(function(w,d,s,l,i){w[l]=w[l]||[];var loaded=false;function load(){if(loaded)return;loaded=true;w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;f.parentNode.insertBefore(j,f);}var ev=['scroll','mousemove','touchstart','keydown','pointerdown'];function go(){ev.forEach(function(e){w.removeEventListener(e,go);});load();}ev.forEach(function(e){w.addEventListener(e,go,{passive:true});});w.setTimeout(load,3500);})(window,document,'script','dataLayer','GTM-K6HH9C2F');</script>\n" +
   "<!-- End Google Tag Manager -->\n";
 const AHREFS_HTML =
   '<script src="https://analytics.ahrefs.com/analytics.js" data-key="aZ898U8dJ/4/mdj4DgCDyg" async></script>\n';
@@ -310,7 +314,12 @@ function injectLcpPreload(html: string) {
     "elementor-element-" + idMatch[1] + "[^{]*\\{[^}]*?background-image:\\s*url\\(\\s*\"?([^\")]+\\.(?:webp|jpe?g|png))\"?\\s*\\)",
     "i",
   );
-  const bg = html.match(bgRe);
+  // WP Rocket の遅延背景(--wpr-bg-XXX: url('...')) でヒーローを指定するページ(passport等)も対応
+  const wprRe = new RegExp(
+    "elementor-element-" + idMatch[1] + "[^{]*\\{[^}]*?--wpr-bg[^:]*:\\s*url\\(\\s*['\"]?([^'\")]+\\.(?:webp|jpe?g|png))['\"]?\\s*\\)",
+    "i",
+  );
+  const bg = html.match(bgRe) || html.match(wprRe);
   if (!bg) {
     return html;
   }
