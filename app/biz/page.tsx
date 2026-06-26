@@ -1425,15 +1425,26 @@ export default function BizPage() {
         </div>
       </footer>
 
-      {/* External Scripts — ネイティブ<script defer>でDOM順に実行（next/scriptはNext16でinline評価が壊れ全スクリプト未実行になるため不使用）。revealFx は main.js 内で定義されるため別ファイル参照は削除。 */}
-      <script defer src="/biz/assets/js/jquery-3.7.1.min.js" />
-      {/* 以下は/bizで未使用のため削除しTBT/DLを削減:
-          - lottie-web: アニメ対象 .lottie-cta-robot が存在せず何も描画しない(約393msのJS実行=TBT最大要因)
-          - jquery-cookie / scrollMonitor: コード内で一切呼ばれていない */}
-      <script defer src="/biz/assets/slick/slick.min.js" />
-      <script defer src="/biz/assets/js/anime.min.js" />
-      <script defer src="/biz/assets/js/main.js" />
-      <script defer src="/biz/assets/js/scripts.js" />
+      {/* TBT削減: 重い外部JS(jquery 87KB/slick/anime/main/scripts)を「初回操作 or 4秒」まで
+          遅延ロード。ただし .fadein のreveal(本来 scripts.js の jQuery製 revealOnScroll が is-show を
+          付与)は遅延すると初期非表示(opacity:0)のままFVが空白になるため、軽量 vanilla の
+          IntersectionObserver で即時に is-show を付与して肩代わりする（scripts.js側の revealOnScroll は
+          is-show 既付与で no-op、slick初期化インラインは jQuery.fn.slick をポーリング待ちで自動実行）。
+          順序保持のため遅延ロードは async=false で逐次。 */}
+      <script dangerouslySetInnerHTML={{ __html: `(function(){
+  function reveal(){
+    var els=document.querySelectorAll('.fadein');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('is-show');});return;}
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-show');io.unobserve(e.target);}});},{rootMargin:'0px 0px -100px 0px'});
+    els.forEach(function(el){io.observe(el);});
+  }
+  if(document.readyState!=='loading')reveal();else document.addEventListener('DOMContentLoaded',reveal);
+  var srcs=['/biz/assets/js/jquery-3.7.1.min.js','/biz/assets/slick/slick.min.js','/biz/assets/js/anime.min.js','/biz/assets/js/main.js','/biz/assets/js/scripts.js'];
+  var fired=false;
+  function load(){if(fired)return;fired=true;srcs.forEach(function(src){var s=document.createElement('script');s.src=src;s.async=false;document.head.appendChild(s);});}
+  ['scroll','mousemove','touchstart','keydown','click','pointerdown'].forEach(function(e){window.addEventListener(e,load,{once:true,passive:true});});
+  setTimeout(load,4000);
+})();` }} />
       {/* サイド固定フォームは直接iframe埋め込みに変更したため formrun SDK は不要。 */}
       <script dangerouslySetInnerHTML={{ __html: `
         (function(){
