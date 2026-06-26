@@ -362,6 +362,19 @@ function stripPinterest(html: string) {
   );
 }
 
+// ローカルに焼き付いた旧Clarity(clarity.js 27KB + mz1ijhnnae)を削除。
+// 実際のセッション録画は GTM の Microsoft Clarity タグ(www.clarity.ms/tag/mz1ijhnnae)が
+// 担っており、ローカルの2本は同一プロジェクトの重複コピー（initiator解析で確認）。
+// 二重ロード/二重計測を解消し初期負荷を軽くする（録画はGTM側で維持）。
+// ※GTM経由のClarityを「初回操作まで遅延」するには GTM側でタグのトリガーをスクロール等に
+//   変更する必要がある（コードからは制御不可）。
+function delayClarity(html: string) {
+  return html.replace(
+    /<script\b[^>]*\bsrc="[^"]*\/(?:clarity\.js|mz1ijhnnae)"[^>]*><\/script>/g,
+    "",
+  );
+}
+
 // support 限定: ローカルの render-blocking CSS を <style> インライン化し、
 // クリティカルパス上の CSS 往復（21本 / 低速4Gで~4.9s）を完全に消す（Lighthouse 推奨の「インライン化」）。
 // インライン時、相対 url() が文書 base 基準になり壊れるため、各CSSの配置dir基準で絶対パス化する。
@@ -429,6 +442,7 @@ export async function staticHtmlResponse(relativePath: string) {
   const out = await inlineBlockingCss(
     optimizeFonts(
       injectLcpPreload(
+        delayClarity(
         stripPinterest(
           stripStaleGtm(
             optimizeJs(
@@ -438,6 +452,7 @@ export async function staticHtmlResponse(relativePath: string) {
               relativePath,
             ),
           ),
+        ),
         ),
       ),
     ),
