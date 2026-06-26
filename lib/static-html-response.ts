@@ -203,13 +203,73 @@ function injectAnalytics(html: string, relativePath: string) {
   return out;
 }
 
-// レンダーブロッキングな JS を非ブロック化。
-// 方針: jQuery を含む全ての同期外部script を defer 化する。defer は「パース後・
-// 文書順で実行」なので、jQuery→Elementor/eael ハンドラ→… の依存順序がそのまま保たれ、
-// メニュー/FAQ 等の挙動は不変のままレンダーブロックだけ解消できる。
-// ただし jQuery を同期利用するインラインJS（id=jquery-js-after / eael-inline-js 等）は
-// パース時に走ると defer された jQuery 未定義で壊れるため、DOMContentLoaded 包みにして
-// 全 defer script の後で実行させる。token_create(Pinterest) は async のまま。
+// 共有ヘッダー(public/_shared)を使うページでは、可視のメニューは共有chromeの
+// 自前 vanilla JS が担っており、WP/Elementor/jQuery の menu/HFE JS は旧ヘッダー（非表示）の
+// 残骸で不要。残る WP-JS 依存の可視機能は「FAQ(eael)アコーディオン」と「スクロール連動
+// (#footerCta 浮遊CTA / reading-progress / scroll-to-top / js-header色)」のみ。
+// そこで WP/Elementor/jQuery JS を全削除し、それらの挙動だけ軽量 vanilla で再現する。
+// → メインスレッドを占有していた大量JSが消え LCP/TBT が大幅改善（見た目・挙動は不変）。
+const WP_JS_IDS =
+  "jquery-core-js|jquery-migrate-js|jquery-ui-core-js|font-awesome-4-shim-js|astra-theme-js-js|eael-general-js|eael-\\d+-js|elementor-webpack-runtime-js|elementor-frontend-modules-js|elementor-frontend-js|hfe-frontend-js-js|swiper-js";
+const WP_INLINE_IDS = "jquery-js-after|eael-inline-js";
+
+const INTERACTIVE_VANILLA = `<script id="bt-interactive">(function(){
+function ready(fn){if(document.readyState!=='loading')fn();else document.addEventListener('DOMContentLoaded',fn);}
+ready(function(){
+  // FAQ(eael)アコーディオン再現: クリックで他を閉じ対象をトグル
+  var heads=[].slice.call(document.querySelectorAll('.eael-accordion-header'));
+  function cont(h){var c=h.nextElementSibling;return (c&&c.classList&&c.classList.contains('eael-accordion-content'))?c:null;}
+  heads.forEach(function(h){var c=cont(h);if(c)c.style.display='none';h.classList.remove('active','show-this');});
+  heads.forEach(function(h){h.addEventListener('click',function(e){e.preventDefault();
+    var willOpen=!h.classList.contains('active');
+    heads.forEach(function(o){o.classList.remove('active','show-this');var oc=cont(o);if(oc)oc.style.display='none';});
+    if(willOpen){h.classList.add('active','show-this');var c=cont(h);if(c)c.style.display='block';}
+  });});
+  // スクロール連動: #footerCta(浮遊CTA) / reading-progress / scroll-to-top / .js-header色
+  var fc=document.getElementById('footerCta');
+  var bar=document.querySelector('.hfe-reading-progress-bar');
+  var stt=document.querySelector('.hfe-scroll-to-top-wrap');
+  var jsHeader=document.querySelector('.js-header');
+  var fv=document.querySelector('.fv');
+  function onScroll(){
+    var y=window.pageYOffset||document.documentElement.scrollTop||0;
+    if(fc){if(y>=200){fc.classList.remove('DownMove');fc.classList.add('UpMove');}else if(fc.classList.contains('UpMove')){fc.classList.remove('UpMove');fc.classList.add('DownMove');}}
+    if(bar){var d=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(d?(y/d*100):0)+'%';}
+    if(stt){stt.style.display=y<100?'none':'';}
+    if(jsHeader&&fv){if(fv.offsetHeight<y)jsHeader.classList.add('change-color');else jsHeader.classList.remove('change-color');}
+  }
+  if(stt)stt.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+});
+})();</script>`;
+
+const JS_STRIP_EXCLUDE = ["career-static", "geek-static"];
+
+function stripWpJsAndReproduce(html: string) {
+  let out = html
+    .replace(new RegExp(`<script\\b[^>]*\\bid="(?:${WP_JS_IDS})"[^>]*></script>`, "g"), "")
+    .replace(new RegExp(`<script\\b[^>]*\\bid="(?:${WP_INLINE_IDS})"[^>]*>[\\s\\S]*?</script>`, "g"), "");
+  out = out.includes("</body>")
+    ? out.replace("</body>", `${INTERACTIVE_VANILLA}</body>`)
+    : `${out}${INTERACTIVE_VANILLA}`;
+  return out;
+}
+
+// 共有ヘッダー(可視メニューが vanilla)かつ WP jQuery を積むページのみ全削除可。
+// 共有ヘッダー未使用(counseling 等)や別デザイン(career/geek)は従来の defer 化に留める。
+function optimizeJs(html: string, relativePath: string) {
+  const usesSharedChrome = html.includes("bt-site-header");
+  const hasWpJq = /jquery\.min\.js/.test(html);
+  const excluded = JS_STRIP_EXCLUDE.some((p) => relativePath.startsWith(p));
+  if (usesSharedChrome && hasWpJq && !excluded) {
+    return stripWpJsAndReproduce(html);
+  }
+  return optimizeBlockingJs(html);
+}
+
+// レンダーブロッキングな JS を非ブロック化（共有ヘッダー未使用ページ向けフォールバック）。
+// jQuery を含む全同期外部scriptを defer 化（文書順実行で依存順序を保持）、jQuery を
+// 同期利用するインラインは DOMContentLoaded 包みで defer 後に実行。
 function optimizeBlockingJs(html: string) {
   let out = html;
   // Pinterest タグは async（トラッキングなので非ブロックで十分）
@@ -267,10 +327,11 @@ function injectLcpPreload(html: string) {
 export async function staticHtmlResponse(relativePath: string) {
   const [html, chrome] = await Promise.all([readStaticHtml(relativePath), loadChrome()]);
   const out = injectLcpPreload(
-    optimizeBlockingJs(
+    optimizeJs(
       injectCarouselFix(
         injectHeadingWeight(injectAnalytics(injectChrome(html, chrome), relativePath)),
       ),
+      relativePath,
     ),
   );
   return new Response(out, { headers });
