@@ -19,8 +19,10 @@ export default function BizPage() {
       <link rel="stylesheet" href="/biz/assets/slick/slick-theme.css" media="print" data-async-css="1" />
       <script dangerouslySetInnerHTML={{ __html: `
         document.querySelectorAll('link[data-async-css]').forEach(function(l){
-          l.addEventListener('load', function(){ l.media = 'all'; }, { once: true });
-          if (l.sheet) l.media = 'all';
+          var swap = function(){ l.media = 'all'; };
+          if (l.sheet) swap();
+          else l.addEventListener('load', swap, { once: true });
+          setTimeout(swap, 0); // キャッシュ時にloadを取りこぼしてもmedia=printのまま残らないよう保険
         });
       ` }} />
       <style dangerouslySetInnerHTML={{ __html: `
