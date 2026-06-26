@@ -362,21 +362,86 @@ function stripPinterest(html: string) {
   );
 }
 
+// support 限定: ローカルの render-blocking CSS を <style> インライン化し、
+// クリティカルパス上の CSS 往復（21本 / 低速4Gで~4.9s）を完全に消す（Lighthouse 推奨の「インライン化」）。
+// インライン時、相対 url() が文書 base 基準になり壊れるため、各CSSの配置dir基準で絶対パス化する。
+// 使用中CSSをそのままインライン＝全スタイルが初回描画時に揃うので CLS は発生しない。
+// 外部CSS(Google Fonts 等)や既に非同期化済み(media=print/onload)の link は対象外。
+const cssFileCache = new Map<string, string>();
+
+function absolutizeCssUrls(css: string, baseDir: string): string {
+  return css.replace(/url\(\s*(['"]?)([^'")]+)\1\s*\)/g, (m, quote: string, raw: string) => {
+    const u = raw.trim();
+    if (/^(?:https?:|data:|\/|#)/.test(u)) {
+      return m;
+    }
+    return `url(${quote}${baseDir}${u}${quote})`;
+  });
+}
+
+async function readInlineCss(href: string): Promise<string | null> {
+  const clean = href.split(/[?#]/)[0];
+  if (!clean.startsWith("/support-static/") && !clean.startsWith("/_shared/")) {
+    return null;
+  }
+  const cached = cssFileCache.get(clean);
+  if (cached !== undefined) {
+    return cached;
+  }
+  try {
+    const css = await readPublic(clean.slice(1));
+    const baseDir = clean.slice(0, clean.lastIndexOf("/") + 1);
+    // </style> がCSS内に現れた場合のみ無害化（通常は発生しない）
+    const out = absolutizeCssUrls(css, baseDir).replace(/<\/style/gi, "<\\/style");
+    if (!isDev) {
+      cssFileCache.set(clean, out);
+    }
+    return out;
+  } catch {
+    return null;
+  }
+}
+
+async function inlineBlockingCss(html: string, relativePath: string): Promise<string> {
+  if (!relativePath.startsWith("support-static")) {
+    return html;
+  }
+  const tags = Array.from(new Set(html.match(/<link\b[^>]*\brel="stylesheet"[^>]*>/g) ?? []));
+  for (const tag of tags) {
+    if (/\bonload=/.test(tag) || /\bmedia="print"/.test(tag)) {
+      continue; // 非同期化済み(フォント等)はそのまま
+    }
+    const href = tag.match(/\bhref="([^"]*)"/)?.[1];
+    if (!href) {
+      continue;
+    }
+    const css = await readInlineCss(href);
+    if (css == null) {
+      continue;
+    }
+    html = html.split(tag).join(`<style>${css}</style>`);
+  }
+  return html;
+}
+
 export async function staticHtmlResponse(relativePath: string) {
   const [html, chrome] = await Promise.all([readStaticHtml(relativePath), loadChrome()]);
-  const out = optimizeFonts(
-    injectLcpPreload(
-      stripPinterest(
-        stripStaleGtm(
-          optimizeJs(
-            injectCarouselFix(
-              injectHeadingWeight(injectAnalytics(injectChrome(html, chrome), relativePath)),
+  const out = await inlineBlockingCss(
+    optimizeFonts(
+      injectLcpPreload(
+        stripPinterest(
+          stripStaleGtm(
+            optimizeJs(
+              injectCarouselFix(
+                injectHeadingWeight(injectAnalytics(injectChrome(html, chrome), relativePath)),
+              ),
+              relativePath,
             ),
-            relativePath,
           ),
         ),
       ),
     ),
+    relativePath,
   );
   return new Response(out, { headers });
 }
