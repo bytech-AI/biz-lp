@@ -426,9 +426,16 @@ function absolutizeCssUrls(css: string, baseDir: string): string {
   });
 }
 
+// CSS インライン化対象ページ（死CSS削除で残CSSが小さくインライン化がCLS無しで有効なページ）。
+const INLINE_CSS_PAGES = ["support-static", "counseling-static"];
+
 async function readInlineCss(href: string): Promise<string | null> {
   const clean = href.split(/[?#]/)[0];
-  if (!clean.startsWith("/support-static/") && !clean.startsWith("/_shared/")) {
+  if (
+    !clean.startsWith("/support-static/") &&
+    !clean.startsWith("/counseling-static/") &&
+    !clean.startsWith("/_shared/")
+  ) {
     return null;
   }
   const cached = cssFileCache.get(clean);
@@ -450,7 +457,7 @@ async function readInlineCss(href: string): Promise<string | null> {
 }
 
 async function inlineBlockingCss(html: string, relativePath: string): Promise<string> {
-  if (!relativePath.startsWith("support-static")) {
+  if (!INLINE_CSS_PAGES.some((p) => relativePath.startsWith(p))) {
     return html;
   }
   const tags = Array.from(new Set(html.match(/<link\b[^>]*\brel="stylesheet"[^>]*>/g) ?? []));
