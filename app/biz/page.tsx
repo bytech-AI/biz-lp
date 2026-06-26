@@ -804,7 +804,7 @@ export default function BizPage() {
                   <li><strong>受講対象者</strong>：新任担当者、中堅層</li>
                   <li><strong>目的</strong>：画像・動画AI技術を活用した業務効率化スキル向上</li>
                   <li><strong>受講方法</strong>：ブレンディッドラーニング形式（eラーニングとオンラインによる同時双方向型ライブ研修の組み合わせ）</li>
-                  <li><strong>訓練時間</strong>：合計22時間48分（eラーニング: 13時間48分、オンライン研修: 9時間）</li>
+                  <li><strong>訓練時間</strong>：合計23時間44分（eラーニング: 14時間44分、オンライン研修: 9時間）</li>
                   <li><strong>研修費</strong>：300,000円(税別)</li>
                 </ul>
                 <div className="index_course__curriculum">
@@ -812,68 +812,44 @@ export default function BizPage() {
                     <h4 className="index_course__section-title index_course__section-title--el">eラーニング</h4>
                     <div className="index_course__grid">
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>1, 生成AIの仕組みと活用シーンを理解する</div>
-                        <div className="index_course__lessons"><p>生成AIがどのように画像や文章を作り出すのか、基本的な仕組みをやさしく解説。ビジネスや日常での具体的な活用シーンを知り、全体像をつかみます。</p></div>
+                        <div className="index_course__grid-item" data-accordion>Midjourney入門（11レッスン／1時間42分）</div>
+                        <div className="index_course__lessons"><p>画像生成AI「Midjourney」の基本操作からプロンプト設計までを習得。狙ったイメージを高品質なビジュアルとして生成する基礎を身につけます。</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>2, プロンプトの基本と画像生成の基礎を学ぶ</div>
-                        <div className="index_course__lessons"><p>AIに指示を出す「プロンプト」の書き方の基本を習得。実際に画像を生成しながら、思い通りの結果を引き出す第一歩を体験します。</p></div>
+                        <div className="index_course__grid-item" data-accordion>Flux.1入門（13レッスン／1時間15分）</div>
+                        <div className="index_course__lessons"><p>高精度な画像生成モデル「Flux.1」の使い方を基礎から学習。リアルで緻密なビジュアル制作の手法を実践的に習得します。</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>3, 思い通りの画像を生成するプロンプト設計を学ぶ</div>
-                        <div className="index_course__lessons"><p>狙ったイメージを正確に出力するためのプロンプト設計テクニックを学習。語順や要素の組み合わせ方を理解し、再現性の高い指示を作れるようになります。</p></div>
+                        <div className="index_course__grid-item" data-accordion>Canva入門（19レッスン／2時間11分）</div>
+                        <div className="index_course__lessons"><p>デザインツール「Canva」の操作を体系的に習得。生成した画像の編集・レイアウト・装飾まで、実務レベルの成果物に仕上げます。</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>4, 構図・スタイル・色味のコントロール方法を習得する</div>
-                        <div className="index_course__lessons"><p>画像の構図や画風、カラートーンを自在に調整する方法を習得。細かなニュアンスまでコントロールし、完成度の高いビジュアルを作り出します。</p></div>
+                        <div className="index_course__grid-item" data-accordion>演習ワーク（初級）（3レッスン／14分）</div>
+                        <div className="index_course__lessons"><p>これまで学んだ画像生成スキルを使い、実際の制作課題に取り組む初級者向けの実践演習。手を動かしながら基礎を定着させます。</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>5, Midjourney / Stable Diffusion などの使い方を学ぶ</div>
-                        <div className="index_course__lessons"><p>代表的な画像生成ツールの操作方法を実践的に習得。それぞれの特徴や得意分野を理解し、目的に合わせて使いこなせるようになります。</p></div>
+                        <div className="index_course__grid-item" data-accordion>Stable Diffusion入門（16レッスン／1時間56分）</div>
+                        <div className="index_course__lessons"><p>オープンソースの画像生成AI「Stable Diffusion」の基礎と環境構築、基本的な生成方法を習得します。</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>6, 用途に応じたツールの使い分けを理解する</div>
-                        <div className="index_course__lessons"><p>数ある生成AIツールの中から、目的やシーンに最適なものを選ぶ判断力を養成。無駄なく効率的に成果を出すための使い分けを学びます。</p></div>
+                        <div className="index_course__grid-item" data-accordion>Nanobanana実践（12レッスン／1時間16分）</div>
+                        <div className="index_course__lessons"><p>画像編集AI「Nanobanana」を活用し、画像の加工・合成・編集を実践的に習得。生成画像をさらに思い通りに仕上げます。</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>7, Canvaなどで画像を編集・加工する</div>
-                        <div className="index_course__lessons"><p>生成した画像をCanvaなどのツールでさらに編集・加工する方法を習得。文字入れやレイアウト調整で、実用的なデザインに仕上げます。</p></div>
+                        <div className="index_course__grid-item" data-accordion>Stable Diffusion応用（11レッスン／1時間38分）</div>
+                        <div className="index_course__lessons"><p>ControlNetやLoRAなどの応用機能を使いこなし、狙い通りの画像生成・高度な制御技術を習得します。</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>8, 背景除去・合成・高画質化などの実践技術を学ぶ</div>
-                        <div className="index_course__lessons"><p>背景の切り抜きや画像合成、画質アップなどの実践的な編集技術を学習。素材を組み合わせてクオリティの高い成果物を制作します。</p></div>
+                        <div className="index_course__grid-item" data-accordion>AI動画ツールを触ってみよう（操作編）（2時間）</div>
+                        <div className="index_course__lessons"><p>AI動画制作の全体像をつかんだうえで、主要なAI動画生成ツールの基本操作を一通り体験。実際に手を動かしながら、各ツールの使い方を習得します。</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>9, 動画生成AIの仕組みと活用事例を理解する</div>
-                        <div className="index_course__lessons"><p>動画を自動生成するAIの仕組みを基礎から理解。広告やSNSなど実際の活用事例を通じて、動画生成AIの可能性を体感します。</p></div>
+                        <div className="index_course__grid-item" data-accordion>動画構成の基本を学ぼう（構成編）（43分）</div>
+                        <div className="index_course__lessons"><p>伝わる動画をつくるための構成・ストーリー設計の基本を学習。視聴者に届く動画の組み立て方を身につけます。</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>10, プロンプトと素材から動画を生成する基本を学ぶ</div>
-                        <div className="index_course__lessons"><p>テキストや画像素材から動画を生み出す基本操作を習得。プロンプトの組み立て方を学び、初めてでも動画制作にチャレンジできます。</p></div>
-                      </div>
-                      <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>11, Runway / Pika / Luma AI などの使い方を学ぶ</div>
-                        <div className="index_course__lessons"><p>主要な動画生成ツールの使い方を実践的に習得。各ツールの強みを理解し、表現したい映像に合わせて選んで活用できるようになります。</p></div>
-                      </div>
-                      <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>12, テキスト・画像から動画を生成する方法を習得する</div>
-                        <div className="index_course__lessons"><p>文章や1枚の画像をもとに動画を作り出す手法を習得。静止素材に動きを加え、印象的なモーションコンテンツへと変換します。</p></div>
-                      </div>
-                      <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>13, 画像・動画を組み合わせたコンテンツを制作する</div>
-                        <div className="index_course__lessons"><p>生成した画像と動画を組み合わせ、一つの作品としてまとめる制作スキルを習得。複数の素材を統合し表現の幅を広げます。</p></div>
-                      </div>
-                      <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>14, SNS投稿・広告・プレゼン資料など実務に活用する</div>
-                        <div className="index_course__lessons"><p>学んだスキルをSNS投稿や広告、プレゼン資料など実際の業務に応用。成果につながるアウトプットの作り方を実践的に学びます。</p></div>
-                      </div>
-                      <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>15, 著作権・利用規約・商用利用のルールを理解する</div>
-                        <div className="index_course__lessons"><p>生成AIを使う上で欠かせない著作権や利用規約、商用利用の注意点を学習。トラブルを避け、安心して活用するための知識を身につけます。</p></div>
-                      </div>
-                      <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>16, 安全に活用するためのリスクと対策を学ぶ</div>
-                        <div className="index_course__lessons"><p>情報漏えいや誤情報などAI活用に潜むリスクを理解し、その対策を習得。安全かつ責任を持ってAIを使いこなす姿勢を養います。</p></div>
+                        <div className="index_course__grid-item" data-accordion>AIへの指示の出し方（応用編）（56分）</div>
+                        <div className="index_course__lessons"><p>意図通りの映像を生成するためのプロンプト設計・指示出しの応用テクニックを習得。表現の幅を広げます。</p></div>
                       </div>
                     </div>
                   </div>
@@ -943,64 +919,68 @@ export default function BizPage() {
                     <h4 className="index_course__section-title index_course__section-title--el">eラーニング</h4>
                     <div className="index_course__grid">
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>1. ノーコード自動化の全体像とMakeの仕組みを理解する</div>
-                        <div className="index_course__lessons"><p>Makeで何ができるのかを把握し、シナリオ・モジュール・トリガーといった基本構造を理解。自動化を自分で組み立てる土台を固めます。</p></div>
+                        <div className="index_course__grid-item" data-accordion>Make基礎（8レッスン／42分）</div>
+                        <div className="index_course__lessons"><p>ユニット概要／なぜ自動化するのか？／本ユニットで使用するSNSツール／アカウント登録／Googleセキュリティ設定方法／シナリオテンプレートについて／最初のシナリオ作成方法／Makeの基礎おさらい</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>2. GmailとSlackを連携し、通知を自動化する</div>
-                        <div className="index_course__lessons"><p>メール受信をトリガーに、内容を自動でSlackへ通知するフローを構築。実務に近い形で外部サービス連携の流れを習得します。</p></div>
+                        <div className="index_course__grid-item" data-accordion>Make実践①｜GmailとSlackの連携（9レッスン／1時間11分）</div>
+                        <div className="index_course__lessons"><p>Makeを実装してみる／GmailとSlackを連携させる準備／フィルターの実装／フィルター機能の応用（添付されたメールを感知）／届いたメールの添付資料を自動でGoogleDriveへ保存する／フィルター機能の用途解説／分岐点を作る／スケジューリング／フィルターメールでデータの保存方法を自動化する</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>3. 日付計算を使った定期通知の仕組みを作る</div>
-                        <div className="index_course__lessons"><p>締切までの残り日数などを計算し、Slackへ定期的に自動通知する仕組みを作成。実用的な自動化パターンを身につけます。</p></div>
+                        <div className="index_course__grid-item" data-accordion>Make実践②｜Slackへ日数を自動通知（3レッスン／16分）</div>
+                        <div className="index_course__lessons"><p>バンドルと変数について／Makeの関数を扱う／日付の関数を実装する</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>4. Difyの基本操作とLLM接続設定を習得する</div>
-                        <div className="index_course__lessons"><p>画面構成や基本操作を理解し、主要LLMとの接続設定を行う。Difyを使いこなすための基礎をしっかり固めます。</p></div>
+                        <div className="index_course__grid-item" data-accordion>Dify基礎知識（10レッスン／55分）</div>
+                        <div className="index_course__lessons"><p>ユニット概要／Difyとは／アカウント登録とワークスペースの作成／画面構成と主要メニューの理解／「探索」機能を理解する／「スタジオ」機能を理解する／「ナレッジ」機能を理解する／「ツール」機能を理解する／「モデル」について理解する／「DSLファイル」について理解する</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>5. ワークフローで複数ステップの処理を設計する</div>
-                        <div className="index_course__lessons"><p>条件分岐やデータの受け渡しを組み合わせるワークフロー機能を習得。複雑な業務処理を自動化する設計力を養います。</p></div>
+                        <div className="index_course__grid-item" data-accordion>ワークフロー（14レッスン／2時間4分）</div>
+                        <div className="index_course__lessons"><p>ワークフローとは／基礎ブロック（開始・LLM・終了）／エージェントブロック／条件分岐ブロック（IF/ELSE）／質問分類器ブロック／知識検索ブロック／パラメーター抽出ブロック／コードブロック／イテレーションブロック／テンプレートブロック／変数集約ブロック／HTTPリクエストブロック／変数について／実行ログとデバッグ</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>6. チャットフローで対話型AIアプリを構築する</div>
-                        <div className="index_course__lessons"><p>会話形式で動作するチャットフローの作り方を習得。ユーザーとの対話を通じて動く、実用的なAIアプリを構築します。</p></div>
+                        <div className="index_course__grid-item" data-accordion>チャットフロー（2レッスン／17分）</div>
+                        <div className="index_course__lessons"><p>チャットフローとは／会話変数とメモリの管理</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>7. ナレッジを作成し、RAGの土台を構築する</div>
-                        <div className="index_course__lessons"><p>独自の資料やデータをナレッジとして登録する方法を学習。回答に根拠を持たせるRAGの基盤を構築します。</p></div>
+                        <div className="index_course__grid-item" data-accordion>ナレッジを作成する（5レッスン／35分）</div>
+                        <div className="index_course__lessons"><p>ナレッジ作成の基本／テキストファイルからナレッジを作成する／Notionからナレッジを作成する／Webサイトからナレッジを作成する／ナレッジの管理と更新</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>8. ツールを組み込みAIアプリの機能を拡張する</div>
-                        <div className="index_course__lessons"><p>Difyに用意された各種ツールをアプリに組み込む方法を習得。標準機能と連携させ、できることの幅を広げます。</p></div>
+                        <div className="index_course__grid-item" data-accordion>ツールを活用する（4レッスン／19分）</div>
+                        <div className="index_course__lessons"><p>ツール機能の基本／ビルトインツールを使う／アプリにツールを連携する／カスタムツールを作成する</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>9. ナレッジ検索の精度を向上させる</div>
-                        <div className="index_course__lessons"><p>チャンク設定や検索方式を調整し、ナレッジ検索の精度を高める手法を習得。狙った情報を正確に引き出す力を養います。</p></div>
+                        <div className="index_course__grid-item" data-accordion>応用編｜ナレッジの精度を向上させる（17レッスン／2時間1分）</div>
+                        <div className="index_course__lessons"><p>ナレッジの調整について／「チャンク設定」を理解する／「インデックスモード」を理解する／「埋め込みモデル」を理解する／検索設定の違いと特徴を理解する／「Rerankモデル」の調整方法／「トップK」の調整方法／「スコア閾値」の調整方法／「親子検索機能」を理解する／チャンク（知識データ）の編集方法／ナレッジパイプラインを作成する／ナレッジパイプライン機能：一般文書対応／長文書対応／Q&amp;A形式データ抽出／文書形式変換／インテリジェントQ&amp;A／ナレッジ検索をテストする</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>10. プロンプト・パラメータでモデルの精度を高める</div>
-                        <div className="index_course__lessons"><p>プロンプトやパラメータを最適化し、AIの回答精度を引き上げる手法を学習。出力の質を安定させるコツを身につけます。</p></div>
+                        <div className="index_course__grid-item" data-accordion>応用編｜モデルの精度を向上させる（8レッスン／56分）</div>
+                        <div className="index_course__lessons"><p>モデルの調整について／Temperature調整方法／Top P調整方法／Presence Penalty調整方法／Frequency Penalty調整方法／Max Tokens調整方法／Stop Sequence調整方法／response_format（応答形式）の調整方法</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>11. FAQチャットボットを構築する</div>
-                        <div className="index_course__lessons"><p>よくある質問に自動応答するFAQチャットボットを構築。学んだ基礎を組み合わせ、初めての実践アプリを完成させます。</p></div>
+                        <div className="index_course__grid-item" data-accordion>実践課題（初級）FAQチャットボットを作ってみよう（4レッスン／30分）</div>
+                        <div className="index_course__lessons"><p>課題概要：FAQチャットボットを作ってみよう／データ準備：FAQデータを登録する／チャットボットを構築しよう／公開とまとめ</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>12. カスタム関数で独自処理を実装する</div>
-                        <div className="index_course__lessons"><p>独自のカスタム関数を実装し、標準機能では難しい処理を実現。一歩踏み込んだカスタマイズの方法を体験します。</p></div>
+                        <div className="index_course__grid-item" data-accordion>実践課題（初級）カスタム関数を作ってみよう（3レッスン／20分）</div>
+                        <div className="index_course__lessons"><p>課題概要：カスタム関数を作ってみよう／スプレッドシートの設計とワークフローの構築／GASの実装と動作確認</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>13. MCPサーバーで外部生成AIツールと連携する</div>
-                        <div className="index_course__lessons"><p>MCPサーバーを介してDifyと外部AIツールを連携させる。ツール同士をつなぎ、活用の幅を大きく広げます。</p></div>
+                        <div className="index_course__grid-item" data-accordion>実践課題（中級）MCPサーバーでDifyと外部の生成AIツールを連携しよう（3レッスン／21分）</div>
+                        <div className="index_course__lessons"><p>課題概要：MCPでDifyと外部AIを連携させよう／ChatGPTとDifyをMCP連携する／ClaudeとDifyをMCP連携する</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>14. DifyでレシートOCR自動登録システムを構築する</div>
-                        <div className="index_course__lessons"><p>LINE・Make・Difyを組み合わせ、レシートを読み取り自動登録するシステムを構築。複数ツール連携の実力を磨きます。</p></div>
+                        <div className="index_course__grid-item" data-accordion>実践課題（上級）LINE×Make×Difyでレシート自動登録システムを構築しよう（5レッスン／1時間6分）</div>
+                        <div className="index_course__lessons"><p>課題概要：LINEとDifyとMakeを連携させよう／準備①：LINEの設定／準備②：Googleシートの下準備／Make連携：LINEとDifyをつなぐシナリオ構築／ワークフロー構築：OCR整形とデータ登録</p></div>
                       </div>
                       <div className="index_course__accordion">
-                        <div className="index_course__grid-item" data-accordion>15. マルチエージェントでnote記事を自動生成する</div>
-                        <div className="index_course__lessons"><p>複数のAIエージェントが協調して記事を自動生成する仕組みを設計。マルチエージェント構築の実践力を身につけます。</p></div>
+                        <div className="index_course__grid-item" data-accordion>実践課題（上級）マルチエージェントでnote記事を自動生成しよう（9レッスン／1時間14分）</div>
+                        <div className="index_course__lessons"><p>課題概要：マルチエージェントで記事を作ろう／必要なAPI設定と環境構築／エージェント1：リサーチャーを作成する／エージェント2：ライターを作成する（前半・後半）／エージェント3：エディターを作成する／エージェント4：デザイナーを作成する／統合：note記事作成エージェントを完成させる／実行テスト：記事生成からnote投稿まで</p></div>
+                      </div>
+                      <div className="index_course__accordion">
+                        <div className="index_course__grid-item" data-accordion>Difyマスター講座まとめ（6分）</div>
+                        <div className="index_course__lessons"><p>Difyマスター講座まとめ</p></div>
                       </div>
                     </div>
                   </div>
@@ -1507,6 +1487,32 @@ export default function BizPage() {
           }
           if(document.readyState !== 'loading'){ init(); }
           else { document.addEventListener('DOMContentLoaded', init); }
+        })();
+      ` }} />
+      {/* コースタブ切り替え＆アコーディオンをdocument委譲＋captureで処理。
+          scripts.js(jQuery)の直バインドはハイドレーション後に外れてローカルで効かないため、
+          captureで先取りしstopPropagationして本番scripts.jsとの二重発火も防ぐ。 */}
+      <script dangerouslySetInnerHTML={{ __html: `
+        (function(){
+          function handle(e){
+            var t = e.target;
+            if(!t || !t.closest) return;
+            var tabBtn = t.closest('.index_course__tab');
+            if(tabBtn){
+              e.stopPropagation();
+              var tab = tabBtn.getAttribute('data-tab');
+              document.querySelectorAll('.index_course__tab').forEach(function(b){ b.classList.toggle('active', b === tabBtn); });
+              document.querySelectorAll('.index_course__panel').forEach(function(p){ p.classList.toggle('active', p.id === 'panel-' + tab); });
+              return;
+            }
+            var item = t.closest('.index_course__grid-item[data-accordion]');
+            if(item){
+              e.stopPropagation();
+              var acc = item.closest('.index_course__accordion');
+              if(acc) acc.classList.toggle('active');
+            }
+          }
+          document.addEventListener('click', handle, true);
         })();
       ` }} />
     </>
