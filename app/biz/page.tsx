@@ -1192,6 +1192,121 @@ export default function BizPage() {
           </div>
         </section>
 
+        {/* ========== 関連サービス: AI顧問「AI参謀」への相談導線 ========== */}
+        <section className="biz-advisor-cta">
+          <div className="biz-advisor-cta__inner u-inner">
+            <div className="biz-advisor-cta__card fadein">
+              <div className="biz-advisor-cta__content">
+                <p className="biz-advisor-cta__lead"><span className="biz-advisor-cta__lead-mark">まだ研修の導入はちょっと...という方へ</span></p>
+                <h2 className="biz-advisor-cta__title">
+                  まずは、AIの<span className="biz-advisor-cta__hl">お悩み相談</span>から。
+                </h2>
+                <p className="biz-advisor-cta__sub">
+                  AI顧問サービス<span className="biz-advisor-cta__brand">「AI参謀」</span>が、貴社のAI活用を気軽にサポートします
+                </p>
+                <p className="biz-advisor-cta__desc">
+                  「何から始めれば？」「これ、AIでできる？」——そんな小さなお悩みこそ、お気軽に。<br className="pc-only" />
+                  各領域のAI専門家が、貴社のAI活用を一緒に考えます。
+                </p>
+                <a href="https://ai-bou.co.jp/ai-sanbo" className="biz-advisor-cta__btn" target="_blank" rel="noopener noreferrer">
+                  <span>AI顧問サービスを見てみる</span>
+                  <span className="biz-advisor-cta__arrow" aria-hidden="true">→</span>
+                </a>
+                <a href="/biz/doc-a" className="biz-advisor-cta__note">まずは資料ダウンロードへ</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <style dangerouslySetInnerHTML={{ __html: `
+          /* === 関連サービス AI参謀 相談CTA帯（ライト基調） === */
+          .biz-advisor-cta { padding: 64px 0; }
+          .biz-advisor-cta__inner { max-width: 1000px; padding-left: 20px; padding-right: 20px; }
+          .biz-advisor-cta__card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+            padding: 52px 48px;
+            background: linear-gradient(135deg, #eff4ff 0%, #f6f1ff 100%);
+            border: 1px solid #e4e9fa;
+          }
+          .biz-advisor-cta__content { position: relative; z-index: 1; text-align: center; }
+          .biz-advisor-cta__lead { margin: 0 0 22px; }
+          .biz-advisor-cta__lead-mark {
+            position: relative;
+            display: inline-block;
+            font-size: 13px; font-weight: 700; letter-spacing: .06em;
+            color: #2e6dc4;
+            background: #fff;
+            padding: 9px 20px;
+            border-radius: 999px;
+            filter: drop-shadow(0 4px 10px rgba(46, 109, 196, .22));
+          }
+          .biz-advisor-cta__lead-mark::after {
+            content: "";
+            position: absolute;
+            left: 50%; bottom: -7px;
+            transform: translateX(-50%);
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-top: 9px solid #fff;
+          }
+          .biz-advisor-cta__title {
+            margin: 0 0 14px;
+            color: #1c2540;
+            font-size: 30px; font-weight: 900; line-height: 1.5;
+          }
+          .biz-advisor-cta__hl {
+            color: #2e6dc4;
+            background: linear-gradient(transparent 62%, #d4e4ff 62%);
+            padding: 0 3px;
+          }
+          .biz-advisor-cta__sub {
+            margin: 0 0 18px;
+            color: #41496a;
+            font-size: 16px; font-weight: 700;
+          }
+          .biz-advisor-cta__brand { color: #2e6dc4; font-weight: 900; }
+          .biz-advisor-cta__desc {
+            margin: 0 auto 28px;
+            max-width: 680px;
+            color: #565d75;
+            font-size: 15px; line-height: 1.9;
+          }
+          .biz-advisor-cta__btn {
+            display: inline-flex; align-items: center; gap: 12px;
+            padding: 18px 44px;
+            background: linear-gradient(135deg, #2e6dc4 0%, #4a86e8 100%);
+            color: #fff;
+            font-size: 17px; font-weight: 800;
+            border-radius: 999px;
+            text-decoration: none;
+            box-shadow: 0 12px 24px -8px rgba(46, 109, 196, .6);
+            transition: transform .2s ease, box-shadow .2s ease;
+          }
+          .biz-advisor-cta__btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 30px -8px rgba(46, 109, 196, .7);
+          }
+          .biz-advisor-cta__arrow { font-size: 18px; transition: transform .2s ease; }
+          .biz-advisor-cta__btn:hover .biz-advisor-cta__arrow { transform: translateX(4px); }
+          .biz-advisor-cta__note {
+            display: block; width: fit-content; margin: 16px auto 0;
+            color: #5f6c8a; font-size: 13px; font-weight: 600;
+            text-decoration: none; border-bottom: 1px solid rgba(95,108,138,.4);
+            padding-bottom: 1px; transition: color .2s ease, border-color .2s ease;
+          }
+          .biz-advisor-cta__note:hover { color: #2e6dc4; border-color: #2e6dc4; }
+          @media (max-width: 680px) {
+            .biz-advisor-cta { padding: 44px 0; }
+            .biz-advisor-cta__card { padding: 38px 22px; border-radius: 20px; }
+            .biz-advisor-cta__title { font-size: 22px; }
+            .biz-advisor-cta__sub { font-size: 14px; }
+            .biz-advisor-cta__desc { font-size: 14px; line-height: 1.85; }
+            .biz-advisor-cta__btn { width: 100%; justify-content: center; padding: 16px 24px; font-size: 16px; }
+          }
+        ` }} />
+
         <section className="index_benefits">
           <div className="index_benefits__inner u-inner">
             <h2 className="index_benefits__title font-en fadein">BENEFITS</h2>
