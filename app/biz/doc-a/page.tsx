@@ -179,7 +179,8 @@ export default function DocAPage() {
         .doc-content__carousel .slick-next:hover {
           background: #fff;
           box-shadow: 0 6px 18px rgba(26, 46, 80, 0.28);
-          transform: scale(1.06);
+          /* transform:scale は slick の translateY(-50%) 中央寄せを上書きして
+             矢印が下にズレ落ちるため指定しない（hoverは box-shadow のみ変化）。 */
         }
         /* slick標準フォントの矢印グリフ(ネイビー円＋切り抜き)をやめ、borderで描く端正なネイビー矢印に */
         .doc-content__carousel .slick-prev:before,
