@@ -1220,7 +1220,7 @@ export default function BizPage() {
 
         <style dangerouslySetInnerHTML={{ __html: `
           /* === 関連サービス AI参謀 相談CTA帯（ライト基調） === */
-          .biz-advisor-cta { padding: 64px 0; }
+          .biz-advisor-cta { /* padding: 64px 0; */ }
           .biz-advisor-cta__inner { max-width: 1000px; padding-left: 20px; padding-right: 20px; }
           .biz-advisor-cta__card {
             position: relative;
