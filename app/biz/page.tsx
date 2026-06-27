@@ -1416,6 +1416,7 @@ export default function BizPage() {
             <ul className="footer__list">
               <li><a href="#">個人向けAIスクール【バイテック】</a></li>
               <li><a href="#">オウンドメディア【b-Net】</a></li>
+              <li><a href="https://ai-bou.co.jp/ai-sanbo" target="_blank" rel="noopener">企業向けAI顧問サービス【AI参謀】</a></li>
             </ul>
           </div>
         </div>
