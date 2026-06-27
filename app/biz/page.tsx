@@ -619,6 +619,15 @@ export default function BizPage() {
             bottom: -35px;
             height: 22px;
           }
+          /* BENEFITS: 上余白を付与し、padding を全幅で固定（style.min.css の SP override を上書き） */
+          .index_benefits {
+            margin-top: 70px;
+            width: 100%;
+            padding: calc(70px + 1vw) 20px;
+            background: linear-gradient(90deg, #2555aa 0%, #3a7fca 100%);
+            color: #fff;
+            text-align: center;
+          }
         ` }} />
 
         <section className="index_plan biz-plan" id="plan">
