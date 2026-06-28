@@ -1221,7 +1221,7 @@ export default function BizPage() {
                   <span>AI顧問サービスを見てみる</span>
                   <span className="biz-advisor-cta__arrow" aria-hidden="true">→</span>
                 </a>
-                <a href="/biz/doc-a" className="biz-advisor-cta__note">まずは資料ダウンロードへ</a>
+                <a href="https://ai-bou.co.jp/ai-sanbo/download" className="biz-advisor-cta__note" target="_blank" rel="noopener noreferrer">まずは資料ダウンロードへ</a>
               </div>
             </div>
           </div>
