@@ -427,13 +427,14 @@ function absolutizeCssUrls(css: string, baseDir: string): string {
 }
 
 // CSS インライン化対象ページ（死CSS削除で残CSSが小さくインライン化がCLS無しで有効なページ）。
-const INLINE_CSS_PAGES = ["support-static", "counseling-static"];
+const INLINE_CSS_PAGES = ["support-static", "counseling-static", "interview-static"];
 
 async function readInlineCss(href: string): Promise<string | null> {
   const clean = href.split(/[?#]/)[0];
   if (
     !clean.startsWith("/support-static/") &&
     !clean.startsWith("/counseling-static/") &&
+    !clean.startsWith("/interview-static/") &&
     !clean.startsWith("/_shared/")
   ) {
     return null;
