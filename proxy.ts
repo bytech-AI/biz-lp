@@ -31,6 +31,20 @@ export function proxy(request: NextRequest) {
     return NextResponse.rewrite(new URL(newPath, request.url))
   }
 
+  // GEEK は geek.bytech.jp（サブドメイン）で独立配信。
+  // geek.bytech.jp/ → 内部の /geek（geek-static/index.html）を返す。アセットは絶対パスなので素通し。
+  if (hostname === 'geek.bytech.jp') {
+    if (pathname === '/') {
+      return NextResponse.rewrite(new URL('/geek', request.url))
+    }
+    return NextResponse.next()
+  }
+
+  // apex / その他ホストからは /geek を公開しない（サブドメインへ移行済みのため404）。
+  if (pathname === '/geek' || pathname === '/geek/') {
+    return new NextResponse(null, { status: 404 })
+  }
+
   // /bytech は廃止し / に統合（静的HTML化）。ロゴ/サブページの旧 /bytech リンク救済のため恒久リダイレクト。
   // /bytech/course 等のサブページは対象外（厳密一致のみ）。
   if (pathname === '/bytech' || pathname === '/bytech/') {

@@ -29,8 +29,24 @@ footer {
 }
 @media (max-width: 767px) {
   .footer__catch {
-    width: 69.552238806%;
-    margin: 0 auto;
+    width: auto;
+    margin: 0;
+    padding-left: 5.9701492537%;
+    text-align: left;
+  }
+}
+
+.footer__catch-text {
+  display: inline-block;
+  color: #fff;
+  font-weight: 700;
+  font-size: min(30px, 2.5vw);
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+}
+@media (max-width: 767px) {
+  .footer__catch-text {
+    font-size: 26px;
   }
 }
 

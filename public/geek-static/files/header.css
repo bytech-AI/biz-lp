@@ -22,8 +22,8 @@ header {
 .header__content {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  padding-left: min(20px, 1.3888888889vw);
+  align-items: center;
+  padding: min(16px, 1.1111111111vw) min(28px, 1.9444444444vw);
 }
 @media (max-width: 767px) {
   .header__content {
@@ -34,7 +34,8 @@ header {
 
 .header__logo {
   width: min(200px, 13.8888888889vw);
-  padding-top: min(25px, 1.7361111111vw);
+  padding-top: 0;
+  margin-left: min(48px, 3.3333333333vw);
 }
 @media (max-width: 767px) {
   .header__logo {
@@ -47,6 +48,7 @@ header {
 
 .header__nav {
   display: flex;
+  align-items: center;
 }
 @media (max-width: 767px) {
   .header__nav {
@@ -55,42 +57,65 @@ header {
 }
 
 .header__menu {
-  padding-top: min(48px, 3.3333333333vw);
   display: flex;
+  align-items: center;
 }
 .header__menu li:nth-child(n+2) {
-  margin-left: min(24px, 1.6666666667vw);
+  margin-left: min(28px, 1.9444444444vw);
 }
 .header__menu li a {
-  display: inline-block;
-  font-size: min(0.875rem, 1.05vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.25;
+}
+.header__menu-ja {
+  font-size: min(0.9375rem, 1.05vw);
   font-weight: 700;
-  line-height: 0.04em;
+  color: #1A1A1A;
+}
+.header__menu-en {
+  margin-top: 3px;
+  font-family: "Outfit", sans-serif;
+  font-size: min(0.6875rem, 0.7638888889vw);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #00AC9B;
 }
 
 .header__reserve {
-  width: min(316px, 21.9444444444vw);
+  width: min(200px, 13.8888888889vw);
+  flex-shrink: 0;
+  align-self: center;
+  margin-left: min(32px, 2.2222222222vw);
   text-align: center;
-  background: url(../img/img_reserve-bg.png) no-repeat center center/cover;
+  background: #FF3410;
+  border-radius: 9999px;
 }
 .header__reserve a {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: min(0.9375rem, 1.125vw);
+  font-size: min(0.8125rem, 0.9722222222vw);
   font-weight: 700;
-  letter-spacing: 0.08em;
-  aspect-ratio: 632/190;
-  padding: 1.47em 0 2.7em 3em;
+  letter-spacing: 0.04em;
+  color: #fff;
+  padding: 0.8em 0.7em;
 }
 .header__reserve a::after {
   display: inline-block;
   content: "";
   position: relative;
-  background: url(../img/icon_arrow01.png) no-repeat center center/contain;
-  width: 2.1em;
-  aspect-ratio: 64/64;
-  margin-left: 1.3em;
+  border-radius: 50%;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300AC9B' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7'/%3E%3Cpath d='M8 7h9v9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
+  width: 1.7em;
+  aspect-ratio: 1/1;
+  margin-left: 0.6em;
 }
 
 .drawer-icon {
@@ -232,7 +257,7 @@ header {
 .header__content.fixed .header__reserve {
   width: min(211px, 14.6527777778vw);
   margin-left: min(20px, 1.3888888889vw);
-  background: linear-gradient(270deg, #14C9B4 0%, #008477 100%);
+  background: #FF3410;
 }
 .header__content.fixed .header__reserve a {
   aspect-ratio: unset;
