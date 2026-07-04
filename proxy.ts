@@ -38,6 +38,16 @@ export function proxy(request: NextRequest) {
       return NextResponse.rewrite(new URL('/geek', request.url))
     }
     const normalizedPath = pathname.replace(/\/+$/, '') || '/'
+    // geek 専用 robots / sitemap（ホスト別）
+    if (pathname === '/robots.txt') {
+      return NextResponse.rewrite(new URL('/geek-static/robots.txt', request.url))
+    }
+    if (pathname === '/sitemap.xml') {
+      return NextResponse.rewrite(new URL('/geek-static/sitemap.xml', request.url))
+    }
+    if (pathname === '/llms.txt') {
+      return NextResponse.rewrite(new URL('/geek-static/llms.txt', request.url))
+    }
     if (normalizedPath === '/thanks') {
       return NextResponse.rewrite(new URL('/geek-static/thanks.html', request.url))
     }

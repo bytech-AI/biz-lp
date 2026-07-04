@@ -139,7 +139,7 @@ fv
 .fv__copy-line {
   display: inline-block;
   background: #fff;
-  padding: 0.05em 0.4em;
+  padding: 0.03em 0.3em;
   border-radius: 0;
 }
 .fv__copy-line + br + .fv__copy-line {
