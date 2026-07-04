@@ -37,6 +37,18 @@ export function proxy(request: NextRequest) {
     if (pathname === '/') {
       return NextResponse.rewrite(new URL('/geek', request.url))
     }
+    const normalizedPath = pathname.replace(/\/+$/, '') || '/'
+    if (normalizedPath === '/thanks') {
+      return NextResponse.rewrite(new URL('/geek-static/thanks.html', request.url))
+    }
+    const geekLegal: Record<string, string> = {
+      '/privacy-policy': '/geek-privacy-policy-static/index.html',
+      '/membership-terms': '/geek-membership-terms-static/index.html',
+      '/specified_commercial': '/geek-specified_commercial-static/index.html',
+    }
+    if (geekLegal[normalizedPath]) {
+      return NextResponse.rewrite(new URL(geekLegal[normalizedPath], request.url))
+    }
     return NextResponse.next()
   }
 

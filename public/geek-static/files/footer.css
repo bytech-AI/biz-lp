@@ -25,7 +25,7 @@ footer {
 }
 
 .footer__catch {
-  width: 28.3333333333%;
+  width: 34%;
 }
 @media (max-width: 767px) {
   .footer__catch {
@@ -40,9 +40,10 @@ footer {
   display: inline-block;
   color: #fff;
   font-weight: 700;
-  font-size: min(30px, 2.5vw);
+  font-size: min(40px, 2.5vw);
   line-height: 1.55;
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 @media (max-width: 767px) {
   .footer__catch-text {
@@ -161,8 +162,9 @@ footer {
 }
 @media (max-width: 767px) {
   .foote__logo {
-    width: 40.8955223881%;
+    width: 100%;
     margin: 0 auto;
+    text-align: center;
   }
 }
 
@@ -216,3 +218,9 @@ footer {
   }
 }
 /*# sourceMappingURL=footer.css.map */
+/* コピーライトを最下部中央に配置 */
+.footer__copyright--bottom {
+  margin: min(32px, 6%) 0 0;
+  text-align: center;
+  color: #fff;
+}
