@@ -56,9 +56,12 @@ window.addEventListener('load', function(){
         //     // リピート実行の登録 
         //     let count3 = window.setInterval(switchFade, interval + duration);
         // }, interval);
-        window.setTimeout(function(){
-          switchFade();
-      }, interval);
+        // 画像が2枚以上ある場合のみスライドショー（フェード）を実行
+        if(fadeWrap.childElementCount > 1){
+          window.setTimeout(function(){
+            switchFade();
+          }, interval);
+        }
 
 
         function switchFade(num){
@@ -228,6 +231,72 @@ document.querySelectorAll('.caseSwiper').forEach((swiperEl) => {
     },
   });
 });
+// ------------------------------------------
+//  目的別実践ワーク スライダー（3枚表示）
+// ------------------------------------------
+if (document.querySelector('.workcaseSwiper')) {
+  new Swiper('.workcaseSwiper', {
+    slidesPerView: 1.15,
+    spaceBetween: 16,
+    breakpoints: {
+      768: { slidesPerView: 3, spaceBetween: 24 },
+    },
+    pagination: { el: '.workcase__pagination', clickable: true },
+    navigation: { nextEl: '.workcase__nav--next', prevEl: '.workcase__nav--prev' },
+  });
+}
+// ------------------------------------------
+//  Skills 画像スライダー（2枚表示）
+// ------------------------------------------
+if (document.querySelector('.skillsSwiper')) {
+  new Swiper('.skillsSwiper', {
+    slidesPerView: 1.1,
+    spaceBetween: 16,
+    breakpoints: {
+      768: { slidesPerView: 2, spaceBetween: 28 },
+    },
+    pagination: { el: '.skills__pagination', clickable: true },
+    navigation: { nextEl: '.skills__nav--next', prevEl: '.skills__nav--prev' },
+  });
+}
+// ------------------------------------------
+//  メンター紹介スライダー
+// ------------------------------------------
+if (document.querySelector('.mentorSwiper')) {
+  new Swiper('.mentorSwiper', {
+    slidesPerView: 1.1,
+    spaceBetween: 16,
+    breakpoints: {
+      768: { slidesPerView: 3, spaceBetween: 24 },
+    },
+    pagination: { el: '.mentors__pagination', clickable: true },
+    navigation: { nextEl: '.mentors__nav--next', prevEl: '.mentors__nav--prev' },
+  });
+}
+// ------------------------------------------
+//  About実績カード（SPのみカルーセル・PCはグリッド）
+// ------------------------------------------
+if (document.querySelector('.g2aSwiper')) {
+  let g2aSwiper = null;
+  const g2aMq = window.matchMedia('(max-width: 767px)');
+  const g2aApply = (mq) => {
+    if (mq.matches) {
+      if (!g2aSwiper) {
+        g2aSwiper = new Swiper('.g2aSwiper', {
+          slidesPerView: 1.08,
+          spaceBetween: 16,
+          pagination: { el: '.g2aSwiper__pagination', clickable: true },
+          navigation: { nextEl: '.g2aSwiper__nav--next', prevEl: '.g2aSwiper__nav--prev' },
+        });
+      }
+    } else if (g2aSwiper) {
+      g2aSwiper.destroy(true, true);
+      g2aSwiper = null;
+    }
+  };
+  g2aApply(g2aMq);
+  g2aMq.addEventListener('change', g2aApply);
+}
 // ------------------------------------------
 //  事例スライダ― 共通
 // ------------------------------------------
@@ -517,3 +586,46 @@ document.querySelectorAll(`.filter-open`).forEach(tar => {
 
 
 
+
+// ------------------------------------------
+//  SP固定フッターCTA（FVから一定スクロールで出現／予約フォーム表示中は隠す）
+// ------------------------------------------
+(function () {
+  var fixcta = document.getElementById('spFixCta');
+  if (!fixcta) return;
+  var fv = document.querySelector('.fv');
+  var counseling = document.getElementById('counseling');
+  var footer = document.querySelector('footer');
+  function onScroll() {
+    var threshold = fv ? fv.offsetHeight * 0.6 : window.innerHeight * 0.7;
+    var show = window.scrollY > threshold;
+    if (show && counseling) {
+      var r = counseling.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) show = false; // フォームが画面内なら隠す
+    }
+    if (show && footer) {
+      var fr = footer.getBoundingClientRect();
+      if (fr.top < window.innerHeight) show = false; // フッター（最下部）に到達したら隠す
+    }
+    fixcta.classList.toggle('is-visible', show);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  onScroll();
+})();
+
+// ------------------------------------------
+//  料金プラン タブ切替（SP）
+// ------------------------------------------
+(function () {
+  var tabs = document.querySelectorAll('.g2p-tab');
+  if (!tabs.length) return;
+  var cards = document.querySelectorAll('.g2p-card');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var idx = this.dataset.plan;
+      tabs.forEach(function (t) { t.classList.toggle('is-active', t === tab); });
+      cards.forEach(function (c) { c.classList.toggle('is-active', c.dataset.plan === idx); });
+    });
+  });
+})();

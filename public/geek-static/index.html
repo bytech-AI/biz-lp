@@ -9,7 +9,11 @@
     <link rel="icon" type="image/png" href="/geek-static/files/favicon.png">
 
     <!-- Google Tag Manager -->
-    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-587JB774');</script>
     <!-- End Google Tag Manager -->
 
 
@@ -23,7 +27,8 @@
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-    <link href="/geek-static/files/css2" rel="stylesheet">
+    <link rel="preload" href="/bytech/fonts/NotoSansJP_VF-s.p.09a7lksm~5qfk.woff2" as="font" crossorigin="" type="font/woff2">
+    <style id="geek-noto-selfhost">@font-face{font-family:"Noto Sans JP";src:url(/bytech/fonts/NotoSansJP_VF-s.p.09a7lksm~5qfk.woff2) format("woff2");font-display:swap;font-weight:100 900;font-style:normal;}</style>
     <link href="/geek-static/files/css2(1)" rel="stylesheet">
 
     <meta name="robots" content="noindex, nofollow, max-image-preview:large">
@@ -75,10 +80,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </style>
 
 <link rel="stylesheet" id="swiper_style-css" href="/geek-static/files/swiper-bundle.min.css" media="all">
-<link rel="stylesheet" id="my_style-css" href="/geek-static/files/common.css?v=20260702s" media="all">
-<link rel="stylesheet" id="header_style-css" href="/geek-static/files/header.css?v=20260702v" media="all">
-<link rel="stylesheet" id="footer_style-css" href="/geek-static/files/footer.css" media="all">
-<link rel="stylesheet" id="top_style-css" href="/geek-static/files/top.css?v=20260702v" media="all">
+<link rel="stylesheet" id="my_style-css" href="/geek-static/files/common.css?v=20260704zzo" media="all">
+<link rel="stylesheet" id="header_style-css" href="/geek-static/files/header.css?v=20260704z4" media="all">
+<link rel="stylesheet" id="footer_style-css" href="/geek-static/files/footer.css?v=20260704d" media="all">
+<link rel="stylesheet" id="top_style-css" href="/geek-static/files/top.css?v=20260704zz6" media="all">
 <script id="jquery-core-js" src="/geek-static/files/jquery.min.js"></script>
 <script id="jquery-migrate-js" src="/geek-static/files/jquery-migrate.min.js"></script>
 <link rel="https://api.w.org/" href="#"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="#">
@@ -86,7 +91,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <style id="bt-heading-weight">h2{font-weight:900!important}h3{font-weight:800!important}</style></head>
 <body class="body">
     <!-- Google Tag Manager (noscript) -->
-    
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-587JB774"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <header>
         <div class="inner u-inner-full">
@@ -105,15 +111,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                 </div>
                 <nav class="header__nav">
                     <ul class="header__menu">
-                        <li><a href="#"><span class="header__menu-ja">GEEKとは</span><span class="header__menu-en">About</span></a></li>
-                        <li><a href="#"><span class="header__menu-ja">お悩み</span><span class="header__menu-en">Problem</span></a></li>
-                        <li><a href="#"><span class="header__menu-ja">コース</span><span class="header__menu-en">Course</span></a></li>
-                        <li><a href="#"><span class="header__menu-ja">料金</span><span class="header__menu-en">Price</span></a></li>
-                        <li><a href="#"><span class="header__menu-ja">受講生実績</span><span class="header__menu-en">Results</span></a></li>
-                        <li><a href="#"><span class="header__menu-ja">受講生の声</span><span class="header__menu-en">Voice</span></a></li>
-                        <li><a href="#"><span class="header__menu-ja">よくある質問</span><span class="header__menu-en">FAQ</span></a></li>
+                        <li><a href="#about"><span class="header__menu-ja">GEEKとは</span><span class="header__menu-en">About</span></a></li>
+                        <li><a href="#problem"><span class="header__menu-ja">お悩み</span><span class="header__menu-en">Problem</span></a></li>
+                        <li><a href="#course"><span class="header__menu-ja">コース</span><span class="header__menu-en">Course</span></a></li>
+                        <li><a href="#price"><span class="header__menu-ja">料金</span><span class="header__menu-en">Price</span></a></li>
+                        <li><a href="#results"><span class="header__menu-ja">受講生実績</span><span class="header__menu-en">Results</span></a></li>
+                        <li><a href="#voice"><span class="header__menu-ja">受講生の声</span><span class="header__menu-en">Voice</span></a></li>
+                        <li><a href="#faq"><span class="header__menu-ja">よくある質問</span><span class="header__menu-en">FAQ</span></a></li>
                     </ul>
-                    <div class="header__reserve"><a href="#">無料カウンセリング予約</a></div>
+                    <div class="header__reserve"><a href="#counseling">無料カウンセリング予約</a></div>
                 </nav>
                 <!-- drawer-menu -->
                 <div class="drawer-icon">
@@ -124,16 +130,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                 </div>
                 <div class="drawer-content">
                     <ul class="drawer-menu">
-                        <li><a href="#">GEEKとは</a></li>
-                        <li><a href="#">お悩み</a></li>
-                        <li><a href="#">コース</a></li>
-                        <li><a href="#">料金</a></li>
-                        <li><a href="#">受講生実績</a></li>
-                        <li><a href="#">受講生の声</a></li>
-                        <li><a href="#">よくある質問</a></li>
-                        <li><a href="#">よくある質問</a></li>
+                        <li><a href="#about">GEEKとは</a></li>
+                        <li><a href="#problem">お悩み</a></li>
+                        <li><a href="#course">コース</a></li>
+                        <li><a href="#price">料金</a></li>
+                        <li><a href="#results">受講生実績</a></li>
+                        <li><a href="#voice">受講生の声</a></li>
+                        <li><a href="#faq">よくある質問</a></li>
+                        <li><a href="#faq">よくある質問</a></li>
                     </ul>
-                    <div class="drawer__reserve"><a href="#" class="c-btn">無料カウンセリング予約</a></div>
+                    <div class="drawer__reserve"><a href="#counseling" class="c-btn">無料カウンセリング予約</a></div>
                 </div>
             </div>
 
@@ -148,15 +154,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                 </div>
                 <nav class="header__nav">
                     <ul class="header__menu">
-                        <li><a href="#">GEEKとは</a></li>
-                        <li><a href="#">お悩み</a></li>
-                        <li><a href="#">コース</a></li>
-                        <li><a href="#">料金</a></li>
-                        <li><a href="#">受講生実績</a></li>
-                        <li><a href="#">よくある質問</a></li>
-                        <li><a href="#">受講生の声</a></li>
+                        <li><a href="#about"><span class="header__menu-ja">GEEKとは</span><span class="header__menu-en">About</span></a></li>
+                        <li><a href="#problem"><span class="header__menu-ja">お悩み</span><span class="header__menu-en">Problem</span></a></li>
+                        <li><a href="#course"><span class="header__menu-ja">コース</span><span class="header__menu-en">Course</span></a></li>
+                        <li><a href="#price"><span class="header__menu-ja">料金</span><span class="header__menu-en">Price</span></a></li>
+                        <li><a href="#results"><span class="header__menu-ja">受講生実績</span><span class="header__menu-en">Results</span></a></li>
+                        <li><a href="#faq"><span class="header__menu-ja">よくある質問</span><span class="header__menu-en">FAQ</span></a></li>
+                        <li><a href="#voice"><span class="header__menu-ja">受講生の声</span><span class="header__menu-en">Voice</span></a></li>
                     </ul>
-                    <div class="header__reserve"><a href="#">カウンセリング予約</a></div>
+                    <div class="header__reserve"><a href="#counseling">カウンセリング予約</a></div>
                 </nav>
             </div>
 
@@ -169,13 +175,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             
             <div class="fv2" id="fadeWrap">
 
-                <picture class="" style="z-index: 10; opacity: 0;">
-                    <source srcset="/geek-static/img/fv2-2_sp.png" media="(max-width: 767px)">
-                    <img class="" src="/geek-static/files/fv2-2.png" alt="">
-                </picture>
-                <picture class="act-transition" style="z-index: 20;">
-                    <source srcset="/geek-static/img/fv2_sp.png" media="(max-width: 767px)">
-                    <img class="" src="/geek-static/files/fv2.png" alt="">
+                <picture class="act-transition" style="z-index: 20; opacity: 1;">
+                    <source srcset="/geek-static/files/sp_fv-geek.webp" media="(max-width: 767px)">
+                    <img class="" src="/geek-static/files/fv3_geek.webp" alt="">
                 </picture>
 
             </div>
@@ -196,8 +198,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                 <span class="fv-scroll__line" aria-hidden="true"></span>
             </div>
             <div class="fv__copy">
-                <p class="fv__copy-sub">未経験・非エンジニアからでも</p>
-                <h1 class="fv__copy-main"><span class="fv__copy-em">ClaudeCode</span>活用が、<br><span class="fv__copy-strong">業務の当たり前に。</span></h1>
+                <p class="fv__copy-sub">IT未経験・非エンジニアからでも</p>
+                <h1 class="fv__copy-main"><span class="fv__copy-line">明日から、<span class="fv__copy-geek">AI開発</span><span class="fv__copy-sm">が</span></span><br><span class="fv__copy-line">あなたの日常<span class="fv__copy-sm">に。</span></span></h1>
+                <p class="fv__copy-lead">アプリやツール開発の当たり前を変える<br class="u-sp-br"><span class="fv__copy-cc">ClaudeCode</span>特化のAIスクール</p>
                 <div class="fv__copy-authority"><img src="/geek-static/files/authority_geek.svg" alt=""></div>
             </div>
 
@@ -208,7 +211,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
             <div class="fv__button">
                 <span>簡単30秒で予約完了！</span>
-                <a href="#" class="cta__btn">
+                <a href="#counseling" class="cta__btn">
                     <span class="cta__btn-sub">完全無料・オンライン ／ 所要60分</span>
                     <span class="cta__btn-main">無料カウンセリングを予約する</span>
                     <span class="cta__btn-arrow" aria-hidden="true"></span>
@@ -218,7 +221,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         </div>
         <!-- /.fv -->
 
-        <section class="case c-bg1">
+        <section class="case c-bg1" id="results">
             <div class="inner">
                 <h2 class="case__title c-sec-ttl">
                     <span class="c-sec-ttl__en">User Voice</span>
@@ -339,22 +342,22 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             <h2 class="c-sec-ttl">
                 <!-- <span class="c-sec-ttl__en">Reskilling-based Career Change</span>
                 <span class="c-sec-ttl__ja">リスキリング転職とは？</span> -->
-                <span class="c-sec-ttl__en u-fz40-pc u-fz20-sp ">なぜ今、Claude Codeを学ぶべきか？</span>
-                <span class="c-sec-ttl__ja u-fz18-pc u-fz14-sp">「使うだけ」で終わらせず“作れる側”になることをゴールにした<br class="sp">実装特化のフルサポート</span>
+                <span class="c-sec-ttl__en u-fz40-pc is-why-ttl">なぜ今、Claude Codeを学ぶべきか？</span>
+                <span class="c-sec-ttl__ja u-fz18-pc u-fz14-sp">AIでの“効率化”できる人材から、<br class="sp">“自動化”できる人材が評価される時代へ。</span>
             </h2>
             <div class="about__wrapper">
                 <div class="about__figure"><img src="/geek-static/files/reason1.svg" alt="AI開発コーチング×実装カリキュラム×実践・活用サポート"><p class="about__note">※1：リクルート/Indeed Recruit Partners調べ(2025年7月公表・2024年度時点)</p></div>
-                <div class="about__list"><img src="/geek-static/files/reason2.svg?v=3" alt="" style="width:100%;height:auto;"><p class="about__note">※2：総務省「令和7年版 情報通信白書」(2025年7月公表)等を基に作成</p></div>
+                <div class="about__list"><img src="/geek-static/files/reason2.svg?v=4" alt="" style="width:100%;height:auto;"><p class="about__note">※2：総務省「令和7年版 情報通信白書」(2025年7月公表)等を基に作成</p></div>
             </div>
         </div>
     </section>
     <!-- /.about -->
 
-<section class="values">
+<section class="values" id="problem">
             <div class="inner">
                 <h2 class="c-sec-ttl">
                     <span class="c-sec-ttl__en">Values</span>
-                    <span class="c-sec-ttl__ja">AI開発のよくあるお悩み、<br><span class="u-text-orange">バイテックGEEKで解決しませんか？</span></span>
+                    <span class="c-sec-ttl__ja">AI開発のよくあるお悩み、<br><span class="u-text-orange">バイテックで解決しませんか？</span></span>
                 </h2>
                 <div class="values__container valuesSwiper swiper-initialized swiper-horizontal swiper-backface-hidden">
                     <div class="swiper-wrapper" id="swiper-wrapper-bfd3292db7f23dc1" aria-live="polite">
@@ -480,7 +483,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         <section class="services u-secpad-sp">
             <div class="inner u-inner-1264">
                 <h2 class="c-sec-ttl">
-                    <span class="c-sec-ttl__ja">バイテックGEEKは<span class="u-text-orange"><br class="sp">基礎から実装まで一気通貫</span></span>
+                    <span class="c-sec-ttl__ja is-services-ttl">バイテックGEEKは<span class="u-text-orange"><br class="sp">基礎から実装まで一気通貫</span></span>
                 </h2>
             </div>
             <div class="services__content"><div class="worx-service-wrap">
@@ -488,28 +491,28 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         <div class="worx-service">
             <div class="worx-service__container">
                 <span class="worx-service__title pc">バイテックGEEKの学習プログラム</span>
-                <span class="worx-service__title sp"></span>
+                <span class="worx-service__title sp">GEEKの学習プログラム</span>
 
                 <ul class="worx-service__list">
                     <li class="worx-service__item">
                         <span class="worx-service__label worx-service__label--basic">基礎学習フェーズ</span>
-                        <div class="worx-service__image"><img src="/geek-static/files/worx-service_img01.png" alt=""></div>
+                        <div class="worx-service__image"><img src="/geek-static/files/study01.webp" alt=""></div>
                         <h3 class="worx-service__heading">基礎知識</h3>
                         <p class="worx-service__description">Claude Codeの特徴と使い分けを理解する</p>
                     </li>
                     <li class="worx-service__item">
-                        <div class="worx-service__image"><img src="/geek-static/files/worx-service_img02.png" alt=""></div>
+                        <div class="worx-service__image"><img src="/geek-static/files/study02.webp" alt=""></div>
                         <h3 class="worx-service__heading">環境構築・基本操作</h3>
                         <p class="worx-service__description">環境構築・プロンプト設計・Git連携を習得</p>
                     </li>
                     <li class="worx-service__item">
                         <span class="worx-service__label">応用〜実践フェーズ</span>
-                        <div class="worx-service__image"><img src="/geek-static/files/worx-service_img03.png" alt=""></div>
+                        <div class="worx-service__image"><img src="/geek-static/files/study03.webp" alt=""></div>
                         <h3 class="worx-service__heading">開発・制作の実践</h3>
                         <p class="worx-service__description">Webアプリ開発〜自動化ツールまで制作</p>
                     </li>
                     <li class="worx-service__item">
-                        <div class="worx-service__image"><img src="/geek-static/files/worx-service_img04.png" alt=""></div>
+                        <div class="worx-service__image"><img src="/geek-static/files/study04.webp" alt=""></div>
                         <h3 class="worx-service__heading">応用・実践</h3>
                         <p class="worx-service__description">MCP連携・社内導入・実務活用まで</p>
                     </li>
@@ -524,11 +527,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 
 
-                <section class="g2a-about">
+                <section class="g2a-about" id="about">
             <div class="inner">
                 <div class="g2a-sectiontitle">
                     <span class="g2a-kicker">About</span>
-                    <h2>バイテックGEEKとは</h2>
                 </div>
                 <div class="g2a-hero">
                     <div class="g2a-desc">
@@ -536,28 +538,33 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                         <h3 class="g2a-title">IT初心者でも<span>AI開発スキル</span>が身につく<br>ClaudeCode特化のAIスクール</h3>
                         <p class="g2a-bodytext">プログラミングを何年も学ぶ時代は終わりました。Claude Codeに実装を任せ、初心者からでも最短数ヶ月で「作れる人」を目指します。</p>
                     </div>
-                    <div class="g2a-visual"><img src="/geek-assets/lead-person.webp" alt=""></div>
+                    <div class="g2a-visual"><img src="/geek-static/files/about_geek.webp" alt=""></div>
                 </div>
-                <ul class="g2a-cards">
-                    <li>
+                <div class="swiper g2aSwiper">
+                <ul class="g2a-cards swiper-wrapper">
+                    <li class="swiper-slide">
                         <h4>未経験から実装力を一気に引き上げる</h4>
                         <p>9割の方が、Claude Codeを起点に実務で使えるAI開発スキルを習得しています。</p>
                         <div class="g2a-stat"><span class="g2a-stat-label">受講生の<br>成果達成率</span><strong>95<em>%</em></strong></div>
                         <span class="g2a-stat-note">※2025年1月〜8月 卒業生300名アンケート</span>
                     </li>
-                    <li>
+                    <li class="swiper-slide">
                         <h4>IT初心者でも安心の個別サポート体制</h4>
                         <p>つまずいても大丈夫。専属メンターが伴走し、わからないをその場で解消。最後まで作り切れる環境を用意します。</p>
                         <div class="g2a-stat"><span class="g2a-stat-label">受講生<br>満足度</span><strong>96<em>%</em></strong></div>
                         <span class="g2a-stat-note">※2025年1月〜8月 卒業生300名アンケート</span>
                     </li>
-                    <li>
+                    <li class="swiper-slide">
                         <h4>安心の学習サポート実績</h4>
                         <p>累計2,500名超の指導で磨いたカリキュラムとサポート。AI未経験の初心者の方たちの成果に向き合ってきました。</p>
                         <div class="g2a-stat"><span class="g2a-stat-label">累計<br>受講生数</span><strong>2,500<em>名</em></strong></div>
                         <span class="g2a-stat-note">※2026年1月時点 / 自社調べ</span>
                     </li>
                 </ul>
+                <div class="swiper-pagination g2aSwiper__pagination"></div>
+                <button class="g2aSwiper__nav g2aSwiper__nav--prev" aria-label="前へ"></button>
+                <button class="g2aSwiper__nav g2aSwiper__nav--next" aria-label="次へ"></button>
+                </div>
             </div>
         </section>
         <!-- /.g2a-about -->
@@ -566,39 +573,138 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             <div class="inner">
                 <h2 class="c-sec-ttl">
                     <span class="c-sec-ttl__en">Features</span>
-                    <span class="c-sec-ttl__ja">バイテックGEEKの<span class="u-text-orange">3つ</span>の特徴</span>
+                    <span class="c-sec-ttl__ja">バイテックGEEKの<br class="sp"><span class="u-text-orange">3つ</span>の特徴</span>
                 </h2>
                                 <div class="g2f-grid">
                     <article>
                         <div class="g2f-copy">
-                            <p class="g2f-label"><span>01</span>基礎から実務レベルの応用まで学べるカリキュラム</p>
-                            <h3>IT初心者でも、<br>AIで作れる人材に。</h3>
+                            <p class="g2f-label"><span>01</span>IT初心者でも、AIで作れる人材になれる。</p>
+                            <h3><span class="g2f-mark">実務や収益化</span>を想定した<br>実践的なカリキュラム</h3>
                             <p>環境構築などの基礎から、Webアプリ開発・業務自動化といった実務レベルの応用まで、5フェーズ44レッスンで段階的に習得できます。</p>
                         </div>
-                        <div class="g2f-visual"><img src="/geek-assets/case-main.webp" alt=""></div>
+                        <div class="g2f-visual"><img src="/geek-static/files/feature01.webp" alt=""></div>
                     </article>
                     <article>
                         <div class="g2f-copy">
-                            <p class="g2f-label"><span>02</span>現役AIエンジニアによる実践的な個別サポート</p>
-                            <h3>プロ講師の伴走で、<br>ゴールまで走り抜けれる。</h3>
+                            <p class="g2f-label"><span>02</span>プロ講師の伴走で、ゴールまで走り抜けれる。</p>
+                            <h3>現役AIエンジニアの<br><span class="g2f-mark">結果に繋げる</span>個別サポート</h3>
                             <p>実務の第一線で活躍する現役プロ講師が、月2回の個別カウンセリングで、あなたの目標や進捗に合わせて伴走します。</p>
                         </div>
-                        <div class="g2f-visual"><img src="/geek-assets/lead-person.webp" alt=""></div>
+                        <div class="g2f-visual"><img src="/geek-static/files/feature02.webp" alt=""></div>
                     </article>
+                </div>
+                <div class="mentors">
+                        <h3 class="mentors__title">業務活用から副業まで対応する、<span class="u-text-orange">領域特化</span>の精鋭メンター陣</h3>
+                        <p class="mentors__lead">ただAIを使えるだけでなく、実務で使いこなし特化領域を持つメンターだけが在籍。だからこそ、あなたの目的に合わせた質の高い伴走が受けられます。</p>
+                        <div class="mentorSwiper swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <article class="mentor-card">
+                                        <div class="mentor-card__head">
+                                            <div class="mentor-card__photo"><img src="/geek-static/files/mentor-tanaka.webp" alt="田中 省吾"></div>
+                                            <div class="mentor-card__meta">
+                                                <p class="mentor-card__role">AIエンジニア</p>
+                                                <p class="mentor-card__name">田中 省吾</p>
+                                                <span class="mentor-card__tag">得意/担当領域</span>
+                                                <p class="mentor-card__skills">MCP / AIエージェント / AI開発</p>
+                                            </div>
+                                        </div>
+                                        <p class="mentor-card__desc">元大手空調メーカーシステムエンジニア。現在はシステムエンジニア兼AIコンサルタントとして活動。<span>業務系Webアプリケーションの設計〜運用、バックエンド、フロントエンド、インフラ構築</span>まで一貫して対応可能。</p>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="mentor-card">
+                                        <div class="mentor-card__head">
+                                            <div class="mentor-card__photo"><img src="/geek-static/files/mentor-kobayashi.webp" alt="小林 杏奈"></div>
+                                            <div class="mentor-card__meta">
+                                                <p class="mentor-card__role">AI業務自動化コンサル</p>
+                                                <p class="mentor-card__name">小林 杏奈</p>
+                                                <span class="mentor-card__tag">得意/担当領域</span>
+                                                <p class="mentor-card__skills">業務効率化 / RPA / 生成AI導入支援</p>
+                                            </div>
+                                        </div>
+                                        <p class="mentor-card__desc">事業会社でバックオフィス改革を主導し、生成AIによる定型業務の自動化を多数実装。<span>非エンジニアでも扱える業務ツール内製化</span>のノウハウを強みに、現場目線での伴走支援を得意とする。</p>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="mentor-card">
+                                        <div class="mentor-card__head">
+                                            <div class="mentor-card__photo"><img src="/geek-static/files/mentor-noguchi.webp" alt="野口 侑渡"></div>
+                                            <div class="mentor-card__meta">
+                                                <p class="mentor-card__role">AIコンサルタント</p>
+                                                <p class="mentor-card__name">野口 侑渡</p>
+                                                <span class="mentor-card__tag">得意/担当領域</span>
+                                                <p class="mentor-card__skills">生成AI推進 / AI研修 / ビジネス活用</p>
+                                            </div>
+                                        </div>
+                                        <p class="mentor-card__desc">明治大学法学部卒。学生起業の経験を持つバイテック最年少AIコンサルタント兼教材開発担当。国内大手IT企業の生成AI推進担当も務め、<span>全社（約20,000名）向けのAI勉強会や、新入社員向けAI研修の主導経験</span>を持つ。</p>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="mentor-card">
+                                        <div class="mentor-card__head">
+                                            <div class="mentor-card__photo"><img src="/geek-static/files/mentor-ikeda.webp" alt="池田 義国"></div>
+                                            <div class="mentor-card__meta">
+                                                <p class="mentor-card__role">AIコンサルタント</p>
+                                                <p class="mentor-card__name">池田 義国</p>
+                                                <span class="mentor-card__tag">得意/担当領域</span>
+                                                <p class="mentor-card__skills">業務効率化 / 生成AI導入 / AI活用研修</p>
+                                            </div>
+                                        </div>
+                                        <p class="mentor-card__desc">バイテック講師として、企業のAI活用・業務効率化を数多く支援。<span>現場に定着する生成AIの導入・運用設計</span>を強みに、受講生一人ひとりの目的に合わせた実践的な指導を行う。</p>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="mentor-card">
+                                        <div class="mentor-card__head">
+                                            <div class="mentor-card__photo"><img src="/geek-static/files/mentor-yamamoto.webp" alt="山本 直樹"></div>
+                                            <div class="mentor-card__meta">
+                                                <p class="mentor-card__role">AIプロダクト開発</p>
+                                                <p class="mentor-card__name">山本 直樹</p>
+                                                <span class="mentor-card__tag">得意/担当領域</span>
+                                                <p class="mentor-card__skills">Webアプリ開発 / API連携 / 個人開発</p>
+                                            </div>
+                                        </div>
+                                        <p class="mentor-card__desc">スタートアップで複数のWebサービスを立ち上げた経験を持つフルスタック開発者。<span>アイデアを最短で形にするプロトタイピング</span>を得意とし、受講生の「作り切る」体験を支援する。</p>
+                                    </article>
+                                </div>
+                            </div>
+                            <div class="mentors__pagination"></div>
+                            <button class="mentors__nav mentors__nav--prev" aria-label="前へ"></button>
+                            <button class="mentors__nav mentors__nav--next" aria-label="次へ"></button>
+                        </div>
+                    </div>
+                <div class="g2f-grid">
                     <article>
                         <div class="g2f-copy">
-                            <p class="g2f-label"><span>03</span>豊富な職種・目的別のClaudeCode実践課題</p>
-                            <h3>あなたに必要な、<br>実践力だけを磨ける。</h3>
+                            <p class="g2f-label"><span>03</span>あなたに必要な、実践力だけを磨ける。</p>
+                            <h3><span class="g2f-mark">最短でレベルアップ</span>できる<br>目的別の実践課題</h3>
                             <p>職種・部門から副業・キャリアアップまで、目指す方向に合わせた豊富な実践課題で、手を動かしながら本当に使えるスキルが身につきます。</p>
                         </div>
-                        <div class="g2f-visual"><img src="/geek-assets/case-main.webp" alt=""></div>
+                        <div class="g2f-visual g2f-visual--rd"><img src="/geek-static/files/feature03.webp" alt=""></div>
                     </article>
+                </div>
+                <div class="workcase">
+                    <p class="workcase__lead">目的やレベルに合わせて選べるから、<span class="u-text-orange">効率よく実践力を上げれる</span></p>
+                    <div class="workcaseSwiper swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="/geek-static/files/work01.webp" alt="スライド生成自動化"></div>
+                            <div class="swiper-slide"><img src="/geek-static/files/work02.webp" alt="AI社員開発"></div>
+                            <div class="swiper-slide"><img src="/geek-static/files/work03.webp" alt="複数スプシ連携&分析"></div>
+                            <div class="swiper-slide"><img src="/geek-static/files/work04.webp" alt="画像大量生成"></div>
+                            <div class="swiper-slide"><img src="/geek-static/files/work05.webp" alt="HP・LP制作"></div>
+                            <div class="swiper-slide"><img src="/geek-static/files/work06.webp" alt="Webアプリ開発"></div>
+                        </div>
+                        <div class="workcase__pagination"></div>
+                        <button class="workcase__nav workcase__nav--prev" aria-label="前へ"></button>
+                        <button class="workcase__nav workcase__nav--next" aria-label="次へ"></button>
+                    </div>
                 </div>
             </div>
         </section>
         <!-- /.features -->
 
-                <section class="g2c-course">
+                <section class="g2c-course" id="course">
             <div class="inner">
                 <h2 class="c-sec-ttl">
                     <span class="c-sec-ttl__en">Course</span>
@@ -607,21 +713,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                 <div class="g2c-panel">
                     <div class="g2c-panel-head">
                         <h3 class="g2c-name">Claude Code エンジニアコース</h3>
-                        <p class="g2c-sub">（履修期間：3〜9ヶ月／月額・定額制）</p>
+                        <p class="g2c-sub">（履修期間：2〜6ヶ月／月額・定額制）</p>
                         <p class="g2c-desc">非エンジニアからでも、Claude Codeでwebアプリ開発・業務自動化ができるようになる学習コース</p>
                     </div>
                     <div class="g2c-card">
                         <div class="g2c-cover">
-                            <div class="g2c-cover-inner">
-                                <p class="g2c-cover-logo"><span>CLAUDE</span><span>CODE</span></p>
-                                <p class="g2c-cover-tag">エンジニアコース</p>
-                                <div class="g2c-cover-terminal">
-                                    <span class="g2c-term-line">$ claude code v2.1.87 ──────</span>
-                                    <span class="g2c-term-line">↑ Opus 4.7 (1M context)</span>
-                                    <span class="g2c-term-line">· 5フェーズ・全44レッスン</span>
-                                    <span class="g2c-cover-prompt">&gt; ▍</span>
-                                </div>
-                            </div>
+                            <img src="/geek-static/files/cc-course.webp" alt="ClaudeCodeエンジニアコース">
                         </div>
                         <div class="g2c-phases">
                         <details class="g2c-phase" data-phase="1">
@@ -1010,102 +1107,92 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             <div class="inner">
                 <h2 class="c-sec-ttl">
                     <span class="c-sec-ttl__en">Skills</span>
-                    <span class="c-sec-ttl__ja">未経験からでも、<span class="u-text-orange"><br class="sp">こんなことができるように</span></span>
+                    <span class="c-sec-ttl__ja">未経験からでも、<span class="u-text-orange">こんなことができるように</span></span>
                 </h2>
-                <ul class="skills__grid">
-                    <li class="skills__card">
-                        <span class="skills__no">#01</span>
-                        <h3 class="skills__title">Claude Codeで<br><span>Webアプリを“作り切る”</span></h3>
-                        <p class="skills__text">アイデアを要件定義から実装・公開まで、Claude Codeと二人三脚で一つのプロダクトとして形にできるようになります。</p>
-                    </li>
-                    <li class="skills__card">
-                        <span class="skills__no">#02</span>
-                        <h3 class="skills__title">Next.js × Supabaseで<br><span>本格的なアプリ開発</span></h3>
-                        <p class="skills__text">認証・データベース・RLSまで押さえた、実務レベルのフルスタックWebアプリを設計・構築できるようになります。</p>
-                    </li>
-                    <li class="skills__card">
-                        <span class="skills__no">#03</span>
-                        <h3 class="skills__title">MCP・API・GASで<br><span>業務を自動化</span></h3>
-                        <p class="skills__text">請求書処理・データ集計・レポート生成などの定型業務を自動化し、日々の作業時間を大きく削減できます。</p>
-                    </li>
-                    <li class="skills__card">
-                        <span class="skills__no">#04</span>
-                        <h3 class="skills__title">Skills・Agentsで<br><span>開発を仕組み化</span></h3>
-                        <p class="skills__text">繰り返し作業をスラッシュコマンド化し、サブエージェントで開発を分業・高速化する“仕組み”を作れます。</p>
-                    </li>
-                    <li class="skills__card">
-                        <span class="skills__no">#05</span>
-                        <h3 class="skills__title">セキュリティを押さえた<br><span>安全な開発・運用</span></h3>
-                        <p class="skills__text">XSS・CSRF・RLSなどの勘所を理解し、公開後のエラー対応や障害解析まで一人で対応できるようになります。</p>
-                    </li>
-                    <li class="skills__card">
-                        <span class="skills__no">#06</span>
-                        <h3 class="skills__title">副業・自社事業で<br><span>成果を出す</span></h3>
-                        <p class="skills__text">身につけたスキルを副業案件の受注やキャリアアップ、自社プロダクト・新規事業の立ち上げに直結させられます。</p>
-                    </li>
-                </ul>
+                <div class="skillsSwiper swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="/geek-static/files/skill01.webp" alt="提案・営業スライドを完全自動で一式作成"></div>
+                        <div class="swiper-slide"><img src="/geek-static/files/skill02.webp" alt="スプシ・Excelの情報から請求書の発行&送付を自動化"></div>
+                        <div class="swiper-slide"><img src="/geek-static/files/skill03.webp" alt="SlackやDiscordに24時間働くAI社員を配置"></div>
+                        <div class="swiper-slide"><img src="/geek-static/files/skill04.webp" alt="高品質なHPやLPを自動生成&プロンプトで修正"></div>
+                        <div class="swiper-slide"><img src="/geek-static/files/skill05.webp" alt="自社専用のCRMをWebアプリとして開発"></div>
+                        <div class="swiper-slide"><img src="/geek-static/files/skill06.webp" alt="複数のスプレッドシート連携で情報の入力・分析を自動化"></div>
+                        <div class="swiper-slide"><img src="/geek-static/files/skill07.webp" alt="WordPressでのブログ・メディア運営を自動化"></div>
+                        <div class="swiper-slide"><img src="/geek-static/files/skill08.webp" alt="広告や記事制作に必要な数百〜数千の画像を自動生成"></div>
+                    </div>
+                    <div class="skills__pagination"></div>
+                    <button class="skills__nav skills__nav--prev" aria-label="前へ"></button>
+                    <button class="skills__nav skills__nav--next" aria-label="次へ"></button>
+                </div>
             </div>
         </section>
         <!-- /.skills -->
 
-        <section class="g2p-price">
+        <section class="g2p-price" id="price">
             <div class="inner">
                 <h2 class="c-sec-ttl">
                     <span class="c-sec-ttl__en">Price</span>
                     <span class="c-sec-ttl__ja">料金プラン</span>
                 </h2>
+                <div class="g2p-tabs" role="tablist">
+                    <button type="button" class="g2p-tab" data-plan="0">業務自動化</button>
+                    <button type="button" class="g2p-tab is-active" data-plan="1">実務開発</button>
+                    <button type="button" class="g2p-tab" data-plan="2">サービス開発</button>
+                </div>
                 <div class="g2p-grid">
-                <article class="g2p-card">
+                <article class="g2p-card" data-plan="0">
                     
-                    <h3 class="g2p-title">3ヶ月<em>プラン</em></h3>
+                    <h3 class="g2p-title">業務自動化<em>プラン</em></h3>
                     <div class="g2p-section">
                         <p class="g2p-label is-target">オススメの方</p>
-                        <p class="g2p-target"><span>開発経験がある方や未経験だが</span><span>学習時間をたくさん取れる方</span></p>
+                        <p class="g2p-target"><span>日々の業務を自動化して</span><span>効率化したい方</span></p>
                     </div>
                     <div class="g2p-divider" aria-hidden="true"></div>
                     <div class="g2p-section">
                         <p class="g2p-label">料金（一括）<sup>※1</sup></p>
-                        <p class="g2p-amount">248,000<em>円</em></p>
+                        <p class="g2p-amount">228,000<em>円</em></p>
                     </div>
-                    <div class="g2p-discount"><span class="g2p-discount-icon" aria-hidden="true">¥</span><span>分割払いなら<strong>月々10,300円〜</strong></span></div>
+                    <div class="g2p-discount"><span class="g2p-discount-icon" aria-hidden="true">¥</span><span>分割払いなら<strong>月々9,500円〜</strong></span></div>
                     <div class="g2p-divider" aria-hidden="true"></div>
                     <ul class="g2p-features">
-                    <li><span>カウンセリング回数</span><span>6回</span></li>
-                    <li><span>教材視聴</span><span>6ヶ月間（1コース）</span></li>
+                    <li><span>サポート期間</span><span>2ヶ月</span></li>
+                    <li><span>面談回数</span><span>4回</span></li>
+                    <li><span>教材視聴</span><span>無期限（1コース）</span></li>
                     <li><span>到達ゴール</span><span>基礎〜開発の習得</span></li>
-                    <li><span>制作できるもの</span><span>業務効率化ツール</span></li>
-                    <li><span>ワークショップ</span><span>月1回</span></li>
+                    <li><span>ライブレッスン</span><span>月1回</span></li>
                     <li><span>コミュニティ参加</span><span class="g2p-none">—</span></li>
                     <li><span>ウェビナー見放題</span><span class="g2p-none">—</span></li>
+                    <li><span>収益化サポート</span><span class="g2p-none">—</span></li>
                     </ul>
                 </article>
-                <article class="g2p-card g2p-card-rec">
+                <article class="g2p-card g2p-card-rec is-active" data-plan="1">
                     <span class="g2p-badge" aria-label="おすすめ">オススメ</span>
-                    <h3 class="g2p-title">6ヶ月<em>プラン</em></h3>
+                    <h3 class="g2p-title">実務開発<em>プラン</em></h3>
                     <div class="g2p-section">
                         <p class="g2p-label is-target">オススメの方</p>
-                        <p class="g2p-target"><span>未経験から着実に、業務で</span><span>使えるスキルを身につけたい方</span></p>
+                        <p class="g2p-target"><span>業務や収益化で使える</span><span>AI開発スキルを身に付けたい方</span></p>
                     </div>
                     <div class="g2p-divider" aria-hidden="true"></div>
                     <div class="g2p-section">
                         <p class="g2p-label">料金（一括）<sup>※1</sup></p>
-                        <p class="g2p-amount">378,000<em>円</em></p>
+                        <p class="g2p-amount">348,000<em>円</em></p>
                     </div>
-                    <div class="g2p-discount"><span class="g2p-discount-icon" aria-hidden="true">¥</span><span>分割払いなら<strong>月々15,750円〜</strong></span></div>
+                    <div class="g2p-discount"><span class="g2p-discount-icon" aria-hidden="true">¥</span><span>分割払いなら<strong>月々14,500円〜</strong></span></div>
                     <div class="g2p-divider" aria-hidden="true"></div>
                     <ul class="g2p-features">
-                    <li><span>カウンセリング回数</span><span>12回</span></li>
+                    <li><span>サポート期間</span><span>4ヶ月</span></li>
+                    <li><span>面談回数</span><span>8回</span></li>
                     <li><span>教材視聴</span><span>無期限（全ての教材）</span></li>
                     <li><span>到達ゴール</span><span>実務レベルの応用まで</span></li>
-                    <li><span>制作できるもの</span><span>Webアプリ・業務自動化</span></li>
-                    <li><span>ワークショップ</span><span>月1回</span></li>
+                    <li><span>ライブレッスン</span><span>月1回</span></li>
                     <li><span>コミュニティ参加</span><span><span class="g2p-mark g2p-mark-check" aria-label="あり">✓</span></span></li>
                     <li><span>ウェビナー見放題</span><span><span class="g2p-mark g2p-mark-check" aria-label="あり">✓</span></span></li>
+                    <li><span>収益化サポート</span><span><span class="g2p-mark g2p-mark-check" aria-label="あり">✓</span></span></li>
                     </ul>
                 </article>
-                <article class="g2p-card">
+                <article class="g2p-card" data-plan="2">
                     
-                    <h3 class="g2p-title">9ヶ月<em>プラン</em></h3>
+                    <h3 class="g2p-title">サービス開発<em>プラン</em></h3>
                     <div class="g2p-section">
                         <p class="g2p-label is-target">オススメの方</p>
                         <p class="g2p-target"><span>独立や自社プロダクト立ち上げ</span><span>までを視野に入れたい方</span></p>
@@ -1113,22 +1200,23 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                     <div class="g2p-divider" aria-hidden="true"></div>
                     <div class="g2p-section">
                         <p class="g2p-label">料金（一括）<sup>※1</sup></p>
-                        <p class="g2p-amount">458,000<em>円</em></p>
+                        <p class="g2p-amount">438,000<em>円</em></p>
                     </div>
-                    <div class="g2p-discount"><span class="g2p-discount-icon" aria-hidden="true">¥</span><span>分割払いなら<strong>月々19,100円〜</strong></span></div>
+                    <div class="g2p-discount"><span class="g2p-discount-icon" aria-hidden="true">¥</span><span>分割払いなら<strong>月々18,250円〜</strong></span></div>
                     <div class="g2p-divider" aria-hidden="true"></div>
                     <ul class="g2p-features">
-                    <li><span>カウンセリング回数</span><span>18回</span></li>
+                    <li><span>サポート期間</span><span>6ヶ月</span></li>
+                    <li><span>面談回数</span><span>12回</span></li>
                     <li><span>教材視聴</span><span>無期限（全ての教材）</span></li>
                     <li><span>到達ゴール</span><span>独立・自社開発まで</span></li>
-                    <li><span>制作できるもの</span><span>自社プロダクトまで</span></li>
-                    <li><span>ワークショップ</span><span>月1回</span></li>
+                    <li><span>ライブレッスン</span><span>月1回</span></li>
                     <li><span>コミュニティ参加</span><span><span class="g2p-mark g2p-mark-check" aria-label="あり">✓</span></span></li>
                     <li><span>ウェビナー見放題</span><span><span class="g2p-mark g2p-mark-check" aria-label="あり">✓</span></span></li>
+                    <li><span>収益化サポート</span><span><span class="g2p-mark g2p-mark-check" aria-label="あり">✓</span></span></li>
                     </ul>
                 </article>
                 </div>
-                <p class="g2p-note">※1 一括払いの場合の総額です。分割払いも対応可能です。<br>※2 6ヶ月・9ヶ月プランは、Claude Code エンジニアコース以外のバイテック生成AIのカリキュラムも全て見放題となります。</p>
+                <p class="g2p-note">※1 一括払いの場合の総額です。分割払いも対応可能です。<br>※2 4ヶ月・6ヶ月プランは、Claude Code エンジニアコース以外のバイテック生成AIのカリキュラムも全て見放題となります。</p>
             </div>
         </section>
         <!-- /.g2p-price -->
@@ -1143,10 +1231,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                     <li class="g2flow-item" data-step="STEP01">
                         <h3>カレンダーで日程調整</h3>
                         <p>まずは予約カレンダーから無料カウンセリングを予約</p>
+                        <span class="g2flow-down" aria-hidden="true"></span>
                     </li>
                     <li class="g2flow-item" data-step="STEP02">
                         <h3>カウンセリング実施</h3>
                         <p>AIの活用から最新情報までなんでも質問・相談可能！</p>
+                        <span class="g2flow-down" aria-hidden="true"></span>
                     </li>
                     <li class="g2flow-item" data-step="STEP03">
                         <h3>受講の申し込み</h3>
@@ -1165,9 +1255,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         <div class="cta">
     <div class="inner">
         <h2 class="cta__heading">まずは無料で相談してみる</h2>
-        <p class="cta__message">Claude Code実装のプロが、あなたの“作れる側”への最短ルートを完全無料でご提案します。</p>
+        <p class="cta__message">ClaudeCodeの活用方法から、あなたに合わせた学習ロードマップをご提案します。</p>
         <div class="cta__button">
-            <a href="#" class="cta__btn">
+            <span class="cta__microcopy">簡単30秒で予約完了！</span>
+            <a href="#counseling" class="cta__btn">
                 <span class="cta__btn-sub">完全無料・オンライン ／ 所要60分</span>
                 <span class="cta__btn-main">無料カウンセリングを予約する</span>
                 <span class="cta__btn-arrow" aria-hidden="true"></span>
@@ -1375,10 +1466,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                         <li class="flow__item">
                             <div class="flow__image">
                                 <span class="flow__label">Step 03</span>
-                                <img loading="lazy" src="/geek-static/files/flow3.png" alt="">
+                                <img loading="lazy" src="/geek-static/files/flow3-roadmap.webp" alt="">
                             </div>
                             <h4 class="flow__heading">最適な学習ロードマップをご提案</h4>
-                            <p class="flow__text">お聞きした内容をもとに、AI駆動開発を最短で身につける学習プランとコースをご提案します。</p>
+                            <p class="flow__text">ヒアリング内容をもとに、目標達成までの学習プランと最適なコースを一人ひとりに合わせてご提案します。</p>
                         </li>
                         <li class="flow__item">
                             <div class="flow__image">
@@ -1393,7 +1484,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
                 </div>
 
             </div>
-            <div class="flow__review">    <section class="review">
+            <div class="flow__review">    <section class="review" id="voice">
         <div class="inner">
             <h2 class="c-heading-bubble type2">カウンセリングを体験した<br class="sp">お客様の口コミ</h2>
             <ul class="review__cards c-scroll-custom">
@@ -1457,7 +1548,408 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         </section>
         <!-- /.flow -->
 
-        <section class="faq u-secpad-b-sp">
+        <section class="ctaform" id="counseling">
+            <div class="inner">
+                <div class="ctaform__box">
+                    <div class="ctaform__head">
+                        <span class="c-sec-ttl__en">Form</span>
+                        <h2 class="ctaform__title"><span class="u-text-orange">無料カウンセリング</span><br>予約フォーム</h2>
+                        <p class="ctaform__lead">完全無料・オンライン ／ 所要60分。</p>
+                    </div>
+<script>
+  // ★★★ ここをLPごとに書き換える（他は触らない） ★★★
+  const GAS_URL    = 'https://script.google.com/macros/s/AKfycbzFK2HDxL3BwTfK2DBR8flrCIll2lr5ZyOB1W9Vy5s6V5EcAIhNc_plwDu-lFMCU__1fg/exec';
+  const THANKS_URL = 'https://geek.bytech.jp/thanks';      
+  const SOURCE     = 'GEEK【オーガニック】';          
+  const LP_TYPE    = 'geek';                        
+  const ROUTE_ID   = 'geek_organic';        
+</script>
+
+<style>
+  :root {
+    --fc-primary: #00AC9B;
+    --fc-primary-light: #14C9B4;
+    --fc-primary-bg: #EAF8F6;
+    --fc-bg: #ffffff;
+    --fc-card-bg: #ffffff;
+    --fc-text: #1a1a2e;
+    --fc-text-sub: #888;
+    --fc-border: #eee;
+    --fc-radius: 14px;
+    --fc-err: #e74c3c;
+    --fc-row-h: 72px;
+  }
+  .fc-wrapper{max-width:720px;margin:0 auto;padding:20px 16px 32px;font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',Meiryo,sans-serif;color:var(--fc-text);-webkit-font-smoothing:antialiased}
+  .fc-progress{display:flex;align-items:center;justify-content:center;gap:0;margin:0 0 20px;padding:0 10px}
+  .fc-step{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0}
+  .fc-dot{width:30px;height:30px;border-radius:50%;background:#e0e0e0;display:flex;align-items:center;justify-content:center;transition:all .3s}
+  .fc-dot-num{font-size:13px;font-weight:700;color:#999;transition:all .3s}
+  .fc-dot-label{font-size:11px;color:#999;font-weight:600;white-space:nowrap;transition:all .3s}
+  .fc-step.active .fc-dot{background:var(--fc-primary);box-shadow:0 2px 8px rgba(0,172,155,.3)}
+  .fc-step.active .fc-dot-num{color:#fff}
+  .fc-step.active .fc-dot-label{color:var(--fc-primary)}
+  .fc-step.done .fc-dot{background:var(--fc-primary)}
+  .fc-step.done .fc-dot-num{color:#fff}
+  .fc-step.done .fc-dot-label{color:var(--fc-primary)}
+  .fc-conn{flex:1;height:3px;background:#e0e0e0;border-radius:2px;margin:0 6px;position:relative;margin-bottom:18px;overflow:hidden}
+  .fc-conn-fill{position:absolute;top:0;left:0;height:100%;width:0;background:var(--fc-primary);border-radius:2px;transition:width .4s}
+  .fc-conn.half .fc-conn-fill{width:50%}
+  .fc-conn.filled .fc-conn-fill{width:100%}
+  .fc-card{background:var(--fc-card-bg);border-radius:var(--fc-radius);box-shadow:0 2px 16px rgba(0,0,0,.06);overflow:hidden;position:relative}
+  .fc-card-accent{height:4px;background:linear-gradient(90deg,var(--fc-primary),var(--fc-primary-light))}
+  .fc-card-body{padding:20px}
+  .fc-panel{display:none}
+  .fc-panel.active{display:block;animation:fcFadeIn .3s ease}
+  @keyframes fcFadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+  .fc-cal-title-bar{text-align:center;font-size:15px;font-weight:700;color:var(--fc-text);margin-bottom:14px;min-height:20px}
+  .fc-loading-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px;gap:14px;min-height:280px}
+  .fc-spinner-lg{width:36px;height:36px;border:3px solid var(--fc-border);border-top-color:var(--fc-primary);border-radius:50%;animation:fcSpin .8s linear infinite}
+  .fc-loading-text{font-size:13px;color:var(--fc-text-sub);font-weight:600;letter-spacing:.3px}
+  .fc-grid-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .fc-grid{display:grid;grid-template-columns:50px repeat(5,1fr);min-width:480px}
+  .fc-grid-corner{border-bottom:2px solid var(--fc-border)}
+  .fc-dh{text-align:center;padding:8px 0 10px;border-bottom:2px solid var(--fc-border)}
+  .fc-dh-dow{font-size:12px;font-weight:700;color:var(--fc-text-sub)}
+  .fc-dh-date{font-size:17px;font-weight:800;color:var(--fc-text);margin-top:1px}
+  .fc-dh.today .fc-dh-dow,.fc-dh.today .fc-dh-date{color:var(--fc-primary)}
+  .fc-tl{display:flex;align-items:center;justify-content:flex-end;font-size:11px;font-weight:700;color:var(--fc-text-sub);height:var(--fc-row-h);border-right:1px solid var(--fc-border);border-bottom:1px solid #f5f5f5;padding-right:8px;box-sizing:border-box}
+  .fc-cell{height:var(--fc-row-h);border-bottom:1px solid #f5f5f5;padding:3px;display:flex;align-items:center;justify-content:center;box-sizing:border-box}
+  .fc-slot{width:100%;height:100%;border-radius:8px;border:none;background:#F3F4F6;cursor:default;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;transition:all .15s;padding:2px}
+  .fc-slot.has-slot{background:#E8F7EE;cursor:pointer}
+  .fc-slot.has-slot:hover{background:#CFEFD9;outline:1.5px solid var(--fc-primary)}
+  .fc-slot.selected{background:var(--fc-primary)!important;transform:scale(1.02);outline:none}
+  .fc-slot.selected .fc-slot-range{color:rgba(255,255,255,.8)}
+  .fc-slot.selected .fc-badge-icon,.fc-slot.selected .fc-badge-text,.fc-slot.selected .fc-badge-num,.fc-slot.selected .fc-badge-label,.fc-slot.selected .fc-badge-tail,.fc-slot.selected .fc-x{color:#fff!important}
+  .fc-slot-range{font-size:9px;font-weight:600;color:var(--fc-text-sub);line-height:1;margin-bottom:1px}
+  .fc-badge{display:flex;flex-direction:column;align-items:center;gap:2px;line-height:1}
+  .fc-badge-icon{font-size:26px;font-weight:500;line-height:1;color:#27ae60}
+  .fc-badge-label{font-size:11px;font-weight:700;color:#000;line-height:1}
+  .fc-badge-num{font-size:17px;font-weight:900;line-height:1}
+  .fc-badge-tail{font-size:11px;font-weight:700;color:#000;line-height:1}
+  .fc-badge-few .fc-badge-num{color:#e67e22}
+  .fc-badge-last .fc-badge-num{color:#e74c3c}
+  .fc-x{color:#9CA3AF;font-size:20px;font-weight:400}
+  .fc-time-bar-d{display:flex;align-items:center;gap:8px;background:var(--fc-primary-bg);padding:10px 14px;border-radius:10px;margin-bottom:16px;font-size:14px;font-weight:600;color:var(--fc-primary)}
+  .fc-time-bar-d svg{width:18px;height:18px;flex-shrink:0}
+  .fc-field{margin-bottom:14px}
+  .fc-label{display:block;font-size:13px;font-weight:700;color:var(--fc-text);margin-bottom:5px}
+  .fc-req{color:var(--fc-err);font-size:11px;font-weight:700}
+  .fc-opt{color:var(--fc-text-sub);font-size:11px;font-weight:600}
+  .fc-input{width:100%;padding:11px 14px;border:1.5px solid var(--fc-border);border-radius:10px;font-size:15px;color:var(--fc-text);outline:none;transition:border .2s;box-sizing:border-box;font-family:inherit}
+  .fc-input:focus{border-color:var(--fc-primary)}
+  .fc-input.error{border-color:var(--fc-err);background:#fef2f2}
+  .fc-name-row{display:flex;gap:8px}
+  .fc-name-row .fc-input{flex:1}
+  .fc-textarea{resize:vertical;min-height:80px}
+  .fc-err-msg{display:none;font-size:12px;color:var(--fc-err);margin-top:4px;font-weight:600}
+  .fc-err-msg.show{display:block}
+  .fc-radio-group{display:flex;flex-direction:column;gap:8px}
+  .fc-radio-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1.5px solid var(--fc-border);border-radius:10px;cursor:pointer;transition:all .2s}
+  .fc-radio-item:hover{border-color:var(--fc-primary);background:var(--fc-primary-bg)}
+  .fc-radio-item.selected{border-color:var(--fc-primary);background:var(--fc-primary-bg)}
+  .fc-radio-dot{width:18px;height:18px;border-radius:50%;border:2px solid #ccc;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+  .fc-radio-item.selected .fc-radio-dot{border-color:var(--fc-primary)}
+  .fc-radio-dot-inner{width:10px;height:10px;border-radius:50%;background:var(--fc-primary);transform:scale(0);transition:transform .2s}
+  .fc-radio-item.selected .fc-radio-dot-inner{transform:scale(1)}
+  .fc-radio-text{font-size:14px;font-weight:600;color:var(--fc-text)}
+  .fc-btn-row{display:flex;gap:10px;margin-top:18px}
+  .fc-btn{flex:1;padding:14px 16px;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit;position:relative}
+  .fc-btn-next{background:var(--fc-primary);color:#fff}
+  .fc-btn-next:hover{background:#FF3410}
+  .fc-btn-next:disabled{opacity:.4;cursor:not-allowed}
+  .fc-btn-back{background:#f0f0f0;color:var(--fc-text-sub)}
+  .fc-btn-back:hover{background:#e5e5e5}
+  .fc-btn-submit{background:var(--fc-primary);color:#fff}
+  .fc-btn-submit:hover{background:#FF3410}
+  .fc-btn-submit.loading .fc-btn-text{visibility:hidden}
+  .fc-btn-submit.loading .fc-spinner{display:block}
+  .fc-spinner{display:none;width:22px;height:22px;border:3px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:fcSpin .6s linear infinite;position:absolute;top:50%;left:50%;margin:-11px 0 0 -11px}
+  @keyframes fcSpin{to{transform:rotate(360deg)}}
+  .fc-counter{text-align:center;font-size:12px;color:var(--fc-text-sub);margin-top:12px;font-weight:600}
+  .fc-conf-header{font-size:11px;font-weight:700;color:var(--fc-text-sub);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid var(--fc-border)}
+  .fc-conf-row{display:flex;justify-content:space-between;padding:6px 0;font-size:14px}
+  .fc-conf-label{color:var(--fc-text-sub)}
+  .fc-conf-value{font-weight:600;text-align:right;max-width:60%;word-break:break-all}
+  @media(max-width:560px){
+    .fc-wrapper{padding:12px 8px 24px}
+    .fc-card-body{padding:14px 10px}
+    .fc-slot-range{font-size:8px}
+    .fc-badge-icon{font-size:20px}
+    .fc-badge-label{font-size:10px}
+    .fc-badge-num{font-size:15px}
+    .fc-badge-tail{font-size:10px}
+    .fc-x{font-size:16px}
+    .fc-tl{font-size:10px;padding-right:5px}
+    .fc-dh-date{font-size:14px}
+    .fc-dh-dow{font-size:10px}
+    :root{--fc-row-h:64px}
+    .fc-grid{grid-template-columns:38px repeat(5,1fr);min-width:360px}
+    .fc-loading-wrap{padding:48px 16px;min-height:240px}
+    .fc-spinner-lg{width:32px;height:32px}
+  }
+</style>
+
+<div class="fc-wrapper" id="form">
+  <div class="fc-progress">
+    <div class="fc-step active" data-s="1"><div class="fc-dot"><span class="fc-dot-num">1</span></div><span class="fc-dot-label">日時選択</span></div>
+    <div class="fc-conn half"><div class="fc-conn-fill"></div></div>
+    <div class="fc-step" data-s="2"><div class="fc-dot"><span class="fc-dot-num">2</span></div><span class="fc-dot-label">お客様情報</span></div>
+    <div class="fc-conn"><div class="fc-conn-fill"></div></div>
+    <div class="fc-step" data-s="3"><div class="fc-dot"><span class="fc-dot-num">3</span></div><span class="fc-dot-label">確認・送信</span></div>
+  </div>
+  <div class="fc-card">
+    <div class="fc-card-accent"></div>
+    <div class="fc-card-body">
+      <div class="fc-panel active" id="fcStep1">
+        <div class="fc-cal-title-bar" id="fcCalTitle">2026年5月</div>
+        <div class="fc-grid-wrap" id="fcCalContainer"><div class="fc-grid"><div class="fc-grid-corner"></div><div class="fc-dh today"><div class="fc-dh-dow">金</div><div class="fc-dh-date">22</div></div><div class="fc-dh"><div class="fc-dh-dow">土</div><div class="fc-dh-date">23</div></div><div class="fc-dh"><div class="fc-dh-dow">日</div><div class="fc-dh-date">24</div></div><div class="fc-dh"><div class="fc-dh-dow">月</div><div class="fc-dh-date">25</div></div><div class="fc-dh"><div class="fc-dh-dow">火</div><div class="fc-dh-date">26</div></div><div class="fc-tl">10:00</div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-22T10:00:00+0900" data-date="2026-05-22" data-label="5/22(金) 10:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-last"><span class="fc-badge-label">残り</span><span><span class="fc-badge-num">1</span><span class="fc-badge-tail">枠</span></span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-23T10:00:00+0900" data-date="2026-05-23" data-label="5/23(土) 10:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-24T10:00:00+0900" data-date="2026-05-24" data-label="5/24(日) 10:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-25T10:00:00+0900" data-date="2026-05-25" data-label="5/25(月) 10:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-26T10:00:00+0900" data-date="2026-05-26" data-label="5/26(火) 10:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-tl">11:00</div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-22T11:00:00+0900" data-date="2026-05-22" data-label="5/22(金) 11:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-few"><span class="fc-badge-label">残り</span><span><span class="fc-badge-num">2</span><span class="fc-badge-tail">枠</span></span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-23T11:00:00+0900" data-date="2026-05-23" data-label="5/23(土) 11:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-24T11:00:00+0900" data-date="2026-05-24" data-label="5/24(日) 11:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-25T11:00:00+0900" data-date="2026-05-25" data-label="5/25(月) 11:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-few"><span class="fc-badge-label">残り</span><span><span class="fc-badge-num">2</span><span class="fc-badge-tail">枠</span></span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-26T11:00:00+0900" data-date="2026-05-26" data-label="5/26(火) 11:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-tl">12:00</div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-22T12:00:00+0900" data-date="2026-05-22" data-label="5/22(金) 12:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-23T12:00:00+0900" data-date="2026-05-23" data-label="5/23(土) 12:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-24T12:00:00+0900" data-date="2026-05-24" data-label="5/24(日) 12:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-25T12:00:00+0900" data-date="2026-05-25" data-label="5/25(月) 12:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-26T12:00:00+0900" data-date="2026-05-26" data-label="5/26(火) 12:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-tl">13:00</div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-22T13:00:00+0900" data-date="2026-05-22" data-label="5/22(金) 13:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-23T13:00:00+0900" data-date="2026-05-23" data-label="5/23(土) 13:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-few"><span class="fc-badge-label">残り</span><span><span class="fc-badge-num">2</span><span class="fc-badge-tail">枠</span></span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-24T13:00:00+0900" data-date="2026-05-24" data-label="5/24(日) 13:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-25T13:00:00+0900" data-date="2026-05-25" data-label="5/25(月) 13:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-26T13:00:00+0900" data-date="2026-05-26" data-label="5/26(火) 13:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-tl">14:00</div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-22T14:00:00+0900" data-date="2026-05-22" data-label="5/22(金) 14:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-few"><span class="fc-badge-label">残り</span><span><span class="fc-badge-num">2</span><span class="fc-badge-tail">枠</span></span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-23T14:00:00+0900" data-date="2026-05-23" data-label="5/23(土) 14:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-24T14:00:00+0900" data-date="2026-05-24" data-label="5/24(日) 14:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-25T14:00:00+0900" data-date="2026-05-25" data-label="5/25(月) 14:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-26T14:00:00+0900" data-date="2026-05-26" data-label="5/26(火) 14:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-tl">15:00</div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-22T15:00:00+0900" data-date="2026-05-22" data-label="5/22(金) 15:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-few"><span class="fc-badge-label">残り</span><span><span class="fc-badge-num">2</span><span class="fc-badge-tail">枠</span></span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-23T15:00:00+0900" data-date="2026-05-23" data-label="5/23(土) 15:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-few"><span class="fc-badge-label">残り</span><span><span class="fc-badge-num">2</span><span class="fc-badge-tail">枠</span></span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-24T15:00:00+0900" data-date="2026-05-24" data-label="5/24(日) 15:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-25T15:00:00+0900" data-date="2026-05-25" data-label="5/25(月) 15:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-26T15:00:00+0900" data-date="2026-05-26" data-label="5/26(火) 15:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-tl">16:00</div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-22T16:00:00+0900" data-date="2026-05-22" data-label="5/22(金) 16:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-few"><span class="fc-badge-label">残り</span><span><span class="fc-badge-num">2</span><span class="fc-badge-tail">枠</span></span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-23T16:00:00+0900" data-date="2026-05-23" data-label="5/23(土) 16:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-few"><span class="fc-badge-label">残り</span><span><span class="fc-badge-num">2</span><span class="fc-badge-tail">枠</span></span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-24T16:00:00+0900" data-date="2026-05-24" data-label="5/24(日) 16:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-25T16:00:00+0900" data-date="2026-05-25" data-label="5/25(月) 16:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-26T16:00:00+0900" data-date="2026-05-26" data-label="5/26(火) 16:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-tl">17:00</div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-22T17:00:00+0900" data-date="2026-05-22" data-label="5/22(金) 17:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-few"><span class="fc-badge-label">残り</span><span><span class="fc-badge-num">2</span><span class="fc-badge-tail">枠</span></span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-23T17:00:00+0900" data-date="2026-05-23" data-label="5/23(土) 17:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-24T17:00:00+0900" data-date="2026-05-24" data-label="5/24(日) 17:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-25T17:00:00+0900" data-date="2026-05-25" data-label="5/25(月) 17:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-26T17:00:00+0900" data-date="2026-05-26" data-label="5/26(火) 17:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-tl">18:00</div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-22T18:00:00+0900" data-date="2026-05-22" data-label="5/22(金) 18:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-23T18:00:00+0900" data-date="2026-05-23" data-label="5/23(土) 18:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-24T18:00:00+0900" data-date="2026-05-24" data-label="5/24(日) 18:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-25T18:00:00+0900" data-date="2026-05-25" data-label="5/25(月) 18:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-26T18:00:00+0900" data-date="2026-05-26" data-label="5/26(火) 18:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-tl">19:00</div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-22T19:00:00+0900" data-date="2026-05-22" data-label="5/22(金) 19:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-23T19:00:00+0900" data-date="2026-05-23" data-label="5/23(土) 19:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-24T19:00:00+0900" data-date="2026-05-24" data-label="5/24(日) 19:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-25T19:00:00+0900" data-date="2026-05-25" data-label="5/25(月) 19:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-26T19:00:00+0900" data-date="2026-05-26" data-label="5/26(火) 19:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-tl">20:00</div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-22T20:00:00+0900" data-date="2026-05-22" data-label="5/22(金) 20:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-23T20:00:00+0900" data-date="2026-05-23" data-label="5/23(土) 20:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-few"><span class="fc-badge-label">残り</span><span><span class="fc-badge-num">2</span><span class="fc-badge-tail">枠</span></span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-24T20:00:00+0900" data-date="2026-05-24" data-label="5/24(日) 20:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-few"><span class="fc-badge-label">残り</span><span><span class="fc-badge-num">2</span><span class="fc-badge-tail">枠</span></span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-25T20:00:00+0900" data-date="2026-05-25" data-label="5/25(月) 20:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-26T20:00:00+0900" data-date="2026-05-26" data-label="5/26(火) 20:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-tl">21:00</div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-22T21:00:00+0900" data-date="2026-05-22" data-label="5/22(金) 21:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-few"><span class="fc-badge-label">残り</span><span><span class="fc-badge-num">2</span><span class="fc-badge-tail">枠</span></span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-23T21:00:00+0900" data-date="2026-05-23" data-label="5/23(土) 21:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-last"><span class="fc-badge-label">残り</span><span><span class="fc-badge-num">1</span><span class="fc-badge-tail">枠</span></span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-24T21:00:00+0900" data-date="2026-05-24" data-label="5/24(日) 21:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-few"><span class="fc-badge-label">残り</span><span><span class="fc-badge-num">2</span><span class="fc-badge-tail">枠</span></span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-25T21:00:00+0900" data-date="2026-05-25" data-label="5/25(月) 21:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div><div class="fc-cell"><div class="fc-slot has-slot" data-start="2026-05-26T21:00:00+0900" data-date="2026-05-26" data-label="5/26(火) 21:00〜" onclick="fcSelectSlot(this)"><div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div></div></div></div></div>
+        <div class="fc-btn-row"><button class="fc-btn fc-btn-next" id="fcBtnStep1" disabled="" onclick="fcGoTo(2)"><span class="fc-btn-text">次へ進む</span></button></div>
+      </div>
+      <div class="fc-panel" id="fcStep2">
+        <div class="fc-time-bar-d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span id="fcTimeBarText">-</span></div>
+        <div class="fc-field">
+          <label class="fc-label">お名前 <span class="fc-req">必須</span></label>
+          <div class="fc-name-row">
+            <input type="text" class="fc-input" id="fcLastName" placeholder="姓（例：山田）" autocomplete="family-name">
+            <input type="text" class="fc-input" id="fcFirstName" placeholder="名（例：太郎）" autocomplete="given-name">
+          </div>
+          <div class="fc-err-msg" id="fcErrName">姓・名ともに入力してください</div>
+        </div>
+        <div class="fc-field"><label class="fc-label">メールアドレス <span class="fc-req">必須</span></label><input type="email" class="fc-input" id="fcEmail" placeholder="例：taro@example.com" autocomplete="email"><div class="fc-err-msg" id="fcErrEmail">正しいメールアドレスを入力してください</div></div>
+        <div class="fc-field"><label class="fc-label">電話番号 <span class="fc-req">必須</span></label><input type="tel" class="fc-input" id="fcPhone" placeholder="例：09012345678（ハイフンなし）" autocomplete="tel"><div class="fc-err-msg" id="fcErrPhone">電話番号を入力してください</div></div>
+        <div class="fc-field">
+          <label class="fc-label">特に興味のある生成AI活用法 <span class="fc-req">必須</span></label>
+          <div class="fc-radio-group" id="fcInterestGroup">
+            <div class="fc-radio-item" onclick="fcSelectInterest(this,&#39;業務の効率化・自動化&#39;)"><div class="fc-radio-dot"><div class="fc-radio-dot-inner"></div></div><span class="fc-radio-text">業務の効率化・自動化</span></div>
+            <div class="fc-radio-item" onclick="fcSelectInterest(this,&#39;Webアプリ・HP制作&#39;)"><div class="fc-radio-dot"><div class="fc-radio-dot-inner"></div></div><span class="fc-radio-text">Webアプリ・HP制作</span></div>
+            <div class="fc-radio-item" onclick="fcSelectInterest(this,&#39;副業での収益化&#39;)"><div class="fc-radio-dot"><div class="fc-radio-dot-inner"></div></div><span class="fc-radio-text">副業での収益化</span></div>
+            <div class="fc-radio-item" onclick="fcSelectInterest(this,&#39;スキルアップ&#39;)"><div class="fc-radio-dot"><div class="fc-radio-dot-inner"></div></div><span class="fc-radio-text">スキルアップ</span></div>
+            <div class="fc-radio-item" onclick="fcSelectInterest(this,&#39;その他&#39;)"><div class="fc-radio-dot"><div class="fc-radio-dot-inner"></div></div><span class="fc-radio-text">その他</span></div>
+          </div>
+          <div class="fc-err-msg" id="fcErrInterest">1つ選択してください</div>
+        </div>
+        <div class="fc-field"><label class="fc-label">コメント <span class="fc-opt">任意</span></label><textarea class="fc-input fc-textarea" id="fcComment" placeholder="具体的なご相談内容等あればご記入ください"></textarea></div>
+        <div class="fc-btn-row"><button class="fc-btn fc-btn-back" onclick="fcGoTo(1)">戻る</button><button class="fc-btn fc-btn-next" onclick="fcGoTo(3)"><span class="fc-btn-text">確認画面へ</span></button></div>
+      </div>
+      <div class="fc-panel" id="fcStep3">
+        <div style="margin-bottom:16px;">
+          <div class="fc-conf-header">予約内容</div>
+          <div class="fc-conf-row"><span class="fc-conf-label">日時</span><span class="fc-conf-value" id="fcConfTime">-</span></div>
+          <div class="fc-conf-row"><span class="fc-conf-label">お名前</span><span class="fc-conf-value" id="fcConfName">-</span></div>
+          <div class="fc-conf-row"><span class="fc-conf-label">メール</span><span class="fc-conf-value" id="fcConfEmail">-</span></div>
+          <div class="fc-conf-row"><span class="fc-conf-label">電話番号</span><span class="fc-conf-value" id="fcConfPhone">-</span></div>
+          <div class="fc-conf-row"><span class="fc-conf-label">興味のある活用法</span><span class="fc-conf-value" id="fcConfInterest">-</span></div>
+          <div class="fc-conf-row" id="fcConfCommentRow" style="display:none;"><span class="fc-conf-label">コメント</span><span class="fc-conf-value" id="fcConfComment">-</span></div>
+        </div>
+        <div class="fc-btn-row"><button class="fc-btn fc-btn-back" onclick="fcGoTo(2)">修正する</button><button class="fc-btn fc-btn-submit" id="fcBtnSubmit" onclick="fcSubmit()"><span class="fc-btn-text">この内容で予約する</span><div class="fc-spinner"></div></button></div>
+        <div style="text-align:center;font-size:11px;color:var(--fc-text-sub);margin-top:12px;line-height:1.5;">送信いただいた情報は<a href="https://bytech.jp/biz/privacy-policy/" target="_blank" style="color:var(--fc-primary);text-decoration:underline;">プライバシーポリシー</a>・<a href="https://bytech.jp/biz/user-terms/" target="_blank" style="color:var(--fc-primary);text-decoration:underline;">利用規約</a>に基づき適切に管理いたします。</div>
+      </div>
+    </div>
+  </div>
+  <div class="fc-counter" id="fcCounter">1 / 3</div>
+</div>
+
+<script>
+  const FC_ENTRY='calendar';
+  const DAY_NAMES_FC=['日','月','火','水','木','金','土'];
+  let fcStep=1,fcSelectedStart='',fcSelectedLabel='',fcSelectedDateStr='',fcAllSlots=[],fcInterest='';
+  window.dataLayer=window.dataLayer||[];
+
+  /* ---- JST固定ユーティリティ（TZバグ修正の要） ---- */
+  function fcJstTodayStr(){
+    return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+  }
+  function fcAddDaysJst(ymd,n){
+    var p=ymd.split('-').map(Number);
+    var d=new Date(Date.UTC(p[0],p[1]-1,p[2])+n*86400000);
+    return d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');
+  }
+  function fcJstDow(ymd){
+    var p=ymd.split('-').map(Number);
+    return new Date(Date.UTC(p[0],p[1]-1,p[2])).getUTCDay();
+  }
+
+  function fcInit(){fcFetchSlots();}
+  async function fcFetchSlots(){
+    try{
+      var res=await fetch(GAS_URL+'?action=slots',{cache:'no-store'});
+      var text=await res.text();
+      var result;try{result=JSON.parse(text);}catch{fcShowEmpty('枠の取得に失敗しました');return;}
+      if(!result.success||!result.slots||result.slots.length===0){fcShowEmpty('現在、予約可能な枠がありません');return;}
+      fcAllSlots=result.slots;
+      fcRenderCalendar();
+    }catch{fcShowEmpty('枠の取得に失敗しました');}
+  }
+
+  function fcRenderCalendar(){
+    var nowMs=Date.now();
+    var todayJst=fcJstTodayStr();
+    var dayStrs=[];
+    for(var i=0;i<5;i++) dayStrs.push(fcAddDaysJst(todayJst,i));
+
+    var fp=dayStrs[0].split('-'), lp=dayStrs[4].split('-');
+    var title=fp[0]+'年'+Number(fp[1])+'月';
+    if(fp[1]!==lp[1]) title+=' - '+Number(lp[1])+'月';
+    document.getElementById('fcCalTitle').textContent=title;
+
+    var daySlotMaps=[],allHours={};
+    dayStrs.forEach(function(dStr){
+      var daySlots=fcAllSlots.filter(function(s){
+        return typeof s.startedAt==='string' && s.startedAt.substring(0,10)===dStr;
+      }).filter(function(s){
+        return new Date(s.startedAt).getTime() > nowMs - 30*60*1000;
+      });
+      var hourMap={};
+      daySlots.forEach(function(s){
+        var h=parseInt(s.startedAt.substring(11,13),10);
+        hourMap[h]=s; allHours[h]=true;
+      });
+      daySlotMaps.push({dStr:dStr,hourMap:hourMap});
+    });
+
+    var hours=Object.keys(allHours).map(Number).sort(function(a,b){return a-b;});
+    if(hours.length===0){fcShowEmpty('この期間に空き枠がありません');return;}
+    var minH=hours[0],maxH=hours[hours.length-1];
+
+    var html='<div class="fc-grid"><div class="fc-grid-corner"></div>';
+    dayStrs.forEach(function(dStr){
+      var day=Number(dStr.substring(8,10));
+      var dow=DAY_NAMES_FC[fcJstDow(dStr)];
+      var todayCls=(dStr===todayJst)?' today':'';
+      html+='<div class="fc-dh'+todayCls+'"><div class="fc-dh-dow">'+dow+'</div><div class="fc-dh-date">'+day+'</div></div>';
+    });
+
+    for(var h=minH;h<=maxH;h++){
+      html+='<div class="fc-tl">'+('0'+h).slice(-2)+':00</div>';
+      for(var di=0;di<5;di++){
+        var slot=daySlotMaps[di].hourMap[h];
+        if(slot){
+          var minStr=slot.startedAt.substring(14,16);
+          var startStr=('0'+h).slice(-2)+':'+minStr;
+          var cap=slot.remainingCapacity||1;
+          var badge='';
+          if(cap<=1) badge='<div class="fc-badge fc-badge-last"><span class="fc-badge-label">残り</span><span><span class="fc-badge-num">'+cap+'</span><span class="fc-badge-tail">枠</span></span></div>';
+          else if(cap<=2) badge='<div class="fc-badge fc-badge-few"><span class="fc-badge-label">残り</span><span><span class="fc-badge-num">'+cap+'</span><span class="fc-badge-tail">枠</span></span></div>';
+          else badge='<div class="fc-badge fc-badge-ok"><span class="fc-badge-icon">◯</span></div>';
+          var dStr2=daySlotMaps[di].dStr;
+          var day2=Number(dStr2.substring(8,10));
+          var mon2=Number(dStr2.substring(5,7));
+          var dow2=DAY_NAMES_FC[fcJstDow(dStr2)];
+          var label=mon2+'/'+day2+'('+dow2+') '+startStr+'〜';
+          html+='<div class="fc-cell"><div class="fc-slot has-slot" data-start="'+slot.startedAt+'" data-date="'+dStr2+'" data-label="'+label+'" onclick="fcSelectSlot(this)">'+badge+'</div></div>';
+        }else{
+          html+='<div class="fc-cell"><div class="fc-slot"><span class="fc-x">×</span></div></div>';
+        }
+      }
+    }
+    html+='</div>';
+    document.getElementById('fcCalContainer').innerHTML=html;
+  }
+
+  function fcSelectSlot(el){
+    document.querySelectorAll('.fc-slot').forEach(function(s){s.classList.remove('selected');});
+    el.classList.add('selected');
+    fcSelectedStart=el.dataset.start;
+    fcSelectedLabel=el.dataset.label;
+    fcSelectedDateStr=el.dataset.date;
+    document.getElementById('fcBtnStep1').disabled=false;
+    dataLayer.push({event:'fc_slot_click',slot_time:fcSelectedLabel});
+    document.getElementById('fcBtnStep1').scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  function fcSelectInterest(el,value){
+    document.querySelectorAll('.fc-radio-item').forEach(function(r){r.classList.remove('selected');});
+    el.classList.add('selected');
+    fcInterest=value;
+    document.getElementById('fcErrInterest').classList.remove('show');
+  }
+  function fcGoTo(step){
+    if(step>fcStep&&fcStep===2&&!fcValidate())return;
+    if(step===2)document.getElementById('fcTimeBarText').textContent=fcSelectedLabel;
+    if(step===3)fcPopulateConfirm();
+    fcStep=step;fcUpdateUI();
+  }
+  function fcUpdateUI(){
+    document.querySelectorAll('.fc-panel').forEach(function(p){p.classList.remove('active');});
+    document.getElementById('fcStep'+fcStep).classList.add('active');
+    document.querySelectorAll('.fc-wrapper .fc-step').forEach(function(d){var s=parseInt(d.dataset.s);d.classList.remove('active','done');if(s===fcStep)d.classList.add('active');else if(s<fcStep)d.classList.add('done');});
+    document.querySelectorAll('.fc-wrapper .fc-conn').forEach(function(c,i){c.classList.remove('filled','half');if(i+1<fcStep)c.classList.add('filled');else if(i+1===fcStep)c.classList.add('half');});
+    document.getElementById('fcCounter').textContent=fcStep+' / 3';
+    document.querySelector('.fc-wrapper').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  function fcValidate(){
+    var ok=true;
+    var ln=document.getElementById('fcLastName'), fn=document.getElementById('fcFirstName');
+    var em=document.getElementById('fcEmail'), ph=document.getElementById('fcPhone');
+    [ln,fn,em,ph].forEach(function(f){f.classList.remove('error');});
+    document.querySelectorAll('.fc-err-msg').forEach(function(el){el.classList.remove('show');});
+    if(!ln.value.trim()){ln.classList.add('error');document.getElementById('fcErrName').classList.add('show');ok=false;}
+    if(!fn.value.trim()){fn.classList.add('error');document.getElementById('fcErrName').classList.add('show');ok=false;}
+    if(!em.value.trim()||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)){em.classList.add('error');document.getElementById('fcErrEmail').classList.add('show');ok=false;}
+    if(!ph.value.trim()){ph.classList.add('error');document.getElementById('fcErrPhone').classList.add('show');ok=false;}
+    if(!fcInterest){document.getElementById('fcErrInterest').classList.add('show');ok=false;}
+    return ok;
+  }
+  function fcPopulateConfirm(){
+    var last=document.getElementById('fcLastName').value.trim();
+    var first=document.getElementById('fcFirstName').value.trim();
+    document.getElementById('fcConfTime').textContent=fcSelectedLabel;
+    document.getElementById('fcConfName').textContent=(last+' '+first).trim();
+    document.getElementById('fcConfEmail').textContent=document.getElementById('fcEmail').value;
+    document.getElementById('fcConfPhone').textContent=document.getElementById('fcPhone').value;
+    document.getElementById('fcConfInterest').textContent=fcInterest;
+    var c=document.getElementById('fcComment').value.trim();
+    if(c){document.getElementById('fcConfComment').textContent=c;document.getElementById('fcConfCommentRow').style.display='';}
+    else{document.getElementById('fcConfCommentRow').style.display='none';}
+  }
+  async function fcSubmit(){
+    var btn=document.getElementById('fcBtnSubmit');btn.classList.add('loading');btn.disabled=true;
+    dataLayer.push({event:'fc_form_submit'});
+    try{
+      var last=document.getElementById('fcLastName').value.trim();
+      var first=document.getElementById('fcFirstName').value.trim();
+      var params=new URLSearchParams({
+        action:'book',
+        started_at:fcSelectedStart,
+        displayed_date:fcSelectedDateStr || (fcSelectedStart?fcSelectedStart.substring(0,10):''),
+        last_name:last,
+        first_name:first,
+        name:(last+' '+first).trim(),
+        email:document.getElementById('fcEmail').value.trim(),
+        phone:document.getElementById('fcPhone').value.trim(),
+        source:SOURCE,
+        lp_type:LP_TYPE,
+        entry:FC_ENTRY,
+        route_id:ROUTE_ID,
+        interest:fcInterest,
+        comment:document.getElementById('fcComment').value.trim()
+      });
+      var res=await fetch(GAS_URL+'?'+params,{cache:'no-store'});
+      var text=await res.text();
+      var result;try{result=JSON.parse(text);}catch{throw new Error('Invalid');}
+      if(result.error){alert('エラー: '+result.error);}
+      else{dataLayer.push({event:'fc_form_complete',booking_id:result.bookingId||''});window.location.href=THANKS_URL;}
+    }catch{alert('通信エラーが発生しました。もう一度お試しください。');}
+    finally{btn.classList.remove('loading');btn.disabled=false;}
+  }
+  document.querySelectorAll('#fcStep2 .fc-input').forEach(function(input){
+    input.addEventListener('input',function(){
+      this.classList.remove('error');
+      var err=this.closest('.fc-field').querySelector('.fc-err-msg');
+      if(err)err.classList.remove('show');
+    });
+  });
+  function fcShowEmpty(msg){
+    document.getElementById('fcCalContainer').innerHTML='<div class="fc-loading-wrap"><div class="fc-loading-text" style="color:var(--fc-text-sub);font-size:14px;">'+(msg||'予約可能な枠がありません')+'</div></div>';
+    document.getElementById('fcBtnStep1').style.display='none';
+  }
+  fcInit();
+</script>
+                </div>
+            </div>
+        </section>
+        <!-- /.ctaform -->
+
+        <section class="faq u-secpad-b-sp" id="faq">
             <div class="inner">
                 <h2 class="c-sec-ttl">
                     <span class="c-sec-ttl__en">FAQ</span>
@@ -1474,7 +1966,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <p class="wp-block-paragraph">プログラミング未経験でも受講できますか？</p>
 <p class="faq__icon"></p></div></div>
 <p class="faq__a wp-block-paragraph">
-はい、プログラミング未経験の方でも受講いただけます。Claude Codeを活用し、未経験からでも「作り切る」実装力が身につくようカリキュラムを設計しています。まずは基本的なAI活用スキルから身につけたいという方には、姉妹コースの「バイテック生成AI」もご用意しています。
+はい、プログラミング未経験の方でも受講いただけます。Claude Codeを活用し、未経験からでも「作り切る」実装力が身につくようカリキュラムを設計しています。まずは基本的なAI活用スキルから身につけたいという方には、姉妹コースの「<a href="https://bytech.jp" target="_blank" rel="noopener" style="color:#1a6dff;text-decoration:underline;">バイテック生成AI</a>」もご用意しています。
 </p>
 </div></div>
 <div class="wp-block-group faq__item"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained">
@@ -1607,8 +2099,8 @@ Claude Codeを使い、要件定義から実装までを一人で「作り切る
 
                     <!-- <ul class="faq__menu">
                         <li><a href="#">サービス全般</a></li>
-                        <li><a href="#">料金</a></li>
-                        <li><a href="#">無料カウンセリング</a></li>
+                        <li><a href="#price">料金</a></li>
+                        <li><a href="#counseling">無料カウンセリング</a></li>
                     </ul>
                     <div class="faq__content">
                         <ul class="faq__list">
@@ -1639,9 +2131,10 @@ Claude Codeを使い、要件定義から実装までを一人で「作り切る
          <div class="cta">
     <div class="inner">
         <h2 class="cta__heading">まずは無料で相談してみる</h2>
-        <p class="cta__message">Claude Code実装のプロが、あなたの“作れる側”への最短ルートを完全無料でご提案します。</p>
+        <p class="cta__message">ClaudeCodeの活用方法から、あなたに合わせた学習ロードマップをご提案します。</p>
         <div class="cta__button">
-            <a href="#" class="cta__btn">
+            <span class="cta__microcopy">簡単30秒で予約完了！</span>
+            <a href="#counseling" class="cta__btn">
                 <span class="cta__btn-sub">完全無料・オンライン ／ 所要60分</span>
                 <span class="cta__btn-main">無料カウンセリングを予約する</span>
                 <span class="cta__btn-arrow" aria-hidden="true"></span>
@@ -1660,19 +2153,18 @@ document.querySelectorAll(`.faq__q>div`).forEach(tar => {
     <footer>
         <div class="inner">
             <div class="footer__content">
-                <div class="footer__catch"><p class="footer__catch-text">ClaudeCodeで、<br>業務に革命を起こす。</p></div>
+                <div class="footer__catch"><p class="footer__catch-text">明日から、AI開発が<br>あなたの日常に。</p></div>
                 <div class="footer__nav">
                     <ul class="footer__menu">
-                        <li><a href="#">GEEKとは</a></li>
-                        <li><a href="#">お悩み</a></li>
-                        <li><a href="#">コース</a></li>
-                        <li><a href="#">料金</a></li>
-                        <li><a href="#">受講生実績</a></li>
-                        <li><a href="#">受講生の声</a></li>
-                        <li><a href="#">よくある質問</a></li>
-                        <!-- <li><a href="#">よくある質問</a></li> -->
+                        <li><a href="#about">GEEKとは</a></li>
+                        <li><a href="#problem">お悩み</a></li>
+                        <li><a href="#course">コース</a></li>
+                        <li><a href="#price">料金</a></li>
+                        <li><a href="#results">受講生実績</a></li>
+                        <li><a href="#voice">受講生の声</a></li>
+                        <li><a href="#faq">よくある質問</a></li>
+                        <!-- <li><a href="#faq">よくある質問</a></li> -->
                     </ul>
-                    <div class="footer__button"><a href="#" class="c-btn">カウンセリング予約</a></div>
                 </div>
             </div>
             <div class="footer__bottom">
@@ -1681,18 +2173,25 @@ document.querySelectorAll(`.faq__q>div`).forEach(tar => {
                     <p class="footer__copyright"> Copyright 株式会社AI棒</p>
                 </div>
                 <ul class="footer__submenu">
-                    <li><a href="#">よくある質問</a></li>
-                    <li><a href="#" target="_blank" rel="noopener">プライバシーポリシー</a></li>
-                    <li><a href="#" target="_blank" rel="noopener">個人情報保護方針</a></li>
+                    <li><a href="/geek-privacy-policy-static/index.html" target="_blank" rel="noopener">プライバシーポリシー</a></li>
+                    <li><a href="/geek-membership-terms-static/index.html" target="_blank" rel="noopener">会員規約</a></li>
+                    <li><a href="/geek-specified_commercial-static/index.html" target="_blank" rel="noopener">特定商取引法</a></li>
                     <li><a href="https://ai-bou.co.jp" target="_blank" rel="noopener">運営会社</a></li>
                 </ul>
             </div>
         </div>
     </footer>
 
-    
+    <div class="sp-fixcta" id="spFixCta" aria-hidden="true">
+        <a href="#counseling" class="cta__btn">
+            <span class="cta__btn-sub">完全無料・オンライン ／ 所要60分</span>
+            <span class="cta__btn-main">無料カウンセリングを予約する</span>
+            <span class="cta__btn-arrow" aria-hidden="true"></span>
+        </a>
+    </div>
+
 <script id="swiper_script-js" src="/geek-static/files/swiper-bundle.min.js"></script>
-<script id="my_script-js" src="/geek-static/files/script.js"></script>
+<script id="my_script-js" src="/geek-static/files/script.js?v=20260704h"></script>
 
 
 
