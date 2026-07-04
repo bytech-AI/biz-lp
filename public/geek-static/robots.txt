@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# 予約完了/フォーム系はインデックス不要
+Disallow: /thanks
+Disallow: /geek-static/thanks.html
+
+Sitemap: https://geek.bytech.jp/sitemap.xml
