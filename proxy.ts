@@ -56,10 +56,36 @@ export function proxy(request: NextRequest) {
       '/membership-terms': '/geek-membership-terms-static/index.html',
       '/specified_commercial': '/geek-specified_commercial-static/index.html',
     }
+    // clean URL → 実体ファイルへ内部リライト（URLは綺麗なまま）
     if (geekLegal[normalizedPath]) {
       return NextResponse.rewrite(new URL(geekLegal[normalizedPath], request.url))
     }
-    return NextResponse.next()
+    // 直アクセスされた実体URL（.../geek-*-static/index.html）は clean URL へ 301
+    const uglyToClean: Record<string, string> = {
+      '/geek-privacy-policy-static/index.html': '/privacy-policy',
+      '/geek-membership-terms-static/index.html': '/membership-terms',
+      '/geek-specified_commercial-static/index.html': '/specified_commercial',
+    }
+    if (uglyToClean[pathname]) {
+      return NextResponse.redirect(new URL(uglyToClean[pathname], request.url), 301)
+    }
+    // ここまでで一致しないパスは geek 専用ページとして存在しない。
+    // geek.bytech.jp は bytech.jp と同じ Next アプリで配信しているため、
+    // ここを素通し(next())にすると apex の全ページ（/chatgpt-master 等）が
+    // geek サブドメインでも露出し重複コンテンツになる。default-deny にして防ぐ。
+    // 素通しは geek ページ自身のリソースのみ:
+    //   - 拡張子付きアセット（STATIC_ASSET_RE）
+    //   - geek 専用アセットディレクトリ（下記プレフィックス）
+    // geek に新ページを追加する場合は上の clean URL 群に明示登録すること。
+    const GEEK_ASSET_PREFIXES = ['/geek-static/', '/geek-assets/', '/files/', '/img/']
+    if (
+      STATIC_ASSET_RE.test(pathname) ||
+      GEEK_ASSET_PREFIXES.some((prefix) => pathname.startsWith(prefix))
+    ) {
+      return NextResponse.next()
+    }
+    // 未登録パスは geek トップへ 301。重複コンテンツを避けつつ評価を geek トップに集約。
+    return NextResponse.redirect(new URL('/', request.url), 301)
   }
 
   // apex / その他ホストからは /geek を公開しない（サブドメインへ移行済みのため404）。
