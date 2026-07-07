@@ -2027,7 +2027,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   function fcInit(){fcFetchSlots();}
   async function fcFetchSlots(){
     try{
-      var res=await fetch(GAS_URL+'?action=slots',{cache:'no-store'});
+      var res=await fetch(GAS_URL+'?action=slots&lp_type='+LP_TYPE,{cache:'no-store'});
       var text=await res.text();
       var result;try{result=JSON.parse(text);}catch{fcShowEmpty('枠の取得に失敗しました');return;}
       if(!result.success||!result.slots||result.slots.length===0){fcShowEmpty('現在、予約可能な枠がありません');return;}
