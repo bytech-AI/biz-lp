@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 (function(){function jstDate(offset){var d=new Date();var jst=new Date(d.toLocaleString("en-US",{timeZone:"Asia/Tokyo"}));jst.setDate(jst.getDate()+offset);return jst;}var y=jstDate(-1);var seed=y.getFullYear()*10000+(y.getMonth()+1)*100+y.getDate();var count=52+((seed*17)%35);document.querySelectorAll("#mo-yesterday-count,.mo-yesterday-count").forEach(function(el){el.textContent=String(count);});})();
 
-var GAS_URL='https://script.google.com/macros/s/AKfycbzFK2HDxL3BwTfK2DBR8flrCIll2lr5ZyOB1W9Vy5s6V5EcAIhNc_plwDu-lFMCU__1fg/exec';var THANKS_URL='/thanks';var SOURCE='GEN【ASP_バレット】CP4万円';var LP_TYPE='gen';var ROUTE_ID='gen_asp_barret_cp4';
+var GAS_URL='https://script.google.com/macros/s/AKfycbzFK2HDxL3BwTfK2DBR8flrCIll2lr5ZyOB1W9Vy5s6V5EcAIhNc_plwDu-lFMCU__1fg/exec';var THANKS_URL='/thanks';var SOURCE='GEN【AI HACK】CP5万円';var LP_TYPE='gen';var ROUTE_ID='gen_ai_hack_cp5';
 
 const ENTRY='fv';const DAY_NAMES=['日','月','火','水','木','金','土'];let csStep=1,csSelectedStart='',csSelectedLabel='',csSelectedDateStr='',csCurrentDay='today',csAllSlots=[];window.dataLayer=window.dataLayer||[];function csJstTodayStr(){return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());}
 function csAddDaysJst(ymd,n){var p=ymd.split('-').map(Number);var d=new Date(Date.UTC(p[0],p[1]-1,p[2])+n*86400000);return d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');}
@@ -198,7 +198,7 @@ else{dataLayer.push({event:'consultation_form_complete',booking_id:result.bookin
 finally{btn.classList.remove('loading');btn.disabled=false;}}
 document.querySelectorAll('.cs-input').forEach(function(input){input.addEventListener('input',function(){this.classList.remove('error');var err=this.closest('.cs-field').querySelector('.cs-err');if(err)err.classList.remove('show');});});document.getElementById('csLastName').addEventListener('focus',function(){dataLayer.push({event:'consultation_name_focus'});},{once:true});document.getElementById('csEmail').addEventListener('focus',function(){dataLayer.push({event:'consultation_email_focus'});},{once:true});csInit();
 
-var GAS_URL='https://script.google.com/macros/s/AKfycbzFK2HDxL3BwTfK2DBR8flrCIll2lr5ZyOB1W9Vy5s6V5EcAIhNc_plwDu-lFMCU__1fg/exec';var THANKS_URL='/thanks';var SOURCE='GEN【ASP_バレット】CP4万円';var LP_TYPE='gen';var ROUTE_ID='gen_asp_barret_cp4';
+var GAS_URL='https://script.google.com/macros/s/AKfycbzFK2HDxL3BwTfK2DBR8flrCIll2lr5ZyOB1W9Vy5s6V5EcAIhNc_plwDu-lFMCU__1fg/exec';var THANKS_URL='/thanks';var SOURCE='GEN【AI HACK】CP5万円';var LP_TYPE='gen';var ROUTE_ID='gen_ai_hack_cp5';
 
 const FC_ENTRY='calendar';const DAY_NAMES_FC=['日','月','火','水','木','金','土'];let fcStep=1,fcSelectedStart='',fcSelectedLabel='',fcSelectedDateStr='',fcAllSlots=[],fcInterest='';window.dataLayer=window.dataLayer||[];function fcJstTodayStr(){return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());}
 function fcAddDaysJst(ymd,n){var p=ymd.split('-').map(Number);var d=new Date(Date.UTC(p[0],p[1]-1,p[2])+n*86400000);return d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');}
