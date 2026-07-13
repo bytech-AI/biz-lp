@@ -183,7 +183,7 @@ export default function BizPage() {
               <div className="hero__label__logo fadein delay-time02">
                 <picture>
                   <source type="image/webp" srcSet="/biz/assets/img/index/hero_lavel_mdl.webp" />
-                  <img decoding="async" loading="lazy" src="/biz/assets/img/index/hero_lavel_mdl.png" alt="" />
+                  <img decoding="async" loading="lazy" src="/biz/assets/img/index/hero_lavel_mdl.webp" alt="" />
                 </picture>
               </div>
               <div className="hero__cta fadein delay-time03">
@@ -333,15 +333,15 @@ export default function BizPage() {
             ` }} />
             <div className="index_compare__slider">
               <ul className="index_compare__slider__list">
-                <li className="index_compare__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_compare_s01.png" alt="" /></li>
-                <li className="index_compare__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_compare_s02.png" alt="" /></li>
-                <li className="index_compare__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_compare_s03.png" alt="" /></li>
-                <li className="index_compare__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_compare_s04.png" alt="" /></li>
-                <li className="index_compare__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_compare_s05.png" alt="" /></li>
-                <li className="index_compare__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_compare_s06.png" alt="" /></li>
-                <li className="index_compare__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_compare_s07.png" alt="" /></li>
-                <li className="index_compare__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_compare_s09.png" alt="" /></li>
-                <li className="index_compare__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_compare_s10.png" alt="" /></li>
+                <li className="index_compare__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_compare_s01.webp" alt="" /></li>
+                <li className="index_compare__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_compare_s02.webp" alt="" /></li>
+                <li className="index_compare__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_compare_s03.webp" alt="" /></li>
+                <li className="index_compare__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_compare_s04.webp" alt="" /></li>
+                <li className="index_compare__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_compare_s05.webp" alt="" /></li>
+                <li className="index_compare__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_compare_s06.webp" alt="" /></li>
+                <li className="index_compare__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_compare_s07.webp" alt="" /></li>
+                <li className="index_compare__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_compare_s09.webp" alt="" /></li>
+                <li className="index_compare__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_compare_s10.webp" alt="" /></li>
               </ul>
             </div>
           </div>
@@ -356,7 +356,7 @@ export default function BizPage() {
               </h2>
             </div>
             <div className="index_solution__visual">
-              <img loading="lazy" src="/biz/assets/img/index/img_index_soltion_bg.jpg" alt="" className="index_solution__bg" />
+              <img loading="lazy" src="/biz/assets/img/index/img_index_soltion_bg.webp" alt="" className="index_solution__bg" />
               <div className="index_solution__icons">
                 <div className="index_solution__icon fadein delay-time03">
                   <p>AI研修を<br />受けさせた</p>
@@ -395,7 +395,7 @@ export default function BizPage() {
               <span className="index_solution-hero__tag">組織でのAI活用力</span>
             </h2>
             <div className="index_solution-hero__img">
-              <img loading="lazy" src="/biz/assets/img/index/img_index_solution-hero_bg.jpg" alt="AIを活用する組織のイメージ" />
+              <img loading="lazy" src="/biz/assets/img/index/img_index_solution-hero_bg.webp" alt="AIを活用する組織のイメージ" />
             </div>
             <p className="index_solution-hero__lead">
               AI駆動でクリティカルな課題解決ができる組織作りを目指せる生成AI研修
@@ -416,7 +416,7 @@ export default function BizPage() {
                 <p className="cta-card__label">まずは資料をダウンロード</p>
                 <div className="cta-card__body">
                   <div className="cta-card__media l-img">
-                    <img loading="lazy" src="/biz/assets/img/index/index_cta_l_img.png" alt="" />
+                    <img loading="lazy" src="/biz/assets/img/index/index_cta_l_img.webp" alt="" />
                   </div>
                   <div className="cta-card__cta">
                     <p className="cta-card__text">これでバイテックBizがまる分かり</p>
@@ -1109,7 +1109,7 @@ export default function BizPage() {
                 <p className="index_feature__desc">バイテックBizでは、既存の業務でのベーシックな課題から部門別での課題まで実務を想定した学習を提供しています。初心者でも迷わず最短で課題解決・ゴールに必要なAIスキルの習得が可能です。</p>
               </div>
               <div className="index_feature__detail__image fadein delay-time02">
-                <img loading="lazy" src="/biz/assets/img/index/img_index_feature_001.png" alt="課題・ゴールに合わせたオーダーメイドカリキュラム" />
+                <img loading="lazy" src="/biz/assets/img/index/img_index_feature_001.webp" alt="課題・ゴールに合わせたオーダーメイドカリキュラム" />
               </div>
             </div>
           </div>
@@ -1127,13 +1127,13 @@ export default function BizPage() {
             </div>
             <div className="index_feature__section__slider fadein delay-time02">
               <ul className="index_feature__section__slider__list">
-                <li className="index_feature__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_feature_slider01.jpg" alt="" /></li>
-                <li className="index_feature__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_feature_slider02.jpg" alt="" /></li>
-                <li className="index_feature__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_feature_slider03.jpg" alt="" /></li>
-                <li className="index_feature__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_feature_slider04.jpg" alt="" /></li>
-                <li className="index_feature__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_feature_slider05.jpg" alt="" /></li>
-                <li className="index_feature__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_feature_slider06.jpg" alt="" /></li>
-                <li className="index_feature__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_feature_slider07.jpg" alt="" /></li>
+                <li className="index_feature__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_feature_slider01.webp" alt="" /></li>
+                <li className="index_feature__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_feature_slider02.webp" alt="" /></li>
+                <li className="index_feature__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_feature_slider03.webp" alt="" /></li>
+                <li className="index_feature__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_feature_slider04.webp" alt="" /></li>
+                <li className="index_feature__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_feature_slider05.webp" alt="" /></li>
+                <li className="index_feature__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_feature_slider06.webp" alt="" /></li>
+                <li className="index_feature__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_feature_slider07.webp" alt="" /></li>
               </ul>
             </div>
           </div>
@@ -1147,7 +1147,7 @@ export default function BizPage() {
                 <p className="index_feature__desc">様々な業務課題が存在するからこそ、複数名体制でのサポートが必要となります。あらゆる角度からのフィードバックやアドバイスで、組織・チームをゴールまで導きます。</p>
               </div>
               <div className="index_feature__detail__image fadein delay-time02">
-                <img loading="lazy" src="/biz/assets/img/index/img_index_feature_002.png" alt="各AI領域の専門家達による複数名での伴走型サポート" />
+                <img loading="lazy" src="/biz/assets/img/index/img_index_feature_002.webp" alt="各AI領域の専門家達による複数名での伴走型サポート" />
               </div>
             </div>
           </div>
@@ -1187,7 +1187,7 @@ export default function BizPage() {
                 <p className="index_feature__desc">バイテックBizの学びは、個々の習得を部署・チームの壁を越えて連鎖させ、全社でAIを当たり前にすることがゴールです。個人の「できた」を組織の競争力に変えるまで、我々がサポートします。</p>
               </div>
               <div className="index_feature__detail__image fadein delay-time02">
-                <img loading="lazy" src="/biz/assets/img/index/img_index_feature_003.png" alt="チーム全体で実施する組織横断型の研修プログラム" />
+                <img loading="lazy" src="/biz/assets/img/index/img_index_feature_003.webp" alt="チーム全体で実施する組織横断型の研修プログラム" />
               </div>
             </div>
           </div>
@@ -1198,7 +1198,7 @@ export default function BizPage() {
                   <h3 className="index_feature__section__heading head__03">PDCAサイクルで<br /><span>最短でAI導入</span>を事業成長に</h3>
                 </div>
               </div>
-              <div className="index_feature__section__image"><img loading="lazy" src="/biz/assets/img/index/img_index_feature_003_02.png" alt="" /></div>
+              <div className="index_feature__section__image"><img loading="lazy" src="/biz/assets/img/index/img_index_feature_003_02.webp" alt="" /></div>
             </div>
           </div>
         </section>
@@ -1372,11 +1372,11 @@ export default function BizPage() {
             <h2 className="index_works__heading fadein delay-time02">導入事例</h2>
             <div className="index_works__section__slider fadein delay-time02">
               <ul className="index_works__section__slider__list">
-                <li className="index_works__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_works_s01.jpg" alt="" /></li>
-                <li className="index_works__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_works_s02.jpg" alt="" /></li>
-                <li className="index_works__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_works_s03.jpg" alt="" /></li>
-                <li className="index_works__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_works_s04.jpg" alt="" /></li>
-                <li className="index_works__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_works_s05.jpg" alt="" /></li>
+                <li className="index_works__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_works_s01.webp" alt="" /></li>
+                <li className="index_works__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_works_s02.webp" alt="" /></li>
+                <li className="index_works__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_works_s03.webp" alt="" /></li>
+                <li className="index_works__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_works_s04.webp" alt="" /></li>
+                <li className="index_works__section__slider__list__item"><img loading="lazy" src="/biz/assets/img/index/img_index_works_s05.webp" alt="" /></li>
               </ul>
             </div>
           </div>
@@ -1391,7 +1391,7 @@ export default function BizPage() {
               <div className="index_flow__item fadein delay-time03">
                 <p className="index_flow__item__number">01</p>
                 <h3 className="index_flow__item__title">無料個別相談を予約</h3>
-                <div className="index_flow__item__icon"><img loading="lazy" src="/biz/assets/img/index/index_flow__item__icon_01.png" alt="" /></div>
+                <div className="index_flow__item__icon"><img loading="lazy" src="/biz/assets/img/index/index_flow__item__icon_01.webp" alt="" /></div>
                 <p className="index_flow__item__text">
                   まずは無料の個別相談をご予約ください
                 </p>
@@ -1401,7 +1401,7 @@ export default function BizPage() {
               <div className="index_flow__item fadein delay-time03">
                 <p className="index_flow__item__number">02</p>
                 <h3 className="index_flow__item__title">ヒアリング・ご提案</h3>
-                <div className="index_flow__item__icon"><img loading="lazy" src="/biz/assets/img/index/index_flow__item__icon_02.png" alt="" /></div>
+                <div className="index_flow__item__icon"><img loading="lazy" src="/biz/assets/img/index/index_flow__item__icon_02.webp" alt="" /></div>
                 <p className="index_flow__item__text">
                   現状をヒアリングし、AI活用レベルに合わせた研修プランを提案します
                 </p>
@@ -1412,7 +1412,7 @@ export default function BizPage() {
                 <p className="index_flow__item__number">03</p>
                 <h3 className="index_flow__item__title">お見積もり</h3>
                 {/* TODO: お見積もり用イラストに差し替え（暫定でicon_04を流用） */}
-                <div className="index_flow__item__icon"><img loading="lazy" src="/biz/assets/img/index/index_flow__item__icon_04.png" alt="" /></div>
+                <div className="index_flow__item__icon"><img loading="lazy" src="/biz/assets/img/index/index_flow__item__icon_04.webp" alt="" /></div>
                 <p className="index_flow__item__text">
                   お見積もりの確認後、ご決済から最短7日後から研修をスタートすることができます。
                 </p>
@@ -1422,7 +1422,7 @@ export default function BizPage() {
               <div className="index_flow__item fadein delay-time05">
                 <p className="index_flow__item__number">04</p>
                 <h3 className="index_flow__item__title">研修スタート</h3>
-                <div className="index_flow__item__icon"><img loading="lazy" src="/biz/assets/img/index/index_flow__item__icon_03.png" alt="" /></div>
+                <div className="index_flow__item__icon"><img loading="lazy" src="/biz/assets/img/index/index_flow__item__icon_03.webp" alt="" /></div>
                 <p className="index_flow__item__text">
                   チャットサポート等を活用して分からないところは即座に解消しながら実際に研修を進めていきます。
                 </p>
