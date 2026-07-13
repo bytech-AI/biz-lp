@@ -26,6 +26,67 @@ export const metadata: Metadata = {
   icons: {
     icon: "/biz/assets/img/common/favicon.ico",
   },
+  openGraph: {
+    type: "website",
+    url: "https://biz.bytech.jp/",
+    siteName: "バイテックBiz",
+    title: "【公式】バイテックBiz",
+    description: "AIを最高の部下に変えるハンズオン型法人向けAI研修",
+    locale: "ja_JP",
+    images: [
+      {
+        url: "/biz/assets/img/common/ogp.jpg",
+        width: 1200,
+        height: 695,
+        alt: "バイテックBiz｜業務の自動化を、組織の当たり前に。",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "【公式】バイテックBiz",
+    description: "AIを最高の部下に変えるハンズオン型法人向けAI研修",
+    images: ["/biz/assets/img/common/ogp.jpg"],
+  },
+};
+
+// サイト名を「バイテックBiz」でGoogleに確定させる最優先シグナル（WebSite）＋運営者情報（Organization）。
+// 会社情報は特商法ページ準拠（株式会社AI棒／恵比寿）。
+const bizJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://biz.bytech.jp/#organization",
+      name: "バイテックBiz",
+      alternateName: ["byTech Business", "バイテックBiz"],
+      url: "https://biz.bytech.jp/",
+      logo: "https://biz.bytech.jp/biz/assets/img/common/hd-logo.svg",
+      image: "https://biz.bytech.jp/biz/assets/img/common/ogp.jpg",
+      description:
+        "AIを最高の部下に変えるハンズオン型法人向けAI研修。業務の自動化を組織の当たり前にする、実践特化の法人向けAI研修サービス。",
+      parentOrganization: { "@type": "Organization", name: "株式会社AI棒" },
+      address: {
+        "@type": "PostalAddress",
+        postalCode: "150-0021",
+        addressRegion: "東京都",
+        addressLocality: "渋谷区",
+        streetAddress: "恵比寿西2丁目4番8号ウィンド恵比寿ビル8F",
+        addressCountry: "JP",
+      },
+      email: "support@bytech.jp",
+      areaServed: "JP",
+      inLanguage: "ja",
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://biz.bytech.jp/#website",
+      url: "https://biz.bytech.jp/",
+      name: "バイテックBiz",
+      publisher: { "@id": "https://biz.bytech.jp/#organization" },
+      inLanguage: "ja",
+    },
+  ],
 };
 
 export default function BizLayout({
@@ -35,6 +96,11 @@ export default function BizLayout({
 }>) {
   return (
     <div className={`biz-root ${montserrat.variable}`}>
+      {/* 構造化データ（WebSite＋Organization）。Google のサイト名・運営者情報の最優先シグナル。 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(bizJsonLd) }}
+      />
       {/* Google Tag Manager (noscript) */}
       <noscript>
         <iframe
