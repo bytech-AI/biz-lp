@@ -16,6 +16,8 @@ const montserrat = localFont({
   ],
   variable: "--font-montserrat",
   display: "swap",
+  // 英字アクセント用途で使用箇所が少ない。preload無効化でLCP優先。
+  preload: false,
 });
 
 export const metadata: Metadata = {
