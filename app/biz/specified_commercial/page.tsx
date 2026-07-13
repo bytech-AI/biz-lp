@@ -32,14 +32,14 @@ export default function SpecifiedCommercialPage() {
       ` }} />
 
       <div className="pg-header-wrap">
-        <div className="pg-header__logo"><a href="/biz/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" /></a></div>
+        <div className="pg-header__logo"><a href="/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" /></a></div>
         <nav className="pg-header__nav">
-          <a href="/biz/" className="btn-outline">トップページ</a>
-          <a href="/biz/counseling" className="btn-fill">無料個別相談を予約する</a>
+          <a href="/" className="btn-outline">トップページ</a>
+          <a href="/counseling" className="btn-fill">無料個別相談を予約する</a>
         </nav>
       </div>
       <nav className="pg-breadcrumb">
-        <a href="/biz/">TOP</a> <span>&rsaquo; 特定商取引法に関する表示</span>
+        <a href="/">TOP</a> <span>&rsaquo; 特定商取引法に関する表示</span>
       </nav>
       <div className="pg-hero">
         <h1 className="pg-hero__title">特定商取引法に関する表示</h1>
@@ -60,12 +60,12 @@ export default function SpecifiedCommercialPage() {
             <tr><th>支払方法</th><td>銀行振込（請求書発行）/ カード決済</td></tr>
             <tr><th>支払時期</th><td>クレジット・デビットカード決済：ご注文確定後、随時処理<br />銀行振込：請求後2週間以内</td></tr>
             <tr><th>提供時期</th><td>支払手続完了後、すぐにご視聴可能</td></tr>
-            <tr><th>返金ポリシー</th><td><a href="/biz/refund-policy/">返金ポリシーページ</a>をご確認ください</td></tr>
+            <tr><th>返金ポリシー</th><td><a href="/refund-policy/">返金ポリシーページ</a>をご確認ください</td></tr>
           </tbody>
         </table>
       </main>
       <footer className="pg-footer">
-        <div className="pg-footer__logo"><a href="/biz/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" /></a></div>
+        <div className="pg-footer__logo"><a href="/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" /></a></div>
         <p>&copy; 2025 バイテックBiz All Rights Reserved.</p>
       </footer>
     </>

@@ -32,14 +32,14 @@ export default function RefundPolicyPage() {
       ` }} />
 
       <div className="pg-header-wrap">
-        <div className="pg-header__logo"><a href="/biz/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" /></a></div>
+        <div className="pg-header__logo"><a href="/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" /></a></div>
         <nav className="pg-header__nav">
-          <a href="/biz/" className="btn-outline">トップページ</a>
-          <a href="/biz/counseling" className="btn-fill">無料個別相談を予約する</a>
+          <a href="/" className="btn-outline">トップページ</a>
+          <a href="/counseling" className="btn-fill">無料個別相談を予約する</a>
         </nav>
       </div>
       <nav className="pg-breadcrumb">
-        <a href="/biz/">TOP</a> <span>&rsaquo; 返金ポリシー</span>
+        <a href="/">TOP</a> <span>&rsaquo; 返金ポリシー</span>
       </nav>
       <div className="pg-hero">
         <h1 className="pg-hero__title">返金ポリシー</h1>
@@ -71,7 +71,7 @@ export default function RefundPolicyPage() {
         <p>返金時は所定の手続き完了後、原則としてお振込みにて対応いたします。振込手数料はお客様のご負担となります。</p>
       </main>
       <footer className="pg-footer">
-        <div className="pg-footer__logo"><a href="/biz/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" /></a></div>
+        <div className="pg-footer__logo"><a href="/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" /></a></div>
         <p>&copy; 2025 バイテックBiz All Rights Reserved.</p>
       </footer>
     </>

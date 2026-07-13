@@ -33,14 +33,14 @@ export default function UserTermsPage() {
       ` }} />
 
       <div className="pg-header-wrap">
-        <div className="pg-header__logo"><a href="/biz/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" /></a></div>
+        <div className="pg-header__logo"><a href="/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" /></a></div>
         <nav className="pg-header__nav">
-          <a href="/biz/" className="btn-outline">トップページ</a>
-          <a href="/biz/counseling" className="btn-fill">無料個別相談を予約する</a>
+          <a href="/" className="btn-outline">トップページ</a>
+          <a href="/counseling" className="btn-fill">無料個別相談を予約する</a>
         </nav>
       </div>
       <nav className="pg-breadcrumb">
-        <a href="/biz/">TOP</a> <span>&rsaquo; 利用規約</span>
+        <a href="/">TOP</a> <span>&rsaquo; 利用規約</span>
       </nav>
       <div className="pg-hero">
         <h1 className="pg-hero__title">利用規約</h1>
@@ -106,7 +106,7 @@ export default function UserTermsPage() {
         <div className="terms-body">本契約の準拠法は日本法とし、甲と乙との間における一切の訴訟は東京地方裁判所を第一審の専属的合意管轄裁判所とする。<br /><br />	<br /><br />	<br /><br />Instagram<br />	<br /><br />Pinterest<br />	<br /><br />X-twitter</div>
       </main>
       <footer className="pg-footer">
-        <div className="pg-footer__logo"><a href="/biz/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" /></a></div>
+        <div className="pg-footer__logo"><a href="/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" /></a></div>
         <p>&copy; 2025 バイテックBiz All Rights Reserved.</p>
       </footer>
     </>
