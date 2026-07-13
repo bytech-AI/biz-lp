@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   description: "AIを最高の部下に変えるハンズオン型法人向けAI研修",
   robots: { index: true, follow: true },
   icons: {
-    icon: "/biz/assets/img/common/favicon.svg",
+    icon: "/biz/assets/img/common/favicon.ico",
   },
 };
 

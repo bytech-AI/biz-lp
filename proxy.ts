@@ -13,7 +13,7 @@ export function proxy(request: NextRequest) {
     // biz 専用 favicon（.ico は STATIC_ASSET_RE に含まれるため、素通し判定より前に処理）。
     // apex の /favicon.ico が露出しないよう biz ロゴへリライト。
     if (pathname === '/favicon.ico') {
-      return NextResponse.rewrite(new URL('/biz/assets/img/common/favicon.svg', request.url))
+      return NextResponse.rewrite(new URL('/biz/assets/img/common/favicon.ico', request.url))
     }
     // 静的アセット（/biz/assets/... 含む）は素通し
     if (STATIC_ASSET_RE.test(pathname)) {
