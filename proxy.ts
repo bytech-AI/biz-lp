@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-const STATIC_ASSET_RE = /\.(png|jpg|jpeg|gif|svg|webp|ico|woff|woff2|ttf|otf|css|js)$/i
+const STATIC_ASSET_RE = /\.(png|jpg|jpeg|gif|svg|webp|avif|ico|woff|woff2|ttf|otf|css|js)$/i
 
 export function proxy(request: NextRequest) {
   const hostname = (request.headers.get('host') || '').toLowerCase()
