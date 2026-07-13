@@ -1500,7 +1500,7 @@ export default function BizPage() {
             className="right-form-iframe"
             src="https://form.run/embed/@biz-org-fv"
             title="資料ダウンロードフォーム"
-            loading="eager"
+            loading="lazy"
           ></iframe>
         </div>
       </aside>
