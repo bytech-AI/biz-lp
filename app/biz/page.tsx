@@ -213,6 +213,35 @@ export default function BizPage() {
           </div>
         </section>
 
+        {/* FV直下 ロゴスライダー（CSSマーキー・JS不要）。ロゴ画像は後日差し替えるためプレースホルダー。
+            差し替え時は .logo-marquee__ph を <img src="/biz/assets/img/logos/xxx.svg" ...> に置換 */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          .logo-marquee { padding: 32px 0; background: #fff; overflow: hidden; }
+          .logo-marquee__eyebrow { text-align: center; font-size: 12px; letter-spacing: .12em; color: #94a3b8; font-weight: 700; margin: 0 0 20px; font-family: "Futura","Futura Medium",var(--font-montserrat),sans-serif; }
+          .logo-marquee__viewport { position: relative; width: 100%; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+          .logo-marquee__track { display: flex; width: max-content; animation: logo-scroll 32s linear infinite; }
+          .logo-marquee:hover .logo-marquee__track { animation-play-state: paused; }
+          .logo-marquee__item { flex: 0 0 auto; width: 168px; height: 80px; margin: 0 16px; display: flex; align-items: center; justify-content: center; }
+          .logo-marquee__ph { width: 100%; height: 100%; border: 1px dashed #cbd5e1; border-radius: 10px; background: #f1f5f9; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-size: 12px; font-weight: 700; letter-spacing: .08em; }
+          @keyframes logo-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+          @media (prefers-reduced-motion: reduce) { .logo-marquee__track { animation: none; } }
+          @media (max-width: 768px) { .logo-marquee__item { width: 128px; height: 60px; margin: 0 10px; } }
+        ` }} />
+        <section className="logo-marquee" aria-label="導入企業ロゴ">
+          <p className="logo-marquee__eyebrow">導入企業</p>
+          <div className="logo-marquee__viewport">
+            <div className="logo-marquee__track">
+              {Array.from({ length: 2 }).map((_, dup) =>
+                Array.from({ length: 8 }).map((_, i) => (
+                  <div className="logo-marquee__item" key={`${dup}-${i}`} aria-hidden={dup === 1 ? true : undefined}>
+                    <div className="logo-marquee__ph">LOGO</div>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        </section>
+
         <section className="index_about" id="about">
           <div className="index_about__inner u-inner">
             <div className="index_about__box">
@@ -1523,6 +1552,8 @@ export default function BizPage() {
               <li><a href="#feature">3つの特徴</a></li>
               <li><a href="#works">導入事例</a></li>
               <li><a href="#faq">よくある質問</a></li>
+              <li><a href="/documents">お役立ち資料</a></li>
+              <li><a href="/archive">セミナーアーカイブ</a></li>
             </ul>
           </div>
           <div className="footer__col">
