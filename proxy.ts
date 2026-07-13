@@ -38,6 +38,10 @@ export function proxy(request: NextRequest) {
       return NextResponse.rewrite(new URL('/geek', request.url))
     }
     const normalizedPath = pathname.replace(/\/+$/, '') || '/'
+    // geek 専用 favicon（ルート /favicon.ico の404を解消。geek の緑ロゴを配信）
+    if (pathname === '/favicon.ico') {
+      return NextResponse.rewrite(new URL('/geek-static/files/favicon.ico', request.url))
+    }
     // geek 専用 robots / sitemap（ホスト別）
     if (pathname === '/robots.txt') {
       return NextResponse.rewrite(new URL('/geek-static/robots.txt', request.url))
