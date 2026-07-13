@@ -7,10 +7,47 @@ export function proxy(request: NextRequest) {
   const hostname = (request.headers.get('host') || '').toLowerCase()
   const pathname = request.nextUrl.pathname
 
+  // biz は biz.bytech.jp（サブドメイン）で独立配信。クリーンURL（/counseling 等）を
+  // 内部の /biz/* へリライトして返す。/biz/assets は絶対パスなので素通し。
   if (hostname === 'biz.bytech.jp') {
+    // biz 専用 favicon（.ico は STATIC_ASSET_RE に含まれるため、素通し判定より前に処理）。
+    // apex の /favicon.ico が露出しないよう biz ロゴへリライト。
+    if (pathname === '/favicon.ico') {
+      return NextResponse.rewrite(new URL('/biz/assets/img/common/favicon.svg', request.url))
+    }
+    // 静的アセット（/biz/assets/... 含む）は素通し
     if (STATIC_ASSET_RE.test(pathname)) {
       return NextResponse.next()
     }
+    // /blog（WPメディア）は Cloudflare 側で WP へ振り分け済み。念のため素通し。
+    if (pathname === '/blog' || pathname.startsWith('/blog/')) {
+      return NextResponse.next()
+    }
+    // biz 専用 robots / sitemap（ホスト別）
+    if (pathname === '/robots.txt') {
+      return NextResponse.rewrite(new URL('/biz/robots.txt', request.url))
+    }
+    if (pathname === '/sitemap.xml') {
+      return NextResponse.rewrite(new URL('/biz/sitemap.xml', request.url))
+    }
+    // biz 専用サンクス（静的HTML）。counseling(→/thanks) と 資料DL(→/thanks-2)。
+    // public/biz/thanks* の index.html を明示リライト（拡張子なしのため /biz/* 既定
+    // リライトでは解決しない）。
+    if (pathname === '/thanks' || pathname === '/thanks/') {
+      return NextResponse.rewrite(new URL('/biz/thanks/index.html', request.url))
+    }
+    if (pathname === '/thanks-2' || pathname === '/thanks-2/') {
+      return NextResponse.rewrite(new URL('/biz/thanks-2/index.html', request.url))
+    }
+    // 旧 /biz プレフィックス付きURLはクリーンURLへ 301（重複コンテンツ回避）
+    if (pathname === '/biz' || pathname === '/biz/') {
+      return NextResponse.redirect(new URL(`/${request.nextUrl.search}`, request.url), 301)
+    }
+    if (pathname.startsWith('/biz/')) {
+      const stripped = pathname.replace(/^\/biz/, '') || '/'
+      return NextResponse.redirect(new URL(`${stripped}${request.nextUrl.search}`, request.url), 301)
+    }
+    // クリーンパス → 内部 /biz/* へリライト（URLは綺麗なまま）
     return NextResponse.rewrite(new URL(`/biz${pathname}`, request.url))
   }
 
@@ -95,6 +132,16 @@ export function proxy(request: NextRequest) {
   // apex / その他ホストからは /geek を公開しない（サブドメインへ移行済みのため404）。
   if (pathname === '/geek' || pathname === '/geek/') {
     return new NextResponse(null, { status: 404 })
+  }
+
+  // /biz は biz.bytech.jp（サブドメイン）へ移行済み。apex の旧URLは 301 で集約し
+  // SEO評価を新サブドメインへ引き継ぐ（アセットは対象外＝素通し）。
+  if ((pathname === '/biz' || pathname.startsWith('/biz/')) && !STATIC_ASSET_RE.test(pathname)) {
+    const stripped = pathname.replace(/^\/biz/, '') || '/'
+    return NextResponse.redirect(
+      new URL(`https://biz.bytech.jp${stripped}${request.nextUrl.search}`),
+      301,
+    )
   }
 
   // /bytech は廃止し / に統合（静的HTML化）。ロゴ/サブページの旧 /bytech リンク救済のため恒久リダイレクト。

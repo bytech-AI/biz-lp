@@ -250,13 +250,13 @@ export default function DocAPage() {
 
       <div className="doc-header-wrap">
         <div className="doc-header__logo">
-          <a href="/biz/">
+          <a href="/">
             <img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" />
           </a>
         </div>
         <nav className="doc-header__nav">
-          <a href="/biz/" className="btn-outline">トップページ</a>
-          <a href="/biz/counseling" className="btn-fill">無料個別相談を予約する</a>
+          <a href="/" className="btn-outline">トップページ</a>
+          <a href="/counseling" className="btn-fill">無料個別相談を予約する</a>
         </nav>
       </div>
 
@@ -309,7 +309,7 @@ export default function DocAPage() {
 
       <footer className="doc-footer">
         <div className="doc-footer__logo">
-          <a href="/biz/">
+          <a href="/">
             <img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" />
           </a>
         </div>

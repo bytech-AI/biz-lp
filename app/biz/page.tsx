@@ -1,6 +1,8 @@
 export default function BizPage() {
   return (
     <>
+      {/* biz.bytech.jp サブドメインのトップを正規URLに */}
+      <link rel="canonical" href="https://biz.bytech.jp/" />
       {/* <picture>はAVIFを優先表示するため、プリロードもAVIFに一致させる
           （WebPプリロードだと使われず無駄になり、実際に使うAVIFが非優先で遅延しLCP悪化していた） */}
       <link
@@ -129,7 +131,7 @@ export default function BizPage() {
 
       <div className="top-header-wrap">
         <div className="top-header__logo">
-          <a href="/biz"><img loading="lazy" src="/biz/assets/img/common/hd-logo.svg" alt="バイテックBiz" id="top-logo" data-white="/biz/assets/img/common/hd-logo.svg" data-dark="/biz/assets/img/common/hd-logo-dark.svg" /></a>
+          <a href="/"><img loading="lazy" src="/biz/assets/img/common/hd-logo.svg" alt="バイテックBiz" id="top-logo" data-white="/biz/assets/img/common/hd-logo.svg" data-dark="/biz/assets/img/common/hd-logo-dark.svg" /></a>
         </div>
         <button className="top-header__hamburger" aria-label="メニューを開く">
           <span></span><span></span><span></span>
@@ -141,8 +143,8 @@ export default function BizPage() {
           <a href="#feature" className="top-nav-link">3つの特徴</a>
           <a href="#works" className="top-nav-link">導入事例</a>
           <a href="#faq" className="top-nav-link">よくある質問</a>
-          <a href="/biz/doc-a" className="btn-outline">資料をダウンロード</a>
-          <a href="/biz/counseling" className="btn-fill">無料個別相談を予約する</a>
+          <a href="/doc-a" className="btn-outline">資料をダウンロード</a>
+          <a href="/counseling" className="btn-fill">無料個別相談を予約する</a>
         </nav>
       </div>
 
@@ -189,7 +191,7 @@ export default function BizPage() {
                   <span className="hero__cta-btn__label">まずは資料をダウンロード</span>
                   <span className="hero__cta-btn__main">資料をダウンロードする</span>
                 </a>
-                <a href="/biz/counseling" className="hero__cta-btn hero__cta-btn--fill">
+                <a href="/counseling" className="hero__cta-btn hero__cta-btn--fill">
                   <span className="hero__cta-btn__label">まずは話を聞いてみたい</span>
                   <span className="hero__cta-btn__main">無料相談を予約する</span>
                 </a>
@@ -418,7 +420,7 @@ export default function BizPage() {
                   </div>
                   <div className="cta-card__cta">
                     <p className="cta-card__text">これでバイテックBizがまる分かり</p>
-                    <a href="/biz/doc-a" className="c-btn c-btn--outline">資料をダウンロードする</a>
+                    <a href="/doc-a" className="c-btn c-btn--outline">資料をダウンロードする</a>
                   </div>
                 </div>
               </div>
@@ -432,7 +434,7 @@ export default function BizPage() {
                   </div>
                   <div className="cta-card__cta">
                     <p className="cta-card__text">AI活用でのお困り事、ご相談ください</p>
-                    <a href="/biz/counseling" className="c-btn c-btn--fill">無料相談を予約する</a>
+                    <a href="/counseling" className="c-btn c-btn--fill">無料相談を予約する</a>
                   </div>
                 </div>
               </div>

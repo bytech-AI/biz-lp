@@ -19,6 +19,7 @@ const montserrat = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://biz.bytech.jp"),
   title: "【公式】バイテックBiz",
   description: "AIを最高の部下に変えるハンズオン型法人向けAI研修",
   robots: { index: true, follow: true },

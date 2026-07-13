@@ -589,7 +589,7 @@ export default function PlanPage() {
           <li><a href="https://bytech.jp/blog/category/interview/" target="_blank">受講生インタビュー</a></li>
           <li><a href="#faq">よくある質問</a></li>
           <li className="header__nav__divider" aria-hidden="true" />
-          <li><a href="https://bytech.jp/biz" target="_blank">法人研修 ↗</a></li>
+          <li><a href="https://biz.bytech.jp/" target="_blank">法人研修 ↗</a></li>
         </ul>
       </nav>
 
@@ -1077,7 +1077,7 @@ export default function PlanPage() {
           </ul>
           <div className="footer__col__ttl" style={{ 'marginTop': '24px' }}>関連サービス</div>
           <ul className="footer__col__list">
-            <li><a href="https://bytech.jp/biz" target="_blank">法人向けAI研修【バイテックBiz】&#8599;</a></li>
+            <li><a href="https://biz.bytech.jp/" target="_blank">法人向けAI研修【バイテックBiz】&#8599;</a></li>
             <li><a href="https://bytech.jp/blog/" target="_blank">個人向けAIメディア【バイテックBLOG】&#8599;</a></li>
             <li><a href="https://biz.bytech.jp/blog/" target="_blank">企業向けAIメディア【バイテックBLOG Biz】&#8599;</a></li>
           </ul>
