@@ -416,7 +416,7 @@ export default function BizPage() {
                 <p className="cta-card__label">まずは資料をダウンロード</p>
                 <div className="cta-card__body">
                   <div className="cta-card__media l-img">
-                    <img loading="lazy" src="/biz/assets/img/index/index_cta_l_img.webp" alt="" />
+                    <img loading="lazy" src="/biz/assets/img/index/index_cta_l_img-1280.webp" alt="" />
                   </div>
                   <div className="cta-card__cta">
                     <p className="cta-card__text">これでバイテックBizがまる分かり</p>
