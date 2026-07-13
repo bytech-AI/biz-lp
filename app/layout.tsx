@@ -8,6 +8,9 @@ const notoSansJp = localFont({
   weight: "100 900",
   variable: "--font-noto-jp",
   display: "swap",
+  // 455KB の可変フォント。preload するとLCP画像と帯域を奪い合うため無効化。
+  // display:swap でシステム日本語フォント表示 → 読込後にスワップ。
+  preload: false,
 });
 
 // 英語(ラテン文字)用: Futura系の幾何学サンセリフ
@@ -16,6 +19,7 @@ const jost = Jost({
   weight: ["400", "500", "600", "700", "800", "900"],
   variable: "--font-jost",
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
