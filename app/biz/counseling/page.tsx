@@ -277,8 +277,8 @@ export default function CounselingPage() {
       <script dangerouslySetInnerHTML={{ __html: `
   const GAS_URL    = 'https://script.google.com/macros/s/AKfycbzFK2HDxL3BwTfK2DBR8flrCIll2lr5ZyOB1W9Vy5s6V5EcAIhNc_plwDu-lFMCU__1fg/exec';
   const THANKS_URL = '/thanks';
-  const SOURCE     = 'Biz【Paid】';
-  const ROUTE_ID   = 'biz_paid';
+  const SOURCE     = 'Biz【オーガニック】';
+  const ROUTE_ID   = 'biz_organic';
 
   const BC_ENTRY='calendar';
   const BC_LP_TYPE='biz';
