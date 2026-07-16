@@ -4,8 +4,22 @@ import type { NextRequest } from 'next/server'
 const STATIC_ASSET_RE = /\.(png|jpg|jpeg|gif|svg|webp|avif|ico|woff|woff2|ttf|otf|css|js)$/i
 
 export function proxy(request: NextRequest) {
-  const hostname = (request.headers.get('host') || '').toLowerCase()
+  let hostname = (request.headers.get('host') || '').toLowerCase()
   const pathname = request.nextUrl.pathname
+
+  // [LOCAL-ONLY 一時対応・コミットしないこと] localhost を biz.bytech.jp として扱いプレビュー
+  if (hostname.startsWith('localhost') || hostname.startsWith('127.0.0.1')) {
+    hostname = 'biz.bytech.jp'
+  }
+
+  // 検索評価を canonical と同じ非 www に集約する。
+  // これまでは bytech.jp / www.bytech.jp の双方が 200 を返していた。
+  if (hostname === 'www.bytech.jp') {
+    return NextResponse.redirect(
+      new URL(`${request.nextUrl.pathname}${request.nextUrl.search}`, 'https://bytech.jp'),
+      308,
+    )
+  }
 
   // biz は biz.bytech.jp（サブドメイン）で独立配信。クリーンURL（/counseling 等）を
   // 内部の /biz/* へリライトして返す。/biz/assets は絶対パスなので素通し。
