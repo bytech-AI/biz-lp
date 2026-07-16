@@ -1,87 +1,201 @@
-// お役立ち資料の一覧ページ。資料データは後日差し替えるためプレースホルダー。
-// 実データ投入時は DOCUMENTS 配列を差し替え、thumb を実サムネイル画像に置換する。
-const DOCUMENTS = Array.from({ length: 6 }).map((_, i) => ({
-  id: i + 1,
-  category: "お役立ち資料",
-  title: "資料タイトルが入ります",
-  description:
-    "資料の概要説明テキストがここに入ります。内容は後日差し替え予定のプレースホルダーです。",
-}));
+import { BizHeader, BizFooter } from "../_chrome/BizChrome";
+import { LIB_CSS } from "../_chrome/libStyles";
+import { CarouselInit } from "../_chrome/CarouselInit";
+
+// お役立ち資料一覧（資料ライブラリ型）。共通スタイルは _chrome/libStyles.ts（archive と共有）。
+// ⚠️ 資料データはすべてサンプル。公開前に実データ（thumb画像・DL先href）へ差し替えること。
+
+type DocItem = {
+  title: string;
+  points: string[];
+  thumbLabel: string;
+  thumb?: string;
+  href: string;
+};
+
+const PROMO = {
+  eyebrow: "バイテックBizが3分でわかる！",
+  heading: "サービス紹介資料",
+  btnLabel: "無料で資料を受け取る",
+  href: "/doc-a",
+  thumbLabel: "SERVICE DECK",
+  recos: ["バイテックBizについて知りたい", "AI研修の進め方を知りたい", "導入事例を知りたい"],
+};
+
+const PICKUPS: DocItem[] = [
+  { title: "【保存版】生成AI研修 導入完全ガイド", points: ["研修設計から現場定着までの進め方を体系化", "失敗しない社内展開のチェックリスト付き", "主要4つの研修タイプを比較表で収録"], thumbLabel: "DOCUMENT", href: "/doc-a" },
+  { title: "製造業のAI活用 事例集（5社）", points: ["現場業務の自動化で工数を大幅削減", "導入前後の効果をデータで掲載", "進め方のポイントを解説"], thumbLabel: "CASE BOOK", href: "/doc-a" },
+  { title: "はじめての生成AI活用スタートガイド", points: ["何から始めるかを3ステップで整理", "つまずきやすい落とし穴も解説", "すぐ使えるテンプレート付き"], thumbLabel: "GUIDE", href: "/doc-a" },
+];
+
+const CATEGORIES: { name: string; en: string; docs: DocItem[] }[] = [
+  {
+    name: "サービス概要",
+    en: "Service",
+    docs: [
+      { title: "バイテックBiz サービス紹介資料", points: ["研修タイプ・料金・進め方を網羅", "3分でわかる全体像"], thumbLabel: "SERVICE", href: "/doc-a" },
+      { title: "研修プラン比較ガイド", points: ["4つの研修タイプを比較表で整理", "自社に合うプランの選び方"], thumbLabel: "SERVICE", href: "/doc-a" },
+      { title: "導入事例集（5社）", points: ["業種別の活用・成果をまとめて紹介", "導入前後の比較データ"], thumbLabel: "CASE", href: "/doc-a" },
+      { title: "生成AI研修 導入完全ガイド", points: ["研修設計から現場定着までの進め方", "社内展開チェックリスト付き"], thumbLabel: "GUIDE", href: "/doc-a" },
+      { title: "料金・お見積りのご案内", points: ["プラン別の料金体系", "お見積りの流れ"], thumbLabel: "PRICE", href: "/doc-a" },
+      { title: "よくあるご質問（FAQ）集", points: ["導入前の疑問をまとめて解消", "検討時のチェックポイント"], thumbLabel: "FAQ", href: "/doc-a" },
+    ],
+  },
+  {
+    name: "AI活用ノウハウ",
+    en: "Knowledge",
+    docs: [
+      { title: "はじめての生成AI活用スタートガイド", points: ["何から始めるかを3ステップで整理", "つまずきやすい落とし穴も解説"], thumbLabel: "GUIDE", href: "/doc-a" },
+      { title: "業務で差がつくプロンプト設計の基本", points: ["すぐ使えるテンプレート付き", "職種別の活用例を掲載"], thumbLabel: "GUIDE", href: "/doc-a" },
+      { title: "全社展開を成功させる社内ルールの作り方", points: ["情報漏えい・誤情報への対策", "運用フローのサンプル"], thumbLabel: "GUIDE", href: "/doc-a" },
+      { title: "研修の効果を測る評価設計ハンドブック", points: ["理解度チェックの作り方", "定着までのフォロー例"], thumbLabel: "GUIDE", href: "/doc-a" },
+      { title: "職種別・生成AI活用アイデア集", points: ["営業/管理/開発など網羅", "そのまま使える活用例"], thumbLabel: "GUIDE", href: "/doc-a" },
+      { title: "経営層向け：AI人材育成の投資判断ガイド", points: ["費用対効果の考え方", "導入ロードマップ例"], thumbLabel: "GUIDE", href: "/doc-a" },
+    ],
+  },
+];
+
+function DlIcon() {
+  return <span className="dl-ico" aria-hidden="true" />;
+}
+function Caret() {
+  return <span className="dl-caret" aria-hidden="true" />;
+}
+
+function DocCard({ doc }: { doc: DocItem }) {
+  return (
+    <article className="dl-card">
+      <div className="dl-card__thumb">
+        {doc.thumb ? <img src={doc.thumb} alt={doc.title} /> : <span className="dl-thumb-label">{doc.thumbLabel}</span>}
+      </div>
+      <div className="dl-card__body">
+        <h3 className="dl-card__title">{doc.title}</h3>
+        <ul className="dl-points dl-points--sm">
+          {doc.points.map((p, i) => (
+            <li key={i}>{p}</li>
+          ))}
+        </ul>
+        <a className="dl-btn dl-btn--block" href={doc.href}>資料を受け取る<DlIcon /></a>
+      </div>
+    </article>
+  );
+}
 
 export default function DocumentsPage() {
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
-        body { font-family: var(--font-noto-jp), sans-serif; color: #333; background: #f5f7fa url(/biz/assets/img/common/dots.png) repeat; margin: 0; padding: 0; }
-        .pg-header-wrap { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; padding: 16px 40px; }
-        .pg-header__logo img { height: 28px; filter: brightness(0) saturate(100%) invert(15%) sepia(30%) saturate(1500%) hue-rotate(190deg) brightness(90%); }
-        .pg-header__nav { display: flex; gap: 4px; align-items: center; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.7); border-radius: 50px; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 4px 24px rgba(0,0,0,0.06); padding: 4px; }
-        .pg-header__nav a { color: #333; text-decoration: none; font-size: 14px; font-weight: 600; padding: 12px 20px; border-radius: 40px; border: 1px solid transparent; transition: all .3s ease; white-space: nowrap; }
-        .pg-header__nav a.btn-outline:hover { background: #f0f2f5; border-color: #fff; }
-        .pg-header__nav a.btn-fill { background: linear-gradient(135deg, #1a6fb5, #2a9fd6); color: #fff; border: none; box-shadow: 0 2px 8px rgba(26,111,181,0.3); }
-        .pg-header__nav a.btn-fill:hover { opacity: 0.9; }
-        .pg-breadcrumb { max-width: 1100px; margin: 30px auto 0; padding: 0 40px; font-size: 13px; }
-        .pg-breadcrumb a { color: #2a5a9b; text-decoration: none; }
-        .pg-breadcrumb a:hover { text-decoration: underline; }
-        .pg-breadcrumb span { color: #666; }
-        .pg-hero { max-width: 1100px; margin: 0 auto; padding: 30px 40px 0; }
-        .pg-hero__title { font-size: 32px; font-weight: 800; margin: 0 0 8px; }
-        .pg-hero__subtitle { font-size: 16px; color: #aaa; font-weight: 400; margin: 0 0 20px; font-family: "Futura", "Futura Medium", sans-serif; }
-        .pg-hero__line { border: none; border-top: 1px solid #ddd; margin: 0; }
-        .pg-list { max-width: 1100px; margin: 30px auto; padding: 0 40px 60px; }
-        .pg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-        .doc-card { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 6px 24px rgba(0,0,0,0.06); display: flex; flex-direction: column; transition: transform .25s ease, box-shadow .25s ease; }
-        .doc-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
-        .doc-card__thumb { aspect-ratio: 4/3; background: linear-gradient(135deg, #eaf1f8, #dbe7f3); display: flex; align-items: center; justify-content: center; color: #9db8d2; font-size: 13px; font-weight: 700; letter-spacing: .06em; }
-        .doc-card__body { padding: 18px 20px 22px; display: flex; flex-direction: column; flex: 1; }
-        .doc-card__cat { display: inline-block; align-self: flex-start; background: #eaf3fb; color: #1a6fb5; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-bottom: 10px; }
-        .doc-card__title { font-size: 16px; font-weight: 700; line-height: 1.5; margin: 0 0 8px; }
-        .doc-card__desc { font-size: 13px; color: #666; line-height: 1.7; margin: 0 0 16px; flex: 1; }
-        .doc-card__btn { display: block; text-align: center; background: linear-gradient(135deg, #1a6fb5, #2a9fd6); color: #fff; font-size: 14px; font-weight: 700; padding: 12px; border-radius: 8px; text-decoration: none; transition: opacity .3s ease; }
-        .doc-card__btn:hover { opacity: .9; }
-        .pg-empty { grid-column: 1 / -1; text-align: center; color: #999; padding: 40px 0; }
-        .pg-footer { background: #1a2e50; color: #fff; text-align: center; padding: 30px 20px; font-size: 13px; }
-        .pg-footer a { color: #fff; text-decoration: none; }
-        .pg-footer__logo { margin-bottom: 16px; }
-        .pg-footer__logo img { height: 24px; }
-        @media (max-width: 900px) { .pg-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 600px) { .pg-grid { grid-template-columns: 1fr; gap: 20px; } .pg-hero, .pg-list, .pg-breadcrumb { padding-left: 20px; padding-right: 20px; } .pg-header-wrap { padding: 12px 16px; } }
-      ` }} />
+      <style dangerouslySetInnerHTML={{ __html: LIB_CSS }} />
+      <BizHeader />
 
-      <div className="pg-header-wrap">
-        <div className="pg-header__logo"><a href="/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" /></a></div>
-        <nav className="pg-header__nav">
-          <a href="/" className="btn-outline">トップページ</a>
-          <a href="/counseling" className="btn-fill">無料個別相談を予約する</a>
+      <div className="dl-topbar">
+        <nav className="dl-breadcrumb">
+          <a href="/">トップ</a> &nbsp;&gt;&nbsp; お役立ち資料
         </nav>
       </div>
-      <nav className="pg-breadcrumb">
-        <a href="/">TOP</a> <span>&rsaquo; お役立ち資料</span>
-      </nav>
-      <div className="pg-hero">
-        <h1 className="pg-hero__title">お役立ち資料</h1>
-        <p className="pg-hero__subtitle">Documents</p>
-        <hr className="pg-hero__line" />
-      </div>
-      <main className="pg-list">
-        <div className="pg-grid">
-          {DOCUMENTS.map((d) => (
-            <article className="doc-card" key={d.id}>
-              <div className="doc-card__thumb">NO IMAGE</div>
-              <div className="doc-card__body">
-                <span className="doc-card__cat">{d.category}</span>
-                <h2 className="doc-card__title">{d.title}</h2>
-                <p className="doc-card__desc">{d.description}</p>
-                <a className="doc-card__btn" href="/doc-a">ダウンロードする</a>
+
+      {/* ヒーロー帯 */}
+      <section className="dl-hero">
+        <div className="dl-hero__inner">
+          <div>
+            <h1 className="dl-hero__title">お役立ち資料</h1>
+            <p className="dl-hero__desc">
+              科学的なAI人材育成を実現するための資料を<br />
+              無料で配布しています。<br />
+              フォームにご入力いただいたメールアドレスに<br />
+              資料を送付いたします。
+            </p>
+          </div>
+          <div className="dl-promo">
+            <div className="dl-promo__top">
+              <div>
+                <p className="dl-promo__eyebrow">{PROMO.eyebrow}</p>
+                <p className="dl-promo__heading">{PROMO.heading}</p>
+                <a className="dl-promo__btn" href={PROMO.href}>{PROMO.btnLabel}<DlIcon /></a>
               </div>
-            </article>
+              <div className="dl-promo__img"><span className="dl-thumb-label">{PROMO.thumbLabel}</span></div>
+            </div>
+            <div className="dl-promo__reco">
+              <span className="dl-promo__reco-label">こんな方におすすめです</span>
+              {PROMO.recos.map((r, i) => (
+                <span className="dl-promo__reco-item" key={i}><span className="dl-check" />{r}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* カテゴリナビ */}
+      <nav className="dl-nav">
+        <div className="dl-nav__inner">
+          <a href="#pickup">ピックアップ<Caret /></a>
+          {CATEGORIES.map((cat, i) => (
+            <a href={`#cat-${i}`} key={cat.name}>{cat.name}<Caret /></a>
           ))}
         </div>
-      </main>
-      <footer className="pg-footer">
-        <div className="pg-footer__logo"><a href="/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" /></a></div>
-        <p>&copy; 2025 株式会社AI棒 All Rights Reserved.</p>
-      </footer>
+      </nav>
+
+      {/* ピックアップ（カルーセル） */}
+      <section className="dl-wrap dl-sec" id="pickup">
+        <h2 className="dl-sec-title">ピックアップ</h2>
+        <span className="dl-sec-title__en">Pick Up</span>
+        <div className="dl-car" data-dl-carousel>
+          <button className="dl-car__arrow dl-car__arrow--prev" aria-label="前へ">‹</button>
+          <div className="dl-car__vp">
+            <div className="dl-car__track">
+              {PICKUPS.map((doc, i) => (
+                <div className="dl-car__slide" key={i}>
+                  <div className="dl-pickup">
+                    <div className="dl-pickup__thumb"><span className="dl-thumb-label">{doc.thumbLabel}</span></div>
+                    <div>
+                      <span className="dl-pickup__badge">おすすめ</span>
+                      <h3 className="dl-pickup__title">{doc.title}</h3>
+                      <ul className="dl-points">
+                        {doc.points.map((p, j) => (
+                          <li key={j}>{p}</li>
+                        ))}
+                      </ul>
+                      <a className="dl-btn" href={doc.href}>資料を受け取る<DlIcon /></a>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <button className="dl-car__arrow dl-car__arrow--next" aria-label="次へ">›</button>
+          <div className="dl-car__dots">
+            {PICKUPS.map((_, i) => (
+              <button className={`dl-car__dot${i === 0 ? " is-active" : ""}`} key={i} aria-label={`${i + 1}枚目`} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* カテゴリ別グリッド */}
+      {CATEGORIES.map((cat, i) => (
+        <section className="dl-wrap dl-sec" id={`cat-${i}`} key={cat.name}>
+          <h2 className="dl-sec-title">{cat.name}</h2>
+          <span className="dl-sec-title__en">{cat.en}</span>
+          <div className="dl-grid">
+            {cat.docs.map((doc, j) => (
+              <DocCard doc={doc} key={j} />
+            ))}
+          </div>
+        </section>
+      ))}
+
+      {/* 下部CTA */}
+      <section className="dl-cta">
+        <div className="dl-cta__inner">
+          <p className="dl-cta__title">まずは無料個別相談から</p>
+          <p className="dl-cta__desc">貴社の課題に合わせた研修プランや資料のご案内をいたします。お気軽にご相談ください。</p>
+          <a className="dl-cta__btn" href="/counseling">無料個別相談を予約する</a>
+        </div>
+      </section>
+
+      <div className="dl-foot-space" />
+      <BizFooter />
+
+      <CarouselInit />
     </>
   );
 }

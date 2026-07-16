@@ -394,9 +394,6 @@ export default function DocAPage() {
         <p>&copy; 2025 バイテックBiz All Rights Reserved.</p>
       </footer>
 
-      {/* formrun SDK（バリデーション＆エラー表示の制御・AJAX送信）。フォームは dangerouslySetInnerHTML で
-          React管理外にしてあるためSDKと競合しない。ネイティブ<script>で読み込み。 */}
-      <script src="https://sdk.form.run/js/v2/formrun.js" async></script>
       {/* 入力ガイド点滅：お名前・企業名の2項目のみ。現在の未入力項目を点滅、入力中は停止、確定(change/Enter)で次へ。 */}
       <script dangerouslySetInnerHTML={{ __html: `(function(){
         function init(){

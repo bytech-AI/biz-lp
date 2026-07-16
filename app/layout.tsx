@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Jost } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const notoSansJp = localFont({
@@ -39,7 +40,13 @@ export default function RootLayout({
       lang="en"
       className={`${notoSansJp.variable} ${jost.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Script
+          src="https://sdk.form.run/js/v2/formrun.js"
+          strategy="beforeInteractive"
+        />
+      </body>
     </html>
   );
 }
