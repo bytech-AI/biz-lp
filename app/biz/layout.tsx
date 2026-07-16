@@ -22,8 +22,9 @@ const montserrat = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://biz.bytech.jp"),
-  title: "【公式】バイテックBiz",
-  description: "AIを最高の部下に変えるハンズオン型法人向けAI研修",
+  title: "【公式】バイテックBiz｜企業向け生成AI研修",
+  description:
+    "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜バイテックBiz",
   robots: { index: true, follow: true },
   icons: {
     icon: "/biz/assets/img/common/favicon.ico",
@@ -32,22 +33,24 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://biz.bytech.jp/",
     siteName: "バイテックBiz",
-    title: "【公式】バイテックBiz",
-    description: "AIを最高の部下に変えるハンズオン型法人向けAI研修",
+    title: "【公式】バイテックBiz｜企業向け生成AI研修",
+    description:
+      "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜バイテックBiz",
     locale: "ja_JP",
     images: [
       {
         url: "/biz/assets/img/common/ogp-v2.jpg",
         width: 1200,
         height: 695,
-        alt: "バイテックBiz｜使い方で終わらない、納得の成果が出るAI研修。",
+        alt: "バイテックBiz｜業務の自動化を当たり前にする個別コンサル型AI研修",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "【公式】バイテックBiz",
-    description: "AIを最高の部下に変えるハンズオン型法人向けAI研修",
+    title: "【公式】バイテックBiz｜企業向け生成AI研修",
+    description:
+      "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜バイテックBiz",
     images: ["/biz/assets/img/common/ogp-v2.jpg"],
   },
 };
@@ -66,7 +69,7 @@ const bizJsonLd = {
       logo: "https://biz.bytech.jp/biz/assets/img/common/hd-logo.svg",
       image: "https://biz.bytech.jp/biz/assets/img/common/ogp-v2.jpg",
       description:
-        "AIを最高の部下に変えるハンズオン型法人向けAI研修。業務の自動化を組織の当たり前にする、実践特化の法人向けAI研修サービス。",
+        "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修サービス。",
       parentOrganization: { "@type": "Organization", name: "株式会社AI棒" },
       address: {
         "@type": "PostalAddress",
