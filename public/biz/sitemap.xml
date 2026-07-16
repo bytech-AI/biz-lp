@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://biz.bytech.jp/</loc><lastmod>2026-07-13</lastmod><priority>1.0</priority></url>
-  <url><loc>https://biz.bytech.jp/documents</loc><lastmod>2026-07-14</lastmod><priority>0.6</priority></url>
-  <url><loc>https://biz.bytech.jp/archive</loc><lastmod>2026-07-14</lastmod><priority>0.6</priority></url>
+  <url><loc>https://biz.bytech.jp/</loc><lastmod>2026-07-16</lastmod><priority>1.0</priority></url>
+  <url><loc>https://biz.bytech.jp/documents</loc><lastmod>2026-07-16</lastmod><priority>0.7</priority></url>
+  <url><loc>https://biz.bytech.jp/archive</loc><lastmod>2026-07-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://biz.bytech.jp/seminars/seminar-6</loc><lastmod>2026-07-16</lastmod><priority>0.7</priority></url>
+  <url><loc>https://biz.bytech.jp/seminars/seminar-5</loc><lastmod>2026-07-16</lastmod><priority>0.7</priority></url>
+  <url><loc>https://biz.bytech.jp/seminars/seminar-4</loc><lastmod>2026-07-16</lastmod><priority>0.7</priority></url>
+  <url><loc>https://biz.bytech.jp/seminars/seminar-3</loc><lastmod>2026-07-16</lastmod><priority>0.7</priority></url>
+  <url><loc>https://biz.bytech.jp/seminars/seminar-2</loc><lastmod>2026-07-16</lastmod><priority>0.7</priority></url>
+  <url><loc>https://biz.bytech.jp/seminars/seminar-1</loc><lastmod>2026-07-16</lastmod><priority>0.7</priority></url>
 </urlset>
