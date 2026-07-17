@@ -75,7 +75,7 @@ const CHROME_CSS = `
   .top-header__hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .top-header__overlay { display: block; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
   .top-header__overlay.active { opacity: 1; pointer-events: auto; }
-  .top-header__nav { position: fixed; top: 0; right: -280px; width: 280px; height: 100dvh; flex-direction: column; align-items: stretch; gap: 0; padding: 80px 20px 30px; background: #fff; border-radius: 0; border: none; box-shadow: -4px 0 24px rgba(0,0,0,0.1); backdrop-filter: none; overflow-y: auto; z-index: 1001; transition: right 0.3s ease; }
+  .top-header__nav { position: fixed; top: 0; right: -280px; width: 280px; box-sizing: border-box; height: 100dvh; flex-direction: column; align-items: stretch; gap: 0; padding: 80px 20px 30px; background: #fff; border-radius: 0; border: none; box-shadow: -4px 0 24px rgba(0,0,0,0.1); backdrop-filter: none; overflow-y: auto; z-index: 1001; transition: right 0.3s ease; }
   .top-header__nav.active { right: 0; }
   .top-header__nav a { font-size: 15px; padding: 14px 12px; border-radius: 8px; border-bottom: 1px solid #eee; white-space: normal; }
   .top-header__nav a:last-child { border-bottom: none; }
