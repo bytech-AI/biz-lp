@@ -8,6 +8,8 @@
 // - モバイルのハンバーガー開閉は軽量 vanilla（TOPの scripts.js は jQuery/slick 依存の重量物のため移植せず自前）。
 // - フッターCSSの rem(html:62.5%基準=10px) は当ページ群に 62.5% 指定が無いため px 換算済み。
 
+import { getNews, newsCategory, newsPath, newsThumbnail } from "@/lib/microcms";
+
 const CHROME_CSS = `
 /* ===== Footer ===== */
 .footer { background: #16202E; color: #fff; padding: 50px 0 20px; }
@@ -106,7 +108,8 @@ const HAMBURGER_JS = `(function(){
 // 固定ヘッダー分の本文オフセット（利用ページの先頭要素に padding-top で確保する目安）。
 export const BIZ_HEADER_OFFSET = 92;
 
-export function BizHeader() {
+export async function BizHeader() {
+  const news = (await getNews()).slice(0, 3);
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: CHROME_CSS }} />
@@ -120,7 +123,28 @@ export function BizHeader() {
           <a href="/#course" className="top-nav-link">研修一覧</a>
           <a href="/#feature" className="top-nav-link">3つの特徴</a>
           <a href="/#works" className="top-nav-link">導入事例</a>
-          <a href="/news" className="top-nav-link">お知らせ</a>
+          {news.length > 0 ? (
+            <div className="top-nav-item">
+              <a href="/news" className="top-nav-link">お知らせ<span className="top-nav-caret" aria-hidden="true" /></a>
+              <div className="top-mega-menu" aria-label="お知らせの内容">
+                <span className="top-mega-menu__eyebrow">News</span>
+                <p className="top-mega-menu__heading">最新のお知らせ</p>
+                <p className="top-mega-menu__desc">プレスリリースやメディア掲載など、最新の情報をお届けします。</p>
+                <div className="top-mega-menu__grid">
+                  {news.map((n) => (
+                    <a key={n.id} className="top-mega-menu__card" href={newsPath(n)}>
+                      <span className="top-mega-menu__thumb"><img src={newsThumbnail(n)} alt="" /></span>
+                      <span className="top-mega-menu__card-title">{n.title}</span>
+                      <span className="top-mega-menu__card-desc">{newsCategory(n)}</span>
+                    </a>
+                  ))}
+                </div>
+                <a className="top-mega-menu__all" href="/news">お知らせをすべて見る</a>
+              </div>
+            </div>
+          ) : (
+            <a href="/news" className="top-nav-link">お知らせ</a>
+          )}
           <div className="top-nav-item">
             <a href="/archive" className="top-nav-link">アーカイブ<span className="top-nav-caret" aria-hidden="true" /></a>
             <div className="top-mega-menu" aria-label="セミナーアーカイブの内容">
