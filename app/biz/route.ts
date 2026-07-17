@@ -25,7 +25,7 @@ async function buildNewsMega() {
         `<a class="top-mega-menu__card" href="${escapeHtml(newsPath(n))}"><span class="top-mega-menu__thumb"><img src="${escapeHtml(newsThumbnail(n))}" alt=""></span><span class="top-mega-menu__card-title">${escapeHtml(n.title)}</span><span class="top-mega-menu__card-desc">${escapeHtml(newsCategory(n))}</span></a>`,
     )
     .join("");
-  return `<div class="top-nav-item"><a href="/news" class="top-nav-link">お知らせ<span class="top-nav-caret" aria-hidden="true"></span></a><div class="top-mega-menu" aria-label="お知らせの内容"><span class="top-mega-menu__eyebrow">News</span><p class="top-mega-menu__heading">最新のお知らせ</p><p class="top-mega-menu__desc">プレスリリースやメディア掲載など、最新の情報をお届けします。</p><div class="top-mega-menu__grid">${cards}</div><a class="top-mega-menu__all" href="/news">お知らせをすべて見る</a></div></div>`;
+  return `<div class="top-nav-item"><a href="/news" class="top-nav-link">お知らせ</a><div class="top-mega-menu" aria-label="お知らせの内容"><span class="top-mega-menu__eyebrow">News</span><p class="top-mega-menu__heading">最新のお知らせ</p><p class="top-mega-menu__desc">プレスリリースやメディア掲載など、最新の情報をお届けします。</p><div class="top-mega-menu__grid">${cards}</div><a class="top-mega-menu__all" href="/news">お知らせをすべて見る</a></div></div>`;
 }
 
 const SITE_TITLE = "【公式】バイテックBiz｜企業向け生成AI研修";
