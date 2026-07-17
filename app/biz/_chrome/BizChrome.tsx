@@ -117,11 +117,10 @@ export function BizHeader() {
         <button className="top-header__hamburger" aria-label="メニューを開く"><span></span><span></span><span></span></button>
         <div className="top-header__overlay"></div>
         <nav className="top-header__nav">
-          <a href="/#about" className="top-nav-link">バイテックBizとは</a>
           <a href="/#course" className="top-nav-link">研修一覧</a>
           <a href="/#feature" className="top-nav-link">3つの特徴</a>
           <a href="/#works" className="top-nav-link">導入事例</a>
-          <a href="/#faq" className="top-nav-link">よくある質問</a>
+          <a href="/news" className="top-nav-link">お知らせ</a>
           <div className="top-nav-item">
             <a href="/archive" className="top-nav-link">アーカイブ<span className="top-nav-caret" aria-hidden="true" /></a>
             <div className="top-mega-menu" aria-label="セミナーアーカイブの内容">
@@ -150,6 +149,7 @@ export function BizHeader() {
               <a className="top-mega-menu__all" href="/documents">資料をすべて見る</a>
             </div>
           </div>
+          <a href="/#faq" className="top-nav-link">よくある質問</a>
           <a href="/doc-a" className="btn-outline">資料をダウンロード</a>
           <a href="/counseling" className="btn-fill">無料個別相談を予約する</a>
         </nav>
@@ -176,6 +176,7 @@ export function BizFooter() {
             <li><a href="/#faq">よくある質問</a></li>
             <li><a href="/documents">お役立ち資料</a></li>
             <li><a href="/archive">セミナーアーカイブ</a></li>
+            <li><a href="/news">お知らせ</a></li>
           </ul>
         </div>
         <div className="footer__col">
@@ -196,7 +197,7 @@ export function BizFooter() {
           <p className="footer__title footer__title--service">サービス</p>
           <ul className="footer__list">
             <li><a href="#">個人向けAIスクール【バイテック】</a></li>
-            <li><a href="#">オウンドメディア【b-Net】</a></li>
+            <li><a href="https://biz.bytech.jp/blog/" target="_blank" rel="noopener">オウンドメディア【バイテックBLOG Biz】</a></li>
             <li><a href="https://ai-bou.co.jp/ai-sanbo" target="_blank" rel="noopener">企業向けAI顧問サービス【AI参謀】</a></li>
           </ul>
         </div>
