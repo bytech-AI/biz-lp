@@ -90,6 +90,9 @@ export default async function SeminarDetailPage({
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: `
+        /* セミナーページはヘッダーを固定しない（fixed→absoluteでスクロール時に流す）。
+           BizHeaderのstyleが後に来るため !important で上書き。 */
+        .top-header-wrap { position: absolute !important; }
         body { font-family: var(--font-noto-jp), sans-serif; color: #333; background: #f5f7fa; margin: 0; padding: 0; }
         .sem-wrap { max-width: 1180px; margin: 0 auto; padding: 112px 40px 80px; }
         .sem-breadcrumb { font-size: 13px; font-weight: 700; margin: 0 0 26px; }
