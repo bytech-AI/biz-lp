@@ -1,7 +1,22 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { getNews, newsPath } from "@/lib/microcms";
 export const runtime = "nodejs";
 export const revalidate = 300;
+
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+// publishedAt(ISO) → "YYYY.MM.DD"。保存値の日付部分をそのまま使い、TZずれを避ける。
+function formatNewsDate(iso?: string) {
+  if (!iso) return "";
+  return iso.slice(0, 10).replace(/-/g, ".");
+}
 
 const SITE_TITLE = "【公式】バイテックBiz｜企業向け生成AI研修";
 const SITE_DESCRIPTION =
@@ -55,6 +70,37 @@ groups.forEach(function(group,index){
 inner.appendChild(wrap);
 })();</script>`;
 
+// FAQとフッターの間に差し込むニュースパート（左:見出し＋全件導線／右:白カード一覧）。背景白。
+const NEWS_SECTION_STYLE = `<style id="biz-news-section-style">
+.index-news{background:#fff;padding:clamp(50px,6vw,84px) 20px}
+.index-news__inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:clamp(28px,4vw,60px);align-items:start}
+.index-news__eyebrow{margin:0 0 6px;color:#2e599b;font-family:var(--font-montserrat),sans-serif;font-size:clamp(1.2rem,1.5vw,1.4rem);font-weight:700;letter-spacing:.12em}
+.index-news__heading{margin:0 0 22px;color:#16202e;font-size:clamp(2rem,2.6vw,2.6rem);font-weight:800;letter-spacing:.02em}
+.index-news__all{display:inline-flex;align-items:center;gap:12px;color:#16202e;font-size:14px;font-weight:700;text-decoration:none}
+.index-news__all-ico{position:relative;flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:#16202e}
+.index-news__all-ico:after{content:"";position:absolute;top:50%;left:45%;width:6px;height:6px;border-top:2px solid #fff;border-right:2px solid #fff;transform:translate(-50%,-50%) rotate(45deg)}
+.index-news__all:hover{opacity:.8}
+.index-news__list{display:flex;flex-direction:column;gap:14px}
+.index-news__item{display:flex;align-items:center;gap:28px;padding:20px 30px;background:#fff;border:1px solid #eee;border-radius:14px;box-shadow:0 6px 20px rgba(22,32,46,.06);text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
+.index-news__item:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(22,32,46,.1)}
+.index-news__date{flex:0 0 auto;color:#8a93a3;font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.index-news__title{color:#16202e;font-size:15px;font-weight:700;line-height:1.6;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+@media(max-width:860px){.index-news__inner{grid-template-columns:1fr;gap:22px}.index-news__item{padding:16px 18px;gap:14px}}
+</style>`;
+
+// 最新ニュース(microCMS)からニュースパートのHTMLを組み立てる。0件なら null（差し込まない）。
+async function buildNewsSection() {
+  const news = (await getNews()).slice(0, 3);
+  if (news.length === 0) return null;
+  const items = news
+    .map(
+      (n) =>
+        `<a class="index-news__item" href="${escapeHtml(newsPath(n))}"><span class="index-news__date">${escapeHtml(formatNewsDate(n.publishedAt))}</span><span class="index-news__title">${escapeHtml(n.title)}</span></a>`,
+    )
+    .join("");
+  return `<section class="index-news"><div class="index-news__inner"><div class="index-news__head"><p class="index-news__eyebrow">NEWS</p><h2 class="index-news__heading">ニュース</h2><a class="index-news__all" href="/news"><span class="index-news__all-ico" aria-hidden="true"></span>全てのニュース</a></div><div class="index-news__list">${items}</div></div></section>`;
+}
+
 // biz トップ(biz.bytech.jp/)は静的HTML化して配信（React/ハイドレーション排除）。
 // 実体は public/biz-top-static/index.html（scripts/build-static-biz.mjs で生成・コミット済み）。
 export async function GET() {
@@ -100,9 +146,16 @@ export async function GET() {
   );
   html = html.replace(
     "</head>",
-    `${HEADER_MEGA_MENU_STYLE}${FAQ_CATEGORY_STYLE}</head>`,
+    `${HEADER_MEGA_MENU_STYLE}${FAQ_CATEGORY_STYLE}${NEWS_SECTION_STYLE}</head>`,
   );
   html = html.replace("</body>", `${FAQ_CATEGORY_SCRIPT}</body>`);
+  const newsSection = await buildNewsSection();
+  if (newsSection) {
+    html = html.replace(
+      '<footer class="footer" id="pageFooter">',
+      `${newsSection}<footer class="footer" id="pageFooter">`,
+    );
+  }
   return new Response(html, {
     headers: {
       "content-type": "text/html; charset=utf-8",
