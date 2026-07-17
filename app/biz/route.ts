@@ -110,7 +110,7 @@ export async function GET() {
   );
   html = html.replaceAll(
     "/biz/assets/css/style.css",
-    "/biz/assets/css/style.css?v=20260717-1",
+    "/biz/assets/css/style.css?v=20260717-2",
   );
   html = html.replace(
     "<title>【公式】バイテックBiz</title>",
