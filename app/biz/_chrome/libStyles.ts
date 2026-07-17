@@ -27,8 +27,8 @@ export const LIB_CSS = `
         .dl-promo__btn:hover { opacity: .93; }
         .dl-promo__img { aspect-ratio: 16/9; overflow: hidden; background: linear-gradient(135deg, #eef3f9, #dbe6f3); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #9db8d2; font-family: "Futura","Futura Medium",sans-serif; letter-spacing: .1em; font-size: 12px; font-weight: 700; }
         .dl-promo__img img { width: 100%; height: 100%; object-fit: contain; }
-        .dl-promo__reco { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin-top: 14px; padding-top: 14px; border-top: 1px solid #e6eaf0; }
-.dl-promo__reco-label { margin-bottom: 2px; }
+        .dl-promo__reco { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; margin-top: 14px; padding-top: 14px; border-top: 1px solid #e6eaf0; }
+.dl-promo__reco-label { flex-basis: 100%; margin-bottom: 2px; }
         .dl-promo__reco-label { font-size: 14px; font-weight: 800; color: #1a2e50; }
         .dl-promo__reco-item { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #33507a; line-height: 1.4; }
         .dl-check { flex-shrink: 0; width: 20px; height: 20px; background: center/contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='10' fill='%232c5c9c'/%3E%3Cpath d='M5.5 10.5l3 3 6-6.5' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
