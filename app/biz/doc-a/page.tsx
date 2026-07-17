@@ -79,6 +79,20 @@ export default function DocAPage() {
             align-items: stretch;
             margin: 30px auto;
           }
+          /* ヘッダー：SPで余白とナビを縮小。トップページ導線はロゴと重複するため非表示。 */
+          .doc-header-wrap {
+            padding: 12px 16px;
+          }
+          .doc-header__nav {
+            padding: 3px;
+          }
+          .doc-header__nav a {
+            padding: 9px 14px;
+            font-size: 12px;
+          }
+          .doc-header__nav a.btn-outline {
+            display: none;
+          }
         }
         .doc-content {
           flex: 1;
@@ -199,6 +213,7 @@ export default function DocAPage() {
         .doc-form {
           width: 100%;
           max-width: 420px;
+          box-sizing: border-box;
           flex-shrink: 0;
           background: #fff;
           border-radius: 12px;
