@@ -1,32 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { getNews, newsCategory, newsPath, newsThumbnail } from "@/lib/microcms";
-
 export const runtime = "nodejs";
-// お知らせメガメニューに最新ニュース(microCMS)を差し込むため ISR(5分)にする。
 export const revalidate = 300;
-
-function escapeHtml(value: string) {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
-
-// TOP静的HTMLの「お知らせ」プレーンリンクを、最新ニュースのメガメニューに差し替えるHTML。
-// BizChrome.tsx（サブページ）のお知らせメガと同一マークアップ。ニュース0件のときは null（差し替えなし）。
-async function buildNewsMega() {
-  const news = (await getNews()).slice(0, 3);
-  if (news.length === 0) return null;
-  const cards = news
-    .map(
-      (n) =>
-        `<a class="top-mega-menu__card" href="${escapeHtml(newsPath(n))}"><span class="top-mega-menu__thumb"><img src="${escapeHtml(newsThumbnail(n))}" alt=""></span><span class="top-mega-menu__card-title">${escapeHtml(n.title)}</span><span class="top-mega-menu__card-desc">${escapeHtml(newsCategory(n))}</span></a>`,
-    )
-    .join("");
-  return `<div class="top-nav-item"><a href="/news" class="top-nav-link">お知らせ</a><div class="top-mega-menu" aria-label="お知らせの内容"><span class="top-mega-menu__eyebrow">News</span><p class="top-mega-menu__heading">最新のお知らせ</p><p class="top-mega-menu__desc">プレスリリースやメディア掲載など、最新の情報をお届けします。</p><div class="top-mega-menu__grid">${cards}</div><a class="top-mega-menu__all" href="/news">お知らせをすべて見る</a></div></div>`;
-}
 
 const SITE_TITLE = "【公式】バイテックBiz｜企業向け生成AI研修";
 const SITE_DESCRIPTION =
@@ -128,13 +103,6 @@ export async function GET() {
     `${HEADER_MEGA_MENU_STYLE}${FAQ_CATEGORY_STYLE}</head>`,
   );
   html = html.replace("</body>", `${FAQ_CATEGORY_SCRIPT}</body>`);
-  const newsMega = await buildNewsMega();
-  if (newsMega) {
-    html = html.replace(
-      '<a href="/news" class="top-nav-link">お知らせ</a>',
-      newsMega,
-    );
-  }
   return new Response(html, {
     headers: {
       "content-type": "text/html; charset=utf-8",
