@@ -1,9 +1,18 @@
 import { BizHeader, BizFooter } from "../_chrome/BizChrome";
 import { LIB_CSS } from "../_chrome/libStyles";
 import { CarouselInit } from "../_chrome/CarouselInit";
+import {
+  getDocuments,
+  docCategory,
+  docCategoryEn,
+  docLines,
+  docThumbnail,
+  type MicroCmsDocument,
+} from "@/lib/microcms";
 
 // お役立ち資料一覧（資料ライブラリ型）。共通スタイルは _chrome/libStyles.ts（archive と共有）。
-// ⚠️ 資料データはすべてサンプル。公開前に実データ（thumb画像・DL先href）へ差し替えること。
+// データソースは microCMS「documents」（スキーマ: docs/microcms-documents-schema.md）。
+// CMS が空のうちは下記サンプル（FALLBACK_*）を表示する。
 
 type DocItem = {
   title: string;
@@ -13,7 +22,20 @@ type DocItem = {
   href: string;
 };
 
-const PROMO = {
+type Promo = {
+  eyebrow: string;
+  heading: string;
+  btnLabel: string;
+  href: string;
+  thumbLabel: string;
+  thumb?: string;
+  recos: string[];
+};
+
+type Category = { name: string; en: string; docs: DocItem[] };
+
+// ---- フォールバック（CMS未入稿時のサンプル） ----
+const FALLBACK_PROMO: Promo = {
   eyebrow: "バイテックBizが3分でわかる！",
   heading: "サービス紹介資料",
   btnLabel: "無料で資料を受け取る",
@@ -22,13 +44,13 @@ const PROMO = {
   recos: ["バイテックBizについて知りたい", "AI研修の進め方を知りたい", "導入事例を知りたい"],
 };
 
-const PICKUPS: DocItem[] = [
+const FALLBACK_PICKUPS: DocItem[] = [
   { title: "【保存版】生成AI研修 導入完全ガイド", points: ["研修設計から現場定着までの進め方を体系化", "失敗しない社内展開のチェックリスト付き", "主要4つの研修タイプを比較表で収録"], thumbLabel: "DOCUMENT", href: "/doc-a" },
   { title: "製造業のAI活用 事例集（5社）", points: ["現場業務の自動化で工数を大幅削減", "導入前後の効果をデータで掲載", "進め方のポイントを解説"], thumbLabel: "CASE BOOK", href: "/doc-a" },
   { title: "はじめての生成AI活用スタートガイド", points: ["何から始めるかを3ステップで整理", "つまずきやすい落とし穴も解説", "すぐ使えるテンプレート付き"], thumbLabel: "GUIDE", href: "/doc-a" },
 ];
 
-const CATEGORIES: { name: string; en: string; docs: DocItem[] }[] = [
+const FALLBACK_CATEGORIES: Category[] = [
   {
     name: "サービス概要",
     en: "Service",
@@ -55,6 +77,50 @@ const CATEGORIES: { name: string; en: string; docs: DocItem[] }[] = [
   },
 ];
 
+// ---- CMS → 表示モデル変換 ----
+function toDocItem(doc: MicroCmsDocument): DocItem {
+  return {
+    title: doc.title,
+    points: docLines(doc.points),
+    thumbLabel: doc.thumbLabel || "DOCUMENT",
+    thumb: docThumbnail(doc) || undefined,
+    href: doc.formUrl || "/doc-a",
+  };
+}
+
+function buildView(cms: MicroCmsDocument[]): {
+  promo: Promo;
+  pickups: DocItem[];
+  categories: Category[];
+} {
+  const hero = cms.find((d) => d.isHero) || cms[0];
+  const promo: Promo = {
+    eyebrow: hero.eyebrow || "無料でダウンロードいただけます",
+    heading: hero.title,
+    btnLabel: "無料で資料を受け取る",
+    href: hero.formUrl || "/doc-a",
+    thumbLabel: hero.thumbLabel || "DOCUMENT",
+    thumb: docThumbnail(hero) || undefined,
+    recos: docLines(hero.recos),
+  };
+
+  const pickups = cms.filter((d) => d.isPickup).map(toDocItem);
+
+  // カテゴリ別にグルーピング（出現順を維持）
+  const categories: Category[] = [];
+  for (const doc of cms) {
+    const name = docCategory(doc);
+    let cat = categories.find((c) => c.name === name);
+    if (!cat) {
+      cat = { name, en: docCategoryEn(name), docs: [] };
+      categories.push(cat);
+    }
+    cat.docs.push(toDocItem(doc));
+  }
+
+  return { promo, pickups, categories };
+}
+
 function DlIcon() {
   return <span className="dl-ico" aria-hidden="true" />;
 }
@@ -62,11 +128,15 @@ function Caret() {
   return <span className="dl-caret" aria-hidden="true" />;
 }
 
+function Thumb({ label, thumb, title }: { label: string; thumb?: string; title: string }) {
+  return thumb ? <img src={thumb} alt={title} /> : <span className="dl-thumb-label">{label}</span>;
+}
+
 function DocCard({ doc }: { doc: DocItem }) {
   return (
     <article className="dl-card">
       <div className="dl-card__thumb">
-        {doc.thumb ? <img src={doc.thumb} alt={doc.title} /> : <span className="dl-thumb-label">{doc.thumbLabel}</span>}
+        <Thumb label={doc.thumbLabel} thumb={doc.thumb} title={doc.title} />
       </div>
       <div className="dl-card__body">
         <h3 className="dl-card__title">{doc.title}</h3>
@@ -81,7 +151,13 @@ function DocCard({ doc }: { doc: DocItem }) {
   );
 }
 
-export default function DocumentsPage() {
+export default async function DocumentsPage() {
+  const cms = await getDocuments();
+  const { promo, pickups, categories } =
+    cms.length > 0
+      ? buildView(cms)
+      : { promo: FALLBACK_PROMO, pickups: FALLBACK_PICKUPS, categories: FALLBACK_CATEGORIES };
+
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: LIB_CSS }} />
@@ -108,18 +184,22 @@ export default function DocumentsPage() {
           <div className="dl-promo">
             <div className="dl-promo__top">
               <div>
-                <p className="dl-promo__eyebrow">{PROMO.eyebrow}</p>
-                <p className="dl-promo__heading">{PROMO.heading}</p>
-                <a className="dl-promo__btn" href={PROMO.href}>{PROMO.btnLabel}<DlIcon /></a>
+                <p className="dl-promo__eyebrow">{promo.eyebrow}</p>
+                <p className="dl-promo__heading">{promo.heading}</p>
+                <a className="dl-promo__btn" href={promo.href}>{promo.btnLabel}<DlIcon /></a>
               </div>
-              <div className="dl-promo__img"><span className="dl-thumb-label">{PROMO.thumbLabel}</span></div>
+              <div className="dl-promo__img">
+                <Thumb label={promo.thumbLabel} thumb={promo.thumb} title={promo.heading} />
+              </div>
             </div>
-            <div className="dl-promo__reco">
-              <span className="dl-promo__reco-label">こんな方におすすめです</span>
-              {PROMO.recos.map((r, i) => (
-                <span className="dl-promo__reco-item" key={i}><span className="dl-check" />{r}</span>
-              ))}
-            </div>
+            {promo.recos.length > 0 && (
+              <div className="dl-promo__reco">
+                <span className="dl-promo__reco-label">こんな方におすすめです</span>
+                {promo.recos.map((r, i) => (
+                  <span className="dl-promo__reco-item" key={i}><span className="dl-check" />{r}</span>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -127,51 +207,55 @@ export default function DocumentsPage() {
       {/* カテゴリナビ */}
       <nav className="dl-nav">
         <div className="dl-nav__inner">
-          <a href="#pickup">ピックアップ<Caret /></a>
-          {CATEGORIES.map((cat, i) => (
+          {pickups.length > 0 && <a href="#pickup">ピックアップ<Caret /></a>}
+          {categories.map((cat, i) => (
             <a href={`#cat-${i}`} key={cat.name}>{cat.name}<Caret /></a>
           ))}
         </div>
       </nav>
 
       {/* ピックアップ（カルーセル） */}
-      <section className="dl-wrap dl-sec" id="pickup">
-        <h2 className="dl-sec-title">ピックアップ</h2>
-        <span className="dl-sec-title__en">Pick Up</span>
-        <div className="dl-car" data-dl-carousel>
-          <button className="dl-car__arrow dl-car__arrow--prev" aria-label="前へ">‹</button>
-          <div className="dl-car__vp">
-            <div className="dl-car__track">
-              {PICKUPS.map((doc, i) => (
-                <div className="dl-car__slide" key={i}>
-                  <div className="dl-pickup">
-                    <div className="dl-pickup__thumb"><span className="dl-thumb-label">{doc.thumbLabel}</span></div>
-                    <div>
-                      <span className="dl-pickup__badge">おすすめ</span>
-                      <h3 className="dl-pickup__title">{doc.title}</h3>
-                      <ul className="dl-points">
-                        {doc.points.map((p, j) => (
-                          <li key={j}>{p}</li>
-                        ))}
-                      </ul>
-                      <a className="dl-btn" href={doc.href}>資料を受け取る<DlIcon /></a>
+      {pickups.length > 0 && (
+        <section className="dl-wrap dl-sec" id="pickup">
+          <h2 className="dl-sec-title">ピックアップ</h2>
+          <span className="dl-sec-title__en">Pick Up</span>
+          <div className="dl-car" data-dl-carousel>
+            <button className="dl-car__arrow dl-car__arrow--prev" aria-label="前へ">‹</button>
+            <div className="dl-car__vp">
+              <div className="dl-car__track">
+                {pickups.map((doc, i) => (
+                  <div className="dl-car__slide" key={i}>
+                    <div className="dl-pickup">
+                      <div className="dl-pickup__thumb">
+                        <Thumb label={doc.thumbLabel} thumb={doc.thumb} title={doc.title} />
+                      </div>
+                      <div>
+                        <span className="dl-pickup__badge">おすすめ</span>
+                        <h3 className="dl-pickup__title">{doc.title}</h3>
+                        <ul className="dl-points">
+                          {doc.points.map((p, j) => (
+                            <li key={j}>{p}</li>
+                          ))}
+                        </ul>
+                        <a className="dl-btn" href={doc.href}>資料を受け取る<DlIcon /></a>
+                      </div>
                     </div>
                   </div>
-                </div>
+                ))}
+              </div>
+            </div>
+            <button className="dl-car__arrow dl-car__arrow--next" aria-label="次へ">›</button>
+            <div className="dl-car__dots">
+              {pickups.map((_, i) => (
+                <button className={`dl-car__dot${i === 0 ? " is-active" : ""}`} key={i} aria-label={`${i + 1}枚目`} />
               ))}
             </div>
           </div>
-          <button className="dl-car__arrow dl-car__arrow--next" aria-label="次へ">›</button>
-          <div className="dl-car__dots">
-            {PICKUPS.map((_, i) => (
-              <button className={`dl-car__dot${i === 0 ? " is-active" : ""}`} key={i} aria-label={`${i + 1}枚目`} />
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* カテゴリ別グリッド */}
-      {CATEGORIES.map((cat, i) => (
+      {categories.map((cat, i) => (
         <section className="dl-wrap dl-sec" id={`cat-${i}`} key={cat.name}>
           <h2 className="dl-sec-title">{cat.name}</h2>
           <span className="dl-sec-title__en">{cat.en}</span>

@@ -125,7 +125,7 @@ export async function BizHeader() {
           <a href="/#works" className="top-nav-link">導入事例</a>
           {news.length > 0 ? (
             <div className="top-nav-item">
-              <a href="/news" className="top-nav-link">お知らせ<span className="top-nav-caret" aria-hidden="true" /></a>
+              <a href="/news" className="top-nav-link">お知らせ</a>
               <div className="top-mega-menu" aria-label="お知らせの内容">
                 <span className="top-mega-menu__eyebrow">News</span>
                 <p className="top-mega-menu__heading">最新のお知らせ</p>
@@ -173,7 +173,7 @@ export async function BizHeader() {
               <a className="top-mega-menu__all" href="/documents">資料をすべて見る</a>
             </div>
           </div>
-          <a href="/#faq" className="top-nav-link">よくある質問</a>
+          <a href="/faq" className="top-nav-link">よくある質問</a>
           <a href="/doc-a" className="btn-outline">資料をダウンロード</a>
           <a href="/counseling" className="btn-fill">無料個別相談を予約する</a>
         </nav>
@@ -197,7 +197,7 @@ export function BizFooter() {
             <li><a href="/#course">研修一覧</a></li>
             <li><a href="/#feature">3つの特徴</a></li>
             <li><a href="/#works">導入事例</a></li>
-            <li><a href="/#faq">よくある質問</a></li>
+            <li><a href="/faq">よくある質問</a></li>
             <li><a href="/documents">お役立ち資料</a></li>
             <li><a href="/archive">セミナーアーカイブ</a></li>
             <li><a href="/news">お知らせ</a></li>
