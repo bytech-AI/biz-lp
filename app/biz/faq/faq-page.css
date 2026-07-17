@@ -1,0 +1,328 @@
+/* /faq 専用スタイル。FVは news.css の .news-fv / .news-page 系を共用。
+   ここでは 2カラム(左スティッキーナビ＋右コンテンツ)とアコーディオンを定義する。 */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* パンくず（このページのみ太字に） */
+.news-breadcrumb {
+  font-weight: 700;
+}
+
+/* 2カラムレイアウト */
+.faq-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 56px;
+  align-items: start;
+  margin-top: 48px;
+}
+
+/* 左：カテゴリナビ（アンカーリンク・スティッキー / カードパネル型） */
+.faq-nav {
+  position: sticky;
+  top: 108px;
+  background: #fff;
+  border: 1px solid #e7ecf3;
+  padding: 20px 16px 16px;
+}
+.faq-nav__title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 6px 14px;
+  color: #17417a;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.faq-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.faq-nav__list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  position: relative;
+  padding: 12px 12px 12px 15px;
+  border-radius: 10px;
+  color: #46566d;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: color 0.15s, background 0.15s;
+}
+/* 右端のシェブロン */
+.faq-nav__list a::after {
+  content: "";
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  margin-right: 2px;
+  border-right: 2px solid #c2cddb;
+  border-bottom: 2px solid #c2cddb;
+  transform: rotate(-45deg);
+  transition: border-color 0.15s, transform 0.15s;
+}
+/* 左のアクセントバー（hover / active で伸びる） */
+.faq-nav__list a::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  width: 3px;
+  height: 0;
+  border-radius: 3px;
+  background: #126eb4;
+  transform: translateY(-50%);
+  transition: height 0.2s;
+}
+.faq-nav__list a:hover {
+  color: #126eb4;
+}
+.faq-nav__list a:hover::after {
+  border-color: #126eb4;
+  transform: rotate(-45deg) translate(1px, 1px);
+}
+.faq-nav__list a:hover::before {
+  height: 52%;
+}
+/* 現在地（スクロール連動） */
+.faq-nav__list a.is-active {
+  color: #0e5aa0;
+}
+.faq-nav__list a.is-active::before {
+  height: 60%;
+}
+.faq-nav__list a.is-active::after {
+  border-color: #126eb4;
+}
+
+/* 右：カテゴリブロック */
+.faq-main {
+  min-width: 0;
+}
+.faq-group {
+  scroll-margin-top: 108px;
+  margin-bottom: 56px;
+}
+.faq-group:last-child {
+  margin-bottom: 0;
+}
+.faq-group__title {
+  margin: 0 0 6px;
+  padding-bottom: 14px;
+  color: #17417a;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  border-bottom: 2px solid #e6ebf2;
+}
+
+/* アコーディオン */
+.faq-list {
+  margin-top: 4px;
+}
+.faq-item {
+  border-bottom: 1px solid #e6eaf0;
+}
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 22px 6px;
+  text-align: left;
+  color: #253247;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.65;
+  transition: color 0.15s;
+}
+.faq-q:hover {
+  color: #126eb4;
+}
+.faq-q__label {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.faq-q__mark {
+  color: #126eb4;
+  font-size: 20px;
+  font-weight: 800;
+  flex: 0 0 auto;
+}
+.faq-q__icon {
+  position: relative;
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+}
+.faq-q__icon::before,
+.faq-q__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #9aa7bb;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s, opacity 0.2s;
+}
+.faq-q__icon::before {
+  width: 18px;
+  height: 2px;
+}
+.faq-q__icon::after {
+  width: 2px;
+  height: 18px;
+}
+.faq-item.is-open .faq-q {
+  color: #126eb4;
+}
+.faq-item.is-open .faq-q__icon::before,
+.faq-item.is-open .faq-q__icon::after {
+  background: #126eb4;
+}
+.faq-item.is-open .faq-q__icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  opacity: 0;
+}
+.faq-a {
+  padding: 0 6px 24px 44px;
+}
+.faq-a p {
+  margin: 0;
+  color: #48566b;
+  font-size: 15px;
+  line-height: 1.95;
+}
+
+/* 下部CTA */
+.faq-cta {
+  margin: 72px 0 0;
+  padding: 40px 28px;
+  background: linear-gradient(120deg, #0e5aa0 0%, #123a63 100%);
+  border-radius: 6px;
+  text-align: center;
+  color: #fff;
+}
+.faq-cta__title {
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+.faq-cta__text {
+  margin: 0 0 22px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #d7e4f2;
+}
+.faq-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+.faq-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 240px;
+  padding: 15px 26px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.15s, opacity 0.15s;
+}
+.faq-cta__btn--fill {
+  background: linear-gradient(135deg, #e83e8c, #d6266f);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(214, 38, 111, 0.3);
+}
+.faq-cta__btn--outline {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  color: #fff;
+}
+.faq-cta__btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+/* タブレット以下：1カラム化。ナビは上部で横スクロールのチップ列に */
+@media (max-width: 860px) {
+  .faq-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 28px;
+  }
+  .faq-nav {
+    position: static;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+  .faq-nav__title {
+    display: none;
+  }
+  .faq-nav__list {
+    flex-direction: row;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .faq-nav__list li {
+    flex: 0 0 auto;
+  }
+  .faq-nav__list a {
+    justify-content: center;
+    padding: 9px 14px;
+    border: 1px solid #dbe3ec;
+    border-radius: 999px;
+    background: #fff;
+    white-space: nowrap;
+    font-size: 13px;
+  }
+  .faq-nav__list a::before,
+  .faq-nav__list a::after {
+    display: none;
+  }
+  .faq-nav__list a.is-active {
+    border-color: #126eb4;
+    color: #0e5aa0;
+  }
+  .faq-group__title {
+    font-size: 21px;
+  }
+  .faq-q {
+    padding: 18px 2px;
+    font-size: 16px;
+  }
+  .faq-a {
+    padding: 0 2px 20px 32px;
+  }
+  .faq-cta__btn {
+    min-width: 0;
+    width: 100%;
+  }
+}
+

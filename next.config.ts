@@ -5,6 +5,12 @@ const nextConfig: NextConfig = {
     "*": ["public/*-static/**"],
   },
   async headers() {
+    // 本番ビルドの静的アセットはファイル名がコンテンツハッシュ付きなので immutable が正しい。
+    // dev（Turbopack）ではCSS/JSチャンク名が内容変更で変わらず、immutableだと
+    // 編集が一切ブラウザに届かなくなる（要ハードリロード地獄）ため、本番のみ付与する。
+    if (process.env.NODE_ENV !== "production") {
+      return [];
+    }
     return [
       {
         source: "/:path*.:ext(png|jpg|jpeg|gif|svg|webp|ico|woff|woff2|ttf|otf|css|js)",
