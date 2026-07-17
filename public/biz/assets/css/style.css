@@ -2388,7 +2388,7 @@ body {
 .index_feature__head .index_feature__eyebrow {
   color: #2e599b;
   font-size: clamp(1.4rem, 1.8vw, 1.6rem);
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 8px;
 }
 .index_feature__head .index_feature__title {
@@ -3309,7 +3309,7 @@ body {
 .index_works__eyebrow {
   color: #2e599b;
   font-size: clamp(1.4rem, 1.8vw, 1.6rem);
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 8px;
 }
 .index_works__heading {
@@ -3567,7 +3567,7 @@ body {
 .index_flow__eyebrow {
   color: #2e599b;
   font-size: clamp(1.4rem, 1.8vw, 1.6rem);
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 8px;
 }
 .index_flow__heading {
@@ -3768,7 +3768,7 @@ body {
 .index_faq__eyebrow {
   color: #2e599b;
   font-size: clamp(1.4rem, 1.8vw, 1.6rem);
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 8px;
 }
 .index_faq__heading {
