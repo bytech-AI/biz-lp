@@ -1,7 +1,7 @@
 export type MicroCmsNews = {
   id: string;
   title: string;
-  category?: string | { name?: string };
+  category?: string | string[] | { name?: string };
   publishedAt?: string;
   revisedAt?: string;
   content?: string;
@@ -29,8 +29,10 @@ function apiUrl(path = "") {
 }
 
 export function newsCategory(news: MicroCmsNews) {
-  if (typeof news.category === "string") return news.category;
-  return news.category?.name || "ニュース";
+  const category = news.category;
+  if (Array.isArray(category)) return category[0] || "ニュース";
+  if (typeof category === "string") return category;
+  return category?.name || "ニュース";
 }
 
 export function newsBody(news: MicroCmsNews) {
