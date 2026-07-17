@@ -4,6 +4,9 @@
 // アイコンは background-image(data-URI SVG)。globals.css の .biz-root *{all:revert} がインラインSVGの
 // d/stroke を初期化して不可視化するため、<path>依存を避け背景画像で描画している。
 export const LIB_CSS = `
+        /* 資料/アーカイブページはヘッダーを固定しない（fixed→absoluteでスクロール時に流す）。
+           BizHeaderのstyleが後に来るため !important で上書き。 */
+        .top-header-wrap { position: absolute !important; }
         html { scroll-behavior: smooth; }
         body { font-family: var(--font-noto-jp), sans-serif; color: #2a2f3a; background: #eef1f6; margin: 0; padding: 0; }
 
