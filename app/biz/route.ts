@@ -130,7 +130,7 @@ const NEWS_SECTION_STYLE = `<style id="biz-news-section-style">
 .index-news__item:hover{transform:translateY(-2px);border-color:#c9d2dd}
 .index-news__date{flex:0 0 auto;color:#8a93a3;font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:.02em}
 .index-news__title{color:#16202e;font-size:15px;font-weight:700;line-height:1.6;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-@media(max-width:860px){.index-news__inner{grid-template-columns:1fr;gap:22px}.index-news__item{padding:16px 18px;gap:14px}}
+@media(max-width:860px){.index-news .index-news__inner{grid-template-columns:1fr;gap:22px}.index-news__item{flex-direction:column;align-items:flex-start;gap:6px;padding:16px 18px}.index-news__title{font-size:14px}}
 </style>`;
 
 // 最新ニュース(microCMS)からニュースパートのHTMLを組み立てる。0件なら null（差し込まない）。
