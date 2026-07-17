@@ -157,7 +157,7 @@ export async function GET() {
   html = html.replace('<html lang="en"', '<html lang="ja"');
   html = html.replaceAll(
     "/biz/assets/css/style.css",
-    "/biz/assets/css/style.css?v=20260717-2",
+    "/biz/assets/css/style.css?v=20260717-3",
   );
   html = html.replace(
     "<title>【公式】バイテックBiz</title>",

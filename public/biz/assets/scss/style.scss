@@ -1972,13 +1972,13 @@ main {
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
     &--01 {
-      background: url(../img/index/img_feature_item01_bg.jpg) center/cover no-repeat;
+      background: url(../img/index/img_feature_item01_bg.webp) center/cover no-repeat;
     }
     &--02 {
-      background: url(../img/index/img_feature_item02_bg.jpg) center/cover no-repeat;
+      background: url(../img/index/img_feature_item02_bg.webp) center/cover no-repeat;
     }
     &--03 {
-      background: url(../img/index/img_feature_item03_bg.jpg) center/cover no-repeat;
+      background: url(../img/index/img_feature_item03_bg.webp) center/cover no-repeat;
     }
     a {
       display: block;
@@ -2213,7 +2213,7 @@ main {
         z-index: 0;
         background-image:
           linear-gradient(125deg, rgba(13, 38, 111, 0.8) 0%, rgba(144, 193, 255, 0.8) 100%),
-          url("../img/index/img_feature_item01_bg.jpg");
+          url("../img/index/img_feature_item01_bg.webp");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -2257,7 +2257,7 @@ main {
         flex: 1 1 65%;
         min-height: 380px;
         background-image: 
-          url("../img/index/img_index_feature_002_02.png"); // ←添付2枚目の画像
+          url("../img/index/img_index_feature_002_02.webp"); // ←添付2枚目の画像
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
