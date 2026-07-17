@@ -322,6 +322,9 @@ export default function DocAPage() {
               React管理外(dangerouslySetInnerHTML)にして SDK とハイドレーションの競合(点滅)を回避（counselingと同方式）。 */}
           <div dangerouslySetInnerHTML={{ __html: `
           <form class="formrun df-form" action="https://form.run/api/v1/r/pgetvek7sw64q7ycxwsraw6l" method="post">
+            <!-- どの資料のDLかをDiscord通知で識別するための隠しフィールド。ページごとに value を変える。
+                 ※ formrun 管理画面で「資料名」フィールドを登録しておくこと（未登録だと通知に載らない）。 -->
+            <input type="hidden" name="資料名" value="サービス紹介資料">
             <div class="df-field">
               <label class="df-label">お名前<span class="df-req">必須</span></label>
               <input class="df-input" type="text" name="お名前" placeholder="山田 太郎" data-formrun-required>
