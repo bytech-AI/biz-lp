@@ -22,6 +22,51 @@ const SITE_TITLE = "【公式】バイテックBiz｜企業向け生成AI研修"
 const SITE_DESCRIPTION =
   "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜バイテックBiz";
 
+// LLMO/SEO: トップFAQ(index_faq)から FAQPage JSON-LD を生成。
+// 表示中のQ&Aをそのままソースにするので、schemaと表示が常に一致する。
+function buildTopFaqSchema(html: string) {
+  const re =
+    /index_faq__question">([\s\S]*?)<span[\s\S]*?index_faq__answer"><p>([\s\S]*?)<\/p>/g;
+  const strip = (s: string) =>
+    s
+      .replace(/<[^>]+>/g, "")
+      .replace(/\s+/g, " ")
+      .trim();
+  const qa: { q: string; a: string }[] = [];
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(html))) {
+    const q = strip(m[1]);
+    const a = strip(m[2]);
+    if (q && a) qa.push({ q, a });
+  }
+  if (qa.length === 0) return "";
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: qa.map((x) => ({
+      "@type": "Question",
+      name: x.q,
+      acceptedAnswer: { "@type": "Answer", text: x.a },
+    })),
+  };
+  return `<script type="application/ld+json">${JSON.stringify(data)}</script>`;
+}
+
+// LLMO/SEO: 提供サービスの Service スキーマ（既存 Organization を provider として参照）。
+const SERVICE_SCHEMA = `<script type="application/ld+json">${JSON.stringify(
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "バイテックBiz",
+    serviceType: "法人向け生成AI研修",
+    provider: { "@id": "https://biz.bytech.jp/#organization" },
+    areaServed: "JP",
+    url: "https://biz.bytech.jp/",
+    description:
+      "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修。専任のAIコンサルタントが伴走し、ツールの使い方で終わらず数字にインパクトを出す業務改善までを支援します。",
+  },
+)}</script>`;
+
 // トップの静的HTMLとCSSのデプロイタイミングがずれても、メガメニューが崩れないための必須スタイル。
 const HEADER_MEGA_MENU_STYLE = `<style id="biz-header-mega-menu-style">
 .top-nav-caret{display:inline-block;width:8px;height:6px;margin-left:5px;vertical-align:middle;background:center/contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23555555'/%3E%3C/svg%3E")}
@@ -108,6 +153,8 @@ export async function GET() {
     join(process.cwd(), "public", "biz-top-static", "index.html"),
     "utf8",
   );
+  // 日本語ページなので言語をjaに（静的書き出しの既定enを修正）。
+  html = html.replace('<html lang="en"', '<html lang="ja"');
   html = html.replaceAll(
     "/biz/assets/css/style.css",
     "/biz/assets/css/style.css?v=20260717-2",
@@ -146,7 +193,7 @@ export async function GET() {
   );
   html = html.replace(
     "</head>",
-    `${HEADER_MEGA_MENU_STYLE}${FAQ_CATEGORY_STYLE}${NEWS_SECTION_STYLE}</head>`,
+    `${HEADER_MEGA_MENU_STYLE}${FAQ_CATEGORY_STYLE}${NEWS_SECTION_STYLE}${SERVICE_SCHEMA}${buildTopFaqSchema(html)}</head>`,
   );
   html = html.replace("</body>", `${FAQ_CATEGORY_SCRIPT}</body>`);
   const newsSection = await buildNewsSection();
