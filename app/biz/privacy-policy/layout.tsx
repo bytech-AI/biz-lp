@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "プライバシーポリシー - バイテックBiz",
-  description: "バイテックBizのプライバシーポリシーページです。",
+  title: "プライバシーポリシー - バイテック法人AI研修",
+  description: "バイテック法人AI研修のプライバシーポリシーページです。",
   robots: "noindex",
 };
 
