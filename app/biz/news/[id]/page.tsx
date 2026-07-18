@@ -8,8 +8,8 @@ type Props = { params: Promise<{ id: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const item = await getNewsById((await params).id);
-  if (!item) return { title: "お知らせ | バイテック法人AI研修" };
-  return { title: `${item.title} | バイテック法人AI研修`, description: item.description || item.title, alternates: { canonical: `/news/${item.id}` } };
+  if (!item) return { title: "お知らせ | バイテックBiz" };
+  return { title: `${item.title} | バイテックBiz`, description: item.description || item.title, alternates: { canonical: `/news/${item.id}` } };
 }
 
 function formatDate(value?: string) {

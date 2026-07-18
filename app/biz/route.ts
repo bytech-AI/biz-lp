@@ -18,9 +18,9 @@ function formatNewsDate(iso?: string) {
   return iso.slice(0, 10).replace(/-/g, ".");
 }
 
-const SITE_TITLE = "【公式】バイテック法人AI研修｜企業向け生成AI研修";
+const SITE_TITLE = "【公式】バイテックBiz｜企業向け生成AI研修";
 const SITE_DESCRIPTION =
-  "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜バイテック法人AI研修";
+  "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜バイテックBiz";
 
 // LLMO/SEO: トップFAQ(index_faq)から FAQPage JSON-LD を生成。
 // 表示中のQ&Aをそのままソースにするので、schemaと表示が常に一致する。
@@ -57,7 +57,7 @@ const SERVICE_SCHEMA = `<script type="application/ld+json">${JSON.stringify(
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "バイテック法人AI研修",
+    name: "バイテックBiz",
     serviceType: "法人向け生成AI研修",
     provider: { "@id": "https://biz.bytech.jp/#organization" },
     areaServed: "JP",
@@ -160,7 +160,7 @@ export async function GET() {
     "/biz/assets/css/style.css?v=20260717-3",
   );
   html = html.replace(
-    "<title>【公式】バイテック法人AI研修</title>",
+    "<title>【公式】バイテックBiz</title>",
     `<title>${SITE_TITLE}</title>`,
   );
   html = html.replace(
@@ -168,7 +168,7 @@ export async function GET() {
     `<meta name="description" content="${SITE_DESCRIPTION}"/>`,
   );
   html = html.replace(
-    '<meta property="og:title" content="【公式】バイテック法人AI研修"/>',
+    '<meta property="og:title" content="【公式】バイテックBiz"/>',
     `<meta property="og:title" content="${SITE_TITLE}"/>`,
   );
   html = html.replace(
@@ -176,7 +176,7 @@ export async function GET() {
     `<meta property="og:description" content="${SITE_DESCRIPTION}"/>`,
   );
   html = html.replace(
-    '<meta name="twitter:title" content="【公式】バイテック法人AI研修"/>',
+    '<meta name="twitter:title" content="【公式】バイテックBiz"/>',
     `<meta name="twitter:title" content="${SITE_TITLE}"/>`,
   );
   html = html.replace(
