@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "システム要件 - バイテックBiz",
-  description: "バイテックBizのシステム要件ページです。",
+  title: "システム要件 - バイテック法人AI研修",
+  description: "バイテック法人AI研修のシステム要件ページです。",
   robots: "noindex",
 };
 

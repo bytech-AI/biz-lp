@@ -9,11 +9,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const seminar = getSeminar(slug);
   if (!seminar) {
-    return { title: "セミナーアーカイブ | バイテックBiz" };
+    return { title: "セミナーアーカイブ | バイテック法人AI研修" };
   }
   const description = seminar.overview[0]?.slice(0, 110) ?? seminar.lead;
   return {
-    title: `${seminar.title} | セミナーアーカイブ | バイテックBiz`,
+    title: `${seminar.title} | セミナーアーカイブ | バイテック法人AI研修`,
     description,
     robots: { index: true, follow: true },
     openGraph: {
@@ -21,7 +21,7 @@ export async function generateMetadata({
       title: seminar.title,
       description,
       url: `https://biz.bytech.jp/seminars/${seminar.slug}`,
-      siteName: "バイテックBiz",
+      siteName: "バイテック法人AI研修",
       locale: "ja_JP",
     },
   };
