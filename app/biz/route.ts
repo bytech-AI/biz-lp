@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { getNews, newsPath } from "@/lib/microcms";
+import { getAllSeminars } from "./seminars/data";
 export const runtime = "nodejs";
 export const revalidate = 300;
 
@@ -130,8 +131,69 @@ const NEWS_SECTION_STYLE = `<style id="biz-news-section-style">
 .index-news__item:hover{transform:translateY(-2px);border-color:#c9d2dd}
 .index-news__date{flex:0 0 auto;color:#8a93a3;font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:.02em}
 .index-news__title{color:#16202e;font-size:15px;font-weight:700;line-height:1.6;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-@media(max-width:860px){.index-news .index-news__inner{grid-template-columns:1fr;gap:22px}.index-news__item{flex-direction:column;align-items:flex-start;gap:6px;padding:16px 18px}.index-news__title{font-size:14px}}
+.index-news__all--sp{display:none}
+@media(max-width:860px){.index-news .index-news__inner{grid-template-columns:1fr;gap:22px}.index-news__item{flex-direction:column;align-items:flex-start;gap:6px;padding:16px 18px}.index-news__title{font-size:14px}.index-news__all--pc{display:none}.index-news__all--sp{display:inline-flex;justify-self:center;margin-top:8px}}
 </style>`;
+
+// セミナーアーカイブ紹介セクション（トップ「お知らせ」の上に差し込む）。
+// 開催予定(UPCOMING)は運用していないため、最新アーカイブを左の大カード・残りを右のリストに。
+const SEMINAR_SECTION_STYLE = `<style id="biz-seminar-section-style">
+.index-sem{margin:0;background:linear-gradient(160deg,#204aa8 0%,#12307a 100%);color:#fff;padding:clamp(50px,6vw,84px) 20px}
+.index-sem__inner{max-width:1200px;margin:0 auto}
+.index-sem__head{margin:0 0 34px}
+.index-sem__eyebrow{margin:0 0 8px;font-family:"Futura","Futura Medium",sans-serif;font-size:clamp(1.2rem,1.5vw,1.4rem);font-weight:500;letter-spacing:.16em;opacity:.92}
+.index-sem__heading{margin:0;font-size:clamp(2.2rem,2.8vw,3rem);font-weight:900;letter-spacing:.03em}
+.index-sem__grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(28px,4vw,48px);align-items:stretch}
+.index-sem__col{display:flex;flex-direction:column;min-width:0}
+.index-sem__label{margin:0 0 16px;font-family:"Futura","Futura Medium",sans-serif;font-size:13px;font-weight:500;letter-spacing:.18em;opacity:.92}
+.index-sem__feature{display:flex;flex-direction:column;flex:1 1 auto;text-decoration:none;color:inherit}
+.index-sem__feature-thumb{position:relative;display:block;flex:1 1 auto;min-height:190px;overflow:hidden;background:#dce6f4}
+.index-sem__feature-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+.index-sem__feature:hover .index-sem__feature-thumb img{transform:scale(1.04)}
+.index-sem__badge{position:absolute;left:14px;top:14px;background:rgba(0,0,0,.55);color:#fff;font-size:12px;font-weight:700;padding:6px 12px;border-radius:999px}
+.index-sem__feature-body{display:block;flex:0 0 auto;margin-top:16px}
+.index-sem__feature-title{display:block;margin-top:8px;font-size:clamp(1.7rem,1.6vw,2rem);font-weight:800;line-height:1.6}
+.index-sem__feature:hover .index-sem__feature-title{text-decoration:underline;text-underline-offset:3px}
+.index-sem__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.index-sem__row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:18px;align-items:center;padding:14px;border-radius:10px;background:rgba(255,255,255,.10);text-decoration:none;color:inherit;transition:background .2s ease}
+.index-sem__row:hover{background:rgba(255,255,255,.18)}
+.index-sem__row-thumb{aspect-ratio:16/9;overflow:hidden;background:#dce6f4}
+.index-sem__row-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.index-sem__row-title{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:6px;font-size:15px;font-weight:800;line-height:1.6}
+.index-sem__meta{display:flex;align-items:center;gap:12px;font-size:12px}
+.index-sem__date{font-variant-numeric:tabular-nums;letter-spacing:.02em;opacity:.9}
+.index-sem__tag{font-weight:700;opacity:.95}
+.index-sem__ph{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font:800 13px/1.3 "Futura","Futura Medium",sans-serif;letter-spacing:.06em;color:#2b58a6;background:#e6edf6;text-align:center;padding:8px}
+.index-sem__all{display:inline-flex;align-items:center;gap:14px;margin-top:20px;color:#fff;font-size:15px;font-weight:700;text-decoration:none}
+.index-sem__all:hover{opacity:.85}
+.index-sem__all-ico{position:relative;flex:0 0 auto;width:44px;height:44px;border-radius:50%;background:#16202e}
+.index-sem__all-ico:after{content:"";position:absolute;top:50%;left:44%;width:8px;height:8px;border-top:2px solid #fff;border-right:2px solid #fff;transform:translate(-50%,-50%) rotate(45deg)}
+.index-sem__all--sp{display:none}
+@media(max-width:860px){.index-sem__grid{grid-template-columns:1fr;gap:32px}.index-sem__feature{flex:none}.index-sem__feature-thumb{flex:none;aspect-ratio:16/10;min-height:0}.index-sem__all{width:100%;justify-content:center}.index-sem__all--pc{display:none}.index-sem__all--sp{display:inline-flex}}
+@media(max-width:520px){.index-sem__row{grid-template-columns:112px minmax(0,1fr);gap:12px;padding:10px}.index-sem__row-title{font-size:14px}}
+</style>`;
+
+// セミナーアーカイブのHTMLを組み立てる。開催日降順で最新を大カード・残りをリスト表示。
+function buildSeminarSection() {
+  const seminars = [...getAllSeminars()].sort((a, b) =>
+    b.date.localeCompare(a.date),
+  );
+  const featured = seminars[0];
+  if (!featured) return null;
+  const rest = seminars.slice(1, 4);
+  const fmt = (d: string) => d.replace(/\./g, "/");
+  const thumb = (src: string | undefined, label: string, alt: string) =>
+    src
+      ? `<img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" loading="lazy">`
+      : `<span class="index-sem__ph">${escapeHtml(label)}</span>`;
+  const rows = rest
+    .map(
+      (s) =>
+        `<li><a class="index-sem__row" href="/seminars/${escapeHtml(s.slug)}"><span class="index-sem__row-thumb">${thumb(s.thumb, s.thumbLabel, s.title)}</span><span class="index-sem__row-body"><span class="index-sem__meta"><span class="index-sem__date">${escapeHtml(fmt(s.date))}</span><span class="index-sem__tag">${escapeHtml(s.tag)}</span></span><span class="index-sem__row-title">${escapeHtml(s.title)}</span></span></a></li>`,
+    )
+    .join("");
+  return `<section class="index-sem" aria-label="セミナーアーカイブ"><div class="index-sem__inner"><div class="index-sem__head"><p class="index-sem__eyebrow">SEMINAR_</p><h2 class="index-sem__heading">セミナーアーカイブ</h2><a class="index-sem__all index-sem__all--pc" href="/archive"><span class="index-sem__all-ico" aria-hidden="true"></span>アーカイブ一覧を見る</a></div><div class="index-sem__grid"><div class="index-sem__col"><p class="index-sem__label">LATEST</p><a class="index-sem__feature" href="/seminars/${escapeHtml(featured.slug)}"><span class="index-sem__feature-thumb">${thumb(featured.thumb, featured.thumbLabel, featured.title)}<span class="index-sem__badge">アーカイブ配信中</span></span><span class="index-sem__feature-body"><span class="index-sem__meta"><span class="index-sem__date">${escapeHtml(fmt(featured.date))}</span><span class="index-sem__tag">${escapeHtml(featured.tag)}</span></span><span class="index-sem__feature-title">${escapeHtml(featured.title)}</span></span></a></div><div class="index-sem__col"><p class="index-sem__label">ARCHIVE</p><ul class="index-sem__list">${rows}</ul></div></div><a class="index-sem__all index-sem__all--sp" href="/archive"><span class="index-sem__all-ico" aria-hidden="true"></span>アーカイブ一覧を見る</a></div></section>`;
+}
 
 // 最新ニュース(microCMS)からニュースパートのHTMLを組み立てる。0件なら null（差し込まない）。
 async function buildNewsSection() {
@@ -143,7 +205,7 @@ async function buildNewsSection() {
         `<a class="index-news__item" href="${escapeHtml(newsPath(n))}"><span class="index-news__date">${escapeHtml(formatNewsDate(n.publishedAt))}</span><span class="index-news__title">${escapeHtml(n.title)}</span></a>`,
     )
     .join("");
-  return `<section class="index-news"><div class="index-news__inner u-inner"><div class="index-news__head"><p class="index-news__eyebrow">NEWS_</p><h2 class="index-news__heading">お知らせ</h2><a class="index-news__all" href="/news"><span class="index-news__all-ico" aria-hidden="true"></span>全てのお知らせ</a></div><div class="index-news__list">${items}</div></div></section>`;
+  return `<section class="index-news"><div class="index-news__inner u-inner"><div class="index-news__head"><p class="index-news__eyebrow">NEWS_</p><h2 class="index-news__heading">お知らせ</h2><a class="index-news__all index-news__all--pc" href="/news"><span class="index-news__all-ico" aria-hidden="true"></span>全てのお知らせ</a></div><div class="index-news__list">${items}</div><a class="index-news__all index-news__all--sp" href="/news"><span class="index-news__all-ico" aria-hidden="true"></span>全てのお知らせ</a></div></section>`;
 }
 
 // biz トップ(biz.bytech.jp/)は静的HTML化して配信（React/ハイドレーション排除）。
@@ -193,14 +255,17 @@ export async function GET() {
   );
   html = html.replace(
     "</head>",
-    `${HEADER_MEGA_MENU_STYLE}${FAQ_CATEGORY_STYLE}${NEWS_SECTION_STYLE}${SERVICE_SCHEMA}${buildTopFaqSchema(html)}</head>`,
+    `${HEADER_MEGA_MENU_STYLE}${FAQ_CATEGORY_STYLE}${SEMINAR_SECTION_STYLE}${NEWS_SECTION_STYLE}${SERVICE_SCHEMA}${buildTopFaqSchema(html)}</head>`,
   );
   html = html.replace("</body>", `${FAQ_CATEGORY_SCRIPT}</body>`);
+  // 「お知らせ」の上にセミナーアーカイブを差し込む（順序: SEMINAR → NEWS → footer）。
+  const seminarSection = buildSeminarSection();
   const newsSection = await buildNewsSection();
-  if (newsSection) {
+  const beforeFooter = `${seminarSection ?? ""}${newsSection ?? ""}`;
+  if (beforeFooter) {
     html = html.replace(
       '<footer class="footer" id="pageFooter">',
-      `${newsSection}<footer class="footer" id="pageFooter">`,
+      `${beforeFooter}<footer class="footer" id="pageFooter">`,
     );
   }
   return new Response(html, {
