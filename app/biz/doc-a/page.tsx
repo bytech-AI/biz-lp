@@ -300,9 +300,9 @@ export default function DocAPage() {
       <main className="doc-main">
         <div className="doc-content">
           <p className="doc-content__eyebrow">Download _</p>
-          <h1 className="doc-content__title">【サービス紹介】「ハンズオン型法人AI研修｜バイテック法人AI研修」【資料ダウンロード】</h1>
+          <h1 className="doc-content__title">【サービス紹介】「個別コンサル型法人AI研修｜バイテック法人AI研修」【資料ダウンロード】</h1>
           <img src="/biz/assets/img/wp/Certificate-MockUp-02-2-1024x683.webp" alt="バイテック法人AI研修資料サムネ" className="doc-content__image" />
-          <p className="doc-content__desc">ハンズオン型法人AI研修サービスバイテック法人AI研修を紹介する「サービス概要資料」となります！</p>
+          <p className="doc-content__desc">個別コンサル型法人AI研修サービスバイテック法人AI研修を紹介する「サービス概要資料」となります！</p>
           <h2 className="doc-content__subtitle">この資料で分かること</h2>
           <div className="doc-content__list-wrap">
             <ol className="doc-content__list">
