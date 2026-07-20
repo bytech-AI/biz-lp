@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     images: [
       {
-        url: "/biz/assets/img/common/ogp-v2.jpg",
+        url: "/biz/assets/img/common/ogp-v3.jpg",
         width: 1200,
         height: 695,
         alt: "バイテックBiz｜業務の自動化を当たり前にする個別コンサル型AI研修",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: "【公式】バイテックBiz｜企業向け生成AI研修",
     description:
       "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜バイテックBiz",
-    images: ["/biz/assets/img/common/ogp-v2.jpg"],
+    images: ["/biz/assets/img/common/ogp-v3.jpg"],
   },
 };
 
@@ -68,7 +68,7 @@ const bizJsonLd = {
       alternateName: ["byTech Business", "バイテック法人AI研修"],
       url: "https://biz.bytech.jp/",
       logo: "https://biz.bytech.jp/biz/assets/img/common/hd-logo.svg",
-      image: "https://biz.bytech.jp/biz/assets/img/common/ogp-v2.jpg",
+      image: "https://biz.bytech.jp/biz/assets/img/common/ogp-v3.jpg",
       description:
         "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修サービス。",
       parentOrganization: { "@type": "Organization", name: "株式会社AI棒" },

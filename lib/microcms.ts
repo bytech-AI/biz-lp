@@ -42,7 +42,7 @@ export function newsBody(news: MicroCmsNews) {
 
 export function newsThumbnail(news: MicroCmsNews) {
   const image = news.thumbnail || news.eyecatch;
-  return (typeof image === "string" ? image : image?.url) || "/biz/assets/img/common/ogp-v2.jpg";
+  return (typeof image === "string" ? image : image?.url) || "/biz/assets/img/common/ogp-v3.jpg";
 }
 
 export function newsPath(news: MicroCmsNews) {
