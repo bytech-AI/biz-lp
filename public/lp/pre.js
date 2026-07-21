@@ -165,7 +165,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 (function(){window.dataLayer=window.dataLayer||[];function add(src){var s=document.createElement('script');s.async=true;s.src=src;document.head.appendChild(s)}function loadPreThirdParty(){add('https://r.moshimo.com/af/r/maftag.js');add('https://www.rentracks.jp/js/itp/rt.track.js?t='+Date.now())}var run=function(){('requestIdleCallback'in window)?requestIdleCallback(loadPreThirdParty,{timeout:3000}):setTimeout(loadPreThirdParty,1200)};window.addEventListener('load',run,{once:true})})();
 
-
+(function(){'use strict';var LOOP_HOURS=72,COOKIE_NAME='bytech_cd_start',LOOP_MS=LOOP_HOURS*60*60*1000;function setCookie(n,v){var d=new Date();d.setTime(d.getTime()+365*864e5);document.cookie=n+'='+v+';expires='+d.toUTCString()+';path=/;SameSite=Lax'}
+function getCookie(n){var m=document.cookie.match(new RegExp('(^| )'+n+'=([^;]+)'));return m?m[2]:null}
+var cachedStart=null;function getStartTime(){if(cachedStart!==null)return cachedStart;var s=getCookie(COOKIE_NAME);if(s){var t=parseInt(s,10);if(!isNaN(t)){cachedStart=t;return t}}var now=Date.now();setCookie(COOKIE_NAME,now.toString());cachedStart=now;return now}
+function getRemaining(){var start=getStartTime(),elapsed=Date.now()-start,remaining=LOOP_MS-(elapsed%LOOP_MS);if(elapsed>=LOOP_MS){var loops=Math.floor(elapsed/LOOP_MS);cachedStart=start+(loops*LOOP_MS);setCookie(COOKIE_NAME,cachedStart.toString())}return remaining}
+var prev={};function update(){var r=getRemaining(),t=Math.floor(r/1000),d=Math.floor(t/86400),h=Math.floor((t%86400)/3600),m=Math.floor((t%3600)/60),s=t%60;var vals={'bytech-cd-days':String(d).padStart(2,'0'),'bytech-cd-hours':String(h).padStart(2,'0'),'bytech-cd-mins':String(m).padStart(2,'0'),'bytech-cd-secs':String(s).padStart(2,'0')};for(var id in vals){var el=document.getElementById(id);if(el&&prev[id]!==vals[id]){el.textContent=vals[id];el.classList.add('bytech-flip');(function(e){setTimeout(function(){e.classList.remove('bytech-flip')},150)})(el)}}prev=vals}
+update();setInterval(update,1000);})();
 
 (function(){function jstDate(offset){var d=new Date();var jst=new Date(d.toLocaleString("en-US",{timeZone:"Asia/Tokyo"}));jst.setDate(jst.getDate()+offset);return jst;}var y=jstDate(-1);var seed=y.getFullYear()*10000+(y.getMonth()+1)*100+y.getDate();var count=52+((seed*17)%35);document.querySelectorAll("#mo-yesterday-count,.mo-yesterday-count").forEach(function(el){el.textContent=String(count);});})();
 

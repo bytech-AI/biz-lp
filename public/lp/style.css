@@ -212,5 +212,5 @@ body,figure,h2,h3,html,iframe,p,textarea{border:0;font-size:100%;font-style:inhe
 .pre-campaign-plus svg{width:56px;height:56px;display:block;fill:#fff!important}
 .pre-campaign-image>.prex-widget-container{padding:0}
 @media(max-width:767px){.pre-campaign-plus{margin:18px auto!important}.pre-campaign-plus svg{width:44px;height:44px}}
-.pre-page-root{padding-top:0!important}@media(max-width:640px){.pre-page-root{padding-top:0!important}}
+.pre-page-root{padding-top:61px!important}@media(max-width:640px){.pre-page-root{padding-top:52px!important}}
 @keyframes preReservationBlink{0%,52%{opacity:1}53%,78%{opacity:.08}79%,100%{opacity:1}}.pre-is-2{animation:preReservationBlink 2.4s steps(1,end) infinite!important}
