@@ -1,7 +1,7 @@
 *,::before,::after{box-sizing:border-box}
 html{line-height:1.15;-webkit-text-size-adjust:100%}
 body{margin:0}
-.pre-page-root{padding-top:0!important}@media(max-width:640px){.pre-page-root{padding-top:0!important}}
+.pre-page-root{padding-top:61px!important}@media(max-width:640px){.pre-page-root{padding-top:52px!important}}
 img,svg{vertical-align:middle}
 /* === public/pre/semantic.css === */
 /* Semantic replacements for legacy builder-generated sections in public/pre/index.html. */
