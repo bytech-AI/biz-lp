@@ -101,7 +101,15 @@ export default function BizLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className={`biz-root ${montserrat.variable}`}>
+    <div
+      className={`biz-root ${montserrat.variable}`}
+      // biz全体の基本フォントを Noto Sans JP に統一（子孫は .biz-root *{all:revert} で継承。
+      // Montserrat等の明示指定見出しは維持される）。
+      style={{
+        fontFamily:
+          'var(--font-noto-jp), "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif',
+      }}
+    >
       {/* 構造化データ（WebSite＋Organization）。Google のサイト名・運営者情報の最優先シグナル。 */}
       <script
         type="application/ld+json"

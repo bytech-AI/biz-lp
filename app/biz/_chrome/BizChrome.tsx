@@ -8,6 +8,7 @@
 // - モバイルのハンバーガー開閉は軽量 vanilla（TOPの scripts.js は jQuery/slick 依存の重量物のため移植せず自前）。
 // - フッターCSSの rem(html:62.5%基準=10px) は当ページ群に 62.5% 指定が無いため px 換算済み。
 
+import { COURSES } from "../_course/courses";
 
 const CHROME_CSS = `
 /* ===== Footer ===== */
@@ -45,10 +46,17 @@ const CHROME_CSS = `
 .top-nav-item:hover > .top-nav-link .top-nav-caret,
 .top-nav-item:focus-within > .top-nav-link .top-nav-caret { transform: rotate(180deg); }
 .top-mega-menu { position: absolute; top: calc(100% + 13px); right: -150px; width: min(560px, calc(100vw - 48px)); padding: 22px; box-sizing: border-box; background: rgba(255,255,255,0.98); border: 1px solid rgba(26,111,181,0.13); border-radius: 4px; box-shadow: 0 20px 55px rgba(22,32,46,0.18); opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-7px); transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease; }
+.top-mega-menu--left { left: -120px; right: auto; width: min(1060px, calc(100vw - 48px)); }
+.top-mega-menu--left .top-mega-menu__grid { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 1fr; }
+.top-header__nav .top-mega-menu__card--course { flex-direction: column; align-items: flex-start; gap: 8px; }
+.top-header__nav .top-mega-menu__card--course { display: flex; align-items: center; gap: 12px; min-height: 132px; box-sizing: border-box; }
+.top-mega-menu__logo { flex: 0 0 auto; width: 46px; height: 30px; display: flex; align-items: center; justify-content: center; }
+.top-mega-menu__logo img { max-width: 100%; max-height: 26px; width: auto; height: auto; object-fit: contain; display: block; }
+.top-mega-menu__card-body { min-width: 0; display: flex; flex-direction: column; }
 .top-mega-menu::before { content: ""; position: absolute; right: 0; bottom: 100%; width: 100%; height: 14px; }
 .top-nav-item:hover .top-mega-menu,
 .top-nav-item:focus-within .top-mega-menu { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
-.top-mega-menu__eyebrow { display: block; margin-bottom: 5px; color: #1a6fb5; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.top-mega-menu__eyebrow { display: block; margin-bottom: 5px; color: #1a6fb5; font-family: "Futura", "Futura Medium", var(--font-jost), sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
 .top-mega-menu__heading { margin: 0; color: #16202e; font-size: 18px; font-weight: 700; line-height: 1.45; }
 .top-mega-menu__desc { margin: 5px 0 16px; color: #687386; font-size: 12px; line-height: 1.7; }
 .top-mega-menu__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
@@ -73,10 +81,11 @@ const CHROME_CSS = `
   .top-header__hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .top-header__hamburger.active span:nth-child(2) { opacity: 0; }
   .top-header__hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  .top-header__overlay { display: block; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+  .top-header__overlay { display: block; position: fixed; inset: 0; min-height: 100vh; min-height: 100dvh; background: rgba(0,0,0,0.5); z-index: 999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
   .top-header__overlay.active { opacity: 1; pointer-events: auto; }
-  .top-header__nav { position: fixed; top: 0; right: -280px; width: 280px; box-sizing: border-box; height: 100dvh; flex-direction: column; align-items: stretch; gap: 0; padding: 80px 20px 30px; background: #fff; border-radius: 0; border: none; box-shadow: -4px 0 24px rgba(0,0,0,0.1); backdrop-filter: none; overflow-y: auto; z-index: 1001; transition: right 0.3s ease; }
-  .top-header__nav.active { right: 0; }
+  .top-header__nav { position: fixed; top: 0; right: 0; bottom: 0; width: 100%; box-sizing: border-box; height: auto; min-height: 100vh; min-height: 100dvh; flex-direction: column; align-items: stretch; gap: 0; padding: 80px 20px 30px; background: #fff; border-radius: 0; border: none; box-shadow: -4px 0 24px rgba(0,0,0,0.1); backdrop-filter: none; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; z-index: 1001; transform: translateX(105%); transition: transform 0.3s ease; }
+  .top-header__nav.active { transform: translateX(0); }
+  .top-header__hamburger.active { position: fixed; top: 16px; right: 16px; }
   .top-header__nav a { font-size: 15px; padding: 14px 12px; border-radius: 8px; border-bottom: 1px solid #eee; white-space: normal; }
   .top-header__nav a:last-child { border-bottom: none; }
   .top-header__nav a.btn-outline { margin-left: 0; margin-top: 16px; text-align: center; border: 1px solid #ccc; }
@@ -119,6 +128,25 @@ export function BizHeader() {
         <div className="top-header__overlay"></div>
         <nav className="top-header__nav">
           <a href="/#course" className="top-nav-link">研修一覧</a>
+          <div className="top-nav-item">
+            <a href="/chat-gpt-training" className="top-nav-link">研修プログラム<span className="top-nav-caret" aria-hidden="true" /></a>
+            <div className="top-mega-menu top-mega-menu--left" aria-label="研修プログラム一覧">
+              <span className="top-mega-menu__eyebrow">Courses</span>
+              <p className="top-mega-menu__heading">AI研修プログラム一覧</p>
+              <p className="top-mega-menu__desc">目的・使用ツールから選べる法人向けAI研修コース。</p>
+              <div className="top-mega-menu__grid">
+                {COURSES.map((c) => (
+                  <a key={c.slug} className="top-mega-menu__card top-mega-menu__card--course" href={`/${c.slug}`}>
+                    <span className="top-mega-menu__logo"><img src={c.logo} alt="" loading="lazy" /></span>
+                    <span className="top-mega-menu__card-body">
+                      <span className="top-mega-menu__card-title">{c.name}</span>
+                      <span className="top-mega-menu__card-desc">{c.desc}</span>
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
           <a href="/#feature" className="top-nav-link">3つの特徴</a>
           <a href="/#works" className="top-nav-link">導入事例</a>
           <a href="/news" className="top-nav-link">お知らせ</a>
@@ -140,7 +168,7 @@ export function BizHeader() {
             <a href="/documents" className="top-nav-link">お役立ち資料<span className="top-nav-caret" aria-hidden="true" /></a>
             <div className="top-mega-menu" aria-label="お役立ち資料の内容">
               <span className="top-mega-menu__eyebrow">Useful Documents</span>
-              <p className="top-mega-menu__heading">AI人材育成に役立つ無料資料</p>
+              <p className="top-mega-menu__heading">お役立ち資料</p>
               <p className="top-mega-menu__desc">研修の検討から社内活用まで、目的に合う資料を選べます。</p>
               <div className="top-mega-menu__grid">
                 <a className="top-mega-menu__card" href="/documents#pickup"><span className="top-mega-menu__card-title">ピックアップ</span><span className="top-mega-menu__card-desc">まず読んでほしい注目資料</span></a>

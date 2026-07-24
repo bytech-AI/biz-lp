@@ -25,6 +25,15 @@ const nextConfig: NextConfig = {
   outputFileTracingExcludes: {
     "*": ["public/*-static/**"],
   },
+  async redirects() {
+    return [
+      {
+        source: "/no-code-training",
+        destination: "/dify-training",
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     // beforeFiles: bytech-lp 自身のファイル/ルート解決より前に評価させ、確実に
     // 診断アプリ側へ流す。:path* は 0 セグメントにマッチしない実装差があるため、

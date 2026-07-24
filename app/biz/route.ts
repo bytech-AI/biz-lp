@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { getNews, newsPath } from "@/lib/microcms";
+import { COURSES } from "./_course/courses";
 import { getAllSeminars } from "./seminars/data";
 export const runtime = "nodejs";
 export const revalidate = 300;
@@ -73,10 +74,13 @@ const HEADER_MEGA_MENU_STYLE = `<style id="biz-header-mega-menu-style">
 .top-nav-caret{display:inline-block;width:8px;height:6px;margin-left:5px;vertical-align:middle;background:center/contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23555555'/%3E%3C/svg%3E")}
 .top-nav-item{position:relative;align-self:stretch;display:flex;align-items:center}.top-nav-item>.top-nav-link{display:flex;align-items:center;height:100%;box-sizing:border-box}.top-nav-item>.top-nav-link .top-nav-caret{transition:transform .2s ease}.top-nav-item:hover>.top-nav-link,.top-nav-item:focus-within>.top-nav-link{background:rgba(0,0,0,.04)}.top-nav-item:hover>.top-nav-link .top-nav-caret,.top-nav-item:focus-within>.top-nav-link .top-nav-caret{transform:rotate(180deg)}
 .top-mega-menu{position:absolute;top:calc(100% + 13px);right:-150px;width:min(560px,calc(100vw - 48px));padding:22px;box-sizing:border-box;background:rgba(255,255,255,.98);border:1px solid rgba(26,111,181,.13);border-radius:4px;box-shadow:0 20px 55px rgba(22,32,46,.18);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-7px);transition:opacity .2s ease,transform .2s ease,visibility .2s ease}.top-mega-menu:before{content:"";position:absolute;right:0;bottom:100%;width:100%;height:14px}.top-nav-item:hover .top-mega-menu,.top-nav-item:focus-within .top-mega-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
-.top-mega-menu__eyebrow{display:block;margin-bottom:5px;color:#1a6fb5;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.top-mega-menu__heading{margin:0;color:#16202e;font-size:18px;font-weight:700;line-height:1.45}.top-mega-menu__desc{margin:5px 0 16px;color:#687386;font-size:12px;line-height:1.7}.top-mega-menu__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.top-header__nav .top-mega-menu__card{display:block;min-width:0;padding:10px;color:#26364a;background:#f5f8fc;border:1px solid #e7edf5;border-radius:2px;white-space:normal;transition:border-color .2s ease,background .2s ease,transform .2s ease}.top-header__nav .top-mega-menu__card:hover{background:#fff;border-color:#9ec7e8;transform:translateY(-2px)}
+.top-header__nav .top-mega-menu--left{left:-120px;right:auto;width:min(1060px,calc(100vw - 48px))!important;max-width:none}.top-mega-menu--left .top-mega-menu__grid{grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr}.top-header__nav .top-mega-menu__card--course{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-height:132px;box-sizing:border-box}.top-mega-menu__logo{display:flex;align-items:center;justify-content:center;flex:0 0 auto;width:46px;height:30px}.top-mega-menu__logo img{display:block;width:auto;height:auto;max-width:100%;max-height:26px;object-fit:contain}.top-mega-menu__card-body{display:flex;min-width:0;flex-direction:column}
+.top-mega-menu__eyebrow{display:block;margin-bottom:5px;color:#1a6fb5;font-family:"Futura","Futura Medium",var(--font-jost),sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.top-mega-menu__heading{margin:0;color:#16202e;font-size:18px;font-weight:700;line-height:1.45}.top-mega-menu__desc{margin:5px 0 16px;color:#687386;font-size:12px;line-height:1.7}.top-mega-menu__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.top-header__nav .top-mega-menu__card{display:block;min-width:0;padding:10px;color:#26364a;background:#f5f8fc;border:1px solid #e7edf5;border-radius:2px;white-space:normal;transition:border-color .2s ease,background .2s ease,transform .2s ease}.top-header__nav .top-mega-menu__card:hover{background:#fff;border-color:#9ec7e8;transform:translateY(-2px)}
 .top-mega-menu__thumb{display:block;aspect-ratio:16/9;overflow:hidden;margin-bottom:9px;background:#eaf1f8;border-radius:0}.top-mega-menu__thumb img{display:block;width:100%;height:100%;object-fit:contain}.top-mega-menu__card-title{display:block;margin-bottom:4px;color:#173e6c;font-size:12px;font-weight:700;line-height:1.5}.top-mega-menu__card-desc{display:block;color:#687386;font-size:10px;font-weight:500;line-height:1.55}.top-mega-menu__all{display:flex!important;align-items:center;justify-content:flex-end;gap:10px;margin-top:16px;padding:0!important;color:#126eb4!important;font-size:12px!important;font-weight:700!important}.top-mega-menu__all:after{content:"";width:7px;height:7px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;transform:rotate(45deg)}
 @media(max-width:1080px){.top-nav-item{display:block;align-self:auto}.top-nav-item>.top-nav-link{height:auto}.top-nav-item>.top-nav-link .top-nav-caret{display:none}.top-mega-menu{display:none}}
 </style>`;
+
+const COURSE_MEGA_MENU = `<div class="top-nav-item"><a href="/chat-gpt-training" class="top-nav-link">研修プログラム<span class="top-nav-caret" aria-hidden="true"></span></a><div class="top-mega-menu top-mega-menu--left" aria-label="研修プログラム一覧"><span class="top-mega-menu__eyebrow">Courses</span><p class="top-mega-menu__heading">AI研修プログラム一覧</p><p class="top-mega-menu__desc">目的・使用ツールから選べる法人向けAI研修コース。</p><div class="top-mega-menu__grid">${COURSES.map((course) => `<a class="top-mega-menu__card top-mega-menu__card--course" href="/${escapeHtml(course.slug)}"><span class="top-mega-menu__logo"><img src="${escapeHtml(course.logo)}" alt="" loading="lazy"></span><span class="top-mega-menu__card-body"><span class="top-mega-menu__card-title">${escapeHtml(course.name)}</span><span class="top-mega-menu__card-desc">${escapeHtml(course.desc)}</span></span></a>`).join("")}</div></div></div>`;
 
 const FAQ_CATEGORY_STYLE = `<style id="biz-faq-category-style">
 .index_faq__groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
@@ -220,6 +224,38 @@ export async function GET() {
   html = html.replaceAll(
     "/biz/assets/css/style.css",
     "/biz/assets/css/style.css?v=20260717-3",
+  );
+  html = html.replace(
+    '<nav class="top-header__nav"><a href="#course" class="top-nav-link">研修一覧</a>',
+    `<nav class="top-header__nav"><a href="#course" class="top-nav-link">研修一覧</a>${COURSE_MEGA_MENU}`,
+  );
+  html = html.replaceAll(
+    "AI人材育成に役立つ無料資料",
+    "お役立ち資料",
+  );
+  html = html.replaceAll(
+    "Gemini/notebookLM研修",
+    "Gemini研修",
+  );
+  html = html.replaceAll(
+    "ノーコード開発研修",
+    "Dify研修",
+  );
+  html = html.replaceAll(
+    'href="/no-code-training"',
+    'href="/dify-training"',
+  );
+  html = html.replaceAll(
+    "/biz/assets/img/index/plan/logo/no-code.svg",
+    "/biz/assets/img/index/plan/logo/dify.svg",
+  );
+  html = html.replaceAll(
+    "/biz/assets/img/index/plan/graphic/nocode.webp",
+    "/biz/assets/img/index/plan/graphic/dify.webp",
+  );
+  html = html.replaceAll(
+    "/biz/assets/img/index/plan/graphic/chatgpt-cg.webp",
+    "/biz/assets/img/index/plan/graphic/chatgpt.webp",
   );
   html = html.replace(
     "<title>【公式】バイテックBiz</title>",

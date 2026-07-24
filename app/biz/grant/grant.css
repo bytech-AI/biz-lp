@@ -1,0 +1,156 @@
+/* /grant 助成金活用シミュレーション 専用スタイル（biz配色: #204aa8 系） */
+.grant-page{background:#eef2f8;color:#17243a;min-height:640px;padding-bottom:110px}
+.grant-page__inner{max-width:860px;margin:0 auto;padding:20px 20px 0}
+.grant-breadcrumb{display:flex;gap:10px;align-items:center;color:#76849a;font-size:13px}
+.grant-breadcrumb a{color:#204aa8}
+.grant-hero{text-align:center;padding:48px 0 30px}
+.grant-hero__eyebrow{margin:0 0 10px;color:#204aa8;font:700 12px/1 var(--font-montserrat),sans-serif;letter-spacing:.16em}
+.grant-hero__title{margin:0 0 14px;font-size:clamp(26px,4vw,40px);font-weight:900;letter-spacing:.03em}
+.grant-hero__lead{margin:0;color:#5a6b83;font-size:15px;line-height:1.9}
+
+/* ステップ */
+.grant-steps{display:flex;list-style:none;margin:0 0 22px;padding:0;gap:6px}
+.grant-steps__item{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;color:#9aa7b8;font-size:11px;font-weight:700;position:relative}
+.grant-steps__num{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#dbe3ee;color:#8b98aa;font:800 14px/1 var(--font-montserrat),sans-serif}
+.grant-steps__item.is-current .grant-steps__num{background:#204aa8;color:#fff}
+.grant-steps__item.is-done .grant-steps__num{background:#8fa8d6;color:#fff}
+.grant-steps__item.is-current{color:#204aa8}
+.grant-steps__label{white-space:nowrap}
+
+/* ステップの表示切替（vanilla制御） */
+.grant [data-step]{display:none}
+.grant [data-step].is-active{display:block}
+
+/* カード */
+.grant-card{background:#fff;border:1px solid #e2e8f1;border-radius:14px;box-shadow:0 10px 34px #19365b12;padding:clamp(22px,4vw,40px)}
+.grant-card+.grant-card{margin-top:20px}
+.grant-h2{margin:0 0 8px;font-size:clamp(20px,2.6vw,26px);font-weight:900;color:#16233b}
+.grant-lead{margin:0 0 22px;color:#5a6b83;font-size:14px;line-height:1.8}
+.grant-note{margin:20px 0 0;color:#8b98aa;font-size:12px;line-height:1.7}
+.grant-note a{color:#204aa8;text-decoration:underline}
+
+/* イントロ */
+.grant-intro{text-align:center}
+.grant-intro__eyebrow{margin:0 0 10px;color:#204aa8;font:700 12px/1 var(--font-montserrat),sans-serif;letter-spacing:.16em}
+.grant-intro__title{margin:0 0 18px;font-size:clamp(22px,3.4vw,32px);font-weight:900;line-height:1.45}
+.grant-intro__desc{max-width:44em;margin:0 auto 24px;color:#48566b;font-size:15px;line-height:2}
+.grant-intro__desc strong{color:#204aa8}
+.grant-intro__points{list-style:none;margin:0 auto 30px;padding:0;max-width:30em;text-align:left;display:flex;flex-direction:column;gap:10px}
+.grant-intro__points li{position:relative;padding-left:30px;color:#2f3b4d;font-size:14px;font-weight:600;line-height:1.7}
+.grant-intro__points li::before{content:"";position:absolute;left:0;top:2px;width:20px;height:20px;border-radius:50%;background:#204aa8}
+.grant-intro__points li::after{content:"";position:absolute;left:6px;top:8px;width:6px;height:9px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg)}
+.grant-intro__points strong{color:#204aa8}
+
+/* チェック */
+.grant-group{margin:0 0 26px}
+.grant-group__title{display:flex;align-items:center;margin:0 0 14px;font-size:14px;font-weight:800;color:#16233b;line-height:1.5}
+.grant-group__title::before{content:"";flex:0 0 auto;width:4px;height:18px;margin-right:10px;border-radius:2px;background:#204aa8}
+.grant-check{display:flex;align-items:center;gap:16px;padding:15px 18px;background:#fff;border:1.5px solid #e4e9f2;border-radius:12px;margin-bottom:10px;transition:border-color .15s,background .15s,box-shadow .15s}
+.grant-check:last-child{margin-bottom:0}
+.grant-check.is-no{border-color:#f0b3ac;background:#fdf5f4}
+.grant-check__body{flex:1;min-width:0}
+.grant-check__label{margin:0;font-size:14px;font-weight:700;line-height:1.6;color:#25324a}
+.grant-check__note{margin:6px 0 0;font-size:12px;line-height:1.65;color:#8b98aa}
+.grant-fixed{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:9px;background:#eafaef;color:#22a35a;font-size:13px;font-weight:800}
+.grant-fixed::before{content:"✓";font-size:12px}
+.grant-toggle{flex:0 0 auto;display:flex;gap:3px;padding:3px;background:#eef1f6;border-radius:11px}
+.grant-toggle__btn{padding:10px 18px;border-radius:8px;font-size:13px;font-weight:800;color:#7a879b;background:transparent;min-width:62px;transition:background .15s,color .15s,box-shadow .15s}
+.grant-toggle__btn.is-yes{background:#204aa8;color:#fff;box-shadow:0 2px 8px rgba(32,74,168,.32)}
+.grant-toggle__btn.is-no{background:#e2483a;color:#fff;box-shadow:0 2px 8px rgba(226,72,58,.32)}
+
+/* 企業規模の設問判定 */
+.grant-sizeq{padding:18px;border:1.5px solid #e4e9f2;border-radius:12px;background:#f7f9fc;margin-bottom:18px}
+.grant-sizeq__title{margin:0 0 14px;font-size:14px;font-weight:800;color:#33425a}
+.grant-sizebadge{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;font-size:14px;font-weight:800}
+.grant-sizebadge::before{content:"→";font-weight:900}
+.grant-sizebadge.is-sme{background:#eafaef;color:#22a35a}
+.grant-sizebadge.is-large{background:#eef3fd;color:#204aa8}
+.grant-sizeresult{margin-top:14px}
+
+/* ライブ助成額プレビュー */
+.grant-live{margin-top:24px;padding:18px 22px;border-radius:12px;background:linear-gradient(135deg,#1b3f8f,#0f2a5e);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.grant-live__label{margin:0 0 3px;font-size:12px;opacity:.82}
+.grant-live__total{font-size:clamp(26px,6vw,36px);font-weight:900;line-height:1;letter-spacing:.02em}
+.grant-live__net{margin:0;font-size:13px;opacity:.9;text-align:right}
+.grant-live__net b{display:block;font-size:20px;color:#8fd0ff;margin-top:2px}
+
+/* 入力フィールド */
+.grant-field{margin:0 0 18px}
+.grant-label{display:block;margin:0 0 8px;font-size:13px;font-weight:800;color:#33425a}
+.grant-req{display:inline-block;margin-left:8px;padding:2px 7px;border-radius:4px;background:#e2483a;color:#fff;font-size:10px;font-weight:700;vertical-align:middle}
+.grant-input{width:100%;padding:12px 14px;border:2px solid #d4dce8;border-radius:8px;background:#fff;font-size:15px;color:#17243a;box-sizing:border-box}
+.grant-input:focus{outline:none;border-color:#204aa8}
+.grant-input.is-error{border-color:#e2483a}
+.grant-field__note{margin:6px 0 0;font-size:11px;color:#8b98aa;line-height:1.6}
+.grant-err{margin:6px 0 0;font-size:12px;color:#e2483a;font-weight:700}
+.grant-grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* セグメント/プリセット */
+.grant-seg{display:flex;gap:8px}
+.grant-seg__btn{flex:1;padding:12px;border:2px solid #d4dce8;border-radius:8px;background:#fff;font-size:14px;font-weight:800;color:#5a6b83}
+.grant-seg__btn.is-active{border-color:#204aa8;background:#204aa8;color:#fff}
+.grant-presets{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.grant-preset{display:flex;flex-direction:column;gap:4px;padding:12px 10px;border:2px solid #d4dce8;border-radius:8px;background:#fff;text-align:center}
+.grant-preset span{font-size:12px;font-weight:700;color:#5a6b83}
+.grant-preset strong{font-size:15px;color:#16233b}
+.grant-preset.is-active{border-color:#204aa8;background:#eef3fd}
+.grant-preset.is-active span,.grant-preset.is-active strong{color:#204aa8}
+
+/* フォーム */
+.grant-form{display:flex;flex-direction:column;gap:2px}
+.grant-consent{margin:14px 0 0;font-size:12px;color:#8b98aa}
+.grant-consent a{color:#204aa8;text-decoration:underline}
+
+/* ナビ/ボタン */
+.grant-nav{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
+.grant-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:10px;font-size:15px;font-weight:800;text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s}
+.grant-btn--fill{background:#204aa8;color:#fff;box-shadow:0 8px 20px rgba(32,74,168,.28)}
+.grant-btn--fill:hover{transform:translateY(-2px)}
+.grant-btn--outline{background:#fff;color:#204aa8;border:2px solid #204aa8}
+.grant-btn--ghost{background:transparent;color:#8b98aa;border:2px solid #d4dce8}
+.grant-btn--lg{padding:16px 30px;font-size:16px}
+
+/* 結果 */
+.grant-verdict{display:flex;gap:16px;align-items:flex-start;padding:20px 22px;border-radius:12px;margin:0 0 22px}
+.grant-verdict.is-ok{background:#eaf6ee;border:1px solid #b6e0c4}
+.grant-verdict.is-warn{background:#fff6e6;border:1px solid #f2d79b}
+.grant-verdict.is-review{background:#fdeeed;border:1px solid #f3c1bc}
+.grant-verdict__icon{flex:0 0 auto;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;color:#fff}
+.is-ok .grant-verdict__icon{background:#2ca25a}
+.is-warn .grant-verdict__icon{background:#e0a021}
+.is-review .grant-verdict__icon{background:#e2483a}
+.grant-verdict__title{margin:0 0 6px;font-size:18px;font-weight:900;color:#16233b}
+.grant-verdict__desc{margin:0;font-size:13px;line-height:1.8;color:#48566b}
+.grant-flags{margin:0 0 18px;padding:14px 18px;border-radius:10px;background:#fdeeed}
+.grant-flags--setup{background:#fff6e6}
+.grant-flags__title{margin:0 0 8px;font-size:13px;font-weight:800;color:#25324a}
+.grant-flags ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:5px}
+.grant-flags li{font-size:13px;line-height:1.6;color:#48566b}
+
+.grant-amount{margin:0 0 8px;padding:22px;border-radius:12px;background:#0f2a5e;color:#fff}
+.grant-amount__label{margin:0 0 4px;font-size:13px;font-weight:700;opacity:.85}
+.grant-amount__total{margin:0 0 18px;font-size:clamp(34px,7vw,52px);font-weight:900;letter-spacing:.02em;line-height:1}
+.grant-amount__rows{display:flex;flex-direction:column;gap:2px;background:rgba(255,255,255,.08);border-radius:8px;padding:6px 14px}
+.grant-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.grant-row:last-child{border-bottom:0}
+.grant-row__k{font-size:13px;opacity:.9}
+.grant-row__sub{display:block;font-style:normal;font-size:11px;opacity:.7;margin-top:2px}
+.grant-row__v{font-size:16px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.grant-row.is-highlight{margin-top:2px}
+.grant-row.is-highlight .grant-row__k{font-weight:800;opacity:1}
+.grant-row.is-highlight .grant-row__v{font-size:22px;color:#8fd0ff}
+.grant-editlink{margin:14px 0 0;background:none;border:none;color:rgba(255,255,255,.85);font-size:13px;font-weight:700;text-decoration:underline;cursor:pointer}
+
+.grant-cta{margin:24px 0 0;padding:24px;border-radius:12px;background:#eef3fd;text-align:center}
+.grant-cta__title{margin:0 0 16px;font-size:15px;font-weight:800;color:#16233b}
+.grant-cta__btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+@media(max-width:640px){
+  .grant-steps__label{display:none}
+  .grant-grid2{grid-template-columns:1fr}
+  .grant-presets{grid-template-columns:1fr}
+  .grant-check{flex-direction:row;flex-wrap:wrap}
+  .grant-nav{flex-direction:column-reverse}
+  .grant-nav .grant-btn{width:100%}
+  .grant-cta__btns .grant-btn{width:100%}
+}

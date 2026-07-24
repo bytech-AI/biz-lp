@@ -1,4 +1,9 @@
-<svg id="claude-ai-icon" xmlns="http://www.w3.org/2000/svg" width="319.168" height="319.168" viewBox="0 0 319.168 319.168">
-  <rect id="長方形_3400" data-name="長方形 3400" width="319.168" height="319.168" rx="66" transform="translate(0 0)" fill="#cc9b7a"/>
-  <path id="パス_13213" data-name="パス 13213" d="M241.407,149.787H214.44l49.093,132.086,26.967,0Zm-77.929,0L114.385,281.876H141.9l9.907-27.738,51.514,0,10.015,27.74h27.518l-49.2-132.089Zm-2.643,79.8,16.733-46.45,16.84,46.45Z" transform="translate(-43.23 -56.86)" fill="#1f1f1e"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="840.043" height="319.168" viewBox="0 0 840.043 319.168">
+  <g id="グループ_16209" data-name="グループ 16209" transform="translate(267 -5382.416)">
+    <g id="claude-ai-icon" transform="translate(-267 5382.416)">
+      <rect id="長方形_3400" data-name="長方形 3400" width="319.168" height="319.168" rx="66" transform="translate(0 0)" fill="#cc9b7a"/>
+      <path id="パス_13213" data-name="パス 13213" d="M241.407,149.787H214.44l49.093,132.086,26.967,0Zm-77.929,0L114.385,281.876H141.9l9.907-27.738,51.514,0,10.015,27.74h27.518l-49.2-132.089Zm-2.643,79.8,16.733-46.45,16.84,46.45Z" transform="translate(-43.23 -56.86)" fill="#1f1f1e"/>
+    </g>
+    <path id="claudecode-color" d="M363.019,107.848h51.9v53.628H363.053v52.349H337.346v50.5H311.189v-50.5H285.481v50.5H259.324v-50.5H155.594v50.5h-26.14v-50.5H103.73v50.5H77.572v-50.5H51.865V161.459H0V107.865H51.865V5H363.019V107.848Zm-259.289,0h25.725V58.628H103.73Zm181.7,0h25.76V58.628h-25.76Z" transform="translate(158.125 5407.338)" fill="#d97757" fill-rule="evenodd"/>
+  </g>
 </svg>

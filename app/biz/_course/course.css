@@ -1,0 +1,656 @@
+/* /chat-gpt-training 法人向けChatGPT研修 個別ページ 専用スタイル
+   FV はデザイン確定（Vook school 風グラデーション）。以降のセクションはワイヤーフレーム（構成確認用）。
+   スコープ衝突を避けるため全クラスに ct- プレフィックスを付与。 */
+
+.ct-page { width: 100%; max-width: 100%; background: #f5f7fb; color: #17243a; }
+
+/* globals.css の all:revert で box-sizing が content-box に戻るため、
+   width:100% と左右paddingを持つSP要素が画面幅を押し広げないように戻す。 */
+.ct-page,
+.ct-page *,
+.ct-page *::before,
+.ct-page *::after {
+  box-sizing: border-box;
+}
+
+/* 注意: .biz-root *{all:revert} は inline SVG の geometry(d/cx/cy/r)まで初期化し形が消える。
+   そのため当ページのアイコンは data-URI 背景（unlayeredで revert に打ち勝つ）で描画する。 */
+
+/* セクション見出し下の区切り線は全ページで非表示（間隔は維持のため透明化） */
+.ct-about__bar,
+.ct-rec__bar,
+.ct-cur__bar,
+.ct-clist__bar { background: transparent !important; }
+
+/* ============================================================
+   FV / ヒーロー（デザイン確定・Vook school 風）
+   ============================================================ */
+.ct-hero {
+  position: relative;
+  overflow: hidden;
+  /* 使用ツール(ChatGPT)のブランドカラー(ティール〜グリーン)ベースのグラデーション。
+     ※研修ごとにメインツールの色に差し替える想定（例：Gemini=ブルー、Copilot=水色 など）。 */
+  background:
+    radial-gradient(120% 90% at 88% 108%, rgba(120, 235, 200, .5) 0%, rgba(120, 235, 200, 0) 55%),
+    linear-gradient(118deg, #0a5f4a 0%, #10a37f 38%, #12b886 58%, #3fd0a6 100%);
+  color: #fff;
+}
+.ct-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* 固定ヘッダー分を上部に確保 */
+  padding: clamp(104px, 11vw, 124px) clamp(20px, 5vw, 64px) clamp(28px, 3vw, 40px);
+  display: grid;
+  /* 左テキストと右ビジュアルを中央に寄せ、外側の余白を均等化 */
+  grid-template-columns: minmax(0, 480px) minmax(0, 560px);
+  justify-content: center;
+  gap: clamp(28px, 4vw, 64px);
+  align-items: center;
+}
+
+.ct-hero__eyebrow {
+  letter-spacing: .06em;
+  margin: 0 0 clamp(10px, 1.4vw, 0px);
+  font-size: clamp(13px, 1.4vw, 17px);
+  font-weight: 700;
+}
+.ct-hero__eyebrow--nowrap { white-space: nowrap; }
+.ct-hero__title {
+  margin: 0;
+  font-family: inherit; /* biz共通の Noto Sans JP を継承 */
+  font-weight: 700;
+  font-size: clamp(30px, 4.2vw, 56px);
+  line-height: 1.22;
+  letter-spacing: .02em;
+}
+.ct-hero__title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(12px, 1.6vw, 20px);
+}
+/* 「完全オンライン・月額・定額制」相当のタグ（見出し下の独立行） */
+.ct-hero__tag {
+  display: inline-block;
+  padding: clamp(6px, .7vw, 9px) clamp(12px, 1.4vw, 18px);
+  margin-top: clamp(14px, 1.8vw, 20px);
+  border: 1px solid rgba(255, 255, 255, .7);
+  font-family: system-ui, sans-serif;
+  font-size: clamp(12px, 1.15vw, 16px);
+  font-weight: 500;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+/* サブコピーをeyebrowスタイルで一行表示（タグの下） */
+.ct-hero__eyebrow--sub { margin-top: clamp(16px, 2vw, 24px); }
+
+.ct-hero__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 20px;
+  margin-top: clamp(18px, 2.2vw, 26px);
+}
+.ct-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding: clamp(15px, 1.6vw, 20px) clamp(26px, 3vw, 40px);
+  background: #e0353f;
+  color: #fff;
+  font-size: clamp(14px, 1.35vw, 17px);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 999px;
+  box-shadow: 0 12px 30px rgba(224, 53, 63, .35);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.ct-hero__cta:hover { background: #cf2a34; transform: translateY(-2px); box-shadow: 0 16px 38px rgba(224, 53, 63, .45); }
+.ct-hero__cta-arrow {
+  display: inline-block;
+  width: 20px; height: 20px;
+  position: relative;
+  flex: 0 0 auto;
+}
+.ct-hero__cta-arrow::before,
+.ct-hero__cta-arrow::after { content: ""; position: absolute; background: #fff; }
+.ct-hero__cta-arrow::before { top: 50%; left: 0; width: 18px; height: 2px; transform: translateY(-50%); }
+.ct-hero__cta-arrow::after { top: 50%; right: 1px; width: 8px; height: 8px; border-top: 2px solid #fff; border-right: 2px solid #fff; background: none; transform: translateY(-50%) rotate(45deg); }
+
+/* 使用ツールのロゴ */
+.ct-hero__tools {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: clamp(20px, 2.4vw, 30px);
+}
+.ct-hero__tools-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  opacity: .85;
+}
+.ct-hero__tool {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 22px;
+  background: rgba(255, 255, 255, .18);
+  border: 1px solid rgba(255, 255, 255, .45);
+  border-radius: 6px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.ct-hero__tool img { height: 32px; width: auto; display: block; }
+
+/* 右側：ChatGPT活用イメージ（/ カルーセルのPCモック） */
+.ct-hero__visual { align-self: center; }
+.ct-hero__visual--compact { width: 84%; justify-self: center; }
+.ct-hero__visual img { display: block; width: 100%; height: auto; }
+
+/* 長い見出しを1行にするコース：テキスト列を広く・ビジュアルを小さく */
+.ct-hero--wide .ct-hero__inner { grid-template-columns: minmax(0, 580px) minmax(0, 460px); }
+.ct-hero--wide .ct-hero__title { white-space: nowrap; }
+
+@media (max-width: 900px) {
+  .ct-hero__inner,
+  .ct-hero--wide .ct-hero__inner { grid-template-columns: 1fr; }
+  .ct-hero__visual { order: 2; max-width: 520px; margin: 0 auto; }
+  .ct-hero__visual--compact { width: 100%; }
+  .ct-hero--wide .ct-hero__title { white-space: normal; }
+  .ct-hero__eyebrow--nowrap { white-space: normal; }
+}
+@media (max-width: 600px) {
+  .ct-hero__inner,
+  .ct-hero--wide .ct-hero__inner {
+    padding: 88px 20px 28px;
+    gap: 22px;
+  }
+  .ct-breadcrumb--hero {
+    margin-bottom: 16px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .ct-hero__eyebrow {
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 1.65;
+    letter-spacing: .03em;
+  }
+  .ct-hero__title {
+    font-size: clamp(28px, 9vw, 36px);
+    line-height: 1.25;
+  }
+  .ct-hero__tag {
+    margin-top: 12px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  .ct-hero__tools {
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .ct-hero__tools-label {
+    flex: 0 0 auto;
+    font-size: 10px;
+  }
+  .ct-hero__tool {
+    min-width: 0;
+    padding: 10px 16px;
+  }
+  .ct-hero__tool img {
+    max-width: 132px;
+    height: 28px;
+  }
+  .ct-hero__visual,
+  .ct-hero__visual--compact {
+    width: min(100%, 380px);
+    max-width: 380px;
+    margin: 0 auto;
+  }
+}
+
+/* ============================================================
+   FV直下のページ内ナビ（ダークバー＋右端に資料DL CTA）
+   ============================================================ */
+/* このページは最上部ヘッダーを固定せず（スクロールで流す）、代わりにこのナビをstickyにする。
+   ヘッダーは共有BizChromeで position:fixed 指定のため、.biz-root で特異度を上げて上書き。 */
+.biz-root .top-header-wrap { position: absolute; }
+.ct-pagenav { position: sticky; top: 0; z-index: 1000; background: #16202e; }
+.ct-pagenav__inner { max-width: 1400px; margin: 0 auto; padding: 0 40px; min-height: 64px; display: flex; align-items: center; gap: clamp(20px, 3vw, 40px); }
+/* stuck時に左へ下りてくるロゴ（通常は非表示で幅ゼロ） */
+.ct-pagenav__brand { flex: 0 0 auto; display: flex; align-items: center; max-width: 0; opacity: 0; overflow: hidden; transform: translateY(-9px); transition: max-width .35s ease, opacity .3s ease, transform .35s ease; }
+.ct-pagenav__brand img { height: 26px; width: auto; display: block; }
+.ct-pagenav.is-stuck .ct-pagenav__brand { max-width: 170px; opacity: 1; transform: translateY(0); }
+.ct-pagenav__list { flex: 1 1 auto; list-style: none; margin: 0; padding: 0; display: flex; align-items: center; justify-content: flex-end; gap: clamp(16px, 2.4vw, 38px); overflow-x: auto; scrollbar-width: none; }
+.ct-pagenav__list::-webkit-scrollbar { display: none; }
+.ct-pagenav__list li { flex: 0 0 auto; }
+.ct-pagenav__list a { display: inline-block; padding: 8px 2px; color: #fff; font-size: 15px; font-weight: 700; letter-spacing: .02em; text-decoration: none; white-space: nowrap; transition: opacity .2s ease; }
+.ct-pagenav__list a:hover { opacity: .65; }
+.ct-pagenav__cta { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: linear-gradient(135deg, #e83e8c, #d6266f); color: #fff; font-size: 14px; font-weight: 800; text-decoration: none; border-radius: 999px; white-space: nowrap; transition: opacity .2s ease, transform .2s ease; }
+.ct-pagenav__cta:hover { opacity: .92; transform: translateY(-1px); }
+.ct-pagenav__cta-ico { width: 16px; height: 16px; flex: 0 0 auto; background: center/contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3v11m0 0l-4-4m4 4l4-4M5 20h14'/%3E%3C/svg%3E"); }
+@media (max-width: 900px) {
+  .biz-root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+  .ct-page {
+    overflow-x: clip;
+  }
+  .ct-pagenav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .ct-pagenav__inner {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 56px;
+    padding: 0;
+    gap: 0;
+  }
+  .ct-pagenav__brand,
+  .ct-pagenav.is-stuck .ct-pagenav__brand,
+  .ct-pagenav__cta {
+    display: none;
+  }
+  .ct-pagenav__list {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    max-width: 100%;
+    padding: 0 16px;
+    justify-content: flex-start;
+    gap: 26px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+  }
+  .ct-pagenav__list li { scroll-snap-align: start; }
+  .ct-pagenav__list a { padding: 17px 0; font-size: 13px; }
+}
+/* ページ内アンカーの遷移をスムーズに（course.cssは研修ページのみ読み込まれるためスコープ内） */
+html { scroll-behavior: smooth; }
+/* stickyナビ分、アンカー着地位置をずらす */
+.ct-page section[id] { scroll-margin-top: 76px; }
+
+/* ============================================================
+   ↓↓↓ 以降ワイヤーフレーム（構成確認用・本デザイン未適用） ↓↓↓
+   ============================================================ */
+.ct-wire { max-width: 1080px; margin: 0 auto; padding: clamp(48px, 6vw, 84px) 20px; }
+.ct-wire--alt { background: #eef2f8; max-width: none; }
+.ct-wire--alt > .ct-wire__inner { max-width: 1080px; margin: 0 auto; }
+.ct-wire__flag {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 4px 10px;
+  background: #ffe9b8;
+  border: 1px dashed #d8a520;
+  border-radius: 4px;
+  color: #7a5a00;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+.ct-wire__eyebrow { margin: 0 0 8px; color: #204aa8; font: 700 12px/1 "Futura", "Futura Medium", var(--font-jost), sans-serif; letter-spacing: .16em; }
+.ct-wire__title { margin: 0 0 10px; font-size: clamp(22px, 3vw, 32px); font-weight: 900; letter-spacing: .02em; }
+.ct-wire__lead { margin: 0 0 28px; color: #5a6b83; font-size: 15px; line-height: 1.9; }
+
+/* 汎用プレースホルダ要素 */
+.ct-ph { background: #dfe5ee; border: 1px dashed #b4c1d4; border-radius: 8px; color: #6b7891; }
+.ct-ph--line { height: 12px; margin: 8px 0; }
+.ct-ph--line.is-70 { width: 70%; }
+.ct-ph--line.is-50 { width: 50%; }
+.ct-ph--img { display: flex; align-items: center; justify-content: center; aspect-ratio: 16/10; font-size: 12px; font-weight: 700; }
+
+.ct-grid { display: grid; gap: 20px; }
+.ct-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.ct-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.ct-grid--4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 820px) { .ct-grid--3, .ct-grid--4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .ct-grid--2, .ct-grid--3, .ct-grid--4 { grid-template-columns: 1fr; } }
+
+.ct-card { background: #fff; border: 1px solid #e2e8f1; border-radius: 12px; padding: 22px; box-shadow: 0 8px 24px #19365b0f; }
+.ct-card__label { display: inline-block; margin-bottom: 10px; padding: 3px 10px; background: #eaf1fb; color: #204aa8; border-radius: 999px; font-size: 11px; font-weight: 700; }
+.ct-card__h { margin: 0 0 10px; font-size: 16px; font-weight: 800; }
+
+/* 課題 before → 姿 after 表現 */
+.ct-ba { display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: center; }
+.ct-ba__arrow { font-size: 28px; color: #204aa8; }
+@media (max-width: 700px) { .ct-ba { grid-template-columns: 1fr; } .ct-ba__arrow { transform: rotate(90deg); justify-self: center; } }
+
+/* おすすめ/クオリファイ チェックリスト */
+.ct-check { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.ct-check li { position: relative; padding: 14px 14px 14px 46px; background: #fff; border: 1px solid #e2e8f1; border-radius: 10px; font-weight: 700; color: #2f3b4d; }
+.ct-check li::before { content: "✓"; position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 22px; height: 22px; border-radius: 50%; background: #204aa8; color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center; }
+
+/* ============================================================
+   ChatGPT研修とは？（デザイン確定・番号付き3カード）
+   ============================================================ */
+.ct-about { background: #f5f7fb; padding: clamp(56px, 7vw, 96px) 20px; }
+.ct-about__head { text-align: center; margin-bottom: clamp(36px, 5vw, 56px); }
+.ct-about__eyebrow { color: #0449b7; letter-spacing: .06em; margin: 0px 0 0px; font-size: clamp(15px, 1.8vw, 19px); font-weight: 900; }
+.ct-about__title { margin: 0; font-size: clamp(28px, 3.8vw, 42px); font-weight: 900; letter-spacing: .04em; color: #1c2635; }
+.ct-about__bar { width: 46px; height: 3px; margin: 18px auto 26px; background: #1c2635; }
+.ct-about__sub { margin: 0 0 18px; font-size: clamp(17px, 2.1vw, 23px); font-weight: 800; line-height: 1.65; color: #1c2635; }
+.ct-about__mark { background: linear-gradient(90deg, #204aa8, #12307a); color: #fff; padding: 2px 8px; border-radius: 0; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.ct-about__lead { max-width: 58em; margin: 0 auto; font-size: clamp(13px, 1.5vw, 15px); line-height: 1.9; color: #5a6b83; }
+.ct-about__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px, 2.4vw, 28px); max-width: 1080px; margin: 0 auto; }
+.ct-about__card { display: flex; flex-direction: column; align-items: center; padding: clamp(20px, 2.4vw, 28px); background: #fff; border: 1px solid #e7ebf3; border-radius: 10px; }
+.ct-about__num { align-self: center; display: inline-flex; align-items: center; justify-content: center; color: #0449b7; font: 800 22px/1 "Futura", "Futura Medium", var(--font-jost), sans-serif; }
+.ct-about__card-h { margin: 16px 0 18px; font-size: clamp(16px, 1.7vw, 18px); font-weight: 800; line-height: 1.5; text-align: center; color: #1c2635; }
+.ct-about__illust { display: flex; align-items: center; justify-content: center; width: 100%; aspect-ratio: 4/3; margin-bottom: 18px; border-radius: 8px; background: linear-gradient(135deg, #eef1fa, #e0e6f4); color: #9aa6c4; font: 700 12px/1.3 "Futura", "Futura Medium", var(--font-jost), sans-serif; letter-spacing: .06em; }
+.ct-about__illust img { display: block; width: 100%; height: 100%; border-radius: inherit; object-fit: cover; }
+.ct-about__desc { margin: 0; align-self: stretch; font-size: 13.5px; line-height: 1.85; color: #1c2635; }
+@media (max-width: 820px) { .ct-about__grid { grid-template-columns: 1fr; max-width: 460px; } }
+
+/* ============================================================
+   研修サマリー（4項目・ラベル｜値／縦区切り線）
+   ============================================================ */
+.ct-spec { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 1080px; margin: 0 auto clamp(36px, 5vw, 56px); }
+.ct-spec__card { display: flex; flex-direction: column; gap: 8px; padding: clamp(12px, 1.4vw, 15px) clamp(16px, 1.8vw, 22px); background: linear-gradient(135deg, #0449B7, #0449B7); border-radius: 4px; color: #fff; }
+.ct-spec__label { flex: 0 0 auto; }
+.ct-spec__en { display: block; margin-bottom: 5px; font: 600 10px/1 "Futura", "Futura Medium", var(--font-jost), sans-serif; letter-spacing: .12em; opacity: .78; }
+.ct-spec__ja { display: block; font-size: clamp(14px, 1.4vw, 16px); font-weight: 800; letter-spacing: .02em; }
+.ct-spec__value { padding-top: 8px; border-top: 1px solid rgba(255, 255, 255, .34); font-size: clamp(16px, 1.6vw, 19px); font-weight: 800; white-space: nowrap; }
+.ct-spec__value b { font-family: "Futura", "Futura Medium", var(--font-jost), sans-serif; font-size: 1.55em; font-weight: 700; margin: 0 2px; letter-spacing: .01em; }
+@media (max-width: 880px) { .ct-spec { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 460px) {
+  .ct-spec {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .ct-spec__card {
+    min-width: 0;
+    padding: 12px;
+  }
+  .ct-spec__ja { font-size: 13px; }
+  .ct-spec__value {
+    min-width: 0;
+    font-size: clamp(12px, 3.6vw, 15px);
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ============================================================
+   おすすめの方（デザイン確定）
+   ============================================================ */
+.ct-rec { background: #fff; padding: clamp(56px, 7vw, 96px) 20px; }
+.ct-rec__head { text-align: center; margin-bottom: clamp(36px, 5vw, 56px); }
+.ct-rec__eyebrow { margin: 0; color: #0449b7; font-size: clamp(15px, 1.8vw, 19px); font-weight: 900; letter-spacing: .06em; }
+.ct-rec__title { margin: 0; font-size: clamp(26px, 3.4vw, 36px); font-weight: 900; letter-spacing: .04em; color: #1c2635; }
+.ct-rec__bar { width: 46px; height: 3px; margin: 18px auto 26px; background: #1c2635; }
+.ct-rec__sub { margin: 0; font-size: clamp(16px, 2vw, 21px); font-weight: 800; line-height: 1.7; color: #1c2635; }
+.ct-rec__sub--nowrap { white-space: nowrap; }
+.ct-rec__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 2vw, 24px); max-width: 1000px; margin: 0 auto; }
+.ct-rec__card { display: flex; gap: 18px; align-items: flex-start; padding: clamp(20px, 2.4vw, 28px); background: #f5f6f9; border-radius: 10px; }
+.ct-rec__avatar { flex: 0 0 auto; width: 56px; height: 56px; border-radius: 50%; display: block; overflow: hidden; background-color: #dce5f3; background-repeat: no-repeat; background-size: 200% 200%; box-shadow: 0 0 0 2px #fff, 0 3px 12px rgba(28, 38, 53, .14); }
+.ct-rec__avatar::before { display: none; }
+.ct-rec__avatar--a { background-position: 0 0; }
+.ct-rec__avatar--b { background-position: 100% 0; }
+.ct-rec__avatar--c { background-position: 0 100%; }
+.ct-rec__avatar--d { background-position: 100% 100%; }
+.ct-rec__card-h { margin: 2px 0 10px; font-size: clamp(15px, 1.5vw, 17px); font-weight: 800; line-height: 1.5; color: #1c2635; }
+.ct-rec__card-desc { margin: 0; font-size: 13.5px; line-height: 1.85; color: #5a6b83; }
+@media (max-width: 720px) {
+  .ct-rec__sub--nowrap { white-space: normal; }
+  .ct-rec__grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   研修内容 / カリキュラム（デザイン確定・STEP型）
+   ============================================================ */
+.ct-cur { background: #fff; /* padding: clamp(56px, 7vw, 96px) 20px; */ }
+.ct-cur__head { text-align: center; margin-bottom: clamp(36px, 5vw, 56px); }
+.ct-cur__eyebrow { margin: 0; color: #0449b7; font-size: clamp(15px, 1.8vw, 19px); font-weight: 900; letter-spacing: .06em; }
+.ct-cur__title { margin: 0; font-size: clamp(26px, 3.4vw, 36px); font-weight: 900; letter-spacing: .04em; color: #1c2635; }
+.ct-cur__bar { width: 46px; height: 3px; margin: 18px auto 26px; background: #1c2635; }
+.ct-cur__sub { margin: 0; font-size: clamp(16px, 2vw, 21px); font-weight: 800; line-height: 1.7; color: #1c2635; }
+.ct-cur__sub em { font-style: normal; }
+.ct-cur__inner { max-width: 1080px; margin: 0 auto; }
+/* タブ */
+.ct-cur__tabs { display: flex; gap: 6px; margin-bottom: clamp(20px, 2.6vw, 30px); }
+/* 右側が矢印（シェブロン）になったプロセスタブ */
+.ct-cur__tab { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 15px 26px; background: #eef1f8; border: none; border-radius: 0; cursor: pointer; transition: background .2s ease; clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%, 18px 50%); }
+.ct-cur__tab:first-child { clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%); }
+.ct-cur__tab:hover { background: #e2e8f4; }
+.ct-cur__tab-no { font: 800 12px/1 "Futura", "Futura Medium", var(--font-jost), sans-serif; letter-spacing: .06em; color: #6b74a6; }
+.ct-cur__tab-label { font-size: clamp(13px, 1.5vw, 15px); font-weight: 800; color: #0449B7; letter-spacing: .02em; }
+.ct-cur__tab.is-active { background: linear-gradient(90deg, #0449B7, #0449B7); }
+.ct-cur__tab.is-active .ct-cur__tab-no,
+.ct-cur__tab.is-active .ct-cur__tab-label { color: #fff; }
+/* パネルはアクティブなSTEPのみ表示（スクロール短縮） */
+.ct-cur__step { display: none; }
+.ct-cur__step.is-active { display: block; }
+@media (max-width: 560px) {
+  .ct-cur__tabs { display: none; }
+  .ct-cur__steps {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scroll-padding-inline: 16px;
+    padding: 0 16px 10px;
+  }
+  .ct-cur__steps::-webkit-scrollbar { display: none; }
+  .ct-cur__step,
+  .ct-cur__step.is-active {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 calc(100% - 36px);
+    min-width: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+  .ct-cur__panel {
+    flex: 1;
+    grid-auto-rows: 1fr;
+  }
+}
+.ct-cur__step-head { display: flex; align-items: center; justify-content: center; gap: 14px; padding: 15px; background: linear-gradient(90deg, #0449B7, #0449B7); color: #fff; border-radius: 8px 8px 0 0; }
+.ct-cur__step-no { padding: 5px 16px; background: #fff; color: #0449B7; border-radius: 999px; font: 800 13px/1 "Futura", "Futura Medium", var(--font-jost), sans-serif; letter-spacing: .05em; }
+.ct-cur__step-label { font-size: clamp(16px, 1.9vw, 19px); font-weight: 800; letter-spacing: .04em; }
+.ct-cur__panel { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(18px, 2.4vw, 28px); padding: clamp(20px, 2.6vw, 30px); background: #f7f8fb; border: 1px solid #e4e8f0; border-top: none; border-radius: 0 0 8px 8px; }
+.ct-cur__panel--3 { grid-template-columns: repeat(3, 1fr); }
+.ct-cur__card { background: #fff; border: 1px solid #e7ebf3; border-radius: 8px; padding: 16px; }
+.ct-cur__card-head { display: flex; align-items: stretch; margin-bottom: 14px; border-bottom: 2px solid #0449B7; }
+.ct-cur__card-no { display: flex; align-items: center; padding: 8px 12px; background: #0449B7; color: #fff; font: 800 15px/1 "Futura", "Futura Medium", var(--font-jost), sans-serif; }
+.ct-cur__card-cat { display: flex; align-items: center; padding: 8px 12px; color: #0449B7; font-size: clamp(13px, 1.4vw, 15px); font-weight: 800; letter-spacing: .02em; }
+.ct-cur__thumb { display: flex; align-items: center; justify-content: center; aspect-ratio: 16/9; margin-bottom: 12px; border-radius: 0; background: linear-gradient(135deg, #e8ecf6, #d7def0); color: #8b97b5; font: 700 11px/1.3 "Futura", "Futura Medium", var(--font-jost), sans-serif; letter-spacing: .06em; }
+.ct-cur__thumb img { width: 100%; height: 100%; border-radius: 0; object-fit: cover; }
+.ct-cur__thumb img[src*="/curriculum/claude-code/"] { object-fit: contain; background: #fff; }
+.ct-cur__card-cat.is-nowrap { white-space: nowrap; }
+.ct-cur__card-h { margin: 0 0 10px; font-size: clamp(14px, 1.5vw, 15.5px); font-weight: 800; line-height: 1.55; color: #1c2635; }
+.ct-cur__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.ct-cur__tag { padding: 4px 8px; background: #eef1f8; color: #0449B7; border-radius: 4px; font-size: 11px; font-weight: 700; }
+.ct-cur__desc { margin: 0; font-size: 12.5px; line-height: 1.85; color: #5a6b83; }
+@media (max-width: 760px) {
+  .ct-cur__panel, .ct-cur__panel--3 { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   カリキュラム（デザイン確定・アコーディオン）
+   ============================================================ */
+.ct-clist { background: #fff; padding: clamp(56px, 7vw, 96px) 20px; }
+.ct-clist__head { text-align: center; max-width: 900px; margin: 0 auto clamp(28px, 4vw, 44px); }
+.ct-clist__eyebrow { margin: 0; color: #0449b7; font-size: clamp(15px, 1.8vw, 19px); font-weight: 900; letter-spacing: .06em; }
+.ct-clist__title { margin: 0; font-size: clamp(26px, 3.4vw, 36px); font-weight: 900; letter-spacing: .04em; color: #1c2635; }
+.ct-clist__bar { width: 46px; height: 3px; margin: 18px auto 24px; background: #1c2635; }
+.ct-clist__count { margin: 0 0 18px; font-size: clamp(18px, 2vw, 22px); font-weight: 800; color: #0449B7; }
+.ct-clist__meta { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px 28px; }
+.ct-clist__meta-item { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: #1c2635; }
+.ct-clist__meta-item b { font: 800 20px/1 "Futura", "Futura Medium", var(--font-jost), sans-serif; }
+.ct-clist__meta-pill { padding: 5px 14px; border: 1px solid #c9cede; border-radius: 999px; font-size: 12px; font-weight: 700; color: #0449B7; }
+.ct-clist__list { max-width: 900px; margin: clamp(24px, 3vw, 36px) auto 0; border: 1px solid #e6e8f0; border-radius: 10px; overflow: hidden; }
+.ct-clist__item + .ct-clist__item { border-top: 1px solid #e6e8f0; }
+.ct-clist__row { display: grid; grid-template-columns: 52px 1fr auto 52px; align-items: stretch; width: 100%; padding: 0; background: #fff; border: none; cursor: pointer; text-align: left; font: inherit; }
+.ct-clist__item:nth-child(even) .ct-clist__row { background: #f5f6fa; }
+.ct-clist__no { display: flex; align-items: center; justify-content: center; background: #0449B7; color: #fff; font: 800 15px/1 "Futura", "Futura Medium", var(--font-jost), sans-serif; }
+.ct-clist__title-txt { display: flex; align-items: center; padding: 18px 16px; font-size: clamp(14px, 1.5vw, 16px); font-weight: 800; color: #0449B7; }
+.ct-clist__pills { display: flex; align-items: center; gap: 10px; padding: 0 8px; }
+.ct-clist__pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: #eef0f6; border-radius: 999px; font-size: 12px; font-weight: 700; color: #0449B7; white-space: nowrap; }
+/* アイコンは data-URI 背景（all:revert 対策）。#0449b7 の線アイコン。 */
+.ct-clist__pill::before { content: ""; flex: 0 0 auto; width: 13px; height: 13px; background: center/contain no-repeat; }
+.ct-clist__pill--ch::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230449b7' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01'/%3E%3C/svg%3E"); }
+.ct-clist__pill--time::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230449b7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3 2'/%3E%3C/svg%3E"); }
+.ct-clist__toggle { position: relative; display: block; align-self: center; justify-self: center; width: 20px; height: 20px; }
+.ct-clist__toggle::before, .ct-clist__toggle::after { content: ""; position: absolute; top: 50%; left: 50%; background: #0449B7; transition: transform .25s ease; }
+.ct-clist__toggle::before { width: 16px; height: 2px; transform: translate(-50%, -50%); }
+.ct-clist__toggle::after { width: 2px; height: 16px; transform: translate(-50%, -50%); }
+.ct-clist__item.active .ct-clist__toggle::after { transform: translate(-50%, -50%) rotate(90deg); }
+.ct-clist__body { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.ct-clist__item.active .ct-clist__body { max-height: 900px; }
+.ct-clist__body-inner { padding: 14px 20px 20px 68px; }
+.ct-clist__body-lead { margin: 0 0 10px; font-size: 13.5px; line-height: 1.85; color: #5a6b83; }
+.ct-clist__chapters { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.ct-clist__chapters li { padding-left: 14px; position: relative; font-size: 13px; color: #48566b; }
+.ct-clist__chapters li::before { content: ""; position: absolute; left: 0; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: #0449B7; }
+@media (max-width: 680px) {
+  .ct-clist__row { grid-template-columns: 42px 1fr 42px; }
+  .ct-clist__pills { grid-column: 2; grid-row: 2; padding: 0 16px 14px; }
+  .ct-clist__title-txt { grid-column: 2; padding-bottom: 6px; }
+  .ct-clist__no { grid-row: 1 / span 2; }
+  .ct-clist__toggle { grid-row: 1 / span 2; }
+  .ct-clist__pill--time { display: none; }
+  .ct-clist__body-inner { padding-left: 20px; }
+}
+
+/* コース概要 テーブル */
+.ct-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #e2e8f1; border-radius: 12px; overflow: hidden; }
+.ct-table th, .ct-table td { padding: 16px 18px; text-align: left; border-bottom: 1px solid #eef2f7; font-size: 14px; }
+.ct-table th { width: 34%; background: #f3f7fc; color: #204aa8; font-weight: 800; }
+.ct-table tr:last-child th, .ct-table tr:last-child td { border-bottom: 0; }
+
+/* カリキュラム ステップ */
+.ct-steps { display: grid; gap: 14px; }
+.ct-step { display: grid; grid-template-columns: 60px 1fr; gap: 18px; align-items: center; background: #fff; border: 1px solid #e2e8f1; border-radius: 12px; padding: 18px 20px; }
+.ct-step__no { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: #204aa8; color: #fff; font: 800 16px/1 "Futura", "Futura Medium", var(--font-jost), sans-serif; }
+
+/* 料金 → 助成金アンカー */
+/* 対応研修プランはコンテンツ幅を少し狭める */
+#price { max-width: 900px; }
+.ct-plan__head { text-align: center; margin-bottom: clamp(32px, 4.5vw, 52px); }
+.ct-plan__lead { margin: 16px 0 0; color: #5a6b83; font-size: 15px; line-height: 1.9; }
+.ct-price { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.ct-price--single { grid-template-columns: 1fr; margin-top: 20px; }
+@media (max-width: 640px) { .ct-price { grid-template-columns: 1fr; } }
+.ct-price__card { background: #fff; border: 1px solid #e2e8f1; border-radius: 14px; padding: 26px; text-align: center; }
+.ct-price__card.is-feature { border: 2px solid #204aa8; box-shadow: 0 12px 34px #204aa81f; }
+.ct-price__name { margin: 0 0 10px; font-size: 15px; font-weight: 800; color: #204aa8; }
+.ct-price__amount { font: 900 clamp(26px,4vw,38px)/1 "Futura", "Futura Medium", var(--font-jost), sans-serif; }
+.ct-price__amount small { font-size: 14px; font-weight: 700; }
+
+/* 「さらに」吹き出し（トップ/ の .pl-order__more を移植・背景は/CTAのピンク） */
+.ct-bubble { display: block; width: fit-content; position: relative; margin: 0 auto 20px; padding: 6px 24px; background: linear-gradient(135deg, #e83e8c, #d6266f); color: #fff; border-radius: 999px; text-align: center; font-size: clamp(16px, 2vw, 20px); font-weight: 800; letter-spacing: .08em; }
+.ct-bubble::after { content: ""; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent; border-top: 10px solid #d6266f; }
+
+.ct-subsidy-title { margin: 0 0 clamp(20px, 3vw, 30px); text-align: center; font-size: clamp(22px, 3vw, 30px); font-weight: 800; letter-spacing: .02em; color: #16233b; }
+.ct-subsidy-img { max-width: 720px; margin: 0 auto; }
+.ct-subsidy-img img { display: block; width: 100%; height: auto; }
+.ct-subsidy { background: linear-gradient(160deg, #204aa8 0%, #12307a 100%); color: #fff; border-radius: 8px; padding: clamp(28px, 4vw, 44px); text-align: center; }
+.ct-subsidy__anchor { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; margin: 18px 0 24px; }
+.ct-subsidy__list { font-size: clamp(22px,3vw,30px); font-weight: 800; text-decoration: line-through; opacity: .7; }
+.ct-subsidy__arrow { font-size: 24px; }
+.ct-subsidy__net { font: 900 clamp(30px,4.5vw,46px)/1 "Futura", "Futura Medium", var(--font-jost), sans-serif; }
+.ct-subsidy__net small { font-size: 16px; }
+.ct-subsidy__btn { display: inline-block; margin-top: 8px; padding: 14px 30px; background: #fff; color: #204aa8; border-radius: 999px; font-weight: 800; text-decoration: none; }
+.ct-subsidy__btn:hover { opacity: .9; }
+
+/* ============================================================
+   稟議・決裁支援 資料DL（デザイン確定）
+   ============================================================ */
+.ct-ringi { background: #fff; padding: clamp(48px, 6vw, 84px) 20px; }
+.ct-ringi__inner { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(28px, 4vw, 56px); align-items: center; padding: clamp(28px, 4vw, 48px); background: linear-gradient(135deg, #eef3fb 0%, #e4ecf8 100%); border: 1px solid #dbe5f2; border-radius: 18px; }
+.ct-ringi__eyebrow { margin: 0 0 12px; display: inline-block; padding: 5px 14px; background: #204aa8; color: #fff; border-radius: 999px; font-size: 12px; font-weight: 800; letter-spacing: .04em; }
+.ct-ringi__title { margin: 0 0 14px; font-size: clamp(20px, 2.6vw, 28px); font-weight: 900; line-height: 1.5; color: #16233b; }
+.ct-ringi__title em { font-style: normal; color: #204aa8; }
+.ct-ringi__lead { margin: 0 0 18px; font-size: clamp(13px, 1.5vw, 15px); line-height: 1.9; color: #48566b; }
+.ct-ringi__points { list-style: none; margin: 0 0 24px; padding: 0; display: grid; gap: 10px; }
+.ct-ringi__points li { position: relative; padding-left: 28px; font-size: 14px; font-weight: 700; color: #2f3b4d; line-height: 1.6; }
+.ct-ringi__points li::before { content: "✓"; position: absolute; left: 0; top: 1px; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; background: #204aa8; color: #fff; border-radius: 50%; font-size: 11px; }
+.ct-ringi__btns { display: flex; flex-wrap: wrap; gap: 12px 16px; }
+.ct-ringi__btn { display: inline-flex; align-items: center; gap: 12px; padding: 14px 28px; border-radius: 999px; font-size: 15px; font-weight: 800; text-decoration: none; }
+.ct-ringi__btn--fill { background: linear-gradient(135deg, #1a6fb5, #2a9fd6); color: #fff; box-shadow: 0 8px 22px rgba(26, 111, 181, .28); }
+.ct-ringi__btn--fill:hover { opacity: .92; transform: translateY(-1px); }
+.ct-ringi__btn--text { color: #204aa8; }
+.ct-ringi__btn--text:hover { text-decoration: underline; }
+.ct-ringi__visual { display: flex; justify-content: center; }
+.ct-ringi__visual img { width: 100%; max-width: 320px; height: auto; border-radius: 6px; box-shadow: 0 22px 48px rgba(22, 45, 80, .22); }
+@media (max-width: 760px) {
+  .ct-ringi__inner { grid-template-columns: 1fr; }
+  .ct-ringi__visual { order: -1; }
+  .ct-ringi__visual img { max-width: 240px; }
+}
+
+/* ============================================================
+   他にもおすすめの研修コース（内部リンク導線）
+   ============================================================ */
+.ct-more { background: #fff; padding: clamp(56px, 7vw, 96px) 20px; }
+.ct-more__head { text-align: center; margin-bottom: clamp(32px, 4.5vw, 52px); }
+.ct-more__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 1000px; margin: 0 auto; }
+.ct-more__card { display: flex; align-items: center; gap: 14px; min-height: 124px; padding: 20px 22px; background: #f5f7fb; border: 1px solid #e4e8f0; border-radius: 10px; text-decoration: none; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.ct-more__card:hover { transform: translateY(-2px); border-color: var(--ct-accent, #204aa8); box-shadow: 0 12px 28px rgba(25, 53, 86, .1); }
+.ct-more__logo { flex: 0 0 auto; width: 56px; height: 36px; display: flex; align-items: center; justify-content: center; }
+.ct-more__logo img { max-width: 100%; max-height: 32px; width: auto; height: auto; object-fit: contain; display: block; }
+.ct-more__body { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.ct-more__name { font-size: 16px; font-weight: 800; color: #17243a; }
+.ct-more__desc { font-size: 12.5px; line-height: 1.7; color: #5a6b83; }
+.ct-more__arrow { flex: 0 0 auto; width: 8px; height: 8px; border-top: 2px solid var(--ct-accent, #204aa8); border-right: 2px solid var(--ct-accent, #204aa8); transform: rotate(45deg); transition: transform .2s ease; }
+.ct-more__card:hover .ct-more__arrow { transform: rotate(45deg) translate(2px, -2px); }
+@media (max-width: 820px) { .ct-more__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .ct-more__grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   FAQ（トップ / と同一デザインを移植）
+   ※トップは html:62.5%(1rem=10px) 基準。当ページ群は 62.5% 指定が無いため rem→px 換算して再現。
+   ※q_icon の url() はCSSファイル相対だと解決できないため public 絶対パスに変更。
+   ============================================================ */
+.index_faq { padding: calc(50px + 1vw) 20px; background: #F6F6F6; }
+.index_faq__inner { display: grid; grid-template-columns: minmax(260px, 340px) 1fr; gap: clamp(28px, 4vw, 64px); align-items: start; max-width: 1200px; margin: 0 auto; }
+.index_faq__head { position: static; }
+.index_faq__eyebrow { color: #2e599b; font-family: "Futura", "Futura Medium", var(--font-jost), sans-serif; font-size: clamp(14px, 1.8vw, 16px); font-weight: 500; margin-bottom: 8px; }
+.index_faq__heading { font-size: clamp(20px, 3vw, 30px); font-weight: 700; margin-bottom: 0; }
+.index_faq__list { min-width: 0; }
+.index_faq__item { margin-bottom: 15px; }
+.index_faq__question { position: relative; width: 100%; padding: 20px 20px 20px 56px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-family: inherit; font-size: 15px; font-weight: 600; text-align: left; border: none; background: #fff; letter-spacing: 0.07em; transition: background-color 0.2s ease; }
+.index_faq__question:hover { background: #eef2f7; }
+.index_faq__question::before { content: ""; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 22px; height: 22px; background: url(/biz/assets/img/common/q_icon.svg) no-repeat center/contain; }
+.index_faq__arrow { position: relative; width: 14px; height: 14px; flex-shrink: 0; }
+.index_faq__arrow::after { content: ""; position: absolute; top: 50%; left: 50%; width: 10px; height: 10px; border-right: 2px solid #256ac1; border-bottom: 2px solid #256ac1; transform: translate(-50%, -50%) rotate(45deg); transition: transform 0.3s ease, border-color 0.2s ease; }
+.index_faq__item.active .index_faq__question { background: #eef2f7; }
+.index_faq__item.active .index_faq__arrow::after { transform: translate(-50%, -50%) rotate(-135deg); border-right-color: #FFD464; border-bottom-color: #FFD464; }
+.index_faq__answer { overflow: hidden; max-height: 0; transition: max-height 0.3s cubic-bezier(0, 1, 0, 1); }
+.index_faq__answer p { padding: 15px 20px; font-size: 14px; line-height: 1.7; }
+.index_faq__item.active .index_faq__answer { max-height: 500px; transition: max-height 0.4s ease-in-out; }
+.index_faq__all { display: inline-flex; align-items: center; gap: 12px; color: #16202e; font-size: 15px; font-weight: 700; text-decoration: none; }
+.index_faq__all:hover { opacity: .8; }
+.index_faq__all-ico { position: relative; flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; background: #16202e; }
+.index_faq__all-ico::after { content: ""; position: absolute; top: 50%; left: 45%; width: 6px; height: 6px; border-top: 2px solid #fff; border-right: 2px solid #fff; transform: translate(-50%, -50%) rotate(45deg); }
+.index_faq__all--pc { margin-top: 22px; }
+.index_faq__all--sp { display: none; grid-column: 1/-1; justify-self: center; margin-top: 36px; }
+@media (max-width: 860px) {
+  .index_faq__inner { grid-template-columns: 1fr; gap: 18px; }
+  .index_faq__head { position: static; }
+  .index_faq__head .index_faq__heading { margin-bottom: 8px; }
+  .index_faq__all--pc { display: none; }
+  .index_faq__all--sp { display: inline-flex; margin-top: 24px; }
+}
+
+.ct-breadcrumb { display: flex; gap: 10px; align-items: center; max-width: 1080px; margin: 0 auto; padding: 18px 20px 0; color: #76849a; font-size: 13px; }
+.ct-breadcrumb a { color: #204aa8; text-decoration: none; }
+/* ヒーロー内（グラデーション上）に置くパンくず */
+.ct-breadcrumb--hero { max-width: none; margin: 0 0 clamp(16px, 2vw, 22px); padding: 0; color: rgba(255, 255, 255, .85); font-weight: 700; }
+.ct-breadcrumb--hero a { color: #9fd3ff; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.ct-breadcrumb--hero a:hover { text-decoration: none; }

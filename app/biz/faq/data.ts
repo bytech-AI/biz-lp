@@ -2,10 +2,13 @@
 // data層をここに閉じ込め、page.tsx(構造化データ) と FaqList.tsx(表示) の唯一のソースにする。
 // 回答は既存トップFAQ・特商法/サービス内容に準拠。数値等の断定は避け、詳細は個別相談へ誘導する。
 
+import { COURSES } from "../_course/courses";
+import { COURSE_FAQS } from "../_course/courseFaqs";
+
 export type FaqItem = { q: string; a: string };
 export type FaqGroup = { category: string; items: FaqItem[] };
 
-export const FAQ_GROUPS: FaqGroup[] = [
+const BASE_FAQ_GROUPS: FaqGroup[] = [
   {
     category: "サービスについて",
     items: [
@@ -129,3 +132,11 @@ export const FAQ_GROUPS: FaqGroup[] = [
     ],
   },
 ];
+
+// 各研修コースのFAQを「◯◯研修について」カテゴリとして追加（コースページと同一ソース）。
+const COURSE_FAQ_GROUPS: FaqGroup[] = COURSES.map((c) => ({
+  category: `${c.name}について`,
+  items: COURSE_FAQS[c.slug] ?? [],
+}));
+
+export const FAQ_GROUPS: FaqGroup[] = [...BASE_FAQ_GROUPS, ...COURSE_FAQ_GROUPS];
