@@ -245,6 +245,12 @@ export async function GET() {
     "Gemini/notebookLM研修",
     "Gemini研修",
   );
+  // コース名から「マスター」を外し、詳細ページ（_course/courses.ts）の表記に揃える。
+  // 画像パス側（/chatgpt-master-static/…, CGマスター-scaled.webp 等）は別物なので
+  // 「◯◯マスター研修」の並びだけを対象にする（単独の「マスター」は置換しない）。
+  html = html.replaceAll("ChatGPTマスター研修", "ChatGPT研修");
+  html = html.replaceAll("Claudeマスター研修", "Claude研修");
+  html = html.replaceAll("Copilotマスター研修", "Copilot研修");
   html = html.replaceAll(
     "ノーコード開発研修",
     "Dify研修",
