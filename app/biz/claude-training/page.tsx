@@ -1,19 +1,15 @@
-import type { Metadata } from "next";
 import { CourseLp, type CourseData } from "../_course/CourseLp";
 import { COURSE_FAQS } from "../_course/courseFaqs";
+import { buildCourseMetadata } from "../_course/courseMetadata";
 
-export const metadata: Metadata = {
-  title: "Claude研修（法人向け）| バイテック法人AI研修",
+export const metadata = buildCourseMetadata({
+  title: "法人向け実践型Claude研修｜バイテック法人AI研修",
   description:
-    "長文読解・文章作成に強いClaudeを業務の成果につなげる法人向け研修。助成金活用にも対応。カリキュラム・受講形式・料金をご案内します。",
-  alternates: { canonical: "/claude-training" },
-  openGraph: {
-    title: "Claude研修（法人向け）| バイテック法人AI研修",
-    description:
-      "長文読解・文章作成に強いClaudeを業務の成果につなげる法人向け研修。助成金活用にも対応。",
-    url: "/claude-training",
-  },
-};
+    "Claudeの基本からCowork・Claude Codeによる業務自動化まで、AIと業務を前に進める力を身につける法人向け研修。助成金活用にも対応。",
+  socialDescription:
+    "Claudeの基本からCowork・Claude Codeによる業務自動化まで、AIと業務を前に進める力を身につける法人向け研修。",
+  path: "/claude-training",
+});
 
 const course: CourseData = {
   slug: "claude-training",

@@ -1,19 +1,15 @@
-import type { Metadata } from "next";
 import { CourseLp, type CourseData } from "../_course/CourseLp";
 import { COURSE_FAQS } from "../_course/courseFaqs";
+import { buildCourseMetadata } from "../_course/courseMetadata";
 
-export const metadata: Metadata = {
-  title: "Claude Code研修（法人向け）| バイテック法人AI研修",
+export const metadata = buildCourseMetadata({
+  title: "法人向け実践型Claude Code研修｜バイテック法人AI研修",
   description:
-    "ターミナルで動くClaude Codeで、コード生成・修正・レビュー・自動化まで開発を加速する法人向け研修。助成金活用にも対応。",
-  alternates: { canonical: "/claude-code-training" },
-  openGraph: {
-    title: "Claude Code研修（法人向け）| バイテック法人AI研修",
-    description:
-      "Claude Codeでコード生成・修正・レビュー・自動化まで開発を加速する法人向け研修。助成金活用にも対応。",
-    url: "/claude-code-training",
-  },
-};
+    "Claude Codeを使い、非エンジニアでも業務自動化やAI開発を実践できる力を身につける法人向け研修。助成金活用にも対応。",
+  socialDescription:
+    "Claude Codeを使い、非エンジニアでも業務自動化やAI開発を実践できる力を身につける法人向け研修。",
+  path: "/claude-code-training",
+});
 
 const course: CourseData = {
   slug: "claude-code-training",

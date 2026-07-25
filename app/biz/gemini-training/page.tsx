@@ -1,19 +1,15 @@
-import type { Metadata } from "next";
 import { CourseLp, type CourseData } from "../_course/CourseLp";
 import { COURSE_FAQS } from "../_course/courseFaqs";
+import { buildCourseMetadata } from "../_course/courseMetadata";
 
-export const metadata: Metadata = {
-  title: "Gemini研修（法人向け）| バイテック法人AI研修",
+export const metadata = buildCourseMetadata({
+  title: "法人向け実践型Gemini研修｜バイテック法人AI研修",
   description:
     "Gemini・NotebookLM・Google Workspaceを業務の成果につなげる法人向け研修。助成金活用にも対応。カリキュラム・受講形式・料金をご案内します。",
-  alternates: { canonical: "/gemini-training" },
-  openGraph: {
-    title: "Gemini研修（法人向け）| バイテック法人AI研修",
-    description:
-      "Gemini・NotebookLM・Google Workspaceを業務の成果につなげる法人向け研修。助成金活用にも対応。",
-    url: "/gemini-training",
-  },
-};
+  socialDescription:
+    "Gemini・NotebookLM・Google Workspaceを業務の成果につなげる法人向け研修。助成金活用にも対応。",
+  path: "/gemini-training",
+});
 
 const course: CourseData = {
   slug: "gemini-training",

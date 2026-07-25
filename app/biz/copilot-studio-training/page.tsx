@@ -1,19 +1,15 @@
-import type { Metadata } from "next";
 import { CourseLp, type CourseData } from "../_course/CourseLp";
 import { COURSE_FAQS } from "../_course/courseFaqs";
+import { buildCourseMetadata } from "../_course/courseMetadata";
 
-export const metadata: Metadata = {
-  title: "Copilot Studio研修（法人向け）| バイテック法人AI研修",
+export const metadata = buildCourseMetadata({
+  title: "法人向け実践型Copilot Studio研修｜バイテック法人AI研修",
   description:
     "Microsoft 365 Copilotの業務活用から、Copilot Studioによる社内AIエージェント構築までを一貫して学ぶ法人向け研修。助成金活用にも対応。",
-  alternates: { canonical: "/copilot-studio-training" },
-  openGraph: {
-    title: "Copilot Studio研修（法人向け）| バイテック法人AI研修",
-    description:
-      "Copilotの業務活用とCopilot StudioによるAIエージェント構築を一貫して学ぶ法人向け研修。助成金活用にも対応。",
-    url: "/copilot-studio-training",
-  },
-};
+  socialDescription:
+    "Copilotの業務活用とCopilot StudioによるAIエージェント構築を一貫して学ぶ法人向け研修。助成金活用にも対応。",
+  path: "/copilot-studio-training",
+});
 
 const course: CourseData = {
   slug: "copilot-studio-training",

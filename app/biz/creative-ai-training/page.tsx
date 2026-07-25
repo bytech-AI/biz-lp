@@ -1,19 +1,15 @@
-import type { Metadata } from "next";
 import { CourseLp, type CourseData } from "../_course/CourseLp";
 import { COURSE_FAQS } from "../_course/courseFaqs";
+import { buildCourseMetadata } from "../_course/courseMetadata";
 
-export const metadata: Metadata = {
-  title: "AIクリエイティブ研修（法人向け）| バイテック法人AI研修",
+export const metadata = buildCourseMetadata({
+  title: "法人向け実践型AIクリエイティブ研修｜バイテック法人AI研修",
   description:
     "画像・バナー・デザイン素材を生成AIで内製化し、制作を高速化する法人向け研修。助成金活用にも対応。",
-  alternates: { canonical: "/creative-ai-training" },
-  openGraph: {
-    title: "AIクリエイティブ研修（法人向け）| バイテック法人AI研修",
-    description:
-      "画像・バナー・デザイン素材を生成AIで内製化し、制作を高速化する法人向け研修。助成金活用にも対応。",
-    url: "/creative-ai-training",
-  },
-};
+  socialDescription:
+    "画像・バナー・デザイン素材を生成AIで内製化し、制作を高速化する法人向け研修。助成金活用にも対応。",
+  path: "/creative-ai-training",
+});
 
 const course: CourseData = {
   slug: "creative-ai-training",
