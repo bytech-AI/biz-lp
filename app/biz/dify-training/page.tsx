@@ -357,10 +357,10 @@ const course: CourseData = {
       },
       {
         no: 14,
-        title: "Difyマスター講座まとめ",
+        title: "Dify研修まとめ",
         ch: 1,
         time: "約6分",
-        body: ["Difyマスター講座まとめ"],
+        body: ["Dify研修まとめ"],
       },
     ],
   },
