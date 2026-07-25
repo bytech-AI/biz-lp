@@ -455,6 +455,10 @@ export default function DocAPage() {
         }
         if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
       })();` }} />
+      {/* formrun SDK（フォームのバリデーション/送信）。以前はルートlayoutで全ページに
+          beforeInteractiveで読んでいたが、81KBのサードパーティを高優先度で全ページに
+          撒くとCSSの帯域を奪いFCPが遅れるため、フォームのあるページだけ defer で読む。 */}
+      <script src="https://sdk.form.run/js/v2/formrun.js" defer />
       {/* jQuery→slick→初期化 を順番にロード（自前で依存順にチェーン）。 */}
       <script dangerouslySetInnerHTML={{ __html: `(function(){
           function load(src, cb){ var s=document.createElement('script'); s.src=src; s.onload=cb; document.body.appendChild(s); }

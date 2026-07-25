@@ -11,6 +11,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* 以前は next/font(localFont) が Noto Sans JP(455KB) を配信して定義していた変数。
+     Webフォント配信をやめ端末標準の日本語フォントを使う（理由は app/layout.tsx 参照）。
+     Android は "Noto Sans JP" がOS同梱なので local 参照で同一書体が当たる。 */
+  --font-noto-jp: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP",
+    "Yu Gothic", "YuGothic", Meiryo, sans-serif;
 }
 
 @theme inline {

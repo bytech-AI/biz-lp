@@ -29,8 +29,13 @@ export type CourseData = {
     tag: string;
     toolLabel: string;
     toolLogo: string;
+    /** ロゴ/ビジュアルの実寸。img に width/height を出して読込前の高さ崩れ（=LCP誤検出）を防ぐ */
+    toolLogoW: number;
+    toolLogoH: number;
     toolAlt: string;
     visual: string;
+    visualW: number;
+    visualH: number;
     visualAlt: string;
     /** 長い見出しを1行にしたいコース用（テキスト列を広く・ビジュアルを小さく） */
     wideTitle?: boolean;
@@ -275,7 +280,7 @@ export function CourseLp({ data }: { data: CourseData }) {
           <div className="ct-hero__inner">
             <div className="ct-hero__body">
               <nav className="ct-breadcrumb ct-breadcrumb--hero" aria-label="パンくず">
-                <Link href="/">トップ</Link>
+                <Link href="/" prefetch={false}>トップ</Link>
                 <span>›</span>
                 <span>{d.courseName}</span>
               </nav>
@@ -288,13 +293,14 @@ export function CourseLp({ data }: { data: CourseData }) {
               <div className="ct-hero__tools">
                 <span className="ct-hero__tools-label">{d.hero.toolLabel}</span>
                 <span className="ct-hero__tool">
-                  <img src={d.hero.toolLogo} alt={d.hero.toolAlt} />
+                  <img src={d.hero.toolLogo} alt={d.hero.toolAlt} width={d.hero.toolLogoW} height={d.hero.toolLogoH} />
                 </span>
               </div>
             </div>
 
             <div className={`ct-hero__visual${d.hero.compactVisual ? " ct-hero__visual--compact" : ""}`}>
-              <img src={d.hero.visual} alt={d.hero.visualAlt} />
+              {/* FV内の最大要素＝LCP候補。実寸を出して領域を先に確保し、high優先で取りに行く。 */}
+              <img src={d.hero.visual} alt={d.hero.visualAlt} width={d.hero.visualW} height={d.hero.visualH} fetchPriority="high" />
             </div>
           </div>
         </section>
@@ -302,7 +308,7 @@ export function CourseLp({ data }: { data: CourseData }) {
         {/* FV直下のページ内ナビ（stuck時に左へロゴが下りてくる） */}
         <nav className="ct-pagenav" aria-label="ページ内ナビゲーション">
           <div className="ct-pagenav__inner">
-            <Link className="ct-pagenav__brand" href="/" aria-label="バイテックBiz トップ">
+            <Link className="ct-pagenav__brand" href="/" prefetch={false} aria-label="バイテックBiz トップ">
               <img src="/biz/assets/img/common/hd-logo.svg" alt="バイテックBiz" />
             </Link>
             <ul className="ct-pagenav__list">
@@ -449,7 +455,9 @@ export function CourseLp({ data }: { data: CourseData }) {
                           <span className={`ct-cur__card-cat${c.catNoWrap ? " is-nowrap" : ""}`}>{c.cat}</span>
                         </div>
                         <div className="ct-cur__thumb" aria-hidden="true">
-                          {c.thumb ? <Image src={c.thumb} alt="" width={1280} height={720} /> : "IMAGE"}
+                          {/* sizes 未指定だと固定幅扱いでDPR3端末に w=3840 を配ってしまう（1枚86KB）。
+                              実際の表示幅は SP=1カラム / PC=3カラム。 */}
+                          {c.thumb ? <Image src={c.thumb} alt="" width={1280} height={720} sizes="(max-width: 760px) 85vw, 340px" /> : "IMAGE"}
                         </div>
                         <p className="ct-cur__card-h">{c.h}</p>
                         <div className="ct-cur__tags">
@@ -547,7 +555,7 @@ export function CourseLp({ data }: { data: CourseData }) {
             <p className="ct-bubble">さらに</p>
             <h3 className="ct-subsidy-title">{subsidy.title}</h3>
             <div className="ct-subsidy-img">
-              <img src={subsidy.image} alt={subsidy.imageAlt} />
+              <img src={subsidy.image} alt={subsidy.imageAlt} width={664} height={400} loading="lazy" />
             </div>
           </section>
         )}
@@ -624,7 +632,7 @@ export function CourseLp({ data }: { data: CourseData }) {
           </div>
           <div className="ct-more__grid">
             {COURSES.filter((c) => c.slug !== d.slug).map((c) => (
-              <Link key={c.slug} className="ct-more__card" href={`/${c.slug}`} style={{ ["--ct-accent" as string]: c.color }}>
+              <Link key={c.slug} className="ct-more__card" href={`/${c.slug}`} prefetch={false} style={{ ["--ct-accent" as string]: c.color }}>
                 <span className="ct-more__logo"><img src={c.logo} alt="" loading="lazy" /></span>
                 <span className="ct-more__body">
                   <span className="ct-more__name">{c.name}</span>

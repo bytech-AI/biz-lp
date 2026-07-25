@@ -156,9 +156,9 @@ export function BizHeader() {
               <p className="top-mega-menu__heading">実務に活かせるAIセミナー</p>
               <p className="top-mega-menu__desc">過去に開催したセミナーを、テーマや気になる課題から探せます。</p>
               <div className="top-mega-menu__grid">
-                <a className="top-mega-menu__card" href="/seminars/seminar-6"><span className="top-mega-menu__thumb"><img src="/biz/assets/img/seminars/seminar-6.webp" alt="" /></span><span className="top-mega-menu__card-title">CodexでLP制作</span><span className="top-mega-menu__card-desc">制作からネット公開まで</span></a>
-                <a className="top-mega-menu__card" href="/seminars/seminar-5"><span className="top-mega-menu__thumb"><img src="/biz/assets/img/seminars/seminar-5.webp" alt="" /></span><span className="top-mega-menu__card-title">Codexで資料制作</span><span className="top-mega-menu__card-desc">伝わるプレゼンを効率化</span></a>
-                <a className="top-mega-menu__card" href="/seminars/seminar-4"><span className="top-mega-menu__thumb"><img src="/biz/assets/img/seminars/seminar-4.webp" alt="" /></span><span className="top-mega-menu__card-title">Geminiで画像量産</span><span className="top-mega-menu__card-desc">スプレッドシートで効率化</span></a>
+                <a className="top-mega-menu__card" href="/seminars/seminar-6"><span className="top-mega-menu__thumb"><img src="/biz/assets/img/seminars/seminar-6.webp" alt="" loading="lazy" /></span><span className="top-mega-menu__card-title">CodexでLP制作</span><span className="top-mega-menu__card-desc">制作からネット公開まで</span></a>
+                <a className="top-mega-menu__card" href="/seminars/seminar-5"><span className="top-mega-menu__thumb"><img src="/biz/assets/img/seminars/seminar-5.webp" alt="" loading="lazy" /></span><span className="top-mega-menu__card-title">Codexで資料制作</span><span className="top-mega-menu__card-desc">伝わるプレゼンを効率化</span></a>
+                <a className="top-mega-menu__card" href="/seminars/seminar-4"><span className="top-mega-menu__thumb"><img src="/biz/assets/img/seminars/seminar-4.webp" alt="" loading="lazy" /></span><span className="top-mega-menu__card-title">Geminiで画像量産</span><span className="top-mega-menu__card-desc">スプレッドシートで効率化</span></a>
               </div>
               <a className="top-mega-menu__all" href="/archive">セミナーをすべて見る</a>
             </div>
