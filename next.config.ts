@@ -22,6 +22,9 @@ const PROXIED_APPS: { path: string; origin: string }[] = [
 ];
 
 const nextConfig: NextConfig = {
+  // NOTE: experimental.inlineCss は検証済みで不採用。render-blocking は消えるが
+  // HTML が 36KB→87KB に膨らみ、後続（LCP画像）の発見が遅れて LCP が 5.4s→6.2s と悪化した。
+  // 低速回線のボトルネックは CSS の往復ではなく帯域の奪い合いのため。
   outputFileTracingExcludes: {
     "*": ["public/*-static/**"],
   },

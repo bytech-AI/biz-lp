@@ -254,8 +254,8 @@ export async function GET() {
     'href="/dify-training"',
   );
   html = html.replaceAll(
-    "/biz/assets/img/index/plan/logo/no-code.svg",
-    "/biz/assets/img/index/plan/logo/dify.svg",
+    "/biz/assets/img/index/plan/logo/no-code.webp",
+    "/biz/assets/img/index/plan/logo/dify.webp",
   );
   html = html.replaceAll(
     "/biz/assets/img/index/plan/graphic/nocode.webp",

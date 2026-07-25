@@ -289,6 +289,10 @@ export default async function SeminarDetailPage({
 
       <BizFooter />
 
+      {/* formrun SDK（フォームのバリデーション/送信）。ルートlayoutの全ページ配信をやめ、
+          フォームのあるページだけ defer で読む（帯域をCSS/LCPに回すため）。 */}
+      <script src="https://sdk.form.run/js/v2/formrun.js" defer />
+
       <script dangerouslySetInnerHTML={{ __html: `(function(){
         function init(){
           var form=document.querySelector('form.formrun');
