@@ -206,7 +206,7 @@ const course: CourseData = {
       },
       {
         no: 3,
-        title: "基本操作マスター｜プロンプト・アーティファクト・ファイル生成",
+        title: "基本操作｜プロンプト・アーティファクト・ファイル生成",
         ch: 7,
         time: null,
         body: [
