@@ -149,7 +149,6 @@ export function BizHeader() {
           </div>
           <a href="/#feature" className="top-nav-link">3つの特徴</a>
           <a href="/#works" className="top-nav-link">導入事例</a>
-          <a href="/news" className="top-nav-link">お知らせ</a>
           <div className="top-nav-item">
             <a href="/archive" className="top-nav-link">アーカイブ<span className="top-nav-caret" aria-hidden="true" /></a>
             <div className="top-mega-menu" aria-label="セミナーアーカイブの内容">
@@ -179,6 +178,7 @@ export function BizHeader() {
             </div>
           </div>
           <a href="/faq" className="top-nav-link">よくある質問</a>
+          <a href="https://biz.bytech.jp/blog" className="top-nav-link">ブログ</a>
           <a href="/doc-a" className="btn-outline">資料をダウンロード</a>
           <a href="/counseling" className="btn-fill">無料個別相談を予約する</a>
         </nav>

@@ -229,6 +229,14 @@ export async function GET() {
     '<nav class="top-header__nav"><a href="#course" class="top-nav-link">研修一覧</a>',
     `<nav class="top-header__nav"><a href="#course" class="top-nav-link">研修一覧</a>${COURSE_MEGA_MENU}`,
   );
+  html = html.replace(
+    '<a href="/news" class="top-nav-link">お知らせ</a>',
+    "",
+  );
+  html = html.replace(
+    '<a href="/faq" class="top-nav-link">よくある質問</a>',
+    '<a href="/faq" class="top-nav-link">よくある質問</a><a href="https://biz.bytech.jp/blog" class="top-nav-link">ブログ</a>',
+  );
   html = html.replaceAll(
     "AI人材育成に役立つ無料資料",
     "お役立ち資料",
