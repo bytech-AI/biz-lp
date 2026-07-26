@@ -243,7 +243,7 @@ export default function CounselingPage() {
       <div className="csl-header-wrap">
         <div className="csl-header__logo">
           <a href="/">
-            <img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテック法人AI研修" />
+            <img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" />
           </a>
         </div>
         <nav className="csl-header__nav">
@@ -267,10 +267,10 @@ export default function CounselingPage() {
       <footer className="csl-footer">
         <div className="csl-footer__logo">
           <a href="/">
-            <img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテック法人AI研修" />
+            <img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" />
           </a>
         </div>
-        <p>&copy; 2025 バイテック法人AI研修 All Rights Reserved.</p>
+        <p>&copy; 2025 バイテックBiz All Rights Reserved.</p>
       </footer>
 
       {/* 予約ウィジェット — ネイティブ<script>（next/scriptはNext16でinline評価が壊れ未実行になるため不使用） */}

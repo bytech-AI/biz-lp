@@ -122,7 +122,7 @@ export function BizHeader() {
       <style dangerouslySetInnerHTML={{ __html: CHROME_CSS }} />
       <div className="top-header-wrap">
         <div className="top-header__logo">
-          <a href="/"><img src="/biz/assets/img/common/hd-logo-dark.svg" alt="バイテック法人AI研修" /></a>
+          <a href="/"><img src="/biz/assets/img/common/hd-logo-dark.svg" alt="バイテックBiz" /></a>
         </div>
         <button className="top-header__hamburger" aria-label="メニューを開く"><span></span><span></span><span></span></button>
         <div className="top-header__overlay"></div>
@@ -196,9 +196,9 @@ export function BizFooter() {
           <p className="footer__lead">生成AI活用を、<br />現場の当たり前に。</p>
         </div>
         <div className="footer__col">
-          <p className="footer__title">バイテック法人AI研修について</p>
+          <p className="footer__title">バイテックBizについて</p>
           <ul className="footer__list">
-            <li><a href="/#about">バイテック法人AI研修とは</a></li>
+            <li><a href="/#about">バイテックBizとは</a></li>
             <li><a href="/#course">研修一覧</a></li>
             <li><a href="/#feature">3つの特徴</a></li>
             <li><a href="/#works">導入事例</a></li>
