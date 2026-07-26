@@ -20,10 +20,16 @@ function formatNewsDate(iso?: string) {
   return iso.slice(0, 10).replace(/-/g, ".");
 }
 
-// サイト名は「バイテック法人AI研修」。Googleの検索結果に出るサイト名は
-// トップページの title / og:site_name / WebSite.name から決まり、食い違うと
-// 親ドメイン bytech.jp の「バイテック生成AI」が使われてしまうため3つを必ず揃える。
-const SITE_NAME = "バイテック法人AI研修";
+// 画面に出す正式名称は「バイテックBiz」。旧称の「バイテック法人AI研修」は
+// 静的HTML(biz-top-static)の本文に残っているため、配信時に BRAND_OFFICIAL へ寄せる。
+const BRAND_OFFICIAL = "バイテックBiz";
+const BRAND_LONG = "バイテック法人AI研修";
+
+// 一方、Googleの検索結果に出る「サイト名」は説明的な BRAND_LONG のままにする。
+// サイト名はトップページの title / og:site_name / WebSite.name から決まり、
+// 3つが食い違うと親ドメイン bytech.jp の「バイテック生成AI」が使われてしまうため、
+// 必ずこの3つを SITE_NAME で揃えること（表示テキストとは別管理）。
+const SITE_NAME = BRAND_LONG;
 const SITE_TITLE = `【公式】${SITE_NAME}｜企業向け生成AI研修`;
 const SITE_DESCRIPTION = `業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜${SITE_NAME}`;
 
@@ -254,20 +260,25 @@ export async function GET() {
   html = html.replaceAll("ChatGPTマスター研修", "ChatGPT研修");
   html = html.replaceAll("Claudeマスター研修", "Claude研修");
   html = html.replaceAll("Copilotマスター研修", "Copilot研修");
-  // 静的HTMLには生成時点の layout.tsx の値（旧サイト名「バイテックBiz」）がJSON-LDに
-  // 焼き込まれている。ここがGoogleのサイト名の最優先シグナルなので現行名に上書きする。
-  // ※再生成後は既に新しい値になっていて空振りするだけなので、そのまま残して安全。
-  html = html.replaceAll(
-    '"name":"バイテックBiz","alternateName":["byTech Business","バイテック法人AI研修"]',
-    `"name":"${SITE_NAME}","alternateName":["バイテックBiz","byTech Business"]`,
+  // 画面に出る名称は正式名称の「バイテックBiz」に統一する。
+  // ※この直後でサイト名シグナル（og:site_name / JSON-LDのname）を SITE_NAME に
+  //   戻すので、順序を入れ替えないこと。入れ替えるとサイト名まで置換されてしまう。
+  html = html.replaceAll(BRAND_LONG, BRAND_OFFICIAL);
+
+  // Googleの検索結果に出るサイト名のシグナル。値がどうであれ SITE_NAME に強制する
+  // （静的HTMLは生成時点の layout.tsx の値が焼き込まれており、再生成のたびに変わるため
+  //   固定文字列マッチではなく位置で当てて空振りを防ぐ）。
+  html = html.replace(
+    /(#organization","name":")[^"]*(")/,
+    `$1${SITE_NAME}$2`,
   );
-  html = html.replaceAll(
-    '"name":"バイテックBiz","publisher"',
-    `"name":"${SITE_NAME}","alternateName":"バイテックBiz","publisher"`,
+  html = html.replace(
+    /(#website","url":"[^"]*","name":")[^"]*(")/,
+    `$1${SITE_NAME}$2`,
   );
-  html = html.replaceAll(
-    '<meta property="og:site_name" content="バイテックBiz"/>',
-    `<meta property="og:site_name" content="${SITE_NAME}"/>`,
+  html = html.replace(
+    /(<meta property="og:site_name" content=")[^"]*(")/,
+    `$1${SITE_NAME}$2`,
   );
   html = html.replaceAll(
     "ノーコード開発研修",

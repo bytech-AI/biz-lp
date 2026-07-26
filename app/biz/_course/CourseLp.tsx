@@ -330,7 +330,7 @@ export function CourseLp({ data }: { data: CourseData }) {
         {/* ============ 研修とは？ ============ */}
         <section className="ct-about" id="about">
           <div className="ct-about__head">
-            <p className="ct-about__eyebrow">バイテック法人AI研修の</p>
+            <p className="ct-about__eyebrow">バイテックBizの</p>
             <h2 className="ct-about__title">{d.about.title}</h2>
             <div className="ct-about__bar" aria-hidden="true" />
             <p className="ct-about__sub">{aboutSubLead}</p>

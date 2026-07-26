@@ -32,7 +32,7 @@ export default function RefundPolicyPage() {
       ` }} />
 
       <div className="pg-header-wrap">
-        <div className="pg-header__logo"><a href="/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテック法人AI研修" /></a></div>
+        <div className="pg-header__logo"><a href="/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" /></a></div>
         <nav className="pg-header__nav">
           <a href="/" className="btn-outline">トップページ</a>
           <a href="/counseling" className="btn-fill">無料個別相談を予約する</a>
@@ -71,8 +71,8 @@ export default function RefundPolicyPage() {
         <p>返金時は所定の手続き完了後、原則としてお振込みにて対応いたします。振込手数料はお客様のご負担となります。</p>
       </main>
       <footer className="pg-footer">
-        <div className="pg-footer__logo"><a href="/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテック法人AI研修" /></a></div>
-        <p>&copy; 2025 バイテック法人AI研修 All Rights Reserved.</p>
+        <div className="pg-footer__logo"><a href="/"><img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" /></a></div>
+        <p>&copy; 2025 バイテックBiz All Rights Reserved.</p>
       </footer>
     </>
   )

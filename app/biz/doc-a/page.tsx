@@ -288,7 +288,7 @@ export default function DocAPage() {
       <div className="doc-header-wrap">
         <div className="doc-header__logo">
           <a href="/">
-            <img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテック法人AI研修" />
+            <img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" />
           </a>
         </div>
         <nav className="doc-header__nav">
@@ -300,9 +300,9 @@ export default function DocAPage() {
       <main className="doc-main">
         <div className="doc-content">
           <p className="doc-content__eyebrow">Download _</p>
-          <h1 className="doc-content__title">【サービス紹介】「個別コンサル型法人AI研修｜バイテック法人AI研修」【資料ダウンロード】</h1>
-          <img src="/biz/assets/img/wp/Certificate-MockUp-02-2-1024x683.webp" alt="バイテック法人AI研修資料サムネ" className="doc-content__image" />
-          <p className="doc-content__desc">個別コンサル型法人AI研修サービスバイテック法人AI研修を紹介する「サービス概要資料」となります！</p>
+          <h1 className="doc-content__title">【サービス紹介】「個別コンサル型法人AI研修｜バイテックBiz」【資料ダウンロード】</h1>
+          <img src="/biz/assets/img/wp/Certificate-MockUp-02-2-1024x683.webp" alt="バイテックBiz資料サムネ" className="doc-content__image" />
+          <p className="doc-content__desc">個別コンサル型法人AI研修サービスバイテックBizを紹介する「サービス概要資料」となります！</p>
           <h2 className="doc-content__subtitle">この資料で分かること</h2>
           <div className="doc-content__list-wrap">
             <ol className="doc-content__list">
@@ -406,10 +406,10 @@ export default function DocAPage() {
       <footer className="doc-footer">
         <div className="doc-footer__logo">
           <a href="/">
-            <img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテック法人AI研修" />
+            <img src="/biz/assets/img/wp/グループ-16110.svg" alt="バイテックBiz" />
           </a>
         </div>
-        <p>&copy; 2025 バイテック法人AI研修 All Rights Reserved.</p>
+        <p>&copy; 2025 バイテックBiz All Rights Reserved.</p>
       </footer>
 
       {/* 入力ガイド点滅：お名前・企業名の2項目のみ。現在の未入力項目を点滅、入力中は停止、確定(change/Enter)で次へ。 */}
