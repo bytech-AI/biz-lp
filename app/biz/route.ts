@@ -20,9 +20,12 @@ function formatNewsDate(iso?: string) {
   return iso.slice(0, 10).replace(/-/g, ".");
 }
 
-const SITE_TITLE = "【公式】バイテックBiz｜企業向け生成AI研修";
-const SITE_DESCRIPTION =
-  "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜バイテックBiz";
+// サイト名は「バイテック法人AI研修」。Googleの検索結果に出るサイト名は
+// トップページの title / og:site_name / WebSite.name から決まり、食い違うと
+// 親ドメイン bytech.jp の「バイテック生成AI」が使われてしまうため3つを必ず揃える。
+const SITE_NAME = "バイテック法人AI研修";
+const SITE_TITLE = `【公式】${SITE_NAME}｜企業向け生成AI研修`;
+const SITE_DESCRIPTION = `業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜${SITE_NAME}`;
 
 // LLMO/SEO: トップFAQ(index_faq)から FAQPage JSON-LD を生成。
 // 表示中のQ&Aをそのままソースにするので、schemaと表示が常に一致する。
@@ -59,7 +62,7 @@ const SERVICE_SCHEMA = `<script type="application/ld+json">${JSON.stringify(
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "バイテックBiz",
+    name: SITE_NAME,
     serviceType: "法人向け生成AI研修",
     provider: { "@id": "https://biz.bytech.jp/#organization" },
     areaServed: "JP",
@@ -251,6 +254,21 @@ export async function GET() {
   html = html.replaceAll("ChatGPTマスター研修", "ChatGPT研修");
   html = html.replaceAll("Claudeマスター研修", "Claude研修");
   html = html.replaceAll("Copilotマスター研修", "Copilot研修");
+  // 静的HTMLには生成時点の layout.tsx の値（旧サイト名「バイテックBiz」）がJSON-LDに
+  // 焼き込まれている。ここがGoogleのサイト名の最優先シグナルなので現行名に上書きする。
+  // ※再生成後は既に新しい値になっていて空振りするだけなので、そのまま残して安全。
+  html = html.replaceAll(
+    '"name":"バイテックBiz","alternateName":["byTech Business","バイテック法人AI研修"]',
+    `"name":"${SITE_NAME}","alternateName":["バイテックBiz","byTech Business"]`,
+  );
+  html = html.replaceAll(
+    '"name":"バイテックBiz","publisher"',
+    `"name":"${SITE_NAME}","alternateName":"バイテックBiz","publisher"`,
+  );
+  html = html.replaceAll(
+    '<meta property="og:site_name" content="バイテックBiz"/>',
+    `<meta property="og:site_name" content="${SITE_NAME}"/>`,
+  );
   html = html.replaceAll(
     "ノーコード開発研修",
     "Dify研修",
