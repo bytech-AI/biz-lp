@@ -9,7 +9,23 @@ type Props = { params: Promise<{ id: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const item = await getNewsById((await params).id);
   if (!item) return { title: "お知らせ | バイテックBiz" };
-  return { title: `${item.title} | バイテックBiz`, description: item.description || item.title, alternates: { canonical: `/news/${item.id}` } };
+  const description = item.description || item.title;
+  return {
+    title: `${item.title} | バイテックBiz`,
+    description,
+    alternates: { canonical: `/news/${item.id}` },
+    // 記事なので og:type は article。SNS共有時にサムネイルと日付が正しく出る。
+    openGraph: {
+      type: "article",
+      title: item.title,
+      description,
+      url: `/news/${item.id}`,
+      images: [newsThumbnail(item)],
+      publishedTime: item.publishedAt,
+      modifiedTime: item.revisedAt || item.publishedAt,
+    },
+    twitter: { card: "summary_large_image", title: item.title, description, images: [newsThumbnail(item)] },
+  };
 }
 
 function formatDate(value?: string) {
@@ -34,12 +50,82 @@ function prepareBody(html: string) {
   return { body, toc };
 }
 
+// LLMO/SEO: 本文の「よくあるご質問」以降の <h3>設問</h3><p>回答</p> を FAQPage に起こす。
+// 表示中のQ&Aをそのままソースにするので、schemaと表示が常に一致する。
+function extractFaq(html: string) {
+  const section = html.split(/<h2[^>]*>\s*よくあるご質問\s*<\/h2>/i)[1];
+  if (!section) return [];
+  const strip = (s: string) => s.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").trim();
+  const qa: { q: string; a: string }[] = [];
+  const re = /<h3[^>]*>([\s\S]*?)<\/h3>\s*<p[^>]*>([\s\S]*?)<\/p>/gi;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(section))) {
+    const q = strip(m[1]);
+    const a = strip(m[2]);
+    if (q && a) qa.push({ q, a });
+  }
+  return qa;
+}
+
 export default async function NewsDetailPage({ params }: Props) {
   const item = await getNewsById((await params).id);
   if (!item) notFound();
   const prepared = prepareBody(newsBody(item));
+
+  // 構造化データ。記事本体(NewsArticle)＋パンくず＋本文にQ&Aがある場合はFAQPage。
+  // 運営者は biz/layout.tsx の Organization を @id 参照して重複定義を避ける。
+  const url = `https://biz.bytech.jp/news/${item.id}`;
+  const faq = extractFaq(prepared.body);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "NewsArticle",
+        "@id": `${url}#article`,
+        headline: item.title,
+        description: item.description || item.title,
+        url,
+        mainEntityOfPage: { "@type": "WebPage", "@id": url },
+        image: newsThumbnail(item).startsWith("http")
+          ? newsThumbnail(item)
+          : `https://biz.bytech.jp${newsThumbnail(item)}`,
+        datePublished: item.publishedAt,
+        dateModified: item.revisedAt || item.publishedAt,
+        articleSection: newsCategory(item),
+        inLanguage: "ja",
+        author: { "@id": "https://biz.bytech.jp/#organization" },
+        publisher: { "@id": "https://biz.bytech.jp/#organization" },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "トップ", item: "https://biz.bytech.jp/" },
+          { "@type": "ListItem", position: 2, name: "お知らせ", item: "https://biz.bytech.jp/news" },
+          { "@type": "ListItem", position: 3, name: item.title, item: url },
+        ],
+      },
+      ...(faq.length > 0
+        ? [
+            {
+              "@type": "FAQPage",
+              "@id": `${url}#faq`,
+              mainEntity: faq.map((x) => ({
+                "@type": "Question",
+                name: x.q,
+                acceptedAnswer: { "@type": "Answer", text: x.a },
+              })),
+            },
+          ]
+        : []),
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <BizHeader />
       <main className="news-page news-detail" style={{ paddingTop: BIZ_HEADER_OFFSET }}>
         <div className="sem-wrap news-seminar-replica">
