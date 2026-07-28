@@ -31,7 +31,14 @@ const CHROME_CSS = `
 }
 
 /* ===== Top Header ===== */
-.top-header-wrap { position: fixed; top: 0; left: 50%; transform: translateX(-50%); width: 100%; z-index: 1000; display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: 0 auto; padding: 16px 40px; box-sizing: border-box; }
+/* 中央寄せに transform を使わないこと。transform 付き要素は内側の position:fixed
+   （SPドロワー .top-header__nav / オーバーレイ）の包含ブロックになってしまい、
+   ドロワーがビューポート基準で固定されずページ幅を押し広げる（横800px問題）。
+   left/right:0 + margin:auto なら同じ中央寄せが transform 無しで実現できる。 */
+/* z-index はコース詳細の sticky ページ内ナビ(.ct-pagenav, z-index:1000)より上にすること。
+   ヘッダーは z-index 指定で積み重ねコンテキストを作るため、中のドロワー(z-index:1001)は
+   このコンテキスト内での値になり、同値の .ct-pagenav がドロワーを横切って描画されてしまう。 */
+.top-header-wrap { position: fixed; top: 0; left: 0; right: 0; width: 100%; z-index: 1100; display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: 0 auto; padding: 16px 40px; box-sizing: border-box; }
 .top-header__logo { flex-shrink: 0; width: clamp(80px, 8vw, 120px); }
 .top-header__logo img { width: 100%; height: auto; display: block; }
 .top-header__nav { display: flex; gap: 4px; align-items: center; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.7); border-radius: 50px; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 4px 24px rgba(0,0,0,0.06); padding: 4px 4px 4px 16px; }
@@ -99,18 +106,32 @@ const CHROME_CSS = `
 `;
 
 // ハンバーガー開閉（軽量 vanilla）。Next16 は inline next/script が壊れるためネイティブ<script>で読み込む。
+// 要素に直接bindせず document への委譲にしている。React のハイドレーション不一致が起きると
+// ツリーごとDOMが作り直され、直接bindしたリスナーは失われてメニューが永久に開かなくなるため
+// （/grant で実際に発生していた）。委譲なら DOM が差し替わっても動き続ける。
 const HAMBURGER_JS = `(function(){
-  var h=document.querySelector('.top-header__hamburger');
-  var n=document.querySelector('.top-header__nav');
-  var o=document.querySelector('.top-header__overlay');
-  if(!h||!n||!o)return;
-  function close(){h.classList.remove('active');n.classList.remove('active');o.classList.remove('active');document.documentElement.style.overflow='';}
-  h.addEventListener('click',function(){
-    if(n.classList.contains('active')){close();}
-    else{h.classList.add('active');n.classList.add('active');o.classList.add('active');document.documentElement.style.overflow='hidden';}
+  var q=function(s){return document.querySelector(s);};
+  function close(){
+    ['.top-header__hamburger','.top-header__nav','.top-header__overlay'].forEach(function(s){
+      var e=q(s); if(e) e.classList.remove('active');
+    });
+    document.documentElement.style.overflow='';
+  }
+  document.addEventListener('click',function(ev){
+    var t=ev.target;
+    if(!t||!t.closest)return;
+    if(t.closest('.top-header__hamburger')){
+      var n=q('.top-header__nav'); if(!n)return;
+      if(n.classList.contains('active')){close();return;}
+      ['.top-header__hamburger','.top-header__nav','.top-header__overlay'].forEach(function(s){
+        var e=q(s); if(e) e.classList.add('active');
+      });
+      document.documentElement.style.overflow='hidden';
+      return;
+    }
+    if(t.closest('.top-header__overlay')){close();return;}
+    if(t.closest('.top-header__nav a')&&window.innerWidth<=768){close();}
   });
-  o.addEventListener('click',close);
-  n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(window.innerWidth<=768)close();});});
 })();`;
 
 // 固定ヘッダー分の本文オフセット（利用ページの先頭要素に padding-top で確保する目安）。

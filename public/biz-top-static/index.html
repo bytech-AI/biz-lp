@@ -585,6 +585,28 @@
     els.forEach(function(el){io.observe(el);});
   }
   if(document.readyState!=='loading')reveal();else document.addEventListener('DOMContentLoaded',reveal);
+  /* SPハンバーガーは即時に効かせる。scripts.js(jQuery依存)は初回操作 or 4秒後の遅延ロードのため、
+     それ待ちだと最初のタップが空振りする。ここで委譲bindし、scripts.js側は下のフラグでbindを見送る。 */
+  window.__bizHamburgerBound=true;
+  (function(){
+    var q=function(s){return document.querySelector(s);};
+    function close(){
+      ['.top-header__hamburger','.top-header__nav','.top-header__overlay'].forEach(function(s){var e=q(s);if(e)e.classList.remove('active');});
+      document.documentElement.style.overflow='';
+    }
+    document.addEventListener('click',function(ev){
+      var t=ev.target; if(!t||!t.closest)return;
+      if(t.closest('.top-header__hamburger')){
+        var n=q('.top-header__nav'); if(!n)return;
+        if(n.classList.contains('active')){close();return;}
+        ['.top-header__hamburger','.top-header__nav','.top-header__overlay'].forEach(function(s){var e=q(s);if(e)e.classList.add('active');});
+        document.documentElement.style.overflow='hidden';
+        return;
+      }
+      if(t.closest('.top-header__overlay')){close();return;}
+      if(t.closest('.top-header__nav a')&&window.innerWidth<=768){close();}
+    });
+  })();
   var srcs=['/biz/assets/js/jquery-3.7.1.min.js','/biz/assets/slick/slick.min.js','/biz/assets/js/anime.min.js','/biz/assets/js/main.js','/biz/assets/js/scripts.js'];
   var fired=false;
   function load(){if(fired)return;fired=true;srcs.forEach(function(src){var s=document.createElement('script');s.src=src;s.async=false;document.head.appendChild(s);});}

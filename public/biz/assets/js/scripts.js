@@ -228,6 +228,9 @@ jQuery(function ($) {
  * ハンバーガーメニュー（SP）
  ******************************************************************/
 jQuery(function ($) {
+  // index.html 側で先に委譲bind済みなら二重bindしない（トグルが打ち消し合うため）。
+  if (window.__bizHamburgerBound) return;
+
   var $hamburger = $('.top-header__hamburger');
   var $nav = $('.top-header__nav');
   var $overlay = $('.top-header__overlay');
