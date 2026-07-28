@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BizFooter, BizHeader, BIZ_HEADER_OFFSET } from "../_chrome/BizChrome";
+import { GrantBoot } from "./GrantBoot";
 import {
   ELIGIBILITY_GROUPS,
   ALL_CHECK_ITEMS,
@@ -45,7 +46,12 @@ const CLIENT_CFG = {
   industries: INDUSTRIES,
 };
 
+// 起動はハイドレーション完了後（load後）まで待つこと。
+// パース時点で recalc() が textContent を書き換えると、サーバーHTMLとの不一致で
+// React が hydration error #418 を出してツリーごとDOMを作り直し、
+// ここで張ったリスナーもヘッダーのリスナーも全て失われる（＝シミュレーターもメニューも死ぬ）。
 const GRANT_SCRIPT = `(function(){
+  function boot(){
   var CFG = ${JSON.stringify(CLIENT_CFG)};
   var root = document.getElementById('grantApp');
   if(!root) return;
@@ -199,6 +205,15 @@ const GRANT_SCRIPT = `(function(){
   });
   // 初期表示の試算
   recalc();
+  }
+  var booted=false;
+  function start(){ if(booted)return; booted=true; boot(); }
+  if(window.__grantHydrated){ start(); }
+  else {
+    window.addEventListener('grant:hydrated', start, {once:true});
+    // ハイドレーションが何らかの理由で走らない場合の保険。
+    setTimeout(start, 3000);
+  }
 })();`;
 
 export default function GrantPage() {
@@ -453,6 +468,7 @@ export default function GrantPage() {
         </div>
       </main>
       <BizFooter />
+      <GrantBoot />
       <script dangerouslySetInnerHTML={{ __html: GRANT_SCRIPT }} />
     </>
   );

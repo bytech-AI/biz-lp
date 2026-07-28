@@ -3868,10 +3868,15 @@ body {
 /* =======================
    Top Header
    ======================= */
+/* 中央寄せに transform を使わないこと。transform 付き要素は内側の position:fixed
+   （SPドロワー .top-header__nav / オーバーレイ）の包含ブロックになってしまい、
+   ドロワーがビューポート基準で固定されずページ幅を押し広げる（横800px問題）。
+   left/right:0 + margin:auto なら同じ中央寄せが transform 無しで実現できる。 */
 .top-header-wrap {
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
   z-index: 1000;
   display: flex;
@@ -3880,8 +3885,6 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   padding: 16px 40px;
-  left: 50%;
-  transform: translateX(-50%);
 }
 .top-header__logo {
   flex-shrink: 0;
