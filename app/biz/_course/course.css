@@ -217,6 +217,12 @@
 /* このページは最上部ヘッダーを固定せず（スクロールで流す）、代わりにこのナビをstickyにする。
    ヘッダーは共有BizChromeで position:fixed 指定のため、.biz-root で特異度を上げて上書き。 */
 .biz-root .top-header-wrap { position: absolute; }
+/* 研修コースLPのFVは紫グラデのため、共有ヘッダーのダーク版ロゴが背景に沈む。
+   SP（＝ハンバーガー表示域）では白抜きにする。<img src> はCSSで差し替えられないので
+   filter で白化する（brightness(0)で真っ黒→invert(1)で真っ白）。 */
+@media (max-width: 768px) {
+  .biz-root .top-header__logo img { filter: brightness(0) invert(1); }
+}
 .ct-pagenav { position: sticky; top: 0; z-index: 1000; background: #16202e; }
 .ct-pagenav__inner { max-width: 1400px; margin: 0 auto; padding: 0 40px; min-height: 64px; display: flex; align-items: center; gap: clamp(20px, 3vw, 40px); }
 /* stuck時に左へ下りてくるロゴ（通常は非表示で幅ゼロ） */
