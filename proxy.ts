@@ -82,6 +82,28 @@ export function proxy(request: NextRequest) {
     return NextResponse.rewrite(new URL(newPath, request.url))
   }
 
+  // lp4 は lp4.bytech.jp（ASP流入の広告LP）。旧WordPressから移設した静的LPを
+  // public/lp4/* に丸ごと持ち、全パスを /lp4/* へリライトして返す。
+  // ページ内のアセット参照が相対パス（wp-content/...）なので、アセットも含めて
+  // 一律にプレフィックスを付ける必要がある（素通しにすると /wp-content/... が404）。
+  // 予約カレンダーの source は 'AIカレッジ【GEN_ASP】'、LINEは b-college-asp。
+  if (hostname === 'lp4.bytech.jp') {
+    const normalizedPath = pathname.replace(/\/+$/, '') || '/'
+    if (normalizedPath === '/thanks' || normalizedPath === '/thnks') {
+      return NextResponse.rewrite(new URL('/lp4/thanks/index.html', request.url))
+    }
+    if (pathname === '/lp4' || pathname.startsWith('/lp4/')) {
+      return NextResponse.next()
+    }
+    let newPath = `/lp4${pathname}`
+    if (newPath.endsWith('/')) {
+      newPath += 'index.html'
+    } else if (!/\.[a-z0-9]+$/i.test(newPath)) {
+      newPath += '/index.html'
+    }
+    return NextResponse.rewrite(new URL(newPath, request.url))
+  }
+
   // GEEK は geek.bytech.jp（サブドメイン）で独立配信。
   // geek.bytech.jp/ → 内部の /geek（geek-static/index.html）を返す。アセットは絶対パスなので素通し。
   if (hostname === 'geek.bytech.jp') {
