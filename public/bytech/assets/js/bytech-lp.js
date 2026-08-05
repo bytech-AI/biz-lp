@@ -67,7 +67,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
 
 (function() {
   const GAS_URL    = 'https://script.google.com/macros/s/AKfycbzFK2HDxL3BwTfK2DBR8flrCIll2lr5ZyOB1W9Vy5s6V5EcAIhNc_plwDu-lFMCU__1fg/exec';
-  const THANKS_URL = 'https://generative-ai.bytech.jp/thanks-1/';
+  const THANKS_URL = 'https://bytech.jp/thanks';
   const SOURCE     = 'GEN【オーガニック/指名広告】CP2万円';
   const LP_TYPE    = 'gen';
   const ENTRY      = 'fv';
