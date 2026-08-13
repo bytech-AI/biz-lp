@@ -3689,8 +3689,442 @@ body[class][class] .u-text-black {
   .ctaform__row { grid-template-columns: 1fr; }
 }
 
+/* === geek2: Claude Code実録セクション（note連携／一覧ページと共用） === */
+.g2rec-record {
+  background: #fff;
+  padding: min(110px, 7.6vw) 0 min(96px, 7vw);
+  color: #071a3a;
+}
+.g2rec-lead {
+  margin: 18px 0 0;
+  color: #25272c;
+  font-size: clamp(14px, 1.5vw, 17px);
+  font-weight: 800;
+  line-height: 1.9;
+  text-align: center;
+}
+
+/* ピックアップ記事（1枚ずつのカルーセル） */
+/* 矢印は .swiper の overflow:hidden に切られるので、外側のラッパーに置く */
+.g2rec-carousel {
+  position: relative;
+  margin-top: var(--g2-title-content-gap);
+}
+.g2rec-pickup.swiper-slide { height: auto; }
+.g2recSwiper__pagination {
+  position: static;
+  height: 10px;
+  margin-top: 20px;
+  text-align: center;
+}
+.g2recSwiper__pagination .swiper-pagination-bullet { width: 9px; height: 9px; }
+.g2recSwiper__pagination .swiper-pagination-bullet-active { background: #00ac9b; }
+.g2recSwiper__nav {
+  position: absolute;
+  /* ページネーション（margin-top20px + 高さ10px）を除いたカード部分の中央に置く */
+  top: 0;
+  bottom: 30px;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  /* margin-block だと古いブラウザで効かず上端に張り付くため個別指定 */
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 0;
+  /* 白背景に白ボタンだと輪郭が消えるため、濃紺の塗りにする */
+  background: #071a3a;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(7, 26, 58, 0.22);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.12s, box-shadow 0.2s;
+}
+.g2recSwiper__nav::before {
+  width: 10px;
+  height: 10px;
+  border-top: 2.5px solid #fff;
+  border-right: 2.5px solid #fff;
+  content: "";
+}
+.g2recSwiper__nav--prev { left: -23px; }
+/* 山形の重心は矢印の向き側に寄るので、回転後に逆方向へずらして光学的に中央へ置く */
+.g2recSwiper__nav--prev::before { transform: translateX(3px) rotate(-135deg); }
+.g2recSwiper__nav--next { right: -23px; }
+.g2recSwiper__nav--next::before { transform: translateX(-3px) rotate(45deg); }
+.g2recSwiper__nav:hover { background: #00ac9b; box-shadow: 0 8px 22px rgba(0, 172, 155, 0.35); transform: scale(1.06); }
+.g2recSwiper__nav.swiper-button-disabled { opacity: 0.35; cursor: default; }
+@media (max-width: 1279px) {
+  /* カードの外に出すと画面からはみ出すので、カードに重ねる */
+  .g2recSwiper__nav {
+    width: 40px;
+    height: 40px;
+    background: rgba(7, 26, 58, 0.9);
+  }
+  .g2recSwiper__nav--prev { left: 8px; }
+  .g2recSwiper__nav--next { right: 8px; }
+}
+.g2rec-pickup {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 28px;
+  align-items: center;
+  padding: 34px clamp(20px, 3vw, 40px);
+  background: #eef2f5;
+  border-radius: 12px;
+}
+.g2rec-pickup-title {
+  margin: 12px 0 0;
+  color: #071a3a;
+  font-size: clamp(19px, 2.2vw, 25px);
+  font-weight: 900;
+  line-height: 1.5;
+}
+.g2rec-pickup-text {
+  margin: 14px 0 0;
+  color: #25272c;
+  font-size: clamp(13px, 1.4vw, 15px);
+  font-weight: 800;
+  line-height: 1.9;
+}
+.g2rec-pickup-text strong { color: #FF3410; font-weight: 900; }
+.g2rec-pickup-points {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.g2rec-pickup-points li {
+  position: relative;
+  padding-left: 26px;
+  color: #071a3a;
+  font-size: clamp(13px, 1.35vw, 14px);
+  font-weight: 800;
+  line-height: 1.7;
+}
+.g2rec-pickup-points li::before {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  background: #00ac9b;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1;
+  content: "✓";
+}
+.g2rec-pickup-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  padding: 14px 28px;
+  background: #071a3a;
+  border-radius: 9999px;
+  color: #fff;
+  font-size: clamp(13px, 1.4vw, 15px);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, transform 0.12s;
+}
+.g2rec-pickup-btn span {
+  display: block;
+  width: 13px;
+  height: 13px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg) translate(-2px, 2px);
+}
+.g2rec-pickup-btn:hover { background: #00ac9b; transform: translateY(-2px); }
+
+/* ピックアップ記事のサムネイル（noteのアイキャッチ） */
+.g2rec-pickup-visual {
+  display: block;
+  overflow: hidden;
+  border: 1px solid #dbe2e9;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(7, 26, 58, 0.08);
+  transition: box-shadow 0.2s, transform 0.12s;
+}
+.g2rec-pickup-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.g2rec-pickup-visual:hover { box-shadow: 0 12px 26px rgba(7, 26, 58, 0.16); transform: translateY(-3px); }
+
+/* ターミナル風の抜粋 */
+.g2rec-terminal {
+  overflow: hidden;
+  background: #0f0f10;
+  border: 1px solid rgba(0, 172, 155, 0.3);
+  border-radius: 8px;
+}
+.g2rec-term-bar {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 9px 12px;
+  background: #1a1a1c;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.g2rec-term-bar i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+}
+.g2rec-term-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px clamp(14px, 1.6vw, 20px) 20px;
+}
+.g2rec-term-line {
+  margin: 0;
+  font-family: "Courier New", "SFMono-Regular", monospace;
+  font-size: clamp(11px, 1.15vw, 13px);
+  font-weight: 500;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+}
+.g2rec-term-line.is-prompt { color: #00ac9b; font-weight: 900; }
+.g2rec-term-line.is-done { color: #fff; font-weight: 700; }
+
+/* 記事カード（LP・一覧ページ共用） */
+.g2rec-subttl {
+  margin: 52px 0 0;
+  color: #071a3a;
+  font-size: clamp(17px, 1.9vw, 21px);
+  font-weight: 900;
+  text-align: center;
+}
+.g2rec-subttl::after {
+  display: block;
+  width: 42px;
+  height: 3px;
+  margin: 12px auto 0;
+  background: #00ac9b;
+  content: "";
+}
+.g2rec-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.g2rec-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+  border: 1.5px solid #cfd7df;
+  border-radius: 10px;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.12s;
+}
+.g2rec-card-thumb {
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #eef2f5;
+}
+.g2rec-card-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.g2rec-card:hover .g2rec-card-thumb img { transform: scale(1.04); }
+.g2rec-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 18px 20px 18px;
+}
+.g2rec-card:hover {
+  border-color: #00ac9b;
+  box-shadow: 0 10px 22px rgba(7, 26, 58, 0.1);
+  transform: translateY(-3px);
+}
+.g2rec-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.g2rec-card-meta time {
+  color: #5d6a78;
+  font-family: "Outfit", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+}
+.g2rec-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+.g2rec-tag.is-record { background: #00ac9b; color: #fff; }
+.g2rec-tag.is-column { background: #e3e9ef; color: #5d6a78; }
+.g2rec-tag.is-pickup { background: #FF3410; color: #fff; font-family: "Outfit", sans-serif; }
+.g2rec-tag.is-paid { border: 1px solid #FF3410; color: #FF3410; }
+.g2rec-card-title {
+  display: block;
+  margin: 0 0 14px;
+  color: #071a3a;
+  font-size: clamp(15px, 1.6vw, 17px);
+  font-weight: 900;
+  line-height: 1.55;
+}
+.g2rec-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  color: #00ac9b;
+  font-size: 13px;
+  font-weight: 900;
+}
+.g2rec-card-link::after {
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+  content: "";
+}
+.g2rec-more { margin-top: 40px; text-align: center; }
+.g2rec-more .c-btn { color: #fff; }
+/* 一覧への導線はカウンセリングCTAと競合させないため、ティールのアウトラインで二次ボタンにする */
+.g2rec-more-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: min(320px, 100%);
+  padding: 16px 34px;
+  background: #fff;
+  border: 2px solid #00ac9b;
+  border-radius: 9999px;
+  color: #00ac9b;
+  font-size: clamp(14px, 1.5vw, 16px);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, color 0.2s, transform 0.12s;
+}
+.g2rec-more-btn span {
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+.g2rec-more-btn:hover { background: #00ac9b; color: #fff; transform: translateY(-2px); }
+.g2rec-br-sp { display: none; }
+
+/* 実録一覧ページ */
+.g2rec-page { background: #f5f8f8; padding: 0 0 min(96px, 7vw); color: #071a3a; }
+
+/* ページヘッダー：グレースケールの写真に濃紺を重ね、白文字を載せる */
+.g2rec-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(52px, 6vw, 84px) 0 clamp(52px, 6vw, 80px);
+  background: #17100e;
+}
+.g2rec-hero-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 1;
+}
+.g2rec-hero::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(10, 8, 8, 0.45) 0%, rgba(10, 8, 8, 0.62) 100%);
+  content: "";
+}
+.g2rec-hero > .inner { position: relative; z-index: 1; }
+.g2rec-hero .c-sec-ttl__ja { color: #fff; }
+.g2rec-hero .u-text-orange { color: #4fd8c8; }
+.g2rec-hero .c-sec-ttl__en { color: #4fd8c8; }
+.g2rec-crumb { display: flex; gap: 8px; margin: 0 0 clamp(24px, 3vw, 36px); color: rgba(255, 255, 255, 0.7); font-size: 12px; font-weight: 800; }
+.g2rec-crumb a { color: #4fd8c8; text-decoration: underline; text-underline-offset: 3px; }
+.g2rec-crumb a:hover { text-decoration-thickness: 2px; }
+.g2rec-page-head { text-align: center; }
+.g2rec-page-lead { margin: 18px 0 0; color: rgba(255, 255, 255, 0.9); font-size: clamp(13px, 1.5vw, 16px); font-weight: 800; line-height: 1.9; }
+.g2rec-page .g2rec-list { margin-top: 28px; }
+.g2rec-item.is-hidden { display: none; }
+.g2rec-count { margin: clamp(28px, 4vw, 44px) 0 0; color: #5d6a78; font-size: 12px; font-weight: 800; text-align: center; }
+.g2rec-source {
+  margin: 40px auto 0;
+  padding: 22px 24px;
+  max-width: 760px;
+  background: #fff;
+  border: 1.5px solid #cfd7df;
+  border-radius: 10px;
+  text-align: center;
+}
+.g2rec-source p { margin: 0; color: #5d6a78; font-size: 13px; font-weight: 800; line-height: 1.8; }
+.g2rec-source a { color: #00ac9b; font-weight: 900; text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 1024px) {
+  .g2rec-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .g2rec-pickup { grid-template-columns: 1fr; }
+}
+@media (max-width: 767px) {
+  .g2rec-br-pc { display: none; }
+  .g2rec-br-sp { display: block; }
+  .g2rec-list { grid-template-columns: 1fr; }
+  /* SPは「日付 → タイトル → サムネイル → 要点 → ボタン」の順に組み替える。
+     display:contents で .g2rec-pickup-main の子を直接フレックスアイテムにしてorderで並べ替える */
+  .g2rec-pickup {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 26px 18px;
+  }
+  .g2rec-pickup-main { display: contents; }
+  .g2rec-pickup .g2rec-card-meta { order: 1; }
+  .g2rec-pickup-title { order: 2; }
+  .g2rec-pickup-visual { order: 3; margin-top: 18px; }
+  .g2rec-pickup-points { order: 4; }
+  .g2rec-pickup-btn { order: 5; width: 100%; justify-content: center; }
+  .g2rec-subttl { margin-top: 40px; }
+}
+
 /* ヘッダーナビのアンカー着地オフセット（フローティング固定ヘッダー分） */
-#about, #problem, #course, #price, #results, #voice, #faq { scroll-margin-top: 92px; }
+#about, #problem, #course, #price, #results, #voice, #faq, #record { scroll-margin-top: 92px; }
 
 /* === SP固定フッターCTA（FVから一定スクロールで出現・メインCTAと同デザイン） === */
 .sp-fixcta { display: none; }
