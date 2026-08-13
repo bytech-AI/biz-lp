@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>Claude Code実録｜バイテックGEEK</title>
+    <meta name="description" content="バイテックGEEKの受講生が、Claude Codeや生成AIで実際に何をどう変えたのか。現場で起きたことをまとめた実録記事の一覧です。">
+    <link rel="icon" type="image/x-icon" href="/geek-static/files/favicon.ico">
+    <link rel="apple-touch-icon" href="/geek-static/files/apple-touch-icon.png">
+
+    <!-- Google Tag Manager（初回インタラクション/アイドルまで遅延ロード＝TBT削減。dataLayerは即時生成しpushは取りこぼさない） -->
+    <script>window.dataLayer=window.dataLayer||[];(function(w,d){var loaded=false;function loadGTM(){if(loaded)return;loaded=true;w.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});var j=d.createElement('script');j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id=GTM-587JB774';d.head.appendChild(j);}['scroll','click','touchstart','keydown','mousemove'].forEach(function(e){w.addEventListener(e,loadGTM,{once:true,passive:true});});if('requestIdleCallback' in w){w.requestIdleCallback(loadGTM,{timeout:6000});}else{w.addEventListener('load',function(){setTimeout(loadGTM,3000);});}})(window,document);</script>
+    <!-- End Google Tag Manager -->
+
+    <link rel="canonical" href="https://geek.bytech.jp/record">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:url" content="https://geek.bytech.jp/record">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="バイテックGEEK">
+    <meta property="og:title" content="Claude Code実録｜バイテックGEEK">
+    <meta property="og:description" content="バイテックGEEKの受講生が、Claude Codeや生成AIで実際に何をどう変えたのか。現場で起きたことをまとめた実録記事の一覧です。">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link rel="preload" href="/bytech/fonts/NotoSansJP_VF-s.p.09a7lksm~5qfk.woff2" as="font" crossorigin="" type="font/woff2">
+    <style id="geek-noto-selfhost">@font-face{font-family:"Noto Sans JP";src:url(/bytech/fonts/NotoSansJP_VF-s.p.09a7lksm~5qfk.woff2) format("woff2");font-display:swap;font-weight:100 900;font-style:normal;}</style>
+    <link href="/geek-static/files/css2(1)" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="/geek-static/files/css2(1)" rel="stylesheet"></noscript>
+
+    <link rel="stylesheet" id="my_style-css" href="/geek-static/files/common.css?v=20260813rec2" media="all">
+    <link rel="stylesheet" id="header_style-css" href="/geek-static/files/header.css?v=20260704z4" media="all">
+    <link rel="stylesheet" id="footer_style-css" href="/geek-static/files/footer.css?v=20260704d" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/geek-static/files/footer.css?v=20260704d"></noscript>
+    <style id="bt-heading-weight">h2{font-weight:900!important}h3{font-weight:800!important}</style>
+</head>
+<body class="body">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-587JB774"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <header>
+        <div class="inner u-inner-full">
+            <div class="header__content">
+                <div class="header__logo">
+                    <a href="/">
+                        <!-- <picture>
+                          
+                          <img src="/geek-static/img/logo_lg.png" alt="バイテックGEEK">
+                        </picture> -->
+                        <picture>
+                          
+                          <img src="/geek-assets/geek_logo2.svg" alt="バイテックGEEK" style="height:42px;width:auto">
+                        </picture>
+                    </a>
+                </div>
+                <nav class="header__nav">
+                    <ul class="header__menu">
+                        <li><a href="/#problem"><span class="header__menu-ja">お悩み</span><span class="header__menu-en">Problem</span></a></li>
+                        <li><a href="/#course"><span class="header__menu-ja">コース</span><span class="header__menu-en">Course</span></a></li>
+                        <li><a href="/#price"><span class="header__menu-ja">料金</span><span class="header__menu-en">Price</span></a></li>
+                        <li><a href="/#results"><span class="header__menu-ja">受講生実績</span><span class="header__menu-en">Results</span></a></li>
+                        <li><a href="/#voice"><span class="header__menu-ja">受講生の声</span><span class="header__menu-en">Voice</span></a></li>
+                        <li><a href="/record"><span class="header__menu-ja">ClaudeCode実録</span><span class="header__menu-en">Record</span></a></li>
+                        <li><a href="/#faq"><span class="header__menu-ja">よくある質問</span><span class="header__menu-en">FAQ</span></a></li>
+                    </ul>
+                    <div class="header__reserve"><a href="/#counseling">無料カウンセリング予約</a></div>
+                </nav>
+                <!-- drawer-menu -->
+                <div class="drawer-icon">
+                    <div class="drawer-icon__bars">
+                        <div class="drawer-icon__bar1"></div>
+                        <div class="drawer-icon__bar2"></div>
+                    </div>
+                </div>
+                <div class="drawer-content">
+                    <ul class="drawer-menu">
+                        <li><a href="/#problem">お悩み</a></li>
+                        <li><a href="/#course">コース</a></li>
+                        <li><a href="/#price">料金</a></li>
+                        <li><a href="/#results">受講生実績</a></li>
+                        <li><a href="/#voice">受講生の声</a></li>
+                        <li><a href="/record">ClaudeCode実録</a></li>
+                        <li><a href="/#faq">よくある質問</a></li>
+                    </ul>
+                    <div class="drawer__reserve"><a href="/#counseling" class="c-btn">無料カウンセリング予約</a></div>
+                </div>
+            </div>
+
+            <div class="header__content fixed pc">
+                <div class="header__logo">
+                    <a href="/">
+                        <picture>
+                          
+                          <img src="/geek-assets/geek_logo2.svg" alt="バイテックGEEK" style="height:42px;width:auto">
+                        </picture>
+                    </a>
+                </div>
+                <nav class="header__nav">
+                    <ul class="header__menu">
+                        <li><a href="/#problem"><span class="header__menu-ja">お悩み</span><span class="header__menu-en">Problem</span></a></li>
+                        <li><a href="/#course"><span class="header__menu-ja">コース</span><span class="header__menu-en">Course</span></a></li>
+                        <li><a href="/#price"><span class="header__menu-ja">料金</span><span class="header__menu-en">Price</span></a></li>
+                        <li><a href="/#results"><span class="header__menu-ja">受講生実績</span><span class="header__menu-en">Results</span></a></li>
+                        <li><a href="/#voice"><span class="header__menu-ja">受講生の声</span><span class="header__menu-en">Voice</span></a></li>
+                        <li><a href="/record"><span class="header__menu-ja">ClaudeCode実録</span><span class="header__menu-en">Record</span></a></li>
+                        <li><a href="/#faq"><span class="header__menu-ja">よくある質問</span><span class="header__menu-en">FAQ</span></a></li>
+                    </ul>
+                    <div class="header__reserve"><a href="/#counseling">カウンセリング予約</a></div>
+                </nav>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="g2rec-page">
+        <div class="g2rec-hero">
+            <img class="g2rec-hero-bg" src="/geek-static/files/record-hero.webp" alt="" width="1920" height="480" fetchpriority="high" decoding="async">
+            <div class="inner">
+                <nav class="g2rec-crumb" aria-label="パンくず">
+                    <a href="/">TOP</a><span aria-hidden="true">‣</span><span>Claude Code実録</span>
+                </nav>
+                <div class="g2rec-page-head">
+                    <h2 class="c-sec-ttl">
+                        <span class="c-sec-ttl__en">Record</span>
+                        <span class="c-sec-ttl__ja">Claude Code<span class="u-text-orange">実録</span></span>
+                    </h2>
+                    <p class="g2rec-page-lead">バイテックメンバーと受講生のClaudeCode活用の実体験の備忘録です。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="inner">
+            <p class="g2rec-count" id="recCount"></p>
+
+            <ul class="g2rec-list" id="recList">
+                    <li class="g2rec-item">
+                        <a class="g2rec-card" href="https://note.com/makun_bytech/n/ncb10a0ffe440" target="_blank" rel="noopener">
+                            <span class="g2rec-card-thumb">
+                                <img src="/geek-static/files/record-pickup.webp" alt="【入社1年目がやってみた】Claude Codeで会社のX運用を“月0円”で自動化した全記録" width="960" height="541" loading="lazy" decoding="async">
+                            </span>
+                            <span class="g2rec-card-body">
+                                <span class="g2rec-card-meta">
+                                    <span class="g2rec-tag is-column">ノウハウ・コラム</span>
+                                    <time datetime="2026-06-17">2026.06.17</time>
+                                </span>
+                                <span class="g2rec-card-title">【入社1年目がやってみた】Claude Codeで会社のX運用を“月0円”で自動化した全記録</span>
+                                <span class="g2rec-card-link">noteで読む</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="g2rec-item">
+                        <a class="g2rec-card" href="https://note.com/makun_bytech/n/n362e4bcfdaba" target="_blank" rel="noopener">
+                            <span class="g2rec-card-thumb">
+                                <img src="/geek-static/files/record-pickup-2.webp" alt="【実録】Premiere Pro解約しました｜Claude Codeで動画を作る“3つの方法”を全部試した結論" width="960" height="503" loading="lazy" decoding="async">
+                            </span>
+                            <span class="g2rec-card-body">
+                                <span class="g2rec-card-meta">
+                                    <span class="g2rec-tag is-column">ノウハウ・コラム</span>
+                                    <time datetime="2026-07-08">2026.07.08</time>
+                                </span>
+                                <span class="g2rec-card-title">【実録】Premiere Pro解約しました｜Claude Codeで動画を作る“3つの方法”を全部試した結論</span>
+                                <span class="g2rec-card-link">noteで読む</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="g2rec-item">
+                        <a class="g2rec-card" href="https://note.com/makun_bytech/n/nb8c157095cf0" target="_blank" rel="noopener">
+                            <span class="g2rec-card-thumb">
+                                <img src="/geek-static/files/record-pickup-3.webp" alt="【実録】動画URLを渡すだけ。インタビュー記事を&quot;2〜3時間→5分&quot;に自動化した話" width="960" height="541" loading="lazy" decoding="async">
+                            </span>
+                            <span class="g2rec-card-body">
+                                <span class="g2rec-card-meta">
+                                    <span class="g2rec-tag is-column">ノウハウ・コラム</span>
+                                    <time datetime="2026-07-15">2026.07.15</time>
+                                </span>
+                                <span class="g2rec-card-title">【実録】動画URLを渡すだけ。インタビュー記事を&quot;2〜3時間→5分&quot;に自動化した話</span>
+                                <span class="g2rec-card-link">noteで読む</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="g2rec-item">
+                        <a class="g2rec-card" href="https://note.com/makun_bytech/n/n99ee182f8615" target="_blank" rel="noopener">
+                            <span class="g2rec-card-thumb">
+                                <img src="/geek-static/files/record-pickup-4.webp" alt="【実録】Claude Codeが重い原因を究明｜26個もプログラムを止めたのに軽くならず、真犯人は別にいた話" width="960" height="541" loading="lazy" decoding="async">
+                            </span>
+                            <span class="g2rec-card-body">
+                                <span class="g2rec-card-meta">
+                                    <span class="g2rec-tag is-column">ノウハウ・コラム</span>
+                                    <time datetime="2026-07-07">2026.07.07</time>
+                                </span>
+                                <span class="g2rec-card-title">【実録】Claude Codeが重い原因を究明｜26個もプログラムを止めたのに軽くならず、真犯人は別にいた話</span>
+                                <span class="g2rec-card-link">noteで読む</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="g2rec-item">
+                        <a class="g2rec-card" href="https://note.com/makun_bytech/n/n0dc3c334d847" target="_blank" rel="noopener">
+                            <span class="g2rec-card-thumb">
+                                <img src="/geek-static/files/record-pickup-5.webp" alt="【実録】Claude Codeにスプレッドシートを&quot;直接&quot;つないだら、コピペ地獄が消えた話" width="960" height="541" loading="lazy" decoding="async">
+                            </span>
+                            <span class="g2rec-card-body">
+                                <span class="g2rec-card-meta">
+                                    <span class="g2rec-tag is-column">ノウハウ・コラム</span>
+                                    <time datetime="2026-07-04">2026.07.04</time>
+                                </span>
+                                <span class="g2rec-card-title">【実録】Claude Codeにスプレッドシートを&quot;直接&quot;つないだら、コピペ地獄が消えた話</span>
+                                <span class="g2rec-card-link">noteで読む</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="g2rec-item">
+                        <a class="g2rec-card" href="https://note.com/makun_bytech/n/n8b913bde54c4" target="_blank" rel="noopener">
+                            <span class="g2rec-card-thumb">
+                                <img src="/geek-static/files/record-pickup-6.webp" alt="【初心者向け】&quot;GASは便利、でも手が出せない&quot;を越えた話。Claude CodeにスクリプトIDを渡すだけ" width="960" height="541" loading="lazy" decoding="async">
+                            </span>
+                            <span class="g2rec-card-body">
+                                <span class="g2rec-card-meta">
+                                    <span class="g2rec-tag is-column">ノウハウ・コラム</span>
+                                    <time datetime="2026-07-05">2026.07.05</time>
+                                </span>
+                                <span class="g2rec-card-title">【初心者向け】&quot;GASは便利、でも手が出せない&quot;を越えた話。Claude CodeにスクリプトIDを渡すだけ</span>
+                                <span class="g2rec-card-link">noteで読む</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="g2rec-item">
+                        <a class="g2rec-card" href="https://note.com/makun_bytech/n/n73a0b54a2551" target="_blank" rel="noopener">
+                            <span class="g2rec-card-thumb">
+                                <img src="/geek-static/files/record-pickup-7.webp" alt="【初心者向け】Claude Codeは「デスクトップ」と「ターミナル」どっちで使う？ 1年目の僕の結論" width="960" height="541" loading="lazy" decoding="async">
+                            </span>
+                            <span class="g2rec-card-body">
+                                <span class="g2rec-card-meta">
+                                    <span class="g2rec-tag is-column">ノウハウ・コラム</span>
+                                    <time datetime="2026-07-01">2026.07.01</time>
+                                </span>
+                                <span class="g2rec-card-title">【初心者向け】Claude Codeは「デスクトップ」と「ターミナル」どっちで使う？ 1年目の僕の結論</span>
+                                <span class="g2rec-card-link">noteで読む</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="g2rec-item">
+                        <a class="g2rec-card" href="https://note.com/makun_bytech/n/ne17f82b47390" target="_blank" rel="noopener">
+                            <span class="g2rec-card-thumb">
+                                <img src="/geek-static/files/record-pickup-8.webp" alt="【入社1年目のリアル】「立ち上がりが遅い新人」だった僕が、ClaudeCodeで変わった話" width="960" height="541" loading="lazy" decoding="async">
+                            </span>
+                            <span class="g2rec-card-body">
+                                <span class="g2rec-card-meta">
+                                    <span class="g2rec-tag is-column">ノウハウ・コラム</span>
+                                    <time datetime="2026-06-29">2026.06.29</time>
+                                </span>
+                                <span class="g2rec-card-title">【入社1年目のリアル】「立ち上がりが遅い新人」だった僕が、ClaudeCodeで変わった話</span>
+                                <span class="g2rec-card-link">noteで読む</span>
+                            </span>
+                        </a>
+                    </li>
+            </ul>
+
+            <div class="g2rec-source">
+                <p>記事はすべて note で公開しています。最新の投稿は<a href="https://note.com/makun_bytech" target="_blank" rel="noopener">まくん（バイテック）のnote</a>からご覧ください。</p>
+            </div>
+
+            <div class="g2rec-more"><a href="/#counseling" class="c-btn type3">無料カウンセリングを予約する</a></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="inner">
+            <div class="footer__content">
+                <div class="footer__catch"><p class="footer__catch-text">明日から、AI開発が<br>あなたの日常に。</p></div>
+                <div class="footer__nav">
+                    <ul class="footer__menu">
+                        <li><a href="/#problem">お悩み</a></li>
+                        <li><a href="/#course">コース</a></li>
+                        <li><a href="/#price">料金</a></li>
+                        <li><a href="/#results">受講生実績</a></li>
+                        <li><a href="/#voice">受講生の声</a></li>
+                        <li><a href="/record">ClaudeCode実録</a></li>
+                        <li><a href="/#faq">よくある質問</a></li>
+                        <!-- <li><a href="/#faq">よくある質問</a></li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="footer__info">
+                    <div class="foote__logo"><img src="/geek-assets/geek_logo_w2.svg" alt="バイテックGEEK" style="height:32px;width:auto"></div>
+                    <p class="footer__copyright"> Copyright 株式会社AI棒</p>
+                </div>
+                <ul class="footer__submenu">
+                    <li><a href="/privacy-policy">プライバシーポリシー</a></li>
+                    <li><a href="/membership-terms">会員規約</a></li>
+                    <li><a href="/specified_commercial">特定商取引法</a></li>
+                    <li><a href="https://ai-bou.co.jp" target="_blank" rel="noopener">運営会社</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+<script id="geek-chrome-js">
+(function(){
+  var di=document.querySelector('.drawer-icon'),dc=document.querySelector('.drawer-content');
+  if(di&&dc){
+    di.addEventListener('click',function(){di.classList.toggle('is-active');dc.classList.toggle('is-active');});
+    document.querySelectorAll('.drawer-menu a').forEach(function(a){a.addEventListener('click',function(){di.classList.remove('is-active');dc.classList.remove('is-active');});});
+  }
+  var fixed=document.querySelector('.header__content.fixed'),hdr=document.querySelector('header');
+  if(fixed&&hdr){
+    function onScroll(){ if(hdr.getBoundingClientRect().top<0){fixed.classList.add('act');}else{fixed.classList.remove('act');} }
+    window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  }
+})();
+</script>
+
+
+<script id="geek-record-js">
+(function(){
+  // 記事件数の表示だけ（カードは build-geek-record.mjs が書き出す）
+  var count = document.getElementById('recCount');
+  if (count) count.textContent = document.querySelectorAll('#recList .g2rec-item').length + '件の記事';
+})();
+</script>
+</body></html>

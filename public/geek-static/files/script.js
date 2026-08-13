@@ -298,6 +298,20 @@ if (document.querySelector('.g2aSwiper')) {
   g2aMq.addEventListener('change', g2aApply);
 }
 // ------------------------------------------
+//  Claude Code実録のピックアップ記事（1枚ずつ表示）
+// ------------------------------------------
+if (document.querySelector('.g2recSwiper')) {
+  new Swiper('.g2recSwiper', {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    autoHeight: true,
+    // 記事2枚ではloopに必要な枚数が足りず警告が出るため、rewindで先頭に戻す
+    rewind: true,
+    pagination: { el: '.g2recSwiper__pagination', clickable: true },
+    navigation: { nextEl: '.g2recSwiper__nav--next', prevEl: '.g2recSwiper__nav--prev' },
+  });
+}
+// ------------------------------------------
 //  事例スライダ― 共通
 // ------------------------------------------
 const voiceSwiper = new Swiper('.voiceSwiper', {

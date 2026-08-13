@@ -132,6 +132,8 @@ export function proxy(request: NextRequest) {
       '/privacy-policy': '/geek-privacy-policy-static/index.html',
       '/membership-terms': '/geek-membership-terms-static/index.html',
       '/specified_commercial': '/geek-specified_commercial-static/index.html',
+      // Claude Code実録（note記事の一覧ページ）
+      '/record': '/geek-record-static/index.html',
     }
     // clean URL → 実体ファイルへ内部リライト（URLは綺麗なまま）
     if (geekLegal[normalizedPath]) {
@@ -142,6 +144,7 @@ export function proxy(request: NextRequest) {
       '/geek-privacy-policy-static/index.html': '/privacy-policy',
       '/geek-membership-terms-static/index.html': '/membership-terms',
       '/geek-specified_commercial-static/index.html': '/specified_commercial',
+      '/geek-record-static/index.html': '/record',
     }
     if (uglyToClean[pathname]) {
       return NextResponse.redirect(new URL(uglyToClean[pathname], request.url), 301)
