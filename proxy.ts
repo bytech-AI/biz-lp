@@ -9,7 +9,7 @@ export function proxy(request: NextRequest) {
 
   // [LOCAL-ONLY 一時対応・コミットしないこと] localhost を biz.bytech.jp として扱いプレビュー
   if (hostname.startsWith('localhost') || hostname.startsWith('127.0.0.1')) {
-    hostname = 'biz.bytech.jp'
+    hostname = 'geek.bytech.jp'
   }
 
   // 検索評価を canonical と同じ非 www に集約する。
@@ -128,6 +128,10 @@ export function proxy(request: NextRequest) {
     if (normalizedPath === '/thanks') {
       return NextResponse.rewrite(new URL('/geek-static/thanks.html', request.url))
     }
+    // Claude Code エンジニアコースのLP（静的HTMLではなく Next のルート）
+    if (normalizedPath === '/engineer-course') {
+      return NextResponse.rewrite(new URL('/geek-course', request.url))
+    }
     const geekLegal: Record<string, string> = {
       '/privacy-policy': '/geek-privacy-policy-static/index.html',
       '/membership-terms': '/geek-membership-terms-static/index.html',
@@ -168,8 +172,13 @@ export function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL('/', request.url), 301)
   }
 
-  // apex / その他ホストからは /geek を公開しない（サブドメインへ移行済みのため404）。
-  if (pathname === '/geek' || pathname === '/geek/') {
+  // apex / その他ホストからは geek のページを公開しない（サブドメインへ移行済みのため404）。
+  if (
+    pathname === '/geek' ||
+    pathname === '/geek/' ||
+    pathname === '/geek-course' ||
+    pathname === '/geek-course/'
+  ) {
     return new NextResponse(null, { status: 404 })
   }
 

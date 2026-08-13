@@ -281,3 +281,93 @@ header {
   margin-left: 0.6em;
 }
 /*# sourceMappingURL=header.css.map */
+/* === コースのドロップダウン（PC）=== */
+.header__menu li.has-sub { position: relative; }
+.header__submenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 20;
+  min-width: 250px;
+  padding: 8px;
+  margin-top: 10px;
+  background: #fff;
+  border: 1px solid #e6ebf0;
+  border-radius: 10px;
+  box-shadow: 0 12px 28px rgba(7, 26, 58, 0.14);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -6px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+}
+/* ホバーが途切れないよう、ボタンとパネルの隙間を埋める */
+.header__menu li.has-sub::after {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 14px;
+  content: "";
+}
+.header__menu li.has-sub:hover .header__submenu,
+.header__menu li.has-sub:focus-within .header__submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+.header__submenu li { margin-left: 0 !important; }
+.header__submenu li a {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.18s ease;
+}
+.header__submenu li a:hover { background: #e6f6f4; }
+.header__submenu-thumb {
+  flex: 0 0 auto;
+  width: 96px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #eef2f5;
+  border-radius: 6px;
+}
+.header__submenu-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.header__submenu-body { display: flex; flex-direction: column; gap: 3px; }
+.header__submenu-title { color: #1A1A1A; font-size: 14px; font-weight: 800; line-height: 1.45; white-space: nowrap; }
+.header__submenu-desc { color: #5d6a78; font-size: 11px; font-weight: 700; white-space: nowrap; }
+.header__submenu li a:hover .header__submenu-title { color: #00857a; }
+
+/* ドロップダウンがあることを示す矢印（メニュー名の右） */
+.header__menu li.has-sub > a .header__menu-ja::after {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 0.2s ease;
+  content: "";
+}
+.header__menu li.has-sub:hover > a .header__menu-ja::after,
+.header__menu li.has-sub:focus-within > a .header__menu-ja::after {
+  transform: translateY(1px) rotate(-135deg);
+}
+
+/* === ドロワー内のサブメニュー（SP）=== */
+.drawer-menu .drawer-submenu {
+  margin-top: 10px;
+  padding-left: 14px;
+  border-left: 2px solid #00ac9b;
+}
+.drawer-menu .drawer-submenu li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.drawer-menu .drawer-submenu .header__submenu-thumb { width: 84px; }
+.drawer-menu .drawer-submenu .header__submenu-title { color: inherit; font-size: 13px; white-space: normal; }
+.drawer-menu .drawer-submenu .header__submenu-desc { color: inherit; opacity: 0.7; white-space: normal; }

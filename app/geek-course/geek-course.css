@@ -1,0 +1,99 @@
+/* geek のコース詳細ページ用の色上書き。
+   ベースは biz の course.css（アクセントが青 #0449B7 / #204aa8）だが、
+   geek のブランドはティール(#00ac9b)＋オレンジ(#FF3410)なので、
+   青を使っている箇所だけを geek 側の色へ差し替える。構造・余白には触らない。 */
+
+.ct-page {
+  --geek-teal: #00ac9b;
+  --geek-teal-dark: #00857a;
+  --geek-teal-pale: #e6f6f4;
+  --geek-orange: #ff3410;
+}
+
+/* --- セクション見出しの行間（アイブロウとタイトルが詰まって見えるため少し離す） --- */
+.ct-page .ct-about__eyebrow,
+.ct-page .ct-rec__eyebrow,
+.ct-page .ct-cur__eyebrow,
+.ct-page .ct-clist__eyebrow { margin-bottom: 4px; line-height: 1.5; }
+.ct-page .ct-about__title,
+.ct-page .ct-rec__title,
+.ct-page .ct-cur__title,
+.ct-page .ct-clist__title { line-height: 1.35; }
+
+/* --- 見出しのアイブロウ・小見出し --- */
+.ct-page .ct-about__eyebrow,
+.ct-page .ct-rec__eyebrow,
+.ct-page .ct-cur__eyebrow,
+.ct-page .ct-clist__eyebrow,
+.ct-page .ct-wire__eyebrow,
+.ct-page .index_faq__eyebrow { color: var(--geek-teal); }
+
+/* 強調マーカー（〜を身につける の帯） */
+.ct-page .ct-about__mark { background: linear-gradient(90deg, #00ac9b, #00786e); }
+
+/* --- コースサマリー（履修期間・レッスン数など） --- */
+.ct-page .ct-spec__card { background: linear-gradient(135deg, #00ac9b, #00968a); }
+.ct-page .ct-spec__value b { color: #ffd464; }
+
+/* --- 「〜とは？」の番号 --- */
+.ct-page .ct-about__num { color: var(--geek-teal); }
+
+/* --- コース概要（STEPタブ・カード） --- */
+.ct-page .ct-cur__tab-label,
+.ct-page .ct-cur__step-no,
+.ct-page .ct-cur__card-cat,
+.ct-page .ct-cur__tag { color: var(--geek-teal); }
+.ct-page .ct-cur__tab.is-active { background: linear-gradient(90deg, #00ac9b, #00968a); }
+.ct-page .ct-cur__step-head { background: linear-gradient(90deg, #00ac9b, #00968a); }
+.ct-page .ct-cur__card-head { border-bottom-color: var(--geek-teal); }
+.ct-page .ct-cur__card-no { background: var(--geek-teal); }
+
+/* --- カリキュラム詳細（アコーディオン） --- */
+.ct-page .ct-clist__count,
+.ct-page .ct-clist__meta-pill,
+.ct-page .ct-clist__title-txt,
+.ct-page .ct-clist__pill { color: var(--geek-teal); }
+.ct-page .ct-clist__no { background: var(--geek-teal); }
+.ct-page .ct-clist__toggle::before,
+.ct-page .ct-clist__toggle::after,
+.ct-page .ct-clist__chapters li::before { background: var(--geek-teal); }
+
+/* --- 料金プラン --- */
+.ct-page .ct-price__name { color: var(--geek-teal); }
+.ct-page .ct-price__card.is-feature {
+  border-color: var(--geek-teal);
+  box-shadow: 0 12px 34px rgba(0, 172, 155, 0.12);
+}
+
+/* --- CTA・パンくず --- */
+.ct-page .ct-pagenav__cta { background: var(--geek-orange); }
+/* アイコンはダウンロード（下向き矢印＋トレイ）ではなく右向き矢印に */
+.ct-page .ct-pagenav__cta-ico {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h15m0 0l-6-6m6 6l-6 6'/%3E%3C/svg%3E");
+}
+.ct-page .ct-ringi__btn--fill {
+  background: var(--geek-orange);
+  box-shadow: 0 6px 0 #c24700;
+}
+.ct-page .ct-ringi__btn--fill:hover { background: #e42d0d; }
+.ct-page .ct-ringi__btn--text { color: var(--geek-teal); }
+.ct-page .ct-breadcrumb a { color: var(--geek-teal); }
+.ct-page .ct-check li::before { background: var(--geek-teal); }
+
+/* --- FAQ（Qアイコン・開閉矢印）はブランドのオレンジに --- */
+.ct-page .index_faq__question::before {
+  background-image: url(/geek-assets/q_icon_orange.svg);
+}
+.ct-page .index_faq__arrow::after {
+  border-right-color: var(--geek-orange);
+  border-bottom-color: var(--geek-orange);
+}
+.ct-page .index_faq__item.active .index_faq__arrow::after {
+  border-right-color: var(--geek-orange);
+  border-bottom-color: var(--geek-orange);
+}
+
+/* --- FVビジュアル：bizの既定(84%)より少し大きく、はみ出さない範囲で --- */
+@media (min-width: 901px) {
+  .ct-page .ct-hero__visual { width: 96%; justify-self: center; }
+}
