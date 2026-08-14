@@ -9,13 +9,15 @@ export async function generateMetadata({
   const { slug } = await params;
   const seminar = getSeminar(slug);
   if (!seminar) {
-    return { title: "セミナーアーカイブ｜バイテック法人AI研修" };
+    return { title: "セミナーアーカイブ｜バイテック法人AI研修", robots: { index: false } };
   }
   const description = seminar.overview[0]?.slice(0, 110) ?? seminar.lead;
   return {
     title: `${seminar.title}｜セミナーアーカイブ｜バイテック法人AI研修`,
     description,
     robots: { index: true, follow: true },
+    // ルートレイアウトの canonical("/"=apex) を継承しないよう自ページを明示する
+    alternates: { canonical: `/seminars/${seminar.slug}` },
     openGraph: {
       type: "article",
       title: seminar.title,
