@@ -11,7 +11,7 @@ const OGP_IMAGE = {
   url: "/biz/assets/img/common/ogp-v3.jpg",
   width: 1200,
   height: 695,
-  alt: "バイテック法人AI研修｜業務の自動化を当たり前にする個別コンサル型AI研修",
+  alt: "バイテックBiz｜業務の自動化を当たり前にする個別コンサル型AI研修",
 };
 
 export function buildCourseMetadata({
@@ -27,7 +27,7 @@ export function buildCourseMetadata({
     openGraph: {
       type: "website",
       url: path,
-      siteName: "バイテック法人AI研修",
+      siteName: "バイテックBiz",
       title,
       description: socialDescription,
       locale: "ja_JP",
