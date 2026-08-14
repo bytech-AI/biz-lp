@@ -23,9 +23,9 @@ const montserrat = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://biz.bytech.jp"),
-  title: "【公式】バイテック法人AI研修｜成果直結の企業向けAI研修",
+  title: "成果直結の企業向けAI研修｜バイテックBiz【公式】",
   description:
-    "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜バイテック法人AI研修",
+    "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜バイテックBiz",
   robots: { index: true, follow: true },
   icons: {
     icon: "/biz/assets/img/common/favicon.ico",
@@ -33,30 +33,32 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://biz.bytech.jp/",
-    siteName: "バイテック法人AI研修",
-    title: "【公式】バイテック法人AI研修｜成果直結の企業向けAI研修",
+    siteName: "バイテックBiz",
+    title: "成果直結の企業向けAI研修｜バイテックBiz【公式】",
     description:
-      "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜バイテック法人AI研修",
+      "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜バイテックBiz",
     locale: "ja_JP",
     images: [
       {
         url: "/biz/assets/img/common/ogp-v3.jpg",
         width: 1200,
         height: 695,
-        alt: "バイテック法人AI研修｜業務の自動化を当たり前にする個別コンサル型AI研修",
+        alt: "バイテックBiz｜業務の自動化を当たり前にする個別コンサル型AI研修",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "【公式】バイテック法人AI研修｜成果直結の企業向けAI研修",
+    title: "成果直結の企業向けAI研修｜バイテックBiz【公式】",
     description:
-      "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜バイテック法人AI研修",
+      "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜バイテックBiz",
     images: ["/biz/assets/img/common/ogp-v3.jpg"],
   },
 };
 
-// サイト名を「バイテック法人AI研修」でGoogleに確定させる最優先シグナル（WebSite）＋運営者情報（Organization）。
+// サイト名は「バイテックBiz」。本文・ロゴ・見出しがすべてこの呼称で書かれており、
+// 「バイテック法人AI研修」を名乗ってもGoogleに書き換えられるため、実態に合わせている
+// （「バイテック法人AI研修」は alternateName に保持）。
 // title / og:site_name / WebSite.name の3つが食い違うとGoogleがサイト名を確定できず、
 // 親ドメイン bytech.jp の「バイテック生成AI」が検索結果に出てしまうため、必ず3つを揃えること。
 // 会社情報は特商法ページ準拠（株式会社AI棒／恵比寿）。
@@ -66,8 +68,8 @@ const bizJsonLd = {
     {
       "@type": "Organization",
       "@id": "https://biz.bytech.jp/#organization",
-      name: "バイテック法人AI研修",
-      alternateName: ["バイテックBiz", "byTech Business"],
+      name: "バイテックBiz",
+      alternateName: ["バイテック法人AI研修", "byTech Business"],
       url: "https://biz.bytech.jp/",
       logo: "https://biz.bytech.jp/biz/assets/img/common/hd-logo.svg",
       image: "https://biz.bytech.jp/biz/assets/img/common/ogp-v3.jpg",
@@ -90,8 +92,8 @@ const bizJsonLd = {
       "@type": "WebSite",
       "@id": "https://biz.bytech.jp/#website",
       url: "https://biz.bytech.jp/",
-      name: "バイテック法人AI研修",
-      alternateName: "バイテックBiz",
+      name: "バイテックBiz",
+      alternateName: "バイテック法人AI研修",
       publisher: { "@id": "https://biz.bytech.jp/#organization" },
       inLanguage: "ja",
     },

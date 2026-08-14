@@ -3,7 +3,7 @@ import { COURSE_FAQS } from "../_course/courseFaqs";
 import { buildCourseMetadata } from "../_course/courseMetadata";
 
 export const metadata = buildCourseMetadata({
-  title: "法人向け実践型Copilot Studio研修｜バイテック法人AI研修",
+  title: "法人向け実践型Copilot Studio研修｜バイテックBiz",
   description:
     "Microsoft 365 Copilotの業務活用から、Copilot Studioによる社内AIエージェント構築までを一貫して学ぶ法人向け研修。助成金活用にも対応。",
   socialDescription:

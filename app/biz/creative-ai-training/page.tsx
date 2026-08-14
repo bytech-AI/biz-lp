@@ -3,7 +3,7 @@ import { COURSE_FAQS } from "../_course/courseFaqs";
 import { buildCourseMetadata } from "../_course/courseMetadata";
 
 export const metadata = buildCourseMetadata({
-  title: "法人向け実践型AIクリエイティブ研修｜バイテック法人AI研修",
+  title: "法人向け実践型AIクリエイティブ研修｜バイテックBiz",
   description:
     "画像・バナー・デザイン素材を生成AIで内製化し、制作を高速化する法人向け研修。助成金活用にも対応。",
   socialDescription:

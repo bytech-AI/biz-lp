@@ -25,12 +25,15 @@ function formatNewsDate(iso?: string) {
 const BRAND_OFFICIAL = "バイテックBiz";
 const BRAND_LONG = "バイテック法人AI研修";
 
-// 一方、Googleの検索結果に出る「サイト名」は説明的な BRAND_LONG のままにする。
+// サイト名も BRAND_OFFICIAL に揃える。
+// BRAND_LONG を名乗っていたが、ロゴのalt・見出し・本文がすべて「バイテックBiz」で
+// 書かれているため、Googleが検索結果のタイトルを「バイテックBiz - …」に書き換えていた。
+// 材料が多い側（＝実態）に合わせる。BRAND_LONG は alternateName として残す。
 // サイト名はトップページの title / og:site_name / WebSite.name から決まり、
 // 3つが食い違うと親ドメイン bytech.jp の「バイテック生成AI」が使われてしまうため、
-// 必ずこの3つを SITE_NAME で揃えること（表示テキストとは別管理）。
-const SITE_NAME = BRAND_LONG;
-const SITE_TITLE = `【公式】${SITE_NAME}｜成果直結の企業向けAI研修`;
+// 必ずこの3つを SITE_NAME で揃えること。
+const SITE_NAME = BRAND_OFFICIAL;
+const SITE_TITLE = `成果直結の企業向けAI研修｜${SITE_NAME}【公式】`;
 const SITE_DESCRIPTION = `業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜${SITE_NAME}`;
 
 // LLMO/SEO: トップFAQ(index_faq)から FAQPage JSON-LD を生成。
