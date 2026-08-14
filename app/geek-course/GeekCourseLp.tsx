@@ -211,17 +211,36 @@ export function GeekCourseLp({ data }: { data: CourseData }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      // サイト名のシグナル。geek配下の全ページで同じ @id・同じ name を宣言しないと
+      // Googleがサイト名を確定できず、親ドメイン(bytech.jp)の名前が検索結果に出る。
+      {
+        "@type": "Organization",
+        "@id": "https://geek.bytech.jp/#organization",
+        name: "バイテックGEEK",
+        alternateName: ["byTech GEEK", "バイテック ギーク"],
+        url: "https://geek.bytech.jp/",
+        description:
+          "IT未経験・非エンジニアからでも、Claude Codeで「作れる側」になれるAIプログラミングスクール。",
+        parentOrganization: { "@type": "Organization", name: "株式会社AI棒" },
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://geek.bytech.jp/#website",
+        url: "https://geek.bytech.jp/",
+        name: "バイテックGEEK",
+        alternateName: "byTech GEEK",
+        description:
+          "IT未経験・非エンジニアからでも、Claude Codeで「作れる側」になれるAIプログラミングスクール。",
+        publisher: { "@id": "https://geek.bytech.jp/#organization" },
+        inLanguage: "ja",
+      },
       {
         "@type": "Course",
         name: d.courseName,
         description: d.about.lead,
         url,
         inLanguage: "ja",
-        provider: {
-          "@type": "Organization",
-          name: "バイテックGEEK",
-          url: "https://geek.bytech.jp/",
-        },
+        provider: { "@id": "https://geek.bytech.jp/#organization" },
         offers,
         hasCourseInstance: [
           {
