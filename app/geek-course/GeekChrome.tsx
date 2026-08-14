@@ -42,7 +42,7 @@ const NAV: NavItem[] = [
   { href: "/#voice", ja: "受講生の声", en: "Voice" },
   { href: "/record", ja: "ClaudeCode実録", en: "Record" },
   { href: "/#faq", ja: "よくある質問", en: "FAQ" },
-  { href: "https://bytech.jp/blog/category/tool-model/claude/", ja: "記事一覧", en: "Articles", external: true },
+  { href: "/#blog", ja: "記事一覧", en: "Articles" },
 ];
 
 /** ドロワー開閉と追従ヘッダーの表示切替（geek静的ページと同じ挙動） */
@@ -67,7 +67,7 @@ export function GeekStyles() {
       <style>{`@font-face{font-family:"Noto Sans JP";src:url(/bytech/fonts/NotoSansJP_VF-s.p.09a7lksm~5qfk.woff2) format("woff2");font-display:swap;font-weight:100 900;font-style:normal;}`}</style>
       {/* 英字見出し用の Outfit（ヘッダーのPROBLEM/COURSE等） */}
       <link rel="stylesheet" href="/geek-static/files/css2(1)" />
-      <link rel="stylesheet" href="/geek-static/files/common.css?v=20260815blog" />
+      <link rel="stylesheet" href="/geek-static/files/common.css?v=20260815blog2" />
       <link rel="stylesheet" href="/geek-static/files/header.css?v=20260814sub2" />
       <link rel="stylesheet" href="/geek-static/files/footer.css?v=20260704d" />
     </>

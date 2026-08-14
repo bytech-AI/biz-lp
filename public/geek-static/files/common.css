@@ -4171,7 +4171,7 @@ body[class][class] .u-text-black {
 }
 
 /* ヘッダーナビのアンカー着地オフセット（フローティング固定ヘッダー分） */
-#about, #problem, #course, #price, #results, #voice, #faq, #record { scroll-margin-top: 92px; }
+#about, #problem, #course, #price, #results, #voice, #faq, #record, #blog { scroll-margin-top: 92px; }
 
 /* === SP固定フッターCTA（FVから一定スクロールで出現・メインCTAと同デザイン） === */
 .sp-fixcta { display: none; }
