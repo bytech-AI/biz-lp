@@ -312,6 +312,22 @@ if (document.querySelector('.g2recSwiper')) {
   });
 }
 // ------------------------------------------
+//  Claude Codeを学べる記事（ブログ）カルーセル
+// ------------------------------------------
+if (document.querySelector('.g2blogSwiper')) {
+  new Swiper('.g2blogSwiper', {
+    slidesPerView: 1.15,
+    spaceBetween: 16,
+    rewind: true,
+    breakpoints: {
+      768: { slidesPerView: 2, spaceBetween: 20 },
+      1024: { slidesPerView: 3, spaceBetween: 24 },
+    },
+    pagination: { el: '.g2blogSwiper__pagination', clickable: true },
+    navigation: { nextEl: '.g2blogSwiper__nav--next', prevEl: '.g2blogSwiper__nav--prev' },
+  });
+}
+// ------------------------------------------
 //  事例スライダ― 共通
 // ------------------------------------------
 const voiceSwiper = new Swiper('.voiceSwiper', {

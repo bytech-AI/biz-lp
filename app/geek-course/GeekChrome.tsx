@@ -6,7 +6,7 @@
 // スタイルは geek の既存CSS（common/header/footer）をそのまま読み込んで当てる。
 
 type NavChild = { href: string; label: string; desc: string; thumb: string };
-type NavItem = { href: string; ja: string; en: string; sub?: NavChild[] };
+type NavItem = { href: string; ja: string; en: string; external?: boolean; sub?: NavChild[] };
 
 function SubMenuLink({ c }: { c: NavChild }) {
   return (
@@ -42,6 +42,7 @@ const NAV: NavItem[] = [
   { href: "/#voice", ja: "受講生の声", en: "Voice" },
   { href: "/record", ja: "ClaudeCode実録", en: "Record" },
   { href: "/#faq", ja: "よくある質問", en: "FAQ" },
+  { href: "https://bytech.jp/blog/category/tool-model/claude/", ja: "記事一覧", en: "Articles", external: true },
 ];
 
 /** ドロワー開閉と追従ヘッダーの表示切替（geek静的ページと同じ挙動） */
@@ -66,7 +67,7 @@ export function GeekStyles() {
       <style>{`@font-face{font-family:"Noto Sans JP";src:url(/bytech/fonts/NotoSansJP_VF-s.p.09a7lksm~5qfk.woff2) format("woff2");font-display:swap;font-weight:100 900;font-style:normal;}`}</style>
       {/* 英字見出し用の Outfit（ヘッダーのPROBLEM/COURSE等） */}
       <link rel="stylesheet" href="/geek-static/files/css2(1)" />
-      <link rel="stylesheet" href="/geek-static/files/common.css?v=20260814cta" />
+      <link rel="stylesheet" href="/geek-static/files/common.css?v=20260815blog" />
       <link rel="stylesheet" href="/geek-static/files/header.css?v=20260814sub2" />
       <link rel="stylesheet" href="/geek-static/files/footer.css?v=20260704d" />
     </>
@@ -92,7 +93,7 @@ export function GeekHeader({ withFixed = true }: { withFixed?: boolean }) {
             <ul className="header__menu">
               {NAV.map((n) => (
                 <li key={n.href} className={n.sub ? "has-sub" : undefined}>
-                  <a href={n.href}>
+                  <a href={n.href} {...(n.external ? { target: "_blank", rel: "noopener" } : {})}>
                     <span className="header__menu-ja">{n.ja}</span>
                     <span className="header__menu-en">{n.en}</span>
                   </a>
@@ -121,7 +122,7 @@ export function GeekHeader({ withFixed = true }: { withFixed?: boolean }) {
             <ul className="drawer-menu">
               {NAV.map((n) => (
                 <li key={n.href}>
-                  <a href={n.href}>{n.ja}</a>
+                  <a href={n.href} {...(n.external ? { target: "_blank", rel: "noopener" } : {})}>{n.ja}</a>
                   {n.sub && (
                     <ul className="drawer-submenu">
                       {n.sub.map((c) => (
@@ -149,7 +150,7 @@ export function GeekHeader({ withFixed = true }: { withFixed?: boolean }) {
             <ul className="header__menu">
               {NAV.map((n) => (
                 <li key={n.href} className={n.sub ? "has-sub" : undefined}>
-                  <a href={n.href}>
+                  <a href={n.href} {...(n.external ? { target: "_blank", rel: "noopener" } : {})}>
                     <span className="header__menu-ja">{n.ja}</span>
                     <span className="header__menu-en">{n.en}</span>
                   </a>
@@ -186,7 +187,7 @@ export function GeekFooter() {
             <ul className="footer__menu">
               {NAV.map((n) => (
                 <li key={n.href}>
-                  <a href={n.href}>{n.ja}</a>
+                  <a href={n.href} {...(n.external ? { target: "_blank", rel: "noopener" } : {})}>{n.ja}</a>
                 </li>
               ))}
             </ul>

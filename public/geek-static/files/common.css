@@ -4195,3 +4195,104 @@ body[class][class] .u-text-black {
     padding: 10px 58px 10px 20px;
   }
 }
+
+/* === geek2: Claude Codeを学べる記事（bytech.jp/blog へのカルーセル） === */
+.g2blog { background: #f5f8f8; padding: min(96px, 7vw) 0 min(88px, 6.5vw); color: #071a3a; }
+.g2blog-lead {
+  margin: 18px 0 0;
+  color: #25272c;
+  font-size: clamp(13px, 1.5vw, 16px);
+  font-weight: 800;
+  line-height: 1.9;
+  text-align: center;
+}
+.g2blog-carousel { position: relative; margin-top: var(--g2-title-content-gap); }
+.g2blog-card { height: auto; }
+.g2blog-card > a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+  border: 1.5px solid #cfd7df;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.12s;
+}
+.g2blog-card > a:hover {
+  border-color: #00ac9b;
+  box-shadow: 0 10px 22px rgba(7, 26, 58, 0.1);
+  transform: translateY(-3px);
+}
+.g2blog-thumb { display: block; aspect-ratio: 16 / 9; overflow: hidden; background: #eef2f5; }
+.g2blog-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.g2blog-body { display: flex; flex: 1; flex-direction: column; padding: 16px 18px 18px; }
+.g2blog-date { color: #5d6a78; font-family: "Outfit", sans-serif; font-size: 12px; font-weight: 700; }
+.g2blog-title {
+  display: -webkit-box;
+  margin: 8px 0 14px;
+  color: #071a3a;
+  font-size: clamp(14px, 1.5vw, 16px);
+  font-weight: 900;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.g2blog-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  color: #00ac9b;
+  font-size: 13px;
+  font-weight: 900;
+}
+.g2blog-link::after {
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+  content: "";
+}
+.g2blogSwiper__pagination { position: static; height: 10px; margin-top: 22px; text-align: center; }
+.g2blogSwiper__pagination .swiper-pagination-bullet { width: 9px; height: 9px; }
+.g2blogSwiper__pagination .swiper-pagination-bullet-active { background: #00ac9b; }
+.g2blogSwiper__nav {
+  position: absolute;
+  top: 0;
+  bottom: 32px;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 0;
+  background: #071a3a;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(7, 26, 58, 0.22);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.12s, box-shadow 0.2s;
+}
+.g2blogSwiper__nav::before {
+  width: 10px;
+  height: 10px;
+  border-top: 2.5px solid #fff;
+  border-right: 2.5px solid #fff;
+  content: "";
+}
+.g2blogSwiper__nav--prev { left: -23px; }
+.g2blogSwiper__nav--prev::before { transform: translateX(3px) rotate(-135deg); }
+.g2blogSwiper__nav--next { right: -23px; }
+.g2blogSwiper__nav--next::before { transform: translateX(-3px) rotate(45deg); }
+.g2blogSwiper__nav:hover { background: #00ac9b; box-shadow: 0 8px 22px rgba(0, 172, 155, 0.35); transform: scale(1.06); }
+.g2blogSwiper__nav.swiper-button-disabled { opacity: 0.35; cursor: default; }
+.g2blog-more { margin-top: 34px; text-align: center; }
+@media (max-width: 1279px) {
+  /* カードの外に出すと画面からはみ出すので、カードに重ねる */
+  .g2blogSwiper__nav { width: 40px; height: 40px; background: rgba(7, 26, 58, 0.9); }
+  .g2blogSwiper__nav--prev { left: 8px; }
+  .g2blogSwiper__nav--next { right: 8px; }
+}
