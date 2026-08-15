@@ -2658,6 +2658,13 @@ body[class][class] .u-text-black {
   font-size: 0;
 }
 .g2a-lead img { display: block; width: auto; height: 62px; }
+.g2a-lead-name {
+  color: #071a3a;
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+}
 .g2a-lead em {
   color: #071a3a; font-size: 27px; font-weight: 900; font-style: normal;
 }
@@ -2729,6 +2736,7 @@ body[class][class] .u-text-black {
 @media (max-width: 767px) {
   .g2a-kicker { font-size: min(1rem, 3.8vw); }
   .g2a-lead img { height: 44px; }
+  .g2a-lead-name { font-size: 25px; }
   .g2a-lead em { font-size: 20px; }
   .g2a-title { font-size: 4.7vw; }
   .g2a-bodytext { font-size: 14px; }

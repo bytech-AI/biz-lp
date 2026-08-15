@@ -66,7 +66,7 @@ export function GeekStyles() {
       <style>{`@font-face{font-family:"Noto Sans JP";src:url(/bytech/fonts/NotoSansJP_VF-s.p.09a7lksm~5qfk.woff2) format("woff2");font-display:swap;font-weight:100 900;font-style:normal;}`}</style>
       {/* 英字見出し用の Outfit（ヘッダーのPROBLEM/COURSE等） */}
       <link rel="stylesheet" href="/geek-static/files/css2(1)" />
-      <link rel="stylesheet" href="/geek-static/files/common.css?v=20260815blog2" />
+      <link rel="stylesheet" href="/geek-static/files/common.css?v=20260815about" />
       <link rel="stylesheet" href="/geek-static/files/header.css?v=20260815nav" />
       <link rel="stylesheet" href="/geek-static/files/footer.css?v=20260704d" />
     </>
