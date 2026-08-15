@@ -277,7 +277,7 @@ video {
 .c-sec-ttl__en {
   display: inline-block;
   font-size: min(1.125rem, 1.35vw);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.04em;
   font-family: "Outfit", sans-serif;
   color: #00AC9B;
@@ -310,7 +310,7 @@ video {
   display: block;
   font-size: min(2.5rem, 3vw);
   line-height: 1.5;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.04em;
 }
 @media (max-width: 767px) {
@@ -4303,4 +4303,126 @@ body[class][class] .u-text-black {
   .g2blogSwiper__nav { width: 40px; height: 40px; background: rgba(7, 26, 58, 0.9); }
   .g2blogSwiper__nav--prev { left: 8px; }
   .g2blogSwiper__nav--next { right: 8px; }
+}
+
+/* === geek2: 受講生限定AIコミュニティ（3つの特徴の下） === */
+.g2com {
+  /* 直前のセクション（3つの特徴）と地続きに見えるので間を空ける */
+  margin-top: clamp(56px, 6vw, 88px);
+  padding: min(104px, 7.6vw) 0 min(96px, 7vw);
+  background: #00ac9b;
+}
+/* 緑地なので共通見出し(.c-sec-ttl)の文字色だけ反転させる */
+.g2com .c-sec-ttl { margin-bottom: clamp(24px, 3vw, 36px); }
+.g2com .c-sec-ttl__en { color: #ffd464; }
+.g2com .c-sec-ttl__ja { color: #fff; }
+.g2com-card {
+  padding: clamp(24px, 3.4vw, 44px) clamp(20px, 3vw, 44px) clamp(28px, 3.4vw, 40px);
+  background: #fff;
+  border-radius: 18px;
+}
+.g2com-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(20px, 3vw, 40px);
+  align-items: center;
+}
+.g2com-logo { display: block; width: min(230px, 20vw); height: auto; }
+.g2com-lead {
+  margin: clamp(20px, 3vw, 40px) 0 0;
+  color: #131313;
+  font-size: clamp(20px, 2.6vw, 34px);
+  font-weight: 800;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+.g2com-lead mark {
+  padding: 2px 6px;
+  background: #131313;
+  color: #fff;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.g2com-note {
+  margin: 0 0 14px;
+  color: #131313;
+  font-size: clamp(13px, 1.5vw, 17px);
+  font-weight: 800;
+  text-align: center;
+}
+.g2com-note em { color: #00857a; font-style: normal; }
+/* セミナーバナーを少しずつ重ねて置く */
+.g2com-banners { position: relative; height: clamp(190px, 20vw, 250px); }
+.g2com-banners img {
+  position: absolute;
+  width: 58%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 8px 20px rgba(7, 26, 58, 0.22);
+}
+.g2com-banners img:nth-child(1) { top: 0; left: 0; }
+.g2com-banners img:nth-child(2) { top: 30%; left: 21%; z-index: 2; }
+.g2com-banners img:nth-child(3) { top: 12%; right: 0; }
+.g2com-points {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin: clamp(28px, 3.4vw, 44px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.g2com-points li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 clamp(10px, 1.6vw, 22px);
+}
+.g2com-points li:not(:last-child) { border-right: 1px solid #e2e8ec; }
+.g2com-no {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 30px;
+  background: #00ac9b;
+  border-radius: 9999px;
+  color: #fff;
+  font-family: "Outfit", sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+}
+.g2com-point {
+  margin: 14px 0 0;
+  color: #131313;
+  font-size: clamp(13px, 1.5vw, 17px);
+  font-weight: 800;
+  line-height: 1.5;
+  text-align: center;
+}
+.g2com-point em { color: #00857a; font-style: normal; }
+.g2com-ico {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: clamp(96px, 10vw, 128px);
+  margin-top: 18px;
+}
+.g2com-ico img { display: block; width: auto; max-width: 100%; height: 100%; object-fit: contain; }
+@media (max-width: 900px) {
+  .g2com-head { grid-template-columns: 1fr; }
+  .g2com-lead { margin-top: 16px; }
+  .g2com-banners { height: 46vw; }
+}
+@media (max-width: 767px) {
+  /* SPはロゴを中央に */
+  .g2com-logo { margin: 0 auto; }
+  /* 「継続的な学習と成果を支援する」が2行に割れるので、収まるサイズまで落とす */
+  .g2com-lead { font-size: clamp(15px, 4.6vw, 19px); line-height: 1.7; }
+  /* 2×2。row-gapを0にして、縦線と横線が交差する見た目にする
+     （gapがあると線が途切れて十字にならない） */
+  .g2com-points { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 0; }
+  .g2com-points li { padding: 24px 10px; }
+  .g2com-points li:nth-child(2n) { border-right: 0; }
+  .g2com-points li:nth-child(-n+2) { border-bottom: 1px solid #e2e8ec; }
+  .g2com-points li:nth-child(-n+2) { padding-top: 0; }
+  .g2com-logo { width: 180px; }
 }
