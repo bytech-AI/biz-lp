@@ -23,7 +23,6 @@ function SubMenuLink({ c }: { c: NavChild }) {
 }
 
 const NAV: NavItem[] = [
-  { href: "/#problem", ja: "お悩み", en: "Problem" },
   {
     href: "/#course",
     ja: "コース",
@@ -68,7 +67,7 @@ export function GeekStyles() {
       {/* 英字見出し用の Outfit（ヘッダーのPROBLEM/COURSE等） */}
       <link rel="stylesheet" href="/geek-static/files/css2(1)" />
       <link rel="stylesheet" href="/geek-static/files/common.css?v=20260815blog2" />
-      <link rel="stylesheet" href="/geek-static/files/header.css?v=20260814sub2" />
+      <link rel="stylesheet" href="/geek-static/files/header.css?v=20260815nav" />
       <link rel="stylesheet" href="/geek-static/files/footer.css?v=20260704d" />
     </>
   );
