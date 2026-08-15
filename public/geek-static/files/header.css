@@ -252,7 +252,9 @@ header {
 }
 .header__content.fixed .header__logo {
   padding-top: 0;
-  width: min(270px, 18.75vw);
+  /* メニューの幅を確保するためロゴは小さめ・左寄せ */
+  width: min(200px, 14vw);
+  margin-left: 0;
 }
 .header__content.fixed .header__menu {
   padding: 0;
@@ -262,13 +264,21 @@ header {
   flex-direction: column;
   align-items: center;
   line-height: 1.25;
+  /* 項目が増えると2行に折り返して崩れるので、改行させない */
+  white-space: nowrap;
 }
+.header__content.fixed .header__menu li:nth-child(n+2) {
+  margin-left: min(34px, 2.5vw);
+}
+.header__content.fixed .header__menu-ja { font-size: min(0.875rem, 1vw); }
+.header__content.fixed .header__menu-en { font-size: min(0.625rem, 0.72vw); }
 .header__content.fixed .header__nav {
   align-items: center;
 }
 .header__content.fixed .header__reserve {
   width: min(200px, 13.8888888889vw);
-  margin-left: min(20px, 1.3888888889vw);
+  /* メニューと近すぎたので離す */
+  margin-left: min(36px, 2.6vw);
   background: #FF3410;
 }
 .header__content.fixed .header__reserve a {
