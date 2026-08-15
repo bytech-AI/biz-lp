@@ -4409,7 +4409,7 @@ body[class][class] .u-text-black {
 .g2com-ico img { display: block; width: auto; max-width: 100%; height: 100%; object-fit: contain; }
 @media (max-width: 900px) {
   .g2com-head { grid-template-columns: 1fr; }
-  .g2com-lead { margin-top: 16px; }
+  .g2com-lead { margin-top: 28px; }
   .g2com-banners { height: 46vw; }
 }
 @media (max-width: 767px) {

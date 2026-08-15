@@ -502,6 +502,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <p class="fv__copy-main"><span class="fv__copy-line">明日から、<span class="fv__copy-geek">AI開発</span><span class="fv__copy-sm">が</span></span><br><span class="fv__copy-line">あなたの日常<span class="fv__copy-sm">に。</span></span></p>
                 <h1 class="fv__copy-lead">アプリやツール開発の当たり前を変える<br><span class="fv__copy-cc">ClaudeCode</span>スクール「バイテックGEEK」</h1>
                 <div class="fv__copy-authority"><img src="/geek-static/files/authority_geek.svg" alt=""></div>
+                <div id="fv-quick-reserve-anchor"></div>
             </div>
 
             <picture>
@@ -520,6 +521,156 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         </div>
         <!-- /.fv -->
+
+        <!-- FV直下の簡易予約カレンダー（SPのみ表示） -->
+        <section class="g2quick" id="quick-reserve">
+            <p class="g2quick-bubble">＼ まずは<em>無料</em>で相談！ ／</p>
+            <p class="g2quick-lead">▼ <span>今日、明日</span>の空き枠を確認する ▼</p>
+<div class="cs-wrapper"><div class="cs-header"></div><div class="cs-progress"><div class="cs-step active" data-s="1"><div class="cs-dot"><span class="cs-dot-num">1</span></div><span class="cs-dot-label">日時選択</span></div><div class="cs-conn half"><div class="cs-conn-fill"></div></div><div class="cs-step" data-s="2"><div class="cs-dot"><span class="cs-dot-num">2</span></div><span class="cs-dot-label">お客様情報</span></div><div class="cs-conn"><div class="cs-conn-fill"></div></div><div class="cs-step" data-s="3"><div class="cs-dot"><span class="cs-dot-num">3</span></div><span class="cs-dot-label">確認・送信</span></div></div><div class="cs-card"><div class="cs-card-accent"></div><div class="cs-card-body"><div class="cs-panel active" id="csStep1"><div class="cs-day-toggle"> <button class="cs-day-btn active" id="csBtnToday" onclick="csSelectDay('today')">今日<span class="cs-day-label" id="csTodayLabel"></span></button> <button class="cs-day-btn" id="csBtnTomorrow" onclick="csSelectDay('tomorrow')">明日<span class="cs-day-label" id="csTomorrowLabel"></span></button></div><div class="cs-slots" id="csSlots"><div class="cs-skeleton"></div><div class="cs-skeleton"></div><div class="cs-skeleton"></div><div class="cs-skeleton"></div><div class="cs-skeleton"></div><div class="cs-skeleton"></div></div><div class="cs-btn-row"><button class="cs-btn cs-btn-next" id="csBtnStep1" disabled onclick="csGoTo(2)"><span class="cs-btn-text">次へ進む</span></button></div></div><div class="cs-panel" id="csStep2"><div class="cs-time-bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span id="csTimeBarText">-</span></div><div class="cs-field"> <label class="cs-label">お名前 <span class="cs-req">必須</span></label><div class="cs-name-row"> <input type="text" class="cs-input" id="csLastName" placeholder="姓（例：山田）" autocomplete="family-name"> <input type="text" class="cs-input" id="csFirstName" placeholder="名（例：太郎）" autocomplete="given-name"></div><div class="cs-err" id="csErrName">姓・名ともに入力してください</div></div><div class="cs-field"><label class="cs-label">メールアドレス <span class="cs-req">必須</span></label><input type="email" class="cs-input" id="csEmail" placeholder="例：taro@example.com" autocomplete="email"><div class="cs-err" id="csErrEmail">正しいメールアドレスを入力してください</div></div><div class="cs-field"><label class="cs-label">電話番号 <span class="cs-req">必須</span></label><input type="tel" class="cs-input" id="csPhone" placeholder="例：09012345678（ハイフンなし）" autocomplete="tel"><div class="cs-err" id="csErrPhone">電話番号を入力してください</div></div><div class="cs-btn-row"><button class="cs-btn cs-btn-back" onclick="csGoTo(1)">戻る</button><button class="cs-btn cs-btn-next" onclick="csGoTo(3)"><span class="cs-btn-text">確認画面へ</span></button></div></div><div class="cs-panel" id="csStep3"><div class="pre-is-3"><div class="pre-is-4">予約内容</div><div class="pre-is-5"><span class="pre-is-6">日時</span><span id="csConfTime" class="pre-is-7">-</span></div><div class="pre-is-5"><span class="pre-is-6">お名前</span><span id="csConfName" class="pre-is-7">-</span></div><div class="pre-is-5"><span class="pre-is-6">メール</span><span id="csConfEmail" class="pre-is-8">-</span></div><div class="pre-is-5"><span class="pre-is-6">電話番号</span><span id="csConfPhone" class="pre-is-7">-</span></div></div><div class="cs-btn-row"><button class="cs-btn cs-btn-back" onclick="csGoTo(2)">修正する</button><button class="cs-btn cs-btn-submit" id="csBtnSubmit" onclick="csSubmit()"><span class="cs-btn-text">この内容で予約する</span><div class="cs-spinner"></div></button></div><div class="pre-is-9">送信いただいた情報は<a href="/privacy-policy" target="_blank" class="pre-is-10">プライバシーポリシー</a>・<a href="/membership-terms" target="_blank" class="pre-is-10">利用規約</a>に基づき適切に管理いたします。</div></div></div></div><div class="cs-counter" id="csCounter">1 / 3</div><div class="cs-view-all"><a href="#counseling">全ての日程を見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a></div></div>
+        </section>
+        <!-- /.g2quick -->
+
+<style id="g2quick-style">
+/* FV直下の簡易カレンダー。PCでは既存の予約フォームがあるためSPのみ表示 */
+.g2quick { display: none; }
+@media (max-width: 767px) {
+  .fv { min-height: 1120px; aspect-ratio: auto; background: #fff; }
+  .fv #fadeWrap { height: 213.333vw; }
+  .fv .fv__copy { top: 46.933vw; }
+  .fv__button { display: none; }
+  .case { margin-top: 0; }
+  .g2quick {
+    --cs-primary: #00ac9b;
+    --cs-primary-bg: #e6f6f4;
+    --cs-blue: #00ac9b;
+    --cs-blue-dark: #00857a;
+    --cs-blue-light: #e6f6f4;
+    --cs-text: #1a2638;
+    --cs-text-sub: #5e7082;
+    --cs-border: #e2e8f0;
+    --cs-err: #ef4444;
+    --cs-bg: #fff;
+    --cs-card: #fff;
+    --cs-gray: #f4f6f9;
+    --cs-green: #10b981;
+    display: block;
+    position: relative;
+    width: 90vw;
+    margin: 110px 0 0;
+    padding: 20px 10px 18px;
+    box-sizing: border-box;
+    border: 2px solid #00ac9b;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 12px 32px rgba(7, 26, 58, .2);
+  }
+  .g2quick .g2quick-bubble {
+    position: absolute;
+    bottom: calc(100% + 28px);
+    left: 50%;
+    z-index: 2;
+    margin: 0;
+    white-space: nowrap;
+    border-color: #ff3410;
+    background: linear-gradient(180deg, #ff6240 0%, #ff3410 100%);
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(100, 18, 0, .18);
+    box-shadow: 0 7px 0 #c83b00, 0 14px 24px rgba(120, 28, 0, .22);
+    transform: translateX(-50%);
+  }
+  .g2quick .g2quick-bubble em { color: #fff4a8; }
+  .g2quick .g2quick-bubble::after {
+    bottom: -13px;
+    background: #ff3410;
+    border-color: #c83b00;
+  }
+  .g2quick .cs-header { display: none; }
+  .g2quick .cs-wrapper { padding-top: 0; padding-bottom: 0; }
+  .g2quick .cs-card { border: 1px solid #e2e8f0; box-shadow: none; }
+  .g2quick .cs-card-accent { display: none; }
+  .g2quick .cs-card-body { padding: 16px; }
+  .g2quick .cs-step.active .cs-dot,
+  .g2quick .cs-step.done .cs-dot,
+  .g2quick .cs-btn-next,
+  .g2quick .cs-btn-submit { background: #00ac9b; }
+  .g2quick .cs-step.active .cs-dot { box-shadow: 0 0 0 4px rgba(0, 172, 155, .14); }
+  .g2quick .cs-day-toggle {
+    gap: 0;
+    padding: 0;
+    margin: -16px -16px 20px;
+    overflow: hidden;
+    border-radius: 0;
+    background: #f1f1f1;
+    box-shadow: 0 5px 14px rgba(7, 26, 58, .12);
+  }
+  .g2quick .cs-day-btn {
+    padding: 14px 8px;
+    border: 0;
+    border-radius: 0;
+    background: #f1f1f1;
+    color: #333;
+    box-shadow: none;
+  }
+  .g2quick .cs-day-btn.active {
+    border-color: #00ac9b;
+    background: #00ac9b;
+    color: #fff;
+    box-shadow: none;
+  }
+  .g2quick .cs-day-btn.active .cs-day-label { color: #fff; }
+  .g2quick .cs-slot.selected {
+    border-color: #00ac9b;
+    background: #e6f6f4;
+  }
+  .g2quick .cs-slot.selected .cs-slot-time,
+  .g2quick .cs-time-bar,
+  .g2quick .cs-view-all a,
+  .g2quick .pre-is-10 { color: #00857a !important; }
+  .g2quick .cs-input:focus { border-color: #00ac9b; }
+  .g2quick .cs-view-all a { border-color: #00ac9b; }
+}
+.g2quick-bubble {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto 18px;
+  padding: 11px 26px;
+  border: 2px solid #00ac9b;
+  border-radius: 9999px;
+  color: #071a3a;
+  font-size: 17px;
+  font-weight: 900;
+}
+.g2quick-bubble::after {
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-right: 2px solid #00ac9b;
+  border-bottom: 2px solid #00ac9b;
+  transform: translateX(-50%) rotate(45deg);
+  content: "";
+}
+.g2quick-bubble em { color: #00ac9b; font-style: normal; }
+.g2quick-lead {
+  margin: 0 0 18px;
+  color: #071a3a;
+  font-size: 15px;
+  font-weight: 900;
+  text-align: center;
+}
+.g2quick-lead span { color: #00ac9b; }
+:root{--cs-navy:#0b1d3a;--cs-blue:#00AC9B;--cs-blue-dark:#00857a;--cs-blue-light:#e6f6f4;--cs-accent:#FF3410;--cs-green:#10b981;--cs-green-light:#ecfdf5;--cs-red:#ef4444;--cs-card:#fff;--cs-text:#1a2638;--cs-text-sub:#5e7082;--cs-border:#e2e8f0;--cs-gray:#f4f6f9;--radius:12px;--shadow:0 4px 20px rgba(0,30,80,.08)}body{font-family:'Noto Sans JP',sans-serif;color:var(--cs-text);line-height:1.6;-webkit-font-smoothing:antialiased}.cs-wrapper{max-width:440px;margin:0 auto;padding:0 14px}.cs-header{text-align:center;padding:20px 0 14px}.cs-progress{display:flex;align-items:center;justify-content:center;margin:0 0 16px}.cs-step{display:flex;flex-direction:column;align-items:center;flex:1;z-index:2}.cs-dot{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;background:var(--cs-gray);color:var(--cs-text-sub);border:2px solid var(--cs-border);transition:all .4s}.cs-step.active .cs-dot{background:var(--cs-blue);color:#fff;border-color:var(--cs-blue);box-shadow:0 0 0 4px rgba(83,58,252,.15);animation:csDotPulse 2s ease-in-out infinite}.cs-step.done .cs-dot{background:var(--cs-green);color:#fff;border-color:var(--cs-green);animation:none}.cs-step.done .cs-dot-num{display:none}.cs-step.done .cs-dot:after{content:'✓';font-size:13px}.cs-dot-label{font-size:10px;font-weight:600;color:var(--cs-text-sub);margin-top:4px;white-space:nowrap}.cs-step.active .cs-dot-label,.cs-step.done .cs-dot-label{color:var(--cs-blue)}.cs-conn{flex:.4;height:2px;background:var(--cs-border);margin-bottom:18px;border-radius:1px;overflow:hidden}.cs-conn-fill{height:100%;width:0;background:linear-gradient(90deg,var(--cs-green),var(--cs-blue));transition:width .5s}.cs-conn.filled .cs-conn-fill{width:100%}.cs-conn.half .cs-conn-fill{width:50%}.cs-card{background:var(--cs-card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}.cs-card-accent{height:3px;background:linear-gradient(90deg,var(--cs-navy),var(--cs-blue))}.cs-card-body{padding:24px 20px}.cs-panel{display:none;animation:csFade .3s ease-out}.cs-panel.active{display:block}.cs-day-toggle{display:flex;background:var(--cs-gray);border-radius:10px;padding:4px;margin-bottom:20px}.cs-day-btn{flex:1;padding:12px 8px;text-align:center;border:none;border-radius:8px;background:0 0;font-family:inherit;font-size:14px;font-weight:600;color:var(--cs-text-sub);cursor:pointer;transition:all .25s}.cs-day-btn.active{background:var(--cs-blue);color:#fff;box-shadow:0 2px 8px rgba(83,58,252,.3)}.cs-day-btn:not(.active):hover{background:rgba(83,58,252,.08);color:var(--cs-blue)}.cs-day-btn .cs-day-label{display:block;font-size:11px;font-weight:500;opacity:.8;margin-top:2px}.cs-day-btn.active .cs-day-label{opacity:1}.cs-slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.cs-skeleton{background:linear-gradient(90deg,#eee 25%,#f8f8f8 50%,#eee 75%);background-size:200% 100%;animation:csShimmer 1.5s infinite;border-radius:8px;height:56px}.cs-slot{border:2px solid var(--cs-border);border-radius:10px;padding:14px 6px;text-align:center;cursor:pointer;transition:all .2s;background:var(--cs-card)}.cs-slot:hover{border-color:#c4b9fd;transform:translateY(-1px)}.cs-slot.selected{border-color:var(--cs-blue);background:var(--cs-blue-light);box-shadow:0 0 0 3px rgba(83,58,252,.12)}.cs-slot-time{font-size:20px;font-weight:800;color:var(--cs-text);letter-spacing:-.5px}.cs-slot.selected .cs-slot-time{color:var(--cs-blue)}.cs-cap{font-size:10px;font-weight:700;margin-top:4px;padding:1px 6px;border-radius:4px;display:inline-block}.cs-cap-ok{background:#e6f9ee;color:#059669}.cs-cap-few{background:#fff7e6;color:#d97706}.cs-cap-last{background:#fee2e2;color:#dc2626}.cs-no-slots{text-align:center;padding:28px 16px;color:var(--cs-text-sub);grid-column:span 3}.cs-no-slots p{font-size:14px;margin-bottom:4px}.cs-time-bar{display:flex;align-items:center;gap:8px;background:var(--cs-blue-light);color:var(--cs-blue);font-size:13px;font-weight:600;padding:10px 14px;border-radius:8px;margin-bottom:20px;border-left:3px solid var(--cs-blue)}.cs-time-bar svg{width:16px;height:16px;flex-shrink:0}.cs-field{margin-bottom:16px}.cs-label{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--cs-text);margin-bottom:5px}.cs-req{font-size:9px;font-weight:700;color:#fff;background:var(--cs-red);padding:1px 5px;border-radius:3px}.cs-input{width:100%;padding:12px 14px;font-size:15px;font-family:inherit;color:var(--cs-text);background:var(--cs-gray);border:2px solid transparent;border-radius:8px;outline:none;transition:all .2s;-webkit-appearance:none}.cs-input:focus{background:#fff;border-color:var(--cs-blue);box-shadow:0 0 0 3px rgba(83,58,252,.1)}.cs-input.error{border-color:var(--cs-red);background:#fef2f2}.cs-input::placeholder{color:#a0aec0}.cs-err{font-size:11px;color:var(--cs-red);margin-top:3px;display:none}.cs-err.show{display:block}.cs-btn-row{display:flex;gap:8px;margin-top:24px}.cs-btn{flex:1;padding:14px 16px;font-size:15px;font-family:inherit;font-weight:700;border:none;border-radius:8px;cursor:pointer;transition:all .2s;-webkit-appearance:none}.cs-btn:active{transform:scale(.98)}.cs-btn-next{background:var(--cs-blue);color:#fff;box-shadow:0 2px 8px rgba(83,58,252,.25)}.cs-btn-next:hover{background:var(--cs-blue-dark)}.cs-btn-next:disabled{background:#b0c4de;box-shadow:none;cursor:not-allowed}.cs-btn-back{background:var(--cs-gray);color:var(--cs-text-sub);flex:.4}.cs-btn-back:hover{background:var(--cs-border)}.cs-btn-submit{background:linear-gradient(135deg,var(--cs-navy),var(--cs-blue));color:#fff;box-shadow:0 4px 16px rgba(83,58,252,.25);position:relative;overflow:hidden}.cs-btn-submit:hover{box-shadow:0 6px 20px rgba(83,58,252,.35);transform:translateY(-1px)}.cs-btn-submit:active{transform:translateY(0) scale(.98)}.cs-btn-submit:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);transform:translateX(-100%);animation:csShine 3s infinite}.cs-btn .cs-spinner{display:none;width:18px;height:18px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:csSpin .6s linear infinite;margin:0 auto}.cs-btn.loading .cs-btn-text{display:none}.cs-btn.loading .cs-spinner{display:inline-block}.cs-counter{text-align:center;font-size:11px;color:var(--cs-text-sub);margin-top:12px}.cs-view-all{text-align:center;margin-top:14px}.cs-view-all a{display:inline-flex;align-items:center;gap:5px;color:var(--cs-blue);font-size:13px;font-weight:600;text-decoration:none;padding:8px 18px;border:1.5px solid var(--cs-blue);border-radius:24px;transition:all .2s}.cs-view-all a:hover{background:var(--cs-blue-light)}.cs-view-all a svg{width:14px;height:14px}.cs-wrapper{padding:0 10px}.cs-card-body{padding:20px 16px}.cs-slots{grid-template-columns:repeat(2,1fr)}.cs-no-slots{grid-column:span 2}.cs-slot-time{font-size:18px}
+
+/* extracted from inline style */
+:root{--cs-primary:#4f46e5;--cs-primary-bg:#f5f3ff;--cs-blue:#4f46e5;--cs-text:#1a1a2e;--cs-text-sub:#888;--cs-border:#eee;--cs-err:#e74c3c;--cs-bg:#fff}.cs-wrapper{max-width:520px;margin:0 auto;padding:16px 12px;font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',Meiryo,sans-serif;color:var(--cs-text)}.cs-header{min-height:0}.cs-progress{display:flex;align-items:center;justify-content:center;gap:0;margin:0 0 14px}.cs-step{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0}.cs-dot{width:26px;height:26px;border-radius:50%;background:#e0e0e0;display:flex;align-items:center;justify-content:center;transition:all .3s}.cs-dot-num{font-size:12px;font-weight:700;color:#999}.cs-dot-label{font-size:10px;color:#999;font-weight:600;white-space:nowrap}.cs-step.active .cs-dot{background:var(--cs-primary)}.cs-step.active .cs-dot-num{color:#fff}.cs-step.active .cs-dot-label{color:var(--cs-primary)}.cs-step.done .cs-dot{background:var(--cs-primary)}.cs-step.done .cs-dot-num{color:#fff}.cs-step.done .cs-dot-label{color:var(--cs-primary)}.cs-conn{flex:1;height:3px;background:#e0e0e0;border-radius:2px;margin:0 6px;position:relative;margin-bottom:16px;overflow:hidden}.cs-conn-fill{position:absolute;top:0;left:0;height:100%;width:0;background:var(--cs-primary);border-radius:2px;transition:width .4s}.cs-conn.half .cs-conn-fill{width:50%}.cs-conn.filled .cs-conn-fill{width:100%}.cs-card{background:var(--cs-bg);border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.06);overflow:hidden}.cs-card-accent{height:3px;background:linear-gradient(90deg,var(--cs-primary),#6c5ce7)}.cs-card-body{padding:16px}.cs-panel{display:none}.cs-panel.active{display:block}.cs-day-toggle{display:flex;gap:8px;margin-bottom:12px}.cs-day-btn{flex:1;padding:10px;border:1.5px solid var(--cs-border);border-radius:10px;background:var(--cs-bg);cursor:pointer;font-size:13px;font-weight:700;color:var(--cs-text-sub);display:flex;flex-direction:column;align-items:center;gap:2px;transition:all .2s;font-family:inherit}.cs-day-btn.active{border-color:var(--cs-primary);background:var(--cs-primary-bg);color:var(--cs-primary)}.cs-day-label{font-size:11px;font-weight:600;color:var(--cs-text-sub)}.cs-day-btn.active .cs-day-label{color:var(--cs-primary)}.cs-slots{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px;}.cs-skeleton{height:52px;background:linear-gradient(90deg,#f0f0f0,#fafafa,#f0f0f0);background-size:200% 100%;animation:csShimmer 1.2s infinite;border-radius:10px}.cs-slot{border:1.5px solid var(--cs-border);border-radius:10px;padding:10px 12px;background:var(--cs-bg);cursor:pointer;transition:all .15s;display:flex;flex-direction:column;align-items:center;gap:3px}.cs-slot:hover{border-color:var(--cs-primary);background:var(--cs-primary-bg)}.cs-slot.selected{border-color:var(--cs-primary);border-width:2.5px;background:var(--cs-primary-bg)}.cs-slot.selected .cs-slot-time{color:var(--cs-primary)}.cs-slot-time{font-size:15px;font-weight:800;line-height:1.2}.cs-cap{font-size:10px;font-weight:700;letter-spacing:.3px}.cs-cap-ok{color:#27ae60}.cs-cap-few{color:#e67e22}.cs-cap-last{color:#e74c3c}.cs-no-slots{grid-column:1/-1;text-align:center;padding:24px 10px;color:var(--cs-text-sub);font-size:13px}.cs-no-slots p{margin:0 0 4px}.cs-time-bar{display:flex;align-items:center;gap:6px;background:var(--cs-primary-bg);padding:8px 12px;border-radius:8px;margin-bottom:12px;font-size:13px;font-weight:600;color:var(--cs-primary)}.cs-time-bar svg{width:16px;height:16px;flex-shrink:0}.cs-field{margin-bottom:12px}.cs-label{display:block;font-size:12px;font-weight:700;color:var(--cs-text);margin-bottom:4px}.cs-req{color:var(--cs-err)!important;font-size:10px;font-weight:700;background:transparent!important;padding:0!important;border:none!important;display:inline!important}.cs-input{width:100%;padding:10px 12px;border:1.5px solid var(--cs-border);border-radius:8px;font-size:14px;color:var(--cs-text);outline:none;transition:border .2s;box-sizing:border-box;font-family:inherit}.cs-input:focus{border-color:var(--cs-primary)}.cs-input.error{border-color:var(--cs-err);background:#fef2f2}.cs-name-row{display:flex;gap:8px}.cs-name-row .cs-input{flex:1}.cs-err{display:none;font-size:11px;color:var(--cs-err);margin-top:3px;font-weight:600}.cs-err.show{display:block}.cs-btn-row{display:flex;gap:8px;margin-top:14px}.cs-btn{flex:1;padding:12px 14px;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit;position:relative}.cs-btn-next{background:var(--cs-primary);color:#fff}.cs-btn-next:hover{background:#4338ca}.cs-btn-next:disabled{opacity:.4;cursor:not-allowed}.cs-btn-back{background:#f0f0f0;color:var(--cs-text-sub)}.cs-btn-back:hover{background:#e5e5e5}.cs-btn-submit{background:var(--cs-primary);color:#fff}.cs-btn-submit:hover{background:#4338ca}.cs-btn-submit.loading .cs-btn-text{visibility:hidden}.cs-btn-submit.loading .cs-spinner{display:block}.cs-spinner{display:none;width:20px;height:20px;border:3px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:csSpin .6s linear infinite;position:absolute;top:50%;left:50%;margin:-10px 0 0 -10px}.cs-counter{text-align:center;font-size:11px;color:var(--cs-text-sub);margin-top:10px;font-weight:600}.cs-view-all{text-align:center;margin-top:10px;font-size:12px}.cs-view-all a{color:var(--cs-primary);text-decoration:none;display:inline-flex;align-items:center;gap:4px}.cs-view-all svg{width:12px;height:12px}
+.pre-is-4{font-size:11px!important;font-weight:700!important;color:var(--cs-text-sub)!important;text-transform:uppercase!important;letter-spacing:1px!important;margin-bottom:8px!important;padding-bottom:5px!important;border-bottom:1px solid var(--cs-border)!important}
+.pre-is-6{color:var(--cs-text-sub)!important}
+.pre-is-9{text-align:center!important;font-size:10px!important;color:var(--cs-text-sub)!important;margin-top:10px!important;line-height:1.5!important}
+.pre-is-10{color:var(--cs-blue)!important;text-decoration:underline!important}
+</style>
+
 
         <section class="case c-bg1" id="results">
             <div class="inner">
@@ -2831,4 +2982,35 @@ document.querySelectorAll(`.faq__q>div`).forEach(tar => {
 
 
 
+<script id="g2quick-js">
+const ENTRY='fv_quick';const DAY_NAMES=['日','月','火','水','木','金','土'];let csStep=1,csSelectedStart='',csSelectedLabel='',csSelectedDateStr='',csCurrentDay='today',csAllSlots=[];window.dataLayer=window.dataLayer||[];function csJstTodayStr(){return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());}
+function csAddDaysJst(ymd,n){var p=ymd.split('-').map(Number);var d=new Date(Date.UTC(p[0],p[1]-1,p[2])+n*86400000);return d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');}
+function csJstDow(ymd){var p=ymd.split('-').map(Number);return new Date(Date.UTC(p[0],p[1]-1,p[2])).getUTCDay();}
+function csFmtLabel(ymd){var p=ymd.split('-').map(Number);return p[1]+'/'+p[2]+'('+DAY_NAMES[csJstDow(ymd)]+')';}
+function csSyncFvHeight(){if(!window.matchMedia('(max-width: 767px)').matches)return;requestAnimationFrame(function(){var fv=document.querySelector('.fv'),copy=document.querySelector('.fv__copy');if(!fv||!copy)return;fv.style.height=Math.max(1120,copy.offsetTop+copy.offsetHeight+96)+'px';});}
+function csInit(){var anchor=document.getElementById('fv-quick-reserve-anchor'),quick=document.getElementById('quick-reserve');if(anchor&&quick)anchor.replaceWith(quick);var today=csJstTodayStr();var tomorrow=csAddDaysJst(today,1);document.getElementById('csTodayLabel').textContent=csFmtLabel(today);document.getElementById('csTomorrowLabel').textContent=csFmtLabel(tomorrow);csSyncFvHeight();csFetchSlots();}
+async function csFetchSlots(){try{const res=await fetch(GAS_URL+'?action=slots&lp_type='+encodeURIComponent(LP_TYPE),{cache:'no-store'});const text=await res.text();let result;try{result=JSON.parse(text);}catch{csShowNoSlots('枠の取得に失敗しました');return;}
+if(!result.success||!result.slots||result.slots.length===0){csShowNoSlots('現在、予約可能な枠がありません');return;}
+csAllSlots=result.slots;csRenderDay();}catch{csShowNoSlots('枠の取得に失敗しました');}}
+function csSelectDay(day){csCurrentDay=day;document.getElementById('csBtnToday').classList.toggle('active',day==='today');document.getElementById('csBtnTomorrow').classList.toggle('active',day==='tomorrow');csSelectedStart='';csSelectedLabel='';csSelectedDateStr='';document.getElementById('csBtnStep1').disabled=true;csRenderDay();}
+function csRenderDay(){var container=document.getElementById('csSlots'),nowMs=Date.now();var today=csJstTodayStr();var tds=csCurrentDay==='tomorrow'?csAddDaysJst(today,1):today;var daySlots=csAllSlots.filter(function(s){return typeof s.startedAt==='string'&&s.startedAt.substring(0,10)===tds;}).filter(function(s){return new Date(s.startedAt).getTime()>nowMs-30*60*1000;});if(daySlots.length===0){csShowNoSlots();return;}
+container.innerHTML='';document.getElementById('csBtnStep1').style.display='';daySlots.forEach(function(slot){var timeStr=slot.startedAt.substring(11,16);var cap=slot.remainingCapacity||1;var badge='';if(cap<=1)badge='<div class="cs-cap cs-cap-last">△ あと'+cap+'席</div>';else if(cap<=2)badge='<div class="cs-cap cs-cap-few">△ あと'+cap+'席</div>';else badge='<div class="cs-cap cs-cap-ok">◎ 空きあり</div>';var div=document.createElement('div');div.className='cs-slot';div.dataset.start=slot.startedAt;div.dataset.date=tds;div.innerHTML='<div class="cs-slot-time">'+timeStr+'</div>'+badge;div.onclick=function(){document.querySelectorAll('.cs-slot').forEach(function(s){s.classList.remove('selected');});this.classList.add('selected');csSelectedStart=slot.startedAt;csSelectedDateStr=tds;var dayLabel=csCurrentDay==='today'?'今日':'明日';csSelectedLabel=dayLabel+' '+csFmtLabel(tds)+' '+timeStr+'〜';document.getElementById('csBtnStep1').disabled=false;dataLayer.push({event:'consultation_slot_click',slot_time:timeStr});var _btn=document.getElementById('csBtnStep1');var _rect=_btn.getBoundingClientRect();function getScrollParent(el){while(el&&el!==document.body){var st=window.getComputedStyle(el);if(/(auto|scroll)/.test(st.overflow+st.overflowY))return el;el=el.parentElement;}return window;}
+var _scroller=getScrollParent(_btn);var _scrollTop=(_scroller===window?window.scrollY:_scroller.scrollTop);var _offset=(_scroller===window?_rect.top:_rect.top-_scroller.getBoundingClientRect().top);var _target=_scrollTop+_offset-window.innerHeight/2+_rect.height/2;if(_scroller===window){window.scrollTo({top:_target,behavior:'smooth'});}else{_scroller.scrollTo({top:_target,behavior:'smooth'});}};container.appendChild(div);});csSyncFvHeight();}
+function csShowNoSlots(msg){document.getElementById('csSlots').innerHTML='<div class="cs-no-slots"><p>'+(msg||(csCurrentDay==='today'?'本日の空き枠はありません':'明日の空き枠はありません'))+'</p><small>「全ての日程を見る」から別の日程をお選びいただけます</small></div>';document.getElementById('csBtnStep1').style.display='none';csSyncFvHeight();}
+function csGoTo(step){if(step>csStep&&csStep===2&&!csValidate())return;if(step===2)document.getElementById('csTimeBarText').textContent=csSelectedLabel;if(step===3)csPopulateConfirm();csStep=step;csUpdateUI();}
+function csUpdateUI(){document.querySelectorAll('.cs-panel').forEach(function(p){p.classList.remove('active');});document.getElementById('csStep'+csStep).classList.add('active');document.querySelectorAll('.cs-step').forEach(function(d){var s=parseInt(d.dataset.s);d.classList.remove('active','done');if(s===csStep)d.classList.add('active');else if(s<csStep)d.classList.add('done');});document.querySelectorAll('.cs-conn').forEach(function(c,i){c.classList.remove('filled','half');if(i+1<csStep)c.classList.add('filled');else if(i+1===csStep)c.classList.add('half');});document.getElementById('csCounter').textContent=csStep+' / 3';csSyncFvHeight();document.querySelector('.cs-wrapper').scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('csBtnStep1').style.display='';}
+function csValidate(){var ok=true;var ln=document.getElementById('csLastName'),fn=document.getElementById('csFirstName');var em=document.getElementById('csEmail'),ph=document.getElementById('csPhone');[ln,fn,em,ph].forEach(function(f){f.classList.remove('error');});document.querySelectorAll('.cs-err').forEach(function(el){el.classList.remove('show');});if(!ln.value.trim()){ln.classList.add('error');document.getElementById('csErrName').classList.add('show');ok=false;}
+if(!fn.value.trim()){fn.classList.add('error');document.getElementById('csErrName').classList.add('show');ok=false;}
+if(!em.value.trim()||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)){em.classList.add('error');document.getElementById('csErrEmail').classList.add('show');ok=false;}
+if(!ph.value.trim()){ph.classList.add('error');document.getElementById('csErrPhone').classList.add('show');ok=false;}
+return ok;}
+function csPopulateConfirm(){var last=document.getElementById('csLastName').value.trim();var first=document.getElementById('csFirstName').value.trim();document.getElementById('csConfTime').textContent=csSelectedLabel;document.getElementById('csConfName').textContent=(last+' '+first).trim();document.getElementById('csConfEmail').textContent=document.getElementById('csEmail').value;document.getElementById('csConfPhone').textContent=document.getElementById('csPhone').value;}
+async function csSubmit(){var btn=document.getElementById('csBtnSubmit');btn.classList.add('loading');btn.disabled=true;dataLayer.push({event:'consultation_form_submit'});try{var last=document.getElementById('csLastName').value.trim();var first=document.getElementById('csFirstName').value.trim();var params=new URLSearchParams({action:'book',started_at:csSelectedStart,displayed_date:csSelectedDateStr||(csSelectedStart?csSelectedStart.substring(0,10):''),last_name:last,first_name:first,name:(last+' '+first).trim(),email:document.getElementById('csEmail').value.trim(),phone:document.getElementById('csPhone').value.trim(),source:SOURCE,lp_type:LP_TYPE,entry:ENTRY,route_id:ROUTE_ID});var res=await fetch(GAS_URL+'?'+params,{cache:'no-store'});var text=await res.text();var result;try{result=JSON.parse(text);}catch{throw new Error('Invalid response');}
+if(result.error){alert('エラー: '+result.error);}
+else{dataLayer.push({event:'consultation_form_complete',booking_id:result.bookingId||''});window.location.href=THANKS_URL;}}catch{alert('通信エラーが発生しました。もう一度お試しください。');}
+finally{btn.classList.remove('loading');btn.disabled=false;}}
+document.querySelectorAll('.cs-input').forEach(function(input){input.addEventListener('input',function(){this.classList.remove('error');var err=this.closest('.cs-field').querySelector('.cs-err');if(err)err.classList.remove('show');});});document.getElementById('csLastName').addEventListener('focus',function(){dataLayer.push({event:'consultation_name_focus'});},{once:true});document.getElementById('csEmail').addEventListener('focus',function(){dataLayer.push({event:'consultation_email_focus'});},{once:true});window.addEventListener('resize',csSyncFvHeight);csInit();
+
+
+</script>
 </body></html>
