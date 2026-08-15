@@ -7,7 +7,7 @@ import { GeekCourseLp, type CourseData } from "./GeekCourseLp";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://geek.bytech.jp"),
-  title: "Claude Code エンジニアコース｜バイテックGEEK",
+  title: "Claude Code エンジニアコース｜バイテックGEEK【公式】",
   description:
     "IT未経験・非エンジニアからでも、Claude Codeで業務自動化からWebアプリ開発までを「作り切る」力が身につく実践コース。全44レッスン・履修期間2〜6ヶ月、専属メンターが伴走します。",
   alternates: { canonical: "/engineer-course" },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://geek.bytech.jp/engineer-course",
     siteName: "バイテックGEEK",
-    title: "Claude Code エンジニアコース｜バイテックGEEK",
+    title: "Claude Code エンジニアコース｜バイテックGEEK【公式】",
     description:
       "IT未経験・非エンジニアからでも、Claude Codeで「作れる側」になる実践コース。全44レッスン・履修期間2〜6ヶ月。",
     locale: "ja_JP",
