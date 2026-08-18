@@ -253,7 +253,7 @@ export function BizFooter() {
         </div>
       </div>
       <div className="footer__bottom">
-        <img loading="lazy" src="/biz/assets/img/common/ft-logo_w.svg" alt="footer logo" className="footer__logo" />
+        <img loading="lazy" src="/biz/assets/img/common/ft-logo_w.svg" alt="バイテック法人AI研修" className="footer__logo" />
         <p className="footer__copy">2025 株式会社AI棒</p>
       </div>
     </footer>

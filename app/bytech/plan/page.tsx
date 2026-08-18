@@ -1077,7 +1077,7 @@ export default function PlanPage() {
           </ul>
           <div className="footer__col__ttl" style={{ 'marginTop': '24px' }}>関連サービス</div>
           <ul className="footer__col__list">
-            <li><a href="https://biz.bytech.jp/" target="_blank">法人向けAI研修【バイテックBiz】&#8599;</a></li>
+            <li><a href="https://biz.bytech.jp/" target="_blank">【バイテック法人AI研修】&#8599;</a></li>
             <li><a href="https://bytech.jp/blog/" target="_blank">個人向けAIメディア【バイテックBLOG】&#8599;</a></li>
             <li><a href="https://biz.bytech.jp/blog/" target="_blank">企業向けAIメディア【バイテックBLOG Biz】&#8599;</a></li>
           </ul>
