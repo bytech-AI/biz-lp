@@ -20,15 +20,17 @@ function formatNewsDate(iso?: string) {
   return iso.slice(0, 10).replace(/-/g, ".");
 }
 
-// 画面に出す正式名称は「バイテックBiz」。旧称の「バイテック法人AI研修」は
-// 静的HTML(biz-top-static)の本文に残っているため、配信時に BRAND_OFFICIAL へ寄せる。
-const BRAND_OFFICIAL = "バイテックBiz";
-const BRAND_LONG = "バイテック法人AI研修";
+// 画面に出す正式名称は「バイテック法人AI研修」。旧称の「バイテックBiz」が
+// 静的HTML(biz-top-static)の本文に残っていた場合に備え、配信時に BRAND_OFFICIAL へ寄せる。
+const BRAND_OFFICIAL = "バイテック法人AI研修";
+const BRAND_OLD = "バイテックBiz";
 
 // サイト名も BRAND_OFFICIAL に揃える。
-// BRAND_LONG を名乗っていたが、ロゴのalt・見出し・本文がすべて「バイテックBiz」で
-// 書かれているため、Googleが検索結果のタイトルを「バイテックBiz - …」に書き換えていた。
-// 材料が多い側（＝実態）に合わせる。BRAND_LONG は alternateName として残す。
+// 以前は逆に BRAND_OLD を正としていた（ロゴのalt・見出し・本文が「バイテックBiz」で
+// 書かれており、Googleが検索結果のタイトルをそちらに書き換えていたため）。
+// 本文・alt・メタを全て「バイテック法人AI研修」に統一したのでこちらを正に戻す。
+// ロゴ画像そのものは「Bytech Biz」のままなので、書き換えが再発しないか要観測。
+// BRAND_OLD は alternateName として残す。
 // サイト名はトップページの title / og:site_name / WebSite.name から決まり、
 // 3つが食い違うと親ドメイン bytech.jp の「バイテック生成AI」が使われてしまうため、
 // 必ずこの3つを SITE_NAME で揃えること。
@@ -263,10 +265,10 @@ export async function GET() {
   html = html.replaceAll("ChatGPTマスター研修", "ChatGPT研修");
   html = html.replaceAll("Claudeマスター研修", "Claude研修");
   html = html.replaceAll("Copilotマスター研修", "Copilot研修");
-  // 画面に出る名称は正式名称の「バイテックBiz」に統一する。
+  // 画面に出る名称は正式名称の「バイテック法人AI研修」に統一する。
   // ※この直後でサイト名シグナル（og:site_name / JSON-LDのname）を SITE_NAME に
   //   戻すので、順序を入れ替えないこと。入れ替えるとサイト名まで置換されてしまう。
-  html = html.replaceAll(BRAND_LONG, BRAND_OFFICIAL);
+  html = html.replaceAll(BRAND_OLD, BRAND_OFFICIAL);
 
   // Googleの検索結果に出るサイト名のシグナル。値がどうであれ SITE_NAME に強制する
   // （静的HTMLは生成時点の layout.tsx の値が焼き込まれており、再生成のたびに変わるため
@@ -282,6 +284,12 @@ export async function GET() {
   html = html.replace(
     /(<meta property="og:site_name" content=")[^"]*(")/,
     `$1${SITE_NAME}$2`,
+  );
+  // alternateName は旧称「バイテックBiz」を残しておく枠。上の一括置換で正式名称に
+  // 潰れて name と重複するため、ここで書き戻す（name 側は SITE_NAME で確定済み）。
+  html = html.replace(
+    /(#organization","name":"[^"]*","alternateName":\[)[^\]]*(\])/,
+    `$1"byTech Business","${BRAND_OLD}"$2`,
   );
   html = html.replaceAll(
     "ノーコード開発研修",
@@ -304,7 +312,7 @@ export async function GET() {
     "/biz/assets/img/index/plan/graphic/chatgpt.webp",
   );
   html = html.replace(
-    "<title>【公式】バイテックBiz</title>",
+    "<title>【公式】バイテック法人AI研修</title>",
     `<title>${SITE_TITLE}</title>`,
   );
   html = html.replace(
@@ -312,7 +320,7 @@ export async function GET() {
     `<meta name="description" content="${SITE_DESCRIPTION}"/>`,
   );
   html = html.replace(
-    '<meta property="og:title" content="【公式】バイテックBiz"/>',
+    '<meta property="og:title" content="【公式】バイテック法人AI研修"/>',
     `<meta property="og:title" content="${SITE_TITLE}"/>`,
   );
   html = html.replace(
@@ -320,7 +328,7 @@ export async function GET() {
     `<meta property="og:description" content="${SITE_DESCRIPTION}"/>`,
   );
   html = html.replace(
-    '<meta name="twitter:title" content="【公式】バイテックBiz"/>',
+    '<meta name="twitter:title" content="【公式】バイテック法人AI研修"/>',
     `<meta name="twitter:title" content="${SITE_TITLE}"/>`,
   );
   html = html.replace(

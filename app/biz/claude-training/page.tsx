@@ -3,7 +3,7 @@ import { COURSE_FAQS } from "../_course/courseFaqs";
 import { buildCourseMetadata } from "../_course/courseMetadata";
 
 export const metadata = buildCourseMetadata({
-  title: "法人向け実践型Claude研修｜バイテックBiz",
+  title: "法人向け実践型Claude研修｜バイテック法人AI研修",
   description:
     "Claudeの基本からCowork・Claude Codeによる業務自動化まで、AIと業務を前に進める力を身につける法人向け研修。助成金活用にも対応。",
   socialDescription:

@@ -19,16 +19,16 @@ import "./grant.css";
 //    このシミュレーターもサーバーでHTMLを描画し、ネイティブ<script>でロジックを動かす。
 
 export const metadata: Metadata = {
-  title: "助成金活用シミュレーション｜バイテックBiz",
+  title: "助成金活用シミュレーション｜バイテック法人AI研修",
   description:
     "人材開発支援助成金「事業展開等リスキリング支援コース」を、バイテックのAI研修で活用できるか・いくら助成されるかを約1分で試算。経費の最大75%（中小企業）が助成対象です。",
   alternates: { canonical: "/grant" },
   openGraph: {
-    title: "助成金活用シミュレーション｜バイテックBiz",
+    title: "助成金活用シミュレーション｜バイテック法人AI研修",
     description:
       "人材開発支援助成金「事業展開等リスキリング支援コース」の活用可否と助成額を約1分で試算。",
     url: "/grant",
-    siteName: "バイテックBiz",
+    siteName: "バイテック法人AI研修",
   },
 };
 

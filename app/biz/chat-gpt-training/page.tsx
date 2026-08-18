@@ -3,7 +3,7 @@ import { COURSE_FAQS } from "../_course/courseFaqs";
 import { buildCourseMetadata } from "../_course/courseMetadata";
 
 export const metadata = buildCourseMetadata({
-  title: "法人向け実践型ChatGPT研修｜バイテックBiz",
+  title: "法人向け実践型ChatGPT研修｜バイテック法人AI研修",
   description:
     "業務で“使える”ChatGPT活用を、現場の成果につなげる法人向け研修。助成金活用にも対応。カリキュラム・受講形式・料金をご案内します。",
   socialDescription:

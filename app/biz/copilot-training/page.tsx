@@ -3,7 +3,7 @@ import { COURSE_FAQS } from "../_course/courseFaqs";
 import { buildCourseMetadata } from "../_course/courseMetadata";
 
 export const metadata = buildCourseMetadata({
-  title: "法人向け実践型Copilot研修｜バイテックBiz",
+  title: "法人向け実践型Copilot研修｜バイテック法人AI研修",
   description:
     "Microsoft 365 Copilotで Word・Excel・Outlook・Teams の業務を効率化する法人向け研修。助成金活用にも対応。",
   socialDescription:
