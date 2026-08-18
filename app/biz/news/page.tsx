@@ -5,10 +5,10 @@ import { getNews } from "@/lib/microcms";
 import { NewsTable } from "./NewsTable";
 
 export const metadata: Metadata = {
-  title: "お知らせ｜バイテックBiz",
-  description: "バイテックBizからのお知らせ、プレスリリース、メディア掲載情報をご案内します。",
+  title: "お知らせ｜バイテック法人AI研修",
+  description: "バイテック法人AI研修からのお知らせ、プレスリリース、メディア掲載情報をご案内します。",
   alternates: { canonical: "/news" },
-  openGraph: { title: "お知らせ｜バイテックBiz", description: "バイテックBizからのお知らせ、プレスリリース、メディア掲載情報をご案内します。", url: "/news", siteName: "バイテックBiz" },
+  openGraph: { title: "お知らせ｜バイテック法人AI研修", description: "バイテック法人AI研修からのお知らせ、プレスリリース、メディア掲載情報をご案内します。", url: "/news", siteName: "バイテック法人AI研修" },
 };
 
 export default async function NewsPage() {

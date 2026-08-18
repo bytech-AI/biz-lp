@@ -8,10 +8,10 @@ type Props = { params: Promise<{ id: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const item = await getNewsById((await params).id);
-  if (!item) return { title: "お知らせ｜バイテックBiz" };
+  if (!item) return { title: "お知らせ｜バイテック法人AI研修" };
   const description = item.description || item.title;
   return {
-    title: `${item.title}｜バイテックBiz`,
+    title: `${item.title}｜バイテック法人AI研修`,
     description,
     alternates: { canonical: `/news/${item.id}` },
     // 記事なので og:type は article。SNS共有時にサムネイルと日付が正しく出る。

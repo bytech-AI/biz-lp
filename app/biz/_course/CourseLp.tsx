@@ -234,7 +234,7 @@ export function CourseLp({ data }: { data: CourseData }) {
         provider: {
           "@type": "Organization",
           "@id": "https://biz.bytech.jp/#organization",
-          name: "バイテックBiz",
+          name: "バイテック法人AI研修",
           url: "https://biz.bytech.jp/",
         },
         offers,
@@ -308,8 +308,8 @@ export function CourseLp({ data }: { data: CourseData }) {
         {/* FV直下のページ内ナビ（stuck時に左へロゴが下りてくる） */}
         <nav className="ct-pagenav" aria-label="ページ内ナビゲーション">
           <div className="ct-pagenav__inner">
-            <Link className="ct-pagenav__brand" href="/" prefetch={false} aria-label="バイテックBiz トップ">
-              <img src="/biz/assets/img/common/hd-logo.svg" alt="バイテックBiz" />
+            <Link className="ct-pagenav__brand" href="/" prefetch={false} aria-label="バイテック法人AI研修 トップ">
+              <img src="/biz/assets/img/common/hd-logo.svg" alt="バイテック法人AI研修" />
             </Link>
             <ul className="ct-pagenav__list">
               {PAGENAV_LINKS.map((l) => (
@@ -330,7 +330,7 @@ export function CourseLp({ data }: { data: CourseData }) {
         {/* ============ 研修とは？ ============ */}
         <section className="ct-about" id="about">
           <div className="ct-about__head">
-            <p className="ct-about__eyebrow">バイテックBizの</p>
+            <p className="ct-about__eyebrow">バイテック法人AI研修の</p>
             <h2 className="ct-about__title">{d.about.title}</h2>
             <div className="ct-about__bar" aria-hidden="true" />
             <p className="ct-about__sub">{aboutSubLead}</p>
@@ -588,7 +588,7 @@ export function CourseLp({ data }: { data: CourseData }) {
               </div>
             </div>
             <div className="ct-ringi__visual">
-              <img src="/biz/assets/img/wp/biz-doc-cover.webp" alt="バイテックBiz 稟議用資料" loading="lazy" />
+              <img src="/biz/assets/img/wp/biz-doc-cover.webp" alt="バイテック法人AI研修 稟議用資料" loading="lazy" />
             </div>
           </div>
         </section>

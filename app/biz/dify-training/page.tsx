@@ -3,7 +3,7 @@ import { COURSE_FAQS } from "../_course/courseFaqs";
 import { buildCourseMetadata } from "../_course/courseMetadata";
 
 export const metadata = buildCourseMetadata({
-  title: "法人向け実践型Dify研修｜バイテックBiz",
+  title: "法人向け実践型Dify研修｜バイテック法人AI研修",
   description:
     "DifyでAIアプリ・業務自動化・RAGを内製化する法人向け研修。助成金活用にも対応。",
   socialDescription:

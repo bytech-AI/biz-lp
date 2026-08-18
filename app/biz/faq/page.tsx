@@ -6,16 +6,16 @@ import { FAQ_GROUPS } from "./data";
 import "./faq-page.css";
 
 export const metadata: Metadata = {
-  title: "よくあるご質問｜バイテックBiz",
+  title: "よくあるご質問｜バイテック法人AI研修",
   description:
-    "バイテックBiz（法人向け生成AI研修）へのよくあるご質問。サービス内容・研修カリキュラム・料金・導入の流れ・サポート体制・セキュリティについてまとめました。",
+    "バイテック法人AI研修（法人向け生成AI研修）へのよくあるご質問。サービス内容・研修カリキュラム・料金・導入の流れ・サポート体制・セキュリティについてまとめました。",
   alternates: { canonical: "/faq" },
   openGraph: {
-    title: "よくあるご質問｜バイテックBiz",
+    title: "よくあるご質問｜バイテック法人AI研修",
     description:
-      "バイテックBiz（法人向け生成AI研修）へのよくあるご質問をカテゴリ別にまとめました。",
+      "バイテック法人AI研修（法人向け生成AI研修）へのよくあるご質問をカテゴリ別にまとめました。",
     url: "/faq",
-    siteName: "バイテックBiz",
+    siteName: "バイテック法人AI研修",
   },
 };
 
