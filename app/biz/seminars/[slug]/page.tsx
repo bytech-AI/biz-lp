@@ -289,6 +289,22 @@ export default async function SeminarDetailPage({
 
       <BizFooter />
 
+      {/* 必須チェックのフォールバック。formrun.js が広告ブロッカー/社内プロキシ等で読めない環境では
+          data-formrun-required が一切効かず、空のままPOSTが通ってしまう(2026-08-18 空レコード発生)。
+          SDKの初期化に失敗した時だけネイティブのrequiredを付ける。正常時は何もしないので挙動は不変。 */}
+      <script dangerouslySetInnerHTML={{ __html: `(function(){
+        function alive(){return !!(window.Formrun&&window.Formrun._formViews&&window.Formrun._formViews.length);}
+        function apply(){
+          if(alive())return;
+          var els=document.querySelectorAll('form.formrun [data-formrun-required]');
+          for(var i=0;i<els.length;i++){var el=els[i];
+            el.required=true;
+            if(el.tagName==='INPUT'&&el.type==='text'&&(el.getAttribute('data-formrun-type')||'').indexOf('email')>-1)el.type='email';
+          }
+        }
+        window.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='SCRIPT'&&/sdk\\.form\\.run/.test(t.src||''))apply();},true);
+        if(document.readyState==='complete')apply();else window.addEventListener('load',apply);
+      })();` }} />
       {/* formrun SDK（フォームのバリデーション/送信）。ルートlayoutの全ページ配信をやめ、
           フォームのあるページだけ defer で読む（帯域をCSS/LCPに回すため）。 */}
       <script src="https://sdk.form.run/js/v2/formrun.js" defer />
