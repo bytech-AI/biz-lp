@@ -772,7 +772,7 @@ export default function PlanPage() {
 <section className="training-section fadein">
   <div className="u-inner">
     <div className="training-detail">
-      <h3>バイテックAI活用研修</h3>
+      <h3>バイテックAI導入研修</h3>
       <p>AIを実務に落とし込むための実践型研修です。<strong>ChatGPTなどの生成AIツール</strong>を使い、資料作成、メール・企画書作成、リサーチ、データ整理など<strong>日常業務の生産性を高める具体的な手法</strong>を演習中心で習得。</p>
 
       <h4>訓練実施方法</h4>
