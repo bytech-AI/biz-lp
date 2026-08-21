@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>grill-meとは｜AIが立てた計画を質問攻めで検証するSkill｜バイテックGEEK</title>
+    <meta name="description" content="Skill「grill-me」の解説。AIが立てた計画に容赦なく質問を重ね、決定の分岐を一つずつたどって実装前に弱点をあぶり出します。導入コマンド、使いどころ、向かない場面まで動画つきでまとめました。">
+    <link rel="icon" type="image/x-icon" href="/geek-static/files/favicon.ico">
+    <link rel="apple-touch-icon" href="/geek-static/files/apple-touch-icon.png">
+
+    <!-- Google Tag Manager（初回インタラクション/アイドルまで遅延ロード＝TBT削減。dataLayerは即時生成しpushは取りこぼさない） -->
+    <script>window.dataLayer=window.dataLayer||[];(function(w,d){var loaded=false;function loadGTM(){if(loaded)return;loaded=true;w.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});var j=d.createElement('script');j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id=GTM-587JB774';d.head.appendChild(j);}['scroll','click','touchstart','keydown','mousemove'].forEach(function(e){w.addEventListener(e,loadGTM,{once:true,passive:true});});if('requestIdleCallback' in w){w.requestIdleCallback(loadGTM,{timeout:6000});}else{w.addEventListener('load',function(){setTimeout(loadGTM,3000);});}})(window,document);</script>
+    <!-- End Google Tag Manager -->
+
+    <link rel="canonical" href="https://geek.bytech.jp/skills/grill-me">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:url" content="https://geek.bytech.jp/skills/grill-me">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="バイテックGEEK">
+    <meta property="og:title" content="grill-meとは｜AIが立てた計画を質問攻めで検証するSkill">
+    <meta property="og:description" content="AIが立てた計画に質問を重ね、決定の分岐を一つずつたどって実装前に弱点をあぶり出すSkill。導入は1行、使いどころを解説します。">
+    <meta property="og:image" content="https://geek.bytech.jp/geek-static/files/skills/grill-me-thumb.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://geek.bytech.jp/#organization","name":"バイテックGEEK","alternateName":["byTech GEEK","バイテック ギーク"],"url":"https://geek.bytech.jp/","description":"IT未経験・非エンジニアからでも、Claude Codeで「作れる側」になれるAIプログラミングスクール。","parentOrganization":{"@type":"Organization","name":"株式会社AI棒"}},{"@type":"WebSite","@id":"https://geek.bytech.jp/#website","url":"https://geek.bytech.jp/","name":"バイテックGEEK","alternateName":"byTech GEEK","publisher":{"@id":"https://geek.bytech.jp/#organization"},"inLanguage":"ja"},{"@type":"TechArticle","@id":"https://geek.bytech.jp/skills/grill-me#article","headline":"grill-meとは｜AIが立てた計画を質問攻めで検証するSkill","description":"AIに計画を作らせると、それらしく見えても穴が残ったまま実装に進んでしまうことがあります。grill-meはその計画に容赦なく質問を重ね、決定の分岐を一つずつたどって、実装前に弱点をあぶり出します。","inLanguage":"ja","proficiencyLevel":"Beginner","dependencies":"Node.js（npx）、コーディングエージェント（Claude Code / Cursor / Codex など）","about":{"@type":"SoftwareApplication","name":"grill-me","applicationCategory":"DeveloperApplication","operatingSystem":"macOS, Windows, Linux"},"isPartOf":{"@id":"https://geek.bytech.jp/#website"},"publisher":{"@id":"https://geek.bytech.jp/#organization"},"mainEntityOfPage":"https://geek.bytech.jp/skills/grill-me"},{"@type":"VideoObject","@id":"https://geek.bytech.jp/skills/grill-me#video","name":"skills vol.1｜grill-meで計画を質問攻めにする","description":"AIに計画を作らせると、それらしく見えても穴が残ったまま実装に進んでしまうことがあります。grill-meはその計画に容赦なく質問を重ね、決定の分岐を一つずつたどって、実装前に弱点をあぶり出します。","thumbnailUrl":["https://geek.bytech.jp/geek-static/files/skills/grill-me-thumb.webp"],"embedUrl":"https://www.youtube.com/embed/m5y-UmS9DNM","contentUrl":"https://www.youtube.com/shorts/m5y-UmS9DNM","uploadDate":"2026-08-22"},{"@type":"BreadcrumbList","@id":"https://geek.bytech.jp/skills/grill-me#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"TOP","item":"https://geek.bytech.jp/"},{"@type":"ListItem","position":2,"name":"おすすめSkills","item":"https://geek.bytech.jp/skills"},{"@type":"ListItem","position":3,"name":"grill-me","item":"https://geek.bytech.jp/skills/grill-me"}]},{"@type":"HowTo","@id":"https://geek.bytech.jp/skills/grill-me#howto","name":"grill-meの使い方","inLanguage":"ja","step":[{"@type":"HowToStep","position":1,"name":"Skillを追加する","text":"上のコマンドを実行し、使っているコーディングエージェントにgrill-meを追加します。"},{"@type":"HowToStep","position":2,"name":"AIに計画を作らせる","text":"実装したい内容について、まずAIに計画や設計を出させます。"},{"@type":"HowToStep","position":3,"name":"grill-meで詰める","text":"その計画に対してgrill-meを呼び出し、質問に答えながら弱点や曖昧な決定をあぶり出します。"},{"@type":"HowToStep","position":4,"name":"計画を直してから実装する","text":"出てきた指摘を計画へ反映してから実装に進みます。ここで潰した分だけ、後の手戻りが減ります。"}]},{"@type":"FAQPage","@id":"https://geek.bytech.jp/skills/grill-me#faq","mainEntity":[{"@type":"Question","name":"grill-meは何をしてくれるSkillですか？","acceptedAnswer":{"@type":"Answer","text":"AIが立てた計画や設計に対して深掘りの質問を重ね、決定の分岐を一つずつたどって、実装前に弱点をあぶり出します。認識がそろうまで問い続けるのが特徴です。"}},{"@type":"Question","name":"どうやって導入しますか？","acceptedAnswer":{"@type":"Answer","text":"ターミナルで npx skills add mattpocock/skills --skill grill-me を実行します。Claude Code、Cursor、Codex などのコーディングエージェントで利用できます。"}},{"@type":"Question","name":"質問に答えるのが大変ではありませんか？","acceptedAnswer":{"@type":"Answer","text":"疑問があればコードベースを自分で読みに行くため、同じことを何度も聞き返される手間は減ります。ただし質問が続く仕組みのため、細かく詰めず素早く手を動かしたい場面には向きません。"}},{"@type":"Question","name":"どんな場面で使うと効果的ですか？","acceptedAnswer":{"@type":"Answer","text":"設計レビューや、実装前の計画検証で効果を発揮します。AIが立てた計画をそのまま実装して手戻りした経験がある人ほど、効果を実感しやすいSkillです。"}}]}]}</script>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link rel="preload" href="/bytech/fonts/NotoSansJP_VF-s.p.09a7lksm~5qfk.woff2" as="font" crossorigin="" type="font/woff2">
+    <style id="geek-noto-selfhost">@font-face{font-family:"Noto Sans JP";src:url(/bytech/fonts/NotoSansJP_VF-s.p.09a7lksm~5qfk.woff2) format("woff2");font-display:swap;font-weight:100 900;font-style:normal;}</style>
+    <link href="/geek-static/files/css2(1)" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="/geek-static/files/css2(1)" rel="stylesheet"></noscript>
+
+    <link rel="stylesheet" id="my_style-css" href="/geek-static/files/common.css?v=20260822skl1" media="all">
+    <link rel="stylesheet" id="header_style-css" href="/geek-static/files/header.css?v=20260815nav" media="all">
+    <link rel="stylesheet" id="skill_style-css" href="/geek-static/files/skills.css?v=20260822g" media="all">
+    <link rel="stylesheet" id="footer_style-css" href="/geek-static/files/footer.css?v=20260704d" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/geek-static/files/footer.css?v=20260704d"></noscript>
+    <style id="bt-heading-weight">h2{font-weight:800!important}h3{font-weight:800!important}</style>
+</head>
+<body class="body">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-587JB774"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <header>
+        <div class="inner u-inner-full">
+            <div class="header__content">
+                <div class="header__logo">
+                    <a href="/">
+                        <!-- <picture>
+                          
+                          <img src="/geek-static/img/logo_lg.png" alt="バイテックGEEK">
+                        </picture> -->
+                        <picture>
+                          
+                          <img src="/geek-assets/geek_logo2.svg" alt="バイテックGEEK" style="height:42px;width:auto">
+                        </picture>
+                    </a>
+                </div>
+                <nav class="header__nav">
+                    <ul class="header__menu">
+                        <li class="has-sub"><a href="/#course"><span class="header__menu-ja">コース</span><span class="header__menu-en">Course</span></a>
+                            <ul class="header__submenu">
+                                <li><a href="/engineer-course">
+                                    <span class="header__submenu-thumb"><img src="/geek-static/files/course-hero-engineer.webp" alt="" width="1400" height="863" loading="lazy" decoding="async"></span>
+                                    <span class="header__submenu-body">
+                                        <span class="header__submenu-title">Claude Code エンジニアコース</span>
+                                        <span class="header__submenu-desc">オンライン ／ 履修期間 2〜6ヶ月</span>
+                                    </span>
+                                </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/#price"><span class="header__menu-ja">料金</span><span class="header__menu-en">Price</span></a></li>
+                        <li><a href="/#results"><span class="header__menu-ja">受講生実績</span><span class="header__menu-en">Results</span></a></li>
+                        <li><a href="/#voice"><span class="header__menu-ja">受講生の声</span><span class="header__menu-en">Voice</span></a></li>
+                        <li><a href="/record"><span class="header__menu-ja">ClaudeCode実録</span><span class="header__menu-en">Record</span></a></li>
+                        <li><a href="/#faq"><span class="header__menu-ja">よくある質問</span><span class="header__menu-en">FAQ</span></a></li>
+                        <li><a href="/#blog"><span class="header__menu-ja">記事一覧</span><span class="header__menu-en">Articles</span></a></li>
+                        <li><a href="/skills"><span class="header__menu-ja">おすすめSkills</span><span class="header__menu-en">Skills</span></a></li>
+                    </ul>
+                    <div class="header__reserve"><a href="/#counseling">無料カウンセリング予約</a></div>
+                </nav>
+                <!-- drawer-menu -->
+                <div class="drawer-icon">
+                    <div class="drawer-icon__bars">
+                        <div class="drawer-icon__bar1"></div>
+                        <div class="drawer-icon__bar2"></div>
+                    </div>
+                </div>
+                <div class="drawer-content">
+                    <ul class="drawer-menu">
+                        <li><a href="/#course">コース</a>
+                            <ul class="drawer-submenu">
+                                <li><a href="/engineer-course">
+                                    <span class="header__submenu-thumb"><img src="/geek-static/files/course-hero-engineer.webp" alt="" width="1400" height="863" loading="lazy" decoding="async"></span>
+                                    <span class="header__submenu-body">
+                                        <span class="header__submenu-title">Claude Code エンジニアコース</span>
+                                        <span class="header__submenu-desc">オンライン ／ 履修期間 2〜6ヶ月</span>
+                                    </span>
+                                </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/#price">料金</a></li>
+                        <li><a href="/#results">受講生実績</a></li>
+                        <li><a href="/#voice">受講生の声</a></li>
+                        <li><a href="/record">ClaudeCode実録</a></li>
+                        <li><a href="/#faq">よくある質問</a></li>
+                        <li><a href="/#blog">記事一覧</a></li>
+                        <li><a href="/skills">おすすめSkills</a></li>
+                    </ul>
+                    <div class="drawer__reserve"><a href="/#counseling" class="c-btn">無料カウンセリング予約</a></div>
+                </div>
+            </div>
+
+            <div class="header__content fixed pc">
+                <div class="header__logo">
+                    <a href="/">
+                        <picture>
+                          
+                          <img src="/geek-assets/geek_logo2.svg" alt="バイテックGEEK" style="height:42px;width:auto">
+                        </picture>
+                    </a>
+                </div>
+                <nav class="header__nav">
+                    <ul class="header__menu">
+                        <li class="has-sub"><a href="/#course"><span class="header__menu-ja">コース</span><span class="header__menu-en">Course</span></a>
+                            <ul class="header__submenu">
+                                <li><a href="/engineer-course">
+                                    <span class="header__submenu-thumb"><img src="/geek-static/files/course-hero-engineer.webp" alt="" width="1400" height="863" loading="lazy" decoding="async"></span>
+                                    <span class="header__submenu-body">
+                                        <span class="header__submenu-title">Claude Code エンジニアコース</span>
+                                        <span class="header__submenu-desc">オンライン ／ 履修期間 2〜6ヶ月</span>
+                                    </span>
+                                </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/#price"><span class="header__menu-ja">料金</span><span class="header__menu-en">Price</span></a></li>
+                        <li><a href="/#results"><span class="header__menu-ja">受講生実績</span><span class="header__menu-en">Results</span></a></li>
+                        <li><a href="/#voice"><span class="header__menu-ja">受講生の声</span><span class="header__menu-en">Voice</span></a></li>
+                        <li><a href="/record"><span class="header__menu-ja">ClaudeCode実録</span><span class="header__menu-en">Record</span></a></li>
+                        <li><a href="/#faq"><span class="header__menu-ja">よくある質問</span><span class="header__menu-en">FAQ</span></a></li>
+                        <li><a href="/#blog"><span class="header__menu-ja">記事一覧</span><span class="header__menu-en">Articles</span></a></li>
+                        <li><a href="/skills"><span class="header__menu-ja">おすすめSkills</span><span class="header__menu-en">Skills</span></a></li>
+                    </ul>
+                    <div class="header__reserve"><a href="/#counseling">カウンセリング予約</a></div>
+                </nav>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="sk-page">
+        <div class="sk-hero">
+            <div class="inner">
+                <nav class="sk-crumb" aria-label="パンくず">
+                    <a href="/">TOP</a><span aria-hidden="true">‣</span><a href="/skills">おすすめSkills</a><span aria-hidden="true">‣</span><span>grill-me</span>
+                </nav>
+
+                <div class="sk-hero-grid">
+                    <div class="sk-hero-body">
+                        <p class="sk-eyebrow">Skills</p>
+                        <h1 class="sk-title">grill-meとは｜AIが立てた計画を<span class="u-text-orange">質問攻めで検証</span>するSkill</h1>
+                        <p class="sk-lead">AIに計画を作らせると、それらしく見えても穴が残ったまま実装に進んでしまうことがあります。<b>grill-me</b>はその計画に容赦なく質問を重ね、決定の分岐を一つずつたどって、実装前に弱点をあぶり出します。</p>
+
+                        <dl class="sk-meta">
+                            <div><dt>提供</dt><dd>mattpocock/skills</dd></div>
+                            <div><dt>導入実績</dt><dd>累計92万インストール</dd></div>
+                            <div><dt>対応ツール</dt><dd>Claude Code ／ Cursor ／ Codex など</dd></div>
+                            <div><dt>使いどころ</dt><dd>設計レビュー・実装前の計画検証</dd></div>
+                        </dl>
+
+                        <div class="sk-install">
+                            <p class="sk-install-label">ターミナルで1行。すぐに使えます。</p>
+                            <div class="sk-code">
+                                <code id="skInstallCmd">npx skills add mattpocock/skills --skill grill-me</code>
+                                <button type="button" class="sk-copy" data-copy="#skInstallCmd">コピー</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="inner sk-body sk-layout">
+            <div class="sk-main">
+            <div class="sk-summary">
+                <h2>このページの要点</h2>
+                <ul>
+                    <li>grill-meは、<b>AIが立てた計画を質問攻めで検証する</b>Skill。実装に進む前に穴を見つけられる。</li>
+                    <li>計画や設計の各所に深掘りの質問を重ね、<b>認識がそろうまで問い続ける</b>。</li>
+                    <li>決定の<b>分岐を一つずつたどって</b>検証するため、見落とした前提が表に出る。</li>
+                    <li>疑問があれば<b>コードベースを自分で読みに行く</b>ので、何度も聞き返される手間が少ない。</li>
+                    <li>導入は<b>npx skills add mattpocock/skills --skill grill-me</b>の1行。累計92万インストール。</li>
+                    <li>質問が続く仕組みのため、<b>素早く手を動かしたい場面には向かない</b>。</li>
+                </ul>
+            </div>
+
+            <section class="sk-sec" id="what">
+                <h2 class="sk-h2">grill-meとは</h2>
+                <p>grill-meは、<b>AIが立てた計画を質問攻めで検証してくれる</b>Skillです。<code>mattpocock/skills</code> に含まれ、Claude CodeなどのコーディングエージェントにSkillとして追加して使います。</p>
+                <p>AIに計画を作らせると、体裁は整っていても、前提の取り違えや決めきれていない分岐が残ったまま実装に進んでしまうことがあります。動くものはできても、あとから「そこは想定と違った」と手戻りが発生する、という失敗です。</p>
+                <p>grill-meは、その計画に対して容赦なく質問を重ねます。<b>実装前に弱点をあぶり出す</b>ことが目的で、レビュアーが厳しく詰めてくれる状態を、そのままAIとの作業に持ち込めます。</p>
+            </section>
+
+            <section class="sk-sec" id="points">
+                <h2 class="sk-h2">grill-meのポイント5つ</h2>
+                <ol class="sk-points">
+                    <li>
+                        <h3>計画を質問で詰める</h3>
+                        <p>計画や設計の各所に深掘りの質問を重ね、認識がそろうまで問い続けます。曖昧なまま流れていた決定が、言語化されて表に出ます。</p>
+                    </li>
+                    <li>
+                        <h3>分岐を枝ごとに検証する</h3>
+                        <p>決定の分岐を一つずつたどり、お互いの理解が一致するまで確認します。「この条件のときはどうする？」が後回しになりません。</p>
+                    </li>
+                    <li>
+                        <h3>コードを自分で読みに行く</h3>
+                        <p>疑問があればコードベースを読みに行くため、こちらが同じ説明を何度も繰り返す手間が減ります。</p>
+                    </li>
+                    <li>
+                        <h3>実装前のチェックに向く</h3>
+                        <p>設計レビューや実装前の計画検証で、後の手戻りを防ぐ用途に向いています。書き始めてからの作り直しより、はるかに安く済みます。</p>
+                    </li>
+                    <li>
+                        <h3>1行で追加できる</h3>
+                        <p><code>mattpocock/skills</code> にあり、コマンド1行で追加できます。累計92万インストールの実績があります。</p>
+                    </li>
+                </ol>
+            </section>
+
+            <section class="sk-sec" id="how">
+                <h2 class="sk-h2">grill-meの使い方</h2>
+                <p>導入はターミナルで1行です。Claude Code / Cursor / Codex などのコーディングエージェントで使えます。</p>
+                <div class="sk-code sk-code--block">
+                    <code id="skInstallCmd2">npx skills add mattpocock/skills --skill grill-me</code>
+                    <button type="button" class="sk-copy" data-copy="#skInstallCmd2">コピー</button>
+                </div>
+                <ol class="sk-steps">
+                    <li><h3>Skillを追加する</h3><p>上のコマンドを実行し、使っているコーディングエージェントにgrill-meを追加します。</p></li>
+                    <li><h3>AIに計画を作らせる</h3><p>実装したい内容について、まずAIに計画や設計を出させます。</p></li>
+                    <li><h3>grill-meで詰める</h3><p>その計画に対してgrill-meを呼び出し、質問に答えながら弱点や曖昧な決定をあぶり出します。</p></li>
+                    <li><h3>計画を直してから実装する</h3><p>出てきた指摘を計画へ反映してから実装に進みます。ここで潰した分だけ、後の手戻りが減ります。</p></li>
+                </ol>
+            </section>
+
+            <section class="sk-sec" id="who">
+                <h2 class="sk-h2">こんな人に向いています</h2>
+                <div class="sk-fit">
+                    <div class="sk-fit-col is-good">
+                        <h3>向いている</h3>
+                        <ul>
+                            <li>AIが立てた計画をそのまま実装して、手戻りした経験がある人</li>
+                            <li>実装前に設計レビューを挟みたいチーム</li>
+                            <li>仕様の分岐や前提を、着手前に洗い出しておきたい人</li>
+                        </ul>
+                    </div>
+                    <div class="sk-fit-col is-bad">
+                        <h3>向いていない</h3>
+                        <ul>
+                            <li>細かく詰めず、素早く手を動かしたい場面</li>
+                            <li>使い捨てのスクリプトなど、手戻りのコストが小さい作業</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="sk-note"><b>注意：</b>質問が続く仕組みなので、細かく詰めず素早く手を動かしたい場面には向きません。作るものの大きさに応じて使い分けてください。</p>
+            </section>
+
+            <section class="sk-sec" id="faq">
+                <h2 class="sk-h2">よくある質問</h2>
+                <div class="sk-faq">
+                    <details>
+                        <summary>grill-meは何をしてくれるSkillですか？</summary>
+                        <p>AIが立てた計画や設計に対して深掘りの質問を重ね、決定の分岐を一つずつたどって、実装前に弱点をあぶり出します。認識がそろうまで問い続けるのが特徴です。</p>
+                    </details>
+                    <details>
+                        <summary>どうやって導入しますか？</summary>
+                        <p>ターミナルで <code>npx skills add mattpocock/skills --skill grill-me</code> を実行します。Claude Code、Cursor、Codex などのコーディングエージェントで利用できます。</p>
+                    </details>
+                    <details>
+                        <summary>質問に答えるのが大変ではありませんか？</summary>
+                        <p>疑問があればコードベースを自分で読みに行くため、同じことを何度も聞き返される手間は減ります。ただし質問が続く仕組みのため、細かく詰めず素早く手を動かしたい場面には向きません。</p>
+                    </details>
+                    <details>
+                        <summary>どんな場面で使うと効果的ですか？</summary>
+                        <p>設計レビューや、実装前の計画検証で効果を発揮します。AIが立てた計画をそのまま実装して手戻りした経験がある人ほど、効果を実感しやすいSkillです。</p>
+                    </details>
+                </div>
+            </section>
+
+            <section class="sk-sec" id="related">
+                <h2 class="sk-h2">あわせて読みたい</h2>
+                <ul class="sk-related">
+                    <li><a href="/skills/frontend-design">frontend-design｜AIが作りがちな量産型のUIを、先に方向性を決めさせることで「狙いのある見た目」に変えるAnthropic公式Skill。</a></li>
+                    <li><a href="/skills/microsoft-foundry">microsoft-foundry｜Azure上のAIエージェントを、作成・コンテナ化・公開・呼び出し・評価まで一続きで扱えるMicrosoft公式Skill。</a></li>
+                    <li><a href="https://bytech.jp/blog/claude-skills/" target="_blank" rel="noopener">Claude Skillsとは｜6つの機能や活用事例、使用時の注意点</a></li>
+                    <li><a href="/record">Claude Code実録｜現場でどう使ったかの記録</a></li>
+                </ul>
+            </section>
+            </div>
+
+                <aside class="sk-side">
+                    <figure class="sk-hero-media">
+                        <div class="sk-video" data-yt="m5y-UmS9DNM">
+                            <button type="button" class="sk-video-btn" aria-label="grill-meの紹介動画を再生する">
+                                <img src="/geek-static/files/skills/grill-me-thumb.webp" alt="grill-meの紹介ショート動画" width="540" height="960" loading="lazy" decoding="async">
+                            </button>
+                        </div>
+                        <figcaption>30秒でわかる grill-me</figcaption>
+                    </figure>
+                </aside>
+        </div>
+
+        <div class="cta">
+            <div class="inner">
+                <h2 class="cta__heading">Skillの使いどころを、無料で相談する</h2>
+                <p class="cta__message">どのSkillを、どの業務に入れるとよいか。あなたの環境に合わせた学習ロードマップをご提案します。</p>
+                <div class="cta__button">
+                    <span class="cta__microcopy">簡単30秒で予約完了！</span>
+                    <a href="/#counseling" class="cta__btn">
+                        <span class="cta__btn-sub">完全無料・オンライン ／ 所要60分</span>
+                        <span class="cta__btn-main">無料カウンセリングを予約する</span>
+                        <span class="cta__btn-arrow" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <footer>
+        <div class="inner">
+            <div class="footer__content">
+                <div class="footer__catch"><p class="footer__catch-text">明日から、AI開発が<br>あなたの日常に。</p></div>
+                <div class="footer__nav">
+                    <ul class="footer__menu">
+                        <li><a href="/#course">コース</a></li>
+                        <li><a href="/#price">料金</a></li>
+                        <li><a href="/#results">受講生実績</a></li>
+                        <li><a href="/#voice">受講生の声</a></li>
+                        <li><a href="/record">ClaudeCode実録</a></li>
+                        <li><a href="/#faq">よくある質問</a></li>
+                        <li><a href="/#blog">記事一覧</a></li>
+                        <!-- <li><a href="/#faq">よくある質問</a></li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="footer__info">
+                    <div class="foote__logo"><img src="/geek-assets/geek_logo_w2.svg" alt="バイテックGEEK" style="height:32px;width:auto"></div>
+                    <p class="footer__copyright"> Copyright 株式会社AI棒</p>
+                </div>
+                <ul class="footer__submenu">
+                    <li><a href="/privacy-policy">プライバシーポリシー</a></li>
+                    <li><a href="/membership-terms">会員規約</a></li>
+                    <li><a href="/specified_commercial">特定商取引法</a></li>
+                    <li><a href="https://ai-bou.co.jp" target="_blank" rel="noopener">運営会社</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+<script id="geek-chrome-js">
+(function(){
+  var di=document.querySelector('.drawer-icon'),dc=document.querySelector('.drawer-content');
+  if(di&&dc){
+    di.addEventListener('click',function(){di.classList.toggle('is-active');dc.classList.toggle('is-active');});
+    document.querySelectorAll('.drawer-menu a').forEach(function(a){a.addEventListener('click',function(){di.classList.remove('is-active');dc.classList.remove('is-active');});});
+  }
+  var fixed=document.querySelector('.header__content.fixed'),hdr=document.querySelector('header');
+  if(fixed&&hdr){
+    function onScroll(){ if(hdr.getBoundingClientRect().top<0){fixed.classList.add('act');}else{fixed.classList.remove('act');} }
+    window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  }
+})();
+</script>
+
+
+
+
+<script id="geek-skill-js">
+(function(){
+  // インストールコマンドのコピー
+  document.querySelectorAll('.sk-copy').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var el=document.querySelector(btn.getAttribute('data-copy'));
+      if(!el||!navigator.clipboard)return;
+      navigator.clipboard.writeText(el.textContent.trim()).then(function(){
+        var t=btn.textContent;btn.textContent='コピーしました';btn.classList.add('is-done');
+        setTimeout(function(){btn.textContent=t;btn.classList.remove('is-done');},1600);
+      });
+    });
+  });
+  // YouTube はクリックされるまで読み込まない（初期表示のコストを増やさない）
+  document.querySelectorAll('.sk-video[data-yt]').forEach(function(box){
+    var btn=box.querySelector('.sk-video-btn');
+    if(!btn)return;
+    btn.addEventListener('click',function(){
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+box.getAttribute('data-yt')+'?autoplay=1&playsinline=1&rel=0';
+      f.title='紹介動画';
+      f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      f.allowFullscreen=true;
+      f.setAttribute('frameborder','0');
+      box.innerHTML='';
+      box.appendChild(f);
+    });
+  });
+})();
+</script>
+</body></html>

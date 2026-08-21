@@ -138,10 +138,30 @@ export function proxy(request: NextRequest) {
       '/specified_commercial': '/geek-specified_commercial-static/index.html',
       // Claude Code実録（note記事の一覧ページ）
       '/record': '/geek-record-static/index.html',
+      // おすすめSkills 一覧（個別ページは下の SKILL_SLUGS で捌く）
+      '/skills': '/geek-skills-static/index.html',
     }
     // clean URL → 実体ファイルへ内部リライト（URLは綺麗なまま）
     if (geekLegal[normalizedPath]) {
       return NextResponse.rewrite(new URL(geekLegal[normalizedPath], request.url))
+    }
+    // おすすめSkills の個別ページ。scripts/geek-skills.data.mjs に追加したらここにも slug を足す。
+    const SKILL_SLUGS = ['frontend-design', 'grill-me', 'microsoft-foundry']
+    const skillMatch = /^\/skills\/([a-z0-9-]+)$/.exec(normalizedPath)
+    if (skillMatch) {
+      if (SKILL_SLUGS.includes(skillMatch[1])) {
+        return NextResponse.rewrite(new URL(`/geek-skills-static/${skillMatch[1]}.html`, request.url))
+      }
+      return NextResponse.redirect(new URL('/skills', request.url), 301)
+    }
+    // 直アクセスされた実体URL（/geek-skills-static/<slug>.html）は clean URL へ 301
+    const skillUgly = /^\/geek-skills-static\/([a-z0-9-]+)\.html$/.exec(pathname)
+    if (skillUgly) {
+      const slug = skillUgly[1]
+      return NextResponse.redirect(
+        new URL(slug === 'index' ? '/skills' : `/skills/${slug}`, request.url),
+        301,
+      )
     }
     // 直アクセスされた実体URL（.../geek-*-static/index.html）は clean URL へ 301
     const uglyToClean: Record<string, string> = {
@@ -149,6 +169,7 @@ export function proxy(request: NextRequest) {
       '/geek-membership-terms-static/index.html': '/membership-terms',
       '/geek-specified_commercial-static/index.html': '/specified_commercial',
       '/geek-record-static/index.html': '/record',
+      '/geek-skills-static/index.html': '/skills',
     }
     if (uglyToClean[pathname]) {
       return NextResponse.redirect(new URL(uglyToClean[pathname], request.url), 301)

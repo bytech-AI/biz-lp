@@ -42,6 +42,7 @@ const NAV: NavItem[] = [
   { href: "/record", ja: "ClaudeCode実録", en: "Record" },
   { href: "/#faq", ja: "よくある質問", en: "FAQ" },
   { href: "/#blog", ja: "記事一覧", en: "Articles" },
+  { href: "/skills", ja: "おすすめSkills", en: "Skills" },
 ];
 
 /** ドロワー開閉と追従ヘッダーの表示切替（geek静的ページと同じ挙動） */

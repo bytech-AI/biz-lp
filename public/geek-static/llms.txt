@@ -32,8 +32,28 @@
 - プログラミング未経験・非エンジニアも受講可
 - 無料カウンセリング（完全無料・オンライン・所要60分）から開始
 
+## おすすめSkills（Claude Code等のコーディングエージェントに追加できるSkillの紹介）
+- おすすめSkills一覧: https://geek.bytech.jp/skills
+- frontend-design（Anthropic公式・anthropics/skills）: https://geek.bytech.jp/skills/frontend-design
+  - AIが作りがちな量産型UIを、実装前にデザインの方向性を決めさせることで意図のある見た目に変えるSkill
+  - 使い古されたフォントやクリシェな配色を避ける、連番は順序に意味がある時だけ使う、と明記
+  - HTML・CSS・React・Vue の動くコードまで生成。全期間ランキング3位・累計80万インストール
+  - 導入: npx skills add anthropics/skills --skill frontend-design
+  - 素早く最低限のUIだけ欲しい場面には向かない
+- grill-me（mattpocock/skills）: https://geek.bytech.jp/skills/grill-me
+  - AIが立てた計画に質問を重ね、決定の分岐を一つずつたどって実装前に弱点をあぶり出すSkill
+  - 疑問があればコードベースを自分で読みに行くため、聞き返しの手間が少ない
+  - 導入: npx skills add mattpocock/skills --skill grill-me（累計92万インストール）
+  - 設計レビュー・実装前の計画検証向け。素早く手を動かしたい場面には向かない
+- microsoft-foundry（Microsoft公式・microsoft/azure-skills）: https://geek.bytech.jp/skills/microsoft-foundry
+  - Azure上のAIエージェントを「作成→コンテナ化→公開→呼び出し→評価」まで一続きの手順として扱うSkill
+  - 導入: npx skills add microsoft/azure-skills --skill microsoft-foundry（累計54万インストール）
+  - 設定は .foundry/agent-metadata.yaml に集約。SKILL.md の指示で読み込み後にまず依存関係チェックを実行
+  - 前提はAzure環境。Azureを使わない場合は出番がない
+
 ## 主要リンク
 - トップ: https://geek.bytech.jp/
+- おすすめSkills一覧: https://geek.bytech.jp/skills
 - 無料カウンセリング予約: https://geek.bytech.jp/#counseling
 - よくある質問: https://geek.bytech.jp/#faq
 - プライバシーポリシー: https://geek.bytech.jp/privacy-policy
