@@ -16,7 +16,7 @@ const CHROME_SRC = 'public/geek-record-static/index.html'
 const OUT_DIR = 'public/geek-skills-static'
 const TOP_PAGE = 'public/geek-static/index.html'
 const SITEMAP = 'public/geek-static/sitemap.xml'
-const CSS_VER = { common: '20260822skl1', header: '20260815nav', skills: '20260822g', footer: '20260704d' }
+const CSS_VER = { common: '20260822skl1', header: '20260815nav', skills: '20260822i', footer: '20260704d' }
 const TODAY = new Date().toISOString().slice(0, 10)
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
@@ -354,6 +354,7 @@ function indexPage() {
 
   const main = `    <main class="sk-page sk-index">
         <div class="sk-hero">
+            <img class="sk-hero-bg" src="/geek-static/files/skills/skills-hero.webp" alt="" width="1920" height="600" fetchpriority="high" decoding="async">
             <div class="inner">
                 <nav class="sk-crumb" aria-label="パンくず">
                     <a href="/">TOP</a><span aria-hidden="true">‣</span><span>おすすめSkills</span>
