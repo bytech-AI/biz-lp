@@ -1,0 +1,339 @@
+@charset "UTF-8";
+/* === geek: おすすめSkills 個別ページ（縦型ショート動画つき） === */
+
+.sk-page { color: #071a3a; }
+.sk-page code {
+  padding: 0.1em 0.4em;
+  background: #eef3f5;
+  color: #0b3b53;
+  font-family: "Outfit", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.92em;
+  font-weight: 700;
+  word-break: break-all;
+}
+
+/* ---- hero ---- */
+.sk-hero { padding: min(56px, 6vw) 0 min(64px, 6vw); background: #f5f8f8; }
+.sk-crumb { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: #5d6a78; font-size: 12px; font-weight: 700; }
+.sk-crumb a { color: #00ac9b; text-decoration: none; }
+.sk-crumb a:hover { text-decoration: underline; }
+.sk-crumb span[aria-hidden] { color: #9aa7b3; }
+
+.sk-hero-grid { margin-top: 22px; }
+.sk-hero-body { min-width: 0; }
+.sk-eyebrow {
+  margin: 0;
+  color: #00ac9b;
+  font-family: "Outfit", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+.sk-title {
+  margin: 10px 0 0;
+  font-size: clamp(23px, 3.1vw, 38px);
+  font-weight: 900;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+}
+.sk-lead {
+  margin: 18px 0 0;
+  color: #3d4a58;
+  font-size: clamp(14px, 1.5vw, 16px);
+  font-weight: 700;
+  line-height: 1.95;
+}
+.sk-lead b { color: #071a3a; font-weight: 900; }
+
+.sk-meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin: 26px 0 0; background: #dfe6ea; border: 1px solid #dfe6ea; }
+.sk-meta > div { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; background: #fff; }
+.sk-meta dt { color: #5d6a78; font-size: 11px; font-weight: 900; letter-spacing: 0.04em; }
+.sk-meta dd { margin: 0; font-size: 13px; font-weight: 800; line-height: 1.6; }
+
+.sk-hero-grid > * { min-width: 0; }
+.sk-install { margin-top: 26px; }
+.sk-install-label { margin: 0 0 8px; font-size: 13px; font-weight: 900; }
+.sk-code {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 14px 14px 16px;
+  background: #071a3a;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+.sk-code code {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  background: transparent;
+  color: #d9f4f0;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.sk-code--block { margin-top: 16px; }
+.sk-copy {
+  flex: none;
+  padding: 7px 14px;
+  background: #00ac9b;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.sk-copy:hover { opacity: 0.85; }
+.sk-copy.is-done { background: #0b3b53; }
+
+/* ---- 縦型ショート動画（YouTube Shortsのクリック時読み込み） ---- */
+.sk-hero-media { margin: 0; }
+.sk-video {
+  position: relative;
+  overflow: hidden;
+  background: #071a3a;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(7, 26, 58, 0.18);
+}
+/* 9:16。aspect-ratio 非対応ブラウザでも高さが出るよう padding で確保する */
+.sk-video::before { display: block; padding-top: 177.7778%; content: ""; }
+.sk-video-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.sk-video-btn img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.sk-video-btn::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(7, 26, 58, 0) 45%, rgba(7, 26, 58, 0.55) 100%);
+  content: "";
+}
+.sk-video-btn::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.92) url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300ac9b'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E") no-repeat center / 30px 30px;
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgba(7, 26, 58, 0.35);
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s, background-color 0.15s;
+  content: "";
+}
+.sk-video-btn:hover::after { transform: translate(-50%, -50%) scale(1.08); }
+.sk-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+.sk-hero-media figcaption {
+  margin-top: 12px;
+  color: #5d6a78;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+}
+
+/* ---- 本文 ---- */
+.sk-body { padding: min(72px, 6vw) 0 min(24px, 3vw); }
+.sk-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: min(56px, 5vw);
+  align-items: start;
+}
+.sk-layout--nosidebar { display: block; }
+.sk-main { min-width: 0; }
+.sk-layout--nosidebar > .sk-main { max-width: 860px; margin: 0 auto; }
+/* 動画は本文に並走してスクロール追従する */
+.sk-side { position: sticky; top: 96px; }
+.sk-index .sk-body > * { max-width: 860px; margin-left: auto; margin-right: auto; }
+
+.sk-summary { padding: 26px 28px; background: #f2fbf9; border-left: 5px solid #00ac9b; }
+.sk-summary h2 { margin: 0 0 14px; font-size: clamp(16px, 1.8vw, 19px); font-weight: 900; }
+.sk-summary ul { margin: 0; padding-left: 0; list-style: none; }
+.sk-summary li { position: relative; margin-top: 8px; padding-left: 1.5em; font-size: clamp(13px, 1.4vw, 15px); font-weight: 700; line-height: 1.9; }
+.sk-summary li::before {
+  position: absolute;
+  top: 0.62em;
+  left: 0.1em;
+  width: 0.7em;
+  height: 0.38em;
+  border-bottom: 2.5px solid #00ac9b;
+  border-left: 2.5px solid #00ac9b;
+  transform: rotate(-45deg);
+  content: "";
+}
+.sk-summary li:first-child { margin-top: 0; }
+.sk-summary b { font-weight: 900; }
+
+.sk-sec { margin-top: min(64px, 6vw); }
+.sk-h2 {
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid #00ac9b;
+  font-size: clamp(19px, 2.3vw, 27px);
+  font-weight: 900;
+  line-height: 1.5;
+}
+.sk-sec > p { margin: 0 0 16px; color: #3d4a58; font-size: clamp(14px, 1.5vw, 16px); font-weight: 700; line-height: 2; }
+.sk-sec > p b { color: #071a3a; font-weight: 900; }
+
+.sk-points { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; counter-reset: skp; }
+.sk-points > li { position: relative; padding: 22px 24px 22px 68px; background: #fff; border: 1.5px solid #cfd7df; counter-increment: skp; }
+.sk-points > li::before {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  background: #00ac9b;
+  border-radius: 50%;
+  color: #fff;
+  font-family: "Outfit", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  content: counter(skp);
+}
+.sk-points h3 { margin: 0 0 8px; font-size: clamp(15px, 1.7vw, 18px); font-weight: 900; line-height: 1.5; }
+.sk-points p { margin: 0; color: #3d4a58; font-size: clamp(13px, 1.4vw, 15px); font-weight: 700; line-height: 1.9; }
+
+.sk-steps { margin: 26px 0 0; padding-left: 0; list-style: none; counter-reset: sks; }
+.sk-steps > li { position: relative; padding: 0 0 24px 34px; border-left: 2px solid #d5e3e6; counter-increment: sks; }
+.sk-steps > li:last-child { padding-bottom: 0; border-left-color: transparent; }
+.sk-steps > li::before {
+  position: absolute;
+  top: 0;
+  left: -13px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  background: #071a3a;
+  border-radius: 50%;
+  color: #fff;
+  font-family: "Outfit", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  content: counter(sks);
+}
+.sk-steps h3 { margin: 0 0 6px; font-size: clamp(15px, 1.6vw, 17px); font-weight: 900; line-height: 1.5; }
+.sk-steps p { margin: 0; color: #3d4a58; font-size: clamp(13px, 1.4vw, 15px); font-weight: 700; line-height: 1.9; }
+
+.sk-fit { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.sk-fit-col { padding: 22px 24px; background: #fff; border: 1.5px solid #cfd7df; }
+.sk-fit-col h3 { margin: 0 0 12px; padding-left: 26px; position: relative; font-size: 16px; font-weight: 900; }
+.sk-fit-col.is-good h3 { color: #00ac9b; }
+.sk-fit-col.is-bad h3 { color: #d1603d; }
+.sk-fit-col h3::before { position: absolute; top: 50%; left: 0; width: 18px; height: 18px; border-radius: 50%; transform: translateY(-50%); content: ""; }
+.sk-fit-col.is-good h3::before { background: #00ac9b; }
+.sk-fit-col.is-bad h3::before { background: #d1603d; }
+.sk-fit-col ul { margin: 0; padding-left: 0; list-style: none; }
+.sk-fit-col li { position: relative; margin-top: 8px; padding-left: 1.1em; color: #3d4a58; font-size: clamp(13px, 1.4vw, 14px); font-weight: 700; line-height: 1.85; }
+.sk-fit-col li::before {
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  content: "";
+}
+.sk-fit-col.is-good li::before { background: #00ac9b; }
+.sk-fit-col.is-bad li::before { background: #d1603d; }
+.sk-fit-col li:first-child { margin-top: 0; }
+.sk-note { margin: 18px 0 0; padding: 14px 18px; background: #fdf3ef; color: #7a3a24; font-size: 13px; font-weight: 700; line-height: 1.85; }
+
+.sk-faq details { border: 1.5px solid #cfd7df; border-top: 0; background: #fff; }
+.sk-faq details:first-of-type { border-top: 1.5px solid #cfd7df; }
+.sk-faq summary {
+  position: relative;
+  padding: 18px 52px 18px 22px;
+  font-size: clamp(14px, 1.5vw, 16px);
+  font-weight: 900;
+  line-height: 1.6;
+  cursor: pointer;
+  list-style: none;
+}
+.sk-faq summary::-webkit-details-marker { display: none; }
+.sk-faq summary::after {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  width: 10px;
+  height: 10px;
+  border-right: 2.5px solid #00ac9b;
+  border-bottom: 2.5px solid #00ac9b;
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.2s;
+  content: "";
+}
+.sk-faq details[open] summary::after { transform: translateY(-30%) rotate(-135deg); }
+.sk-faq details p { margin: 0; padding: 0 22px 20px; color: #3d4a58; font-size: clamp(13px, 1.4vw, 15px); font-weight: 700; line-height: 1.95; }
+
+.sk-related { margin: 0; padding: 0; list-style: none; }
+.sk-related li { border-bottom: 1px solid #dfe6ea; }
+.sk-related a {
+  display: block;
+  padding: 16px 24px 16px 0;
+  position: relative;
+  color: #071a3a;
+  font-size: clamp(13px, 1.5vw, 15px);
+  font-weight: 800;
+  line-height: 1.6;
+  text-decoration: none;
+}
+.sk-related a::after {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #00ac9b;
+  border-right: 2px solid #00ac9b;
+  transform: translateY(-50%) rotate(45deg);
+  content: "";
+}
+.sk-related a:hover { color: #00ac9b; }
+
+.sk-page .cta { margin-top: min(80px, 7vw); }
+
+@media (max-width: 1023px) {
+  .sk-layout { grid-template-columns: minmax(0, 1fr) 260px; gap: 32px; }
+  .sk-side { top: 80px; }
+}
+@media (max-width: 767px) {
+  .sk-layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .sk-side { position: static; order: -1; max-width: 240px; margin: 0 auto 32px; }
+  .sk-meta { grid-template-columns: 1fr; }
+  .sk-fit { grid-template-columns: 1fr; }
+  .sk-points > li { padding: 20px 18px 20px 18px; }
+  .sk-points > li::before { position: static; margin-bottom: 10px; }
+  /* SPはコマンドが長いので、コピーボタンを下に落として重なりを避ける */
+  .sk-code { display: block; padding: 12px; }
+  .sk-code code { display: block; overflow-x: auto; font-size: 12px; }
+  .sk-copy { width: 100%; margin-top: 10px; padding: 10px; }
+  .sk-summary { padding: 20px 18px; }
+}
+
+/* ---- Skills一覧ページ ---- */
+.sk-index-head { margin-top: 22px; text-align: center; }
+.sk-index-head .sk-lead { max-width: 720px; margin-left: auto; margin-right: auto; }
+.sk-index-list { margin-top: 4px !important; }
+.sk-index-note { margin: 22px 0 0; color: #5d6a78; font-size: 13px; font-weight: 700; line-height: 1.85; text-align: center; }
+/* 一覧のカードグリッドだけ本文幅(860px)から広げて3列に収める */
+.sk-index .sk-body > #list { max-width: 1160px; }
