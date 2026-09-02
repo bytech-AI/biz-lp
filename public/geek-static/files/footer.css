@@ -224,3 +224,59 @@ footer {
   text-align: center;
   color: #fff;
 }
+
+/* 関連サービス（他ブランドへの動線） */
+.footer__related {
+  margin-top: 5.8823529412%;
+  color: #fff;
+}
+.footer__related-ttl {
+  font-size: min(0.875rem, 1.05vw);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding-bottom: 0.9em;
+  border-bottom: 1px solid #FAFAFA;
+}
+.footer__related-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1.4em;
+}
+.footer__related-list li {
+  width: 47.0588235294%;
+}
+.footer__related-list li:nth-child(2n) {
+  margin-left: 5.8823529412%;
+}
+.footer__related-list li:nth-child(n+3) {
+  margin-top: 1em;
+}
+.footer__related-list li a {
+  display: inline-block;
+  color: #fff;
+  font-size: min(0.75rem, 0.9vw);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+}
+@media (max-width: 767px) {
+  .footer__related {
+    padding: 0 5.9701492537%;
+    margin-top: 11.9402985075%;
+  }
+  .footer__related-ttl {
+    font-size: min(0.875rem, 3.7333333333vw);
+  }
+  .footer__related-list li,
+  .footer__related-list li:nth-child(2n) {
+    width: 100%;
+    margin-left: 0;
+  }
+  .footer__related-list li:nth-child(n+2) {
+    margin-top: 1em;
+  }
+  .footer__related-list li a {
+    font-size: min(0.75rem, 3.2vw);
+  }
+}
