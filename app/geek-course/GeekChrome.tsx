@@ -69,7 +69,7 @@ export function GeekStyles() {
       <link rel="stylesheet" href="/geek-static/files/css2(1)" />
       <link rel="stylesheet" href="/geek-static/files/common.css?v=20260815com4" />
       <link rel="stylesheet" href="/geek-static/files/header.css?v=20260815nav" />
-      <link rel="stylesheet" href="/geek-static/files/footer.css?v=20260704d" />
+      <link rel="stylesheet" href="/geek-static/files/footer.css?v=20260902a" />
     </>
   );
 }
@@ -191,6 +191,17 @@ export function GeekFooter() {
                 </li>
               ))}
             </ul>
+          <div className="footer__related">
+            <p className="footer__related-ttl">関連サービス</p>
+            <ul className="footer__related-list">
+              <li><a href="https://bytech.jp" target="_blank" rel="noopener">個人向けAIスクール【バイテック】</a></li>
+              <li><a href="https://biz.bytech.jp/" target="_blank" rel="noopener">【バイテック法人AI研修】</a></li>
+              <li><a href="https://bytech.jp/blog" target="_blank" rel="noopener">個人向けAIメディア【バイテックBLOG】</a></li>
+              <li><a href="https://biz.bytech.jp/blog/" target="_blank" rel="noopener">企業向けAIメディア【バイテックBLOG Biz】</a></li>
+              <li><a href="https://ai-bou.co.jp/ai-sanbo" target="_blank" rel="noopener">企業向けAI顧問サービス【AI参謀】</a></li>
+              <li><a href="https://degit.jp" target="_blank" rel="noopener">AI動画編集スクール【デジット】</a></li>
+            </ul>
+          </div>
           </div>
         </div>
         <div className="footer__bottom">

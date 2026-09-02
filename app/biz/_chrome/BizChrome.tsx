@@ -246,9 +246,10 @@ export function BizFooter() {
           </ul>
           <p className="footer__title footer__title--service">サービス</p>
           <ul className="footer__list">
-            <li><a href="#">個人向けAIスクール【バイテック】</a></li>
+            <li><a href="https://bytech.jp" target="_blank" rel="noopener">個人向けAIスクール【バイテック】</a></li>
             <li><a href="https://biz.bytech.jp/blog/" target="_blank" rel="noopener">オウンドメディア【バイテックBLOG Biz】</a></li>
             <li><a href="https://ai-bou.co.jp/ai-sanbo" target="_blank" rel="noopener">企業向けAI顧問サービス【AI参謀】</a></li>
+            <li><a href="https://degit.jp" target="_blank" rel="noopener">AI動画編集スクール【デジット】</a></li>
           </ul>
         </div>
       </div>
