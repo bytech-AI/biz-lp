@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://biz.bytech.jp"),
   title: "成果直結の企業向けAI研修｜バイテック法人AI研修【公式】",
   description:
-    "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜バイテック法人AI研修",
+    "業務の自動化を当たり前にする、実務伴走型の法人向けAI研修｜バイテック法人AI研修",
   robots: { index: true, follow: true },
   icons: {
     icon: "/biz/assets/img/common/favicon.ico",
@@ -36,14 +36,14 @@ export const metadata: Metadata = {
     siteName: "バイテック法人AI研修",
     title: "成果直結の企業向けAI研修｜バイテック法人AI研修【公式】",
     description:
-      "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜バイテック法人AI研修",
+      "業務の自動化を当たり前にする、実務伴走型の法人向けAI研修｜バイテック法人AI研修",
     locale: "ja_JP",
     images: [
       {
         url: "/biz/assets/img/common/ogp-v3.jpg",
         width: 1200,
         height: 695,
-        alt: "バイテック法人AI研修｜業務の自動化を当たり前にする個別コンサル型AI研修",
+        alt: "バイテック法人AI研修｜業務の自動化を当たり前にする実務伴走型AI研修",
       },
     ],
   },
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "成果直結の企業向けAI研修｜バイテック法人AI研修【公式】",
     description:
-      "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜バイテック法人AI研修",
+      "業務の自動化を当たり前にする、実務伴走型の法人向けAI研修｜バイテック法人AI研修",
     images: ["/biz/assets/img/common/ogp-v3.jpg"],
   },
 };
@@ -75,7 +75,7 @@ const bizJsonLd = {
       logo: "https://biz.bytech.jp/biz/assets/img/common/hd-logo.svg",
       image: "https://biz.bytech.jp/biz/assets/img/common/ogp-v3.jpg",
       description:
-        "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修サービス。",
+        "業務の自動化を当たり前にする、実務伴走型の法人向けAI研修サービス。",
       parentOrganization: { "@type": "Organization", name: "株式会社AI棒" },
       address: {
         "@type": "PostalAddress",

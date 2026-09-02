@@ -36,7 +36,7 @@ const BRAND_OLD = "バイテックBiz";
 // 必ずこの3つを SITE_NAME で揃えること。
 const SITE_NAME = BRAND_OFFICIAL;
 const SITE_TITLE = `成果直結の企業向けAI研修｜${SITE_NAME}【公式】`;
-const SITE_DESCRIPTION = `業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修｜${SITE_NAME}`;
+const SITE_DESCRIPTION = `業務の自動化を当たり前にする、実務伴走型の法人向けAI研修｜${SITE_NAME}`;
 
 // LLMO/SEO: トップFAQ(index_faq)から FAQPage JSON-LD を生成。
 // 表示中のQ&Aをそのままソースにするので、schemaと表示が常に一致する。
@@ -79,7 +79,7 @@ const SERVICE_SCHEMA = `<script type="application/ld+json">${JSON.stringify(
     areaServed: "JP",
     url: "https://biz.bytech.jp/",
     description:
-      "業務の自動化を当たり前にする、個別コンサル型の法人向けAI研修。専任のAIコンサルタントが伴走し、ツールの使い方で終わらず数字にインパクトを出す業務改善までを支援します。",
+      "業務の自動化を当たり前にする、実務伴走型の法人向けAI研修。専任のAIコンサルタントが伴走し、ツールの使い方で終わらず数字にインパクトを出す業務改善までを支援します。",
   },
 )}</script>`;
 
@@ -341,7 +341,7 @@ export async function GET() {
   );
   html = html.replace(
     '<span class="mark_b">企業向け生成AI研修</span>',
-    '<span class="mark_b">個別コンサル型AI研修</span>',
+    '<span class="mark_b">実務伴走型AI研修</span>',
   );
   html = html.replace(
     "</head>",
