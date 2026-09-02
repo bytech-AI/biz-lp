@@ -11,7 +11,7 @@ const OGP_IMAGE = {
   url: "/biz/assets/img/common/ogp-v3.jpg",
   width: 1200,
   height: 695,
-  alt: "バイテック法人AI研修｜業務の自動化を当たり前にする個別コンサル型AI研修",
+  alt: "バイテック法人AI研修｜業務の自動化を当たり前にする実務伴走型AI研修",
 };
 
 export function buildCourseMetadata({
