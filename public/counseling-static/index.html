@@ -798,14 +798,26 @@ body {
 
   function fcInit(){fcFetchSlots();}
   async function fcFetchSlots(){
-    try{
-      var res=await fetch(GAS_URL+'?action=slots',{cache:'no-store'});
-      var text=await res.text();
-      var result;try{result=JSON.parse(text);}catch{fcShowEmpty('枠の取得に失敗しました');return;}
-      if(!result.success||!result.slots||result.slots.length===0){fcShowEmpty('現在、予約可能な枠がありません');return;}
-      fcAllSlots=result.slots;
-      fcRenderCalendar();
-    }catch{fcShowEmpty('枠の取得に失敗しました');}
+    // 2段構え。まず自前のキャッシュ(/api/slots)で即描画し、続けてGASの最新で上書きする。
+    // GAS直叩きはTTFBが実測3〜4秒（悪いと20秒超）かかり、その間カレンダーが出ない。
+    return (async function(){
+      var rendered=false;
+      function parse(t){var r;try{r=JSON.parse(t);}catch{return null;}
+        if(!r||!r.success||!Array.isArray(r.slots))return null;return r.slots;}
+      try{
+        var c=await fetch('/api/slots');
+        if(c.ok){var cs=parse(await c.text());
+          if(cs&&cs.length){fcAllSlots=cs;fcRenderCalendar();rendered=true;}}
+      }catch{}
+      try{
+        var res=await fetch(GAS_URL+'?action=slots',{cache:'no-store'});
+        var fresh=parse(await res.text());
+        if(!fresh||fresh.length===0){if(!rendered)fcShowEmpty('現在、予約可能な枠がありません');return;}
+        // 内容が同じ／枠を選択済みなら描き直さない（操作中のUIをリセットしないため）
+        var changed=JSON.stringify(fresh)!==JSON.stringify(fcAllSlots);
+        if(!rendered||(changed&&!fcSelectedStart)){fcAllSlots=fresh;fcRenderCalendar();}
+      }catch{if(!rendered)fcShowEmpty('枠の取得に失敗しました');}
+    })();
   }
 
   function fcRenderCalendar(){

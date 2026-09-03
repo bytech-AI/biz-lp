@@ -1,5 +1,4 @@
-// biz.bytech.jp /counseling のカレンダー用（lp_type=biz）。
-// biz ホストでは proxy が /api/slots を /biz/api/slots へリライトする。
+// bytech.jp（apex）/counseling のカレンダー用。lp_type なしで取得する。
 import { fetchSlots } from "@/lib/gas-slots";
 
 export const runtime = "nodejs";
@@ -9,5 +8,5 @@ export const dynamic = "force-static";
 export const revalidate = 30;
 
 export function GET() {
-  return fetchSlots("biz");
+  return fetchSlots();
 }

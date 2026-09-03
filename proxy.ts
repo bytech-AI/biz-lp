@@ -128,6 +128,11 @@ export function proxy(request: NextRequest) {
     if (normalizedPath === '/thanks') {
       return NextResponse.rewrite(new URL('/geek-static/thanks.html', request.url))
     }
+    // 予約枠API。GAS直叩きはTTFBが3〜4秒かかるため、キャッシュ済みの
+    // Route Handler(lp_type=geek)へリライトして返す。
+    if (normalizedPath === '/api/slots') {
+      return NextResponse.rewrite(new URL('/api/slots-geek', request.url))
+    }
     // Claude Code エンジニアコースのLP（静的HTMLではなく Next のルート）
     if (normalizedPath === '/engineer-course') {
       return NextResponse.rewrite(new URL('/geek-course', request.url))
