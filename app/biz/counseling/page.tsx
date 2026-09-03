@@ -388,6 +388,11 @@ export default function CounselingPage() {
   }
 
   function bcRenderCalendar(){
+    setTimeout(function(){
+      function h(q){var e=document.querySelector(q);return e?Math.round(e.getBoundingClientRect().height):-1;}
+      var de=document.documentElement;
+      de.setAttribute('data-dim','viewportH='+window.innerHeight+' pageScrollH='+de.scrollHeight+' cslMain='+h('.csl-main')+' cslContent='+h('.csl-content')+' cslCalendar='+h('.csl-calendar')+' header='+h('.csl-header-wrap')+' footer='+h('.csl-footer'));
+    },0);
     var nowMs=Date.now();
     var todayJst=bcJstTodayStr();
     var dayStrs=[];
