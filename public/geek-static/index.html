@@ -2465,14 +2465,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   function fcInit(){fcFetchSlots();}
   async function fcFetchSlots(){
-    try{
-      var res=await fetch(GAS_URL+'?action=slots&lp_type='+LP_TYPE,{cache:'no-store'});
-      var text=await res.text();
-      var result;try{result=JSON.parse(text);}catch{fcShowEmpty('枠の取得に失敗しました');return;}
-      if(!result.success||!result.slots||result.slots.length===0){fcShowEmpty('現在、予約可能な枠がありません');return;}
-      fcAllSlots=result.slots;
-      fcRenderCalendar();
-    }catch{fcShowEmpty('枠の取得に失敗しました');}
+    // 2段構え。まず自前のキャッシュ(/api/slots)で即描画し、続けてGASの最新で上書きする。
+    // GAS直叩きはTTFBが実測3〜4秒（悪いと20秒超）かかり、その間カレンダーが出ない。
+    return (async function(){
+      var rendered=false;
+      function parse(t){var r;try{r=JSON.parse(t);}catch{return null;}
+        if(!r||!r.success||!Array.isArray(r.slots))return null;return r.slots;}
+      try{
+        var c=await fetch('/api/slots');
+        if(c.ok){var cs=parse(await c.text());
+          if(cs&&cs.length){fcAllSlots=cs;fcRenderCalendar();rendered=true;}}
+      }catch{}
+      try{
+        var res=await fetch(GAS_URL+'?action=slots&lp_type='+LP_TYPE,{cache:'no-store'});
+        var fresh=parse(await res.text());
+        if(!fresh||fresh.length===0){if(!rendered)fcShowEmpty('現在、予約可能な枠がありません');return;}
+        // 内容が同じ／枠を選択済みなら描き直さない（操作中のUIをリセットしないため）
+        var changed=JSON.stringify(fresh)!==JSON.stringify(fcAllSlots);
+        if(!rendered||(changed&&!fcSelectedStart)){fcAllSlots=fresh;fcRenderCalendar();}
+      }catch{if(!rendered)fcShowEmpty('枠の取得に失敗しました');}
+    })();
   }
 
   function fcRenderCalendar(){
@@ -3071,9 +3083,28 @@ function csJstDow(ymd){var p=ymd.split('-').map(Number);return new Date(Date.UTC
 function csFmtLabel(ymd){var p=ymd.split('-').map(Number);return p[1]+'/'+p[2]+'('+DAY_NAMES[csJstDow(ymd)]+')';}
 function csSyncFvHeight(){if(!window.matchMedia('(max-width: 767px)').matches)return;requestAnimationFrame(function(){var fv=document.querySelector('.fv'),copy=document.querySelector('.fv__copy');if(!fv||!copy)return;fv.style.height=Math.max(1120,copy.offsetTop+copy.offsetHeight+96)+'px';});}
 function csInit(){var anchor=document.getElementById('fv-quick-reserve-anchor'),quick=document.getElementById('quick-reserve');if(anchor&&quick)anchor.replaceWith(quick);var today=csJstTodayStr();var tomorrow=csAddDaysJst(today,1);document.getElementById('csTodayLabel').textContent=csFmtLabel(today);document.getElementById('csTomorrowLabel').textContent=csFmtLabel(tomorrow);csSyncFvHeight();csFetchSlots();}
-async function csFetchSlots(){try{const res=await fetch(GAS_URL+'?action=slots&lp_type='+encodeURIComponent(LP_TYPE),{cache:'no-store'});const text=await res.text();let result;try{result=JSON.parse(text);}catch{csShowNoSlots('枠の取得に失敗しました');return;}
-if(!result.success||!result.slots||result.slots.length===0){csShowNoSlots('現在、予約可能な枠がありません');return;}
-csAllSlots=result.slots;csRenderDay();}catch{csShowNoSlots('枠の取得に失敗しました');}}
+function csFetchSlots(){
+    // 2段構え。まず自前のキャッシュ(/api/slots)で即描画し、続けてGASの最新で上書きする。
+    // GAS直叩きはTTFBが実測3〜4秒（悪いと20秒超）かかり、その間カレンダーが出ない。
+    return (async function(){
+      var rendered=false;
+      function parse(t){var r;try{r=JSON.parse(t);}catch{return null;}
+        if(!r||!r.success||!Array.isArray(r.slots))return null;return r.slots;}
+      try{
+        var c=await fetch('/api/slots');
+        if(c.ok){var cs=parse(await c.text());
+          if(cs&&cs.length){csAllSlots=cs;csRenderDay();rendered=true;}}
+      }catch{}
+      try{
+        var res=await fetch(GAS_URL+'?action=slots&lp_type='+encodeURIComponent(LP_TYPE),{cache:'no-store'});
+        var fresh=parse(await res.text());
+        if(!fresh||fresh.length===0){if(!rendered)csShowNoSlots('現在、予約可能な枠がありません');return;}
+        // 内容が同じ／枠を選択済みなら描き直さない（操作中のUIをリセットしないため）
+        var changed=JSON.stringify(fresh)!==JSON.stringify(csAllSlots);
+        if(!rendered||(changed&&!csSelectedStart)){csAllSlots=fresh;csRenderDay();}
+      }catch{if(!rendered)csShowNoSlots('枠の取得に失敗しました');}
+    })();
+  }
 function csSelectDay(day){csCurrentDay=day;document.getElementById('csBtnToday').classList.toggle('active',day==='today');document.getElementById('csBtnTomorrow').classList.toggle('active',day==='tomorrow');csSelectedStart='';csSelectedLabel='';csSelectedDateStr='';document.getElementById('csBtnStep1').disabled=true;csRenderDay();}
 function csRenderDay(){var container=document.getElementById('csSlots'),nowMs=Date.now();var today=csJstTodayStr();var tds=csCurrentDay==='tomorrow'?csAddDaysJst(today,1):today;var daySlots=csAllSlots.filter(function(s){return typeof s.startedAt==='string'&&s.startedAt.substring(0,10)===tds;}).filter(function(s){return new Date(s.startedAt).getTime()>nowMs-30*60*1000;});if(daySlots.length===0){csShowNoSlots();return;}
 container.innerHTML='';document.getElementById('csBtnStep1').style.display='';daySlots.forEach(function(slot){var timeStr=slot.startedAt.substring(11,16);var cap=slot.remainingCapacity||1;var badge='';if(cap<=1)badge='<div class="cs-cap cs-cap-last">△ あと'+cap+'席</div>';else if(cap<=2)badge='<div class="cs-cap cs-cap-few">△ あと'+cap+'席</div>';else badge='<div class="cs-cap cs-cap-ok">◎ 空きあり</div>';var div=document.createElement('div');div.className='cs-slot';div.dataset.start=slot.startedAt;div.dataset.date=tds;div.innerHTML='<div class="cs-slot-time">'+timeStr+'</div>'+badge;div.onclick=function(){document.querySelectorAll('.cs-slot').forEach(function(s){s.classList.remove('selected');});this.classList.add('selected');csSelectedStart=slot.startedAt;csSelectedDateStr=tds;var dayLabel=csCurrentDay==='today'?'今日':'明日';csSelectedLabel=dayLabel+' '+csFmtLabel(tds)+' '+timeStr+'〜';document.getElementById('csBtnStep1').disabled=false;dataLayer.push({event:'consultation_slot_click',slot_time:timeStr});var _btn=document.getElementById('csBtnStep1');var _rect=_btn.getBoundingClientRect();function getScrollParent(el){while(el&&el!==document.body){var st=window.getComputedStyle(el);if(/(auto|scroll)/.test(st.overflow+st.overflowY))return el;el=el.parentElement;}return window;}
