@@ -276,6 +276,7 @@ export default function CounselingPage() {
       {/* 予約ウィジェット — ネイティブ<script>（next/scriptはNext16でinline評価が壊れ未実行になるため不使用） */}
       <script dangerouslySetInnerHTML={{ __html: `
   const GAS_URL    = 'https://script.google.com/macros/s/AKfycbzFK2HDxL3BwTfK2DBR8flrCIll2lr5ZyOB1W9Vy5s6V5EcAIhNc_plwDu-lFMCU__1fg/exec';
+  const SLOTS_URL  = '/api/slots';
   const THANKS_URL = '/thanks';
   const SOURCE     = 'Biz【オーガニック】';
   const ROUTE_ID   = 'biz_organic';
@@ -355,15 +356,35 @@ export default function CounselingPage() {
     });
   }
 
+  function bcParseSlots(text){
+    var r;try{r=JSON.parse(text);}catch{return null;}
+    if(!r||!r.success||!Array.isArray(r.slots))return null;
+    return r.slots;
+  }
+  // 2段構え。まず自前のキャッシュ(/api/slots)で即描画し、続けてGASの最新で上書きする。
+  // GAS直叩きはTTFBが実測3〜4秒（悪いと20秒超）かかるため、これを待つとカレンダーが出ない。
   async function bcFetchSlots(){
+    var rendered=false;
     try{
-      var res=await fetch(GAS_URL+'?action=slots&lp_type=biz',{cache:'no-store'});
-      var text=await res.text();
-      var result;try{result=JSON.parse(text);}catch{bcShowEmpty('枠の取得に失敗しました');return;}
-      if(!result.success||!result.slots||result.slots.length===0){bcShowEmpty('現在、予約可能な枠がありません');return;}
-      bcAllSlots=result.slots;
-      bcRenderCalendar();
-    }catch{bcShowEmpty('枠の取得に失敗しました');}
+      var res=await fetch(SLOTS_URL);
+      if(res.ok){
+        var slots=bcParseSlots(await res.text());
+        if(slots&&slots.length){bcAllSlots=slots;bcRenderCalendar();rendered=true;}
+      }
+    }catch{}
+    // キャッシュは stale-while-revalidate のぶん古い可能性があるので、必ず最新を取り直す。
+    try{
+      var res2=await fetch(GAS_URL+'?action=slots&lp_type=biz',{cache:'no-store'});
+      var fresh=bcParseSlots(await res2.text());
+      if(!fresh||fresh.length===0){if(!rendered)bcShowEmpty('現在、予約可能な枠がありません');return;}
+      // 内容が同じなら描き直さない（操作中のUIを不用意にリセットしない）。
+      // 枠を選択済み／次のステップに進んだ後も描き直さない。
+      var changed=JSON.stringify(fresh)!==JSON.stringify(bcAllSlots);
+      if(!rendered||(changed&&bcStep===1&&!bcSelectedStart)){
+        bcAllSlots=fresh;
+        bcRenderCalendar();
+      }
+    }catch{if(!rendered)bcShowEmpty('枠の取得に失敗しました');}
   }
 
   function bcRenderCalendar(){
