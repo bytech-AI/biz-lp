@@ -23,7 +23,7 @@ const montserrat = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://biz.bytech.jp"),
-  title: "成果直結の企業向けAI研修｜バイテック法人AI研修【公式】",
+  title: "実務伴走型の企業向けAI研修｜バイテック法人AI研修【公式】",
   description:
     "業務の自動化を当たり前にする、実務伴走型の法人向けAI研修｜バイテック法人AI研修",
   robots: { index: true, follow: true },
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://biz.bytech.jp/",
     siteName: "バイテック法人AI研修",
-    title: "成果直結の企業向けAI研修｜バイテック法人AI研修【公式】",
+    title: "実務伴走型の企業向けAI研修｜バイテック法人AI研修【公式】",
     description:
       "業務の自動化を当たり前にする、実務伴走型の法人向けAI研修｜バイテック法人AI研修",
     locale: "ja_JP",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "成果直結の企業向けAI研修｜バイテック法人AI研修【公式】",
+    title: "実務伴走型の企業向けAI研修｜バイテック法人AI研修【公式】",
     description:
       "業務の自動化を当たり前にする、実務伴走型の法人向けAI研修｜バイテック法人AI研修",
     images: ["/biz/assets/img/common/ogp-v3.jpg"],

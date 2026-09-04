@@ -35,7 +35,7 @@ const BRAND_OLD = "バイテックBiz";
 // 3つが食い違うと親ドメイン bytech.jp の「バイテック生成AI」が使われてしまうため、
 // 必ずこの3つを SITE_NAME で揃えること。
 const SITE_NAME = BRAND_OFFICIAL;
-const SITE_TITLE = `成果直結の企業向けAI研修｜${SITE_NAME}【公式】`;
+const SITE_TITLE = `実務伴走型の企業向けAI研修｜${SITE_NAME}【公式】`;
 const SITE_DESCRIPTION = `業務の自動化を当たり前にする、実務伴走型の法人向けAI研修｜${SITE_NAME}`;
 
 // LLMO/SEO: トップFAQ(index_faq)から FAQPage JSON-LD を生成。
